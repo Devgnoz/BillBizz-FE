@@ -9,8 +9,11 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="flex">
       <SideBar />
-      <Header />
+      <div className="w-[100%]">
+        <Header />
       {children}
+      </div>
+      
     </div>
   );
 };
