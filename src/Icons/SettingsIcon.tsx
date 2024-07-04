@@ -21,7 +21,7 @@ const SettingsIcons = ({ size = 'md' }: Props) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="text-gray-800  font-extrabold cursor-pointer"
+        className="text-gray-700  font-extrabold cursor-pointer"
       >
         <path
           strokeLinecap="round"

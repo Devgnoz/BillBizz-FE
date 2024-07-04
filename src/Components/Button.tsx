@@ -27,7 +27,7 @@ const buttonVariants = cva("text-center rounded-md font-semibold" , {
     },
     size: {
       sm: "text-[10px] w-[68px] h-[28px]",
-      md: "text-[12px] w-[78px] h-[32px]",
+      md: "text-[12px] w-[78px] h-[30px]",
       lg: "text-[12px] w-[137px] h-[34px]",
       xl: "text-[18px] w-[148px] h-[52px]",
     },
