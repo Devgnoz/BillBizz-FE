@@ -1,37 +1,45 @@
 import { Link } from "react-router-dom";
 import Button from "../../Components/Button";
 import SearchBar from "../../Components/SearchBar";
-import BellIcon from "../../Icons/Bellicon";
-import OrganizationIcon from "../../Icons/OrganizationIcon";
 import SettingsIcons from "../../Icons/SettingsIcon";
-import UserIcon from "../../Icons/UserIcon";
+import Notification from "./HeaderIcons/Notification";
+import RefferEarn from "./HeaderIcons/RefferEarn";
+import Organization from "./HeaderIcons/Organization";
 
 type Props = {};
 
 const Header = ({}: Props) => {
-  return <div className="p-5 flex gap-6  w-[100%] border-b-2 border-gray-400">
-    <div className="w-[50%]">
-    <SearchBar/>
+  return (
+    <div className="p-4 flex items-center gap-4 w-full border-b-orange-200 border">
+      <div className="flex-grow">
+        <SearchBar />
+      </div>
+      <span className="text-xs font-semibold text-gray-700 whitespace-nowrap">
+        Trial expires in 14 days
+      </span>
+      <div className="flex items-center gap-4 ml-auto">
+        <Button
+          variant="primary" style={{ backgroundColor: "#FCFFED", color: "#585953" }}>
+          Subscribe</Button>
+        <select
+          className="border border-gray-400 h-8 pl-3 pr-4 rounded-md bg-orange-100 text-xs font-semibold text-gray-800"
+          style={{ color: "#585953" }}>
+          <option>Company</option>
+          <option>Other</option>
+          <option>Other</option>
+          <option>Other</option>
+        </select>
+        <div className="flex items-center gap-2">
+         <Notification/>
+          <RefferEarn/>
+          <Link to="/settings">
+            <SettingsIcons size="md" />
+          </Link>
+          <Organization/>
+        </div>
+      </div>
     </div>
-    <span className="text-sm font-semibold text-gray-700 -me-2">Trial expires in 14 days</span>
-    <div className="ms-auto flex">
-    <Button variant="primary" style={{backgroundColor:"#FCFFED",color:"#585953"}}>Subscribe</Button>
-    <select className="border border-gray-400  ms-5 me- h-[32px] w-[97px] pl-3 rounded-md bg-orange-100 text-xs font-semibold" style={{color:"#585953"}}>
-      <option>Company</option>
-      <option>Other</option>
-      <option>Other</option>
-      <option>Other</option>
-    </select>
-    <div className="flex gap-2 ms-5">
-    <BellIcon/>
-    <UserIcon/>
-    <Link to="/settings"><SettingsIcons size="md"/></Link>
-    
-    <OrganizationIcon/>
-    </div>
-      
-    </div>
-  </div>;
+  );
 };
 
 export default Header;
