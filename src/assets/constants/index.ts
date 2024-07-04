@@ -10,13 +10,13 @@ const navlist = [
     nav: "Dashboard",
     sub: null,
     icon: HomeIcon,
-    route: "/home",
+    route: "/dashboard",
   },
   {
     nav: "Inventory",
     sub: ["item"],
     icon: CubeIcon,
-    route: "/home",
+    route: "/inventory",
   },
   {
     nav: "Customer",
