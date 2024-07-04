@@ -28,7 +28,7 @@ const navlist = [
     nav: "Sales",
     sub: ["Sales Order", "POS"],
     icon: ShoppingCartIcon,
-    route: "/home",
+    route: "/sales",
   },
   {
     nav: "Accountant",
