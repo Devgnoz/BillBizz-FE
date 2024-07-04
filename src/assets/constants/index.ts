@@ -1,25 +1,34 @@
-import { BeakerIcon } from "@heroicons/react/24/solid";
+import {
+  HomeIcon,
+  CubeIcon,
+  UserIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/24/outline";
 
 const navlist = [
   {
     nav: "Dashboard",
     sub: null,
-    icon: BeakerIcon,
+    icon: HomeIcon,
+    route: "/home",
   },
   {
     nav: "Inventory",
     sub: ["item"],
-    icon: "",
+    icon: CubeIcon,
+    route: "/home",
   },
   {
     nav: "Customer",
     sub: null,
-    icon: "",
+    icon: UserIcon,
+    route: "/home",
   },
   {
     nav: "Sales",
     sub: ["Sales Order", "POS"],
-    icon: "",
+    icon: ShoppingCartIcon,
+    route: "/home",
   },
   {
     nav: "Accountant",
@@ -31,36 +40,43 @@ const navlist = [
       "Currency Adjustment",
     ],
     icon: "",
+    route: "/home",
   },
   {
     nav: "Supplier",
     sub: null,
     icon: "",
+    route: "/home",
   },
   {
     nav: "Expense",
     sub: null,
     icon: "",
+    route: "/home",
   },
   {
     nav: "Staff",
     sub: null,
     icon: "",
+    route: "/home",
   },
   {
     nav: "Purchase",
     sub: null,
     icon: "",
+    route: "/home",
   },
   {
     nav: "Payroll",
     sub: null,
     icon: "",
+    route: "/home",
   },
   {
     nav: "Reports",
     sub: null,
     icon: "",
+    route: "/home",
   },
 ];
 
