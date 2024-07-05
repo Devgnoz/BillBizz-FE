@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../Components/Button";
+import Button from "./../../Components/Button";
 import qrCode from "./../assets/Images/qr-code.svg";
 import sign from "./../assets/Images/sign.svg";
 import instagramLogo from "./../assets/Images/instagram logo.svg";
@@ -7,7 +7,7 @@ import twitterLogo from "./../assets/Images/twitter logo.svg";
 import linkedinlog from "./../assets/Images/linkedin logo.svg";
 import facebooklogo from "./../assets/Images/facebook logo.svg";
 import xMark from "./../assets/Images/x.svg";
-import { paymentTermsList } from "../assets/constants";
+import { paymentTermsList } from "../../assets/constants/index";
 
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);

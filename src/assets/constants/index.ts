@@ -1,33 +1,38 @@
-import {
-  HomeIcon,
-  CubeIcon,
-  UserIcon,
-  ShoppingCartIcon,
-} from "@heroicons/react/24/outline";
+import box from "../icons/box";
+import circleDollar from "../icons/circle-dollar-sign";
+import home from "../icons/home";
+import newspapper from "../icons/newspaper";
+import receiptIndianRupee from "../icons/receipt-indian-rupee";
+import shoppingBag from "../icons/shopping-bag";
+import shoppingCart from "../icons/shopping-cart";
+import squreUserRound from "../icons/squre-user-round";
+import truck from "../icons/truck";
+import userRound from "../icons/user-round";
+import usersRound from "../icons/users-round";
 
 const navlist = [
   {
     nav: "Dashboard",
     sub: null,
-    icon: HomeIcon,
+    icon: home,
     route: "/dashboard",
   },
   {
     nav: "Inventory",
     sub: ["item"],
-    icon: CubeIcon,
+    icon: box,
     route: "/inventory",
   },
   {
     nav: "Customer",
     sub: null,
-    icon: UserIcon,
+    icon: userRound,
     route: "/home",
   },
   {
     nav: "Sales",
     sub: ["Sales Order", "POS"],
-    icon: ShoppingCartIcon,
+    icon: shoppingCart,
     route: "/sales",
   },
   {
@@ -39,43 +44,43 @@ const navlist = [
       "Cash",
       "Currency Adjustment",
     ],
-    icon: "",
+    icon: squreUserRound,
     route: "/home",
   },
   {
     nav: "Supplier",
     sub: null,
-    icon: "",
+    icon: truck,
     route: "/home",
   },
   {
     nav: "Expense",
     sub: null,
-    icon: "",
+    icon: circleDollar,
     route: "/home",
   },
   {
     nav: "Staff",
     sub: null,
-    icon: "",
+    icon: usersRound,
     route: "/home",
   },
   {
     nav: "Purchase",
     sub: null,
-    icon: "",
+    icon: shoppingBag,
     route: "/home",
   },
   {
     nav: "Payroll",
     sub: null,
-    icon: "",
+    icon: receiptIndianRupee,
     route: "/home",
   },
   {
     nav: "Reports",
     sub: null,
-    icon: "",
+    icon: newspapper,
     route: "/home",
   },
 ];

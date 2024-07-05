@@ -1,5 +1,4 @@
 import { title } from "process";
-import CreateOrganizationFrom from "./CreateOrganizationFrom";
 import {
   customizationList,
   itemsList,
@@ -12,6 +11,7 @@ import {
   taxList,
   usersAndRoleList,
 } from "../assets/constants";
+import CreateOrganizationFrom from "../feature/settings/CreateOrganizationFrom";
 
 CreateOrganizationFrom;
 type Props = {};
