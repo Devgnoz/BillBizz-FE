@@ -23,7 +23,7 @@ const buttonVariants = cva("text-center rounded-md font-semibold" , {
       tertiary:
         "bg-orange-100 hover:bg-orange-200 border border-amber-900 text-amber-700",
       fourthiary:
-        "bg-amber-600 hover:bg-amber-700 border border-amber-900 text-white",
+        "bg-trasparant hover:bg-trasparant border border-gray-900 text-textColor",
     },
     size: {
       sm: "text-[10px] w-[68px] h-[28px]",

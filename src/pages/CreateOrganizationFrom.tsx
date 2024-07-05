@@ -1,4 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Button from "../Components/Button";
+import qrCode from "./../assets/Images/qr-code.svg";
+import sign from "./../assets/Images/sign.svg";
+import instagramLogo from "./../assets/Images/instagram logo.svg";
+import twitterLogo from "./../assets/Images/twitter logo.svg";
+import linkedinlog from "./../assets/Images/linkedin logo.svg";
+import facebooklogo from "./../assets/Images/facebook logo.svg";
+import xMark from "./../assets/Images/x.svg";
+import { paymentTermsList } from "../assets/constants";
 
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,10 +16,11 @@ const CreateOrganizationForm = () => {
     setIsOpen(!isOpen);
   };
 
+
   return (
     <div
       className="bg-lightRose p-3 overflow-y-scroll hide-scrollbar "
-      style={{ height: "647px" }}
+      style={{ height: "89vh" }}
     >
       <div className="bg-softBeige rounded-md h-28 grid grid-cols-12 gap-4">
         <div className="ms-2 p-2 col-span-5 text-center mt-3">
@@ -58,7 +68,7 @@ const CreateOrganizationForm = () => {
                   />
                 </svg>
               </div>
-              <p className="text-sm"> Upload Your Organizational Logo</p>
+              <p className="text-sm ms-2"> Upload Your Organizational Logo</p>
             </div>
             <div className="text-center">
               <p className="mt-3 ">
@@ -73,61 +83,84 @@ const CreateOrganizationForm = () => {
           </div>
           <input type="file" className="hidden" />
         </label>
+
         <p className="mt-4">
           <b>Organizational Details</b>
         </p>
 
         <div className="bg-white border-slate-200  border-2 rounded-md mt-4 p-5">
-          <label>
-            Organization Name
-            <input
-              className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-              placeholder="Name"
-            />{" "}
-          </label>
-
-          <div className="grid grid-cols-2 gap-4 mt-4">
-            <div className="relative">
-              <label htmlFor="location">Organization Location</label>
-              <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2">
-                <select name="location" id="Location">
-                  <option value="volvo">India</option>
+          <label className="text-slate-600">Organization Name</label>
+          <input
+            className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+            placeholder="Name"
+          />{" "}
+          <div className="grid grid-cols-2 gap-4 my-3">
+            <div className="relative ">
+              <label htmlFor="location" className="text-slate-600">
+                Oganization Location
+              </label>
+              <div className="relative w-full mt-3">
+                <select
+                  name="location"
+                  id="Location"
+                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option value="india">India</option>
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
             <div className="relative ">
-              <label htmlFor="location">Industry</label>
-              <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2">
-                <select name="location" id="Location">
-                  <option value="volvo">Technology</option>
+              <label htmlFor="industry" className="text-slate-600">
+                Industry
+              </label>
+              <div className="relative w-full mt-3">
+                <select
+                  name="industry"
+                  id="industry"
+                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option value="technology">Technology</option>
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
-
+          <label className="text-slate-600" htmlFor="organizationAddress">
+            Organization Address
+          </label>
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>
-              <label>
-                Organization Address
-                <input
-                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                  placeholder="Street 1"
-                />{" "}
-              </label>
+              <input
+                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                placeholder="Street 1"
+              />{" "}
             </div>
 
             <div>
-              <label>
-                Organization Address
-                <input
-                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                  placeholder="Street 1"
-                />{" "}
-              </label>
+              <input
+                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                placeholder="Street 1"
+              />{" "}
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>
               <input
@@ -143,13 +176,27 @@ const CreateOrganizationForm = () => {
               />{" "}
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div className="relative ">
-              <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2">
-                <select name="location" id="Location">
-                  <option value="volvo">Kerala</option>
+              <div className="relative w-full">
+                <select
+                  name="state"
+                  id="state"
+                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option value="kerala" className="text-slate-300">
+                    Kerala
+                  </option>
                 </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
@@ -160,85 +207,225 @@ const CreateOrganizationForm = () => {
               />{" "}
             </div>
           </div>
-
           <p className="mt-4">
             <b>Website Address</b>
           </p>
           <div className="bg-white border-slate-200  border-2 rounded-md  mt-4 p-5">
-            <label htmlFor="websit">Website URL</label>
+            <label htmlFor="websit" className="text-slate-600">
+              Website URL
+            </label>
             <input
               type="text"
               placeholder="Value"
-              className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+              className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
             />
           </div>
-
           <p className="mt-4">
             <b>Financial Settings</b>
           </p>
-
           <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="relative">
-                <label htmlFor="location">Base Currency</label>
-                <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2">
-                  <select name="location" id="Location">
-                    <option value="volvo">INR</option>
+              <div className="relative ">
+                <label htmlFor="currency" className="text-slate-600">
+                  Base Currency
+                </label>
+
+                <div className="relative w-full mt-3">
+                  <select
+                    name="currency"
+                    id="currency"
+                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="INR" className="text-slate-300">
+                      INR
+                    </option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
 
               <div className="relative ">
-                <label htmlFor="location">Financial Year</label>
-                <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2 border-slate-200  h-[39px] p-2">
-                  <select name="location" id="Location">
-                    <option value="volvo">April-March</option>
+                <label htmlFor="currency" className="text-slate-600">
+                  Financial Year
+                </label>
+
+                <div className="relative w-full mt-3">
+                  <select
+                    name="finacialyear"
+                    id="currenfinacialyearcy"
+                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="" className="text-slate-500 p-3">
+                      April-March
+                    </option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-            <label htmlFor="" className="mt-5">
-              Report Basis
-            </label>{" "}
-            {"  "}
-            <input type="radio" placeholder="" className="mt-2" />{" "}
-            <label htmlFor=""> Accrual (You owe tax as of invoice date)</label>
-            <input type="radio" className="ms-4" />{" "}
-            <label htmlFor="">Cash (You owe tax upon payment recipt)</label>
+            <div className="my-4">
+              <label htmlFor="" className="mt-5 text-slate-600">
+                Report Basis
+              </label>{" "}
+              {"  "}
+              <input
+                type="radio"
+                placeholder=""
+                className="mt-2text-slate-600 "
+              />{" "}
+              <label htmlFor="" className="text-slate-600">
+                {" "}
+                <span className="font-semibold">Accrual</span> (You owe tax as
+                of invoice date)
+              </label>
+              <input type="radio" className="ms-4" />{" "}
+              <label htmlFor="" className="text-slate-600">
+                <span className="font-semibold">Cash</span> (You owe tax upon
+                payment recipt)
+              </label>
+            </div>
           </div>
-
           <p className="mt-4">
             <b>Preferences</b>
           </p>
-
           <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="relative">
-                <label htmlFor="location">Language</label>
-                <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2">
-                  <select name="location" id="Location">
-                    <option value="volvo">English</option>
+              <div className="relative ">
+                <label htmlFor="location" className="text-slate-600">
+                  Language
+                </label>
+                <div className="relative w-full mt-3">
+                  <select
+                    name="location"
+                    id="Location"
+                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="english">English</option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
 
               <div className="relative ">
-                <label htmlFor="location">Time Zone</label>
-                <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2 border-slate-200  h-[39px] p-2">
-                  <select name="location" id="Location">
-                    <option value="volvo">Value</option>
+                <label htmlFor="location" className="text-slate-600">
+                  Time Zone
+                </label>
+                <div className="relative w-full my-3">
+                  <select
+                    name="location"
+                    id="Location"
+                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="">Value</option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg
+                      className="fill-current h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-            <label htmlFor="location">Date Format</label>
-            <div className="pl-9 text-sm w-[100%] rounded-md text-start border-2 border-slate-200  h-[39px] p-2">
-              <select name="location" id="Location">
-                <option value="volvo">dd/mm/yyyy [04/07/2024]</option>
-              </select>
+            <div className="relative ">
+              <label htmlFor="dateformat" className="text-slate-600">
+                Date Format
+              </label>
+              <div className="relative w-full mt-3">
+                <select
+                  name="dateformat"
+                  id="dateformat"
+                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option value="">dd/mm/yyyy [04/07/2024]</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div>
+                <label htmlFor="company id" className="text-slate-600">
+                  Company Id
+                </label>
+                <input
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  placeholder="Value"
+                />{" "}
+              </div>
+
+              <div>
+                <label htmlFor="taxid" className="text-slate-600">
+                  Tax Id
+                </label>
+                <input
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  placeholder="Value"
+                />{" "}
+              </div>
             </div>
           </div>
+          <p className="mt-4">
+            <b>Additional Fiels</b>
+          </p>
+          <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div>
+                <label htmlFor="" className="text-slate-600">
+                  Label
+                </label>
+                <input
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  placeholder="Value"
+                />{" "}
+              </div>
 
+              <div>
+                <label htmlFor="" className="text-slate-600">
+                  Label
+                </label>
+                <input
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  placeholder="Value"
+                />{" "}
+              </div>
+            </div>
+          </div>
           <p className="text-darkRed mt-5 text-sm flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -256,15 +443,15 @@ const CreateOrganizationForm = () => {
             </svg>
             <b> Add New Field</b>
           </p>
-
           <p className=" my-4">
             <b>QR Location</b>
           </p>
-
           <label>
             <div className=" border-dashed rounded-md border-2 p-5 border-neutral-400 grid grid-cols-12 gap-4  ">
               <div className="col-span-10 flex ">
-                <div className="bg-organizationBg w-20 h-20 rounded-md  "></div>
+                <div className="bg-organizationBg w-20 h-20 rounded-md flex items-center justify-center ">
+                  <img src={qrCode} alt="" />
+                </div>
                 <div className="ms-3 flex items-center justify-center h-full">
                   <div>
                     <p>
@@ -298,15 +485,15 @@ const CreateOrganizationForm = () => {
             </div>
             <input type="file" className="hidden" />
           </label>
-
           <p className=" my-4">
             <b>Invoice Signatory</b>
           </p>
-
           <label>
             <div className=" border-dashed rounded-md border-2 p-5 border-neutral-400 grid grid-cols-12 gap-4  ">
               <div className="col-span-10 flex ">
-                <div className="bg-organizationBg w-20 h-20 rounded-md  "></div>
+                <div className="bg-organizationBg w-20 h-20 rounded-md  flex items-center justify-center">
+                  <img src={sign} alt="" />
+                </div>
                 <div className="ms-3 flex items-center justify-center h-full">
                   <div>
                     <p>
@@ -340,69 +527,156 @@ const CreateOrganizationForm = () => {
             </div>
             <input type="file" className="hidden" />
           </label>
-
           <p className=" my-4">
             <b>Add Social Media</b>
           </p>
-
           <div className=" border-dashed rounded-md border-2 p-5 border-neutral-400 ">
             <div className="grid grid-cols-2 gap-4 ">
-              <label htmlFor="">
-              Twitter
-              <input
-                type="text"
-                placeholder="Add Link"
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-              />
-              </label>
+              <div>
+                <label htmlFor="" className="text-slate-600">
+                  {" "}
+                  Twitter
+                </label>
+                <div className="flex gap-2 items-center justify-center">
+                  <div className="flex items-center justify-center align-middle  bg-slate-100 p-2 h-10 rounded-md mt-2 ">
+                    {" "}
+                    <img src={twitterLogo} alt="" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add Link"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  />
+                  <img src={xMark} className="mt-3" alt="" />
+                </div>
+              </div>
 
-             <label>
-              Instagram
-                <input
-                  type="text"
-                  placeholder="Add Link"
-                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                />
-             </label>
+              <div>
+                <label className="text-slate-600">Instagram</label>
+                <div className="flex gap-2 items-center justify-center">
+                  <div className="flex items-center justify-center bg-slate-100 p-2 h-10 rounded-md mt-2 ">
+                    {" "}
+                    <img src={instagramLogo} alt="" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add Link"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  />
+                  <img src={xMark} className="mt-3" alt="" />
+                </div>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <label htmlFor="">
-              Linkedin
-              <input
-                type="text"
-                placeholder="Add Link"
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-              />
-              </label>
+              <div>
+                <label htmlFor="" className="text-slate-600">
+                  Linkedin
+                </label>
 
-             <label>
-              Facebook
-                <input
-                  type="text"
-                  placeholder="Add Link"
-                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                />
-             </label>
+                <div className="flex gap-2 items-center justify-center">
+                  <div className="flex items-center justify-center bg-slate-100 p-2 h-10 rounded-md mt-2 ">
+                    {" "}
+                    <img src={linkedinlog} alt="" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add Link"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  />
+                  <img src={xMark} className="mt-3" alt="" />
+                </div>
+              </div>
+
+              <div>
+                <label className="text-slate-600">Facebook</label>
+
+                <div className="flex gap-2 items-center justify-center">
+                  <div className="flex items-center justify-center bg-slate-100 p-2 h-10 rounded-md mt-2 ">
+                    {" "}
+                    <img src={facebooklogo} alt="" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Add Link"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  />
+                  <img src={xMark} className="mt-3" alt="" />
+
+                  <div></div>
+                </div>
+              </div>
             </div>
           </div>
-
           <p className=" my-4">
             <b>Add Payment Information</b>
-
-           
           </p>
-
           <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
+            <p className=" my-4">
+              <b>Enter Bank account Details</b>
+            </p>
 
-          <p className=" my-4">
-            <b>Enter Bank account Details
-            </b>
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div>
+                <label className="text-slate-600">Account Holder Name</label>
 
-           
-          </p>
-              
+                <input
+                  type="text"
+                  placeholder="Value"
+                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
               </div>
+
+              <div>
+                <label className="text-slate-600">Bank Name</label>
+
+                <input
+                  type="text"
+                  placeholder="Value"
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div>
+                <label className="text-slate-600">Account Number</label>
+                <input
+                  type="text"
+                  placeholder="Value"
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
+              </div>
+
+              <div>
+                <label className="text-slate-600">IFSC Code </label>
+                <input
+                  type="text"
+                  placeholder="Value"
+                  className="pl-9 text-sm mt-3 w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
+              </div>
+            </div>
+
+            <p className=" mt-7 mb-3">
+              <b>Payment Terms</b>
+            </p>
+            {paymentTermsList.map((i) => (
+              <p className="text-textColor my-2">
+                <span className="font-semibold">{i.title}</span>: {i.text}
+              </p>
+            ))}
+          </div>
+          <div className="flex my-4 gap-4">
+            <Button variant="secondary" size="lg">
+              {" "}
+              Save
+            </Button>
+            <Button variant="fourthiary" size="lg">
+              {" "}
+              Cancel
+            </Button>
+          </div>
         </div>
       </form>
     </div>
