@@ -1,4 +1,4 @@
-import CreateOrganizationFrom from "./CreateOrganizationFrom";
+import CreateOrganizationFrom from "../feature/settings/CreateOrganizationFrom";
 
 CreateOrganizationFrom;
 type Props = {};

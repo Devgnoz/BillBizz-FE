@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,7 +113,7 @@ const CreateOrganizationForm = () => {
                 <input
                   className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   placeholder="Street 1"
-                />{" "}
+                />
               </label>
             </div>
 
@@ -348,61 +348,54 @@ const CreateOrganizationForm = () => {
           <div className=" border-dashed rounded-md border-2 p-5 border-neutral-400 ">
             <div className="grid grid-cols-2 gap-4 ">
               <label htmlFor="">
-              Twitter
-              <input
-                type="text"
-                placeholder="Add Link"
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-              />
-              </label>
-
-             <label>
-              Instagram
+                Twitter
                 <input
                   type="text"
                   placeholder="Add Link"
                   className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                 />
-             </label>
+              </label>
+
+              <label>
+                Instagram
+                <input
+                  type="text"
+                  placeholder="Add Link"
+                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
+              </label>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-4">
               <label htmlFor="">
-              Linkedin
-              <input
-                type="text"
-                placeholder="Add Link"
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-              />
-              </label>
-
-             <label>
-              Facebook
+                Linkedin
                 <input
                   type="text"
                   placeholder="Add Link"
                   className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                 />
-             </label>
+              </label>
+
+              <label>
+                Facebook
+                <input
+                  type="text"
+                  placeholder="Add Link"
+                  className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                />
+              </label>
             </div>
           </div>
 
           <p className=" my-4">
             <b>Add Payment Information</b>
-
-           
           </p>
 
           <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
-
-          <p className=" my-4">
-            <b>Enter Bank account Details
-            </b>
-
-           
-          </p>
-              
-              </div>
+            <p className=" my-4">
+              <b>Enter Bank account Details</b>
+            </p>
+          </div>
         </div>
       </form>
     </div>

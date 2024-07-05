@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../../Components/Button";
 import SearchBar from "../../Components/SearchBar";
-import SettingsIcons from "../../Icons/SettingsIcon";
+import SettingsIcons from "../../assets/icons/SettingsIcon";
 import Notification from "./HeaderIcons/Notification";
 import RefferEarn from "./HeaderIcons/RefferEarn";
 import Organization from "./HeaderIcons/Organization";
@@ -19,23 +19,27 @@ const Header = ({}: Props) => {
       </span>
       <div className="flex items-center gap-4 ml-auto">
         <Button
-          variant="primary" style={{ backgroundColor: "#FCFFED", color: "#585953" }}>
-          Subscribe</Button>
+          variant="primary"
+          style={{ backgroundColor: "#FCFFED", color: "#585953" }}
+        >
+          Subscribe
+        </Button>
         <select
           className="border border-gray-400 h-8 pl-3 pr-4 rounded-md bg-orange-100 text-xs font-semibold text-gray-800"
-          style={{ color: "#585953" }}>
+          style={{ color: "#585953" }}
+        >
           <option>Company</option>
           <option>Other</option>
           <option>Other</option>
           <option>Other</option>
         </select>
         <div className="flex items-center gap-2">
-         <Notification/>
-          <RefferEarn/>
+          <Notification />
+          <RefferEarn />
           <Link to="/settings">
             <SettingsIcons size="md" />
           </Link>
-          <Organization/>
+          <Organization />
         </div>
       </div>
     </div>

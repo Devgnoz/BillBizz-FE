@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserIcon from "../../../Icons/UserIcon"
+import UserIcon from "../../../assets/icons/UserIcon"
 import Drawer from "../../../Components/drawer/drawer";
 import Btn from "../../../Components/Button";
 type Props = {}
