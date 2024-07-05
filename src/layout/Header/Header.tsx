@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../../Components/Button";
 import SearchBar from "../../Components/SearchBar";
-import SettingsIcons from "../../Icons/SettingsIcon";
+import SettingsIcons from "../../assets/icons/SettingsIcon";
 import Notification from "./HeaderIcons/Notification";
 import RefferEarn from "./HeaderIcons/RefferEarn";
 import Organization from "./HeaderIcons/Organization";
