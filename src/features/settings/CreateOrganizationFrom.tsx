@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./../../Components/Button";
+import Button from "../../Components/Button";
 import qrCode from "../../assets/Images/qr-code.svg";
 import sign from "../../assets/Images/sign.svg";
 import instagramLogo from "../../assets/Images/instagram logo.svg";
