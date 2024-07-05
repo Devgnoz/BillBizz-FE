@@ -1,4 +1,4 @@
-import CreateOrganizationFrom from "../feature/settings/CreateOrganizationFrom";
+import CreateOrganizationFrom from "../features/settings/CreateOrganizationFrom";
 
 CreateOrganizationFrom;
 type Props = {};
@@ -47,7 +47,7 @@ const Organization = ({}: Props) => {
             </svg>
             Back
           </button>
-          <div className="fixed relative mt-8">
+          <div className="fixed mt-8">
             <p className="text-xl ">
               <b>Settings</b>
             </p>
