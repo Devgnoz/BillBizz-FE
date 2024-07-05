@@ -36,14 +36,10 @@ function Organization({}: Props) {
           </div>
         </div>
         <div className="p-4 space-y-4">
-          {["Company branch 1", "Company branch 2", "Company branch 3"].map(
-            (branch, index) => (
-              <div
-                key={index}
-                className="flex items-center border p-4 rounded-md shadow-sm"
-              >
-                <div className="mr-4">
-                  <OrganizationIcon />
+          {["Company branch 1", "Company branch 2", "Company branch 3"].map((branch, index) => (
+            <div key={index} className="flex items-center border border-slate-200 p-4 rounded-md shadow-sm">
+              <div className="mr-4">
+             <OrganizationIcon/>
                 </div>
                 <div className="flex-grow">
                   <h5 className="font-bold text-sm text-gray-700">{branch}</h5>
