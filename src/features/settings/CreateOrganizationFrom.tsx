@@ -83,7 +83,6 @@ const CreateOrganizationForm = () => {
           </div>
           <input type="file" className="hidden" />
         </label>
-
         <p className="mt-4">
           <b>Organizational Details</b>
         </p>
