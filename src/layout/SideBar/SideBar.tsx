@@ -6,7 +6,7 @@ type Props = {};
 
 const SideBar = ({}: Props) => {
   return (
-    <aside className="bg-maroon h-screen w-52">
+    <aside className="bg-maroon h-full w-52">
       <nav>
         <div className="flex justify-between items-center px-5 pt-8 pb-7">
           <div className="flex gap-2">
@@ -21,15 +21,14 @@ const SideBar = ({}: Props) => {
           <li key={index} className="flex flex-col p-2">
             <Link to={item.route}>
               <div className="flex items-center text-lightBeige gap-2">
-                {item.icon && <item.icon className="w-6 h-6" />}
-                <span>{item.nav}</span>
+                {item.icon && <item.icon color="#F7E7CE" />}
+                <span className="font-semibold">{item.nav}</span>
               </div>
             </Link>
-
             {item.sub && (
-              <ul className="ml-4">
+              <ul className="ml-8">
                 {item.sub.map((subItem, subIndex) => (
-                  <li key={subIndex} className="text-sm">
+                  <li key={subIndex} className="font-semibold text-lightBeige">
                     {subItem}
                   </li>
                 ))}

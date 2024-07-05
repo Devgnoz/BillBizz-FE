@@ -1,8 +1,9 @@
+
 import  { useState } from 'react';
 import BellIcon from '../../../assets/icons/Bellicon';
 import SettingsIcons from '../../../assets/icons/SettingsIcon';
 import Btn from "../../../Components/Button";
-import Drawer from '../../../Components/drawer/drawer';
+import Drawer from "../../../Components/drawer/drawer";
 
 const Notification = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -20,11 +21,14 @@ const Notification = () => {
       <Drawer onClose={toggleDrawer} open={isDrawerOpen} position="right">
         <div className="flex items-center justify-between p-5">
           <h5 className="text-lg font-semibold text-gray-700">Notification</h5>
-          <div className='flex gap-2 items-center -mt-2'>
+          <div className="flex gap-2 items-center -mt-2">
             <div>
-              <SettingsIcons size='sm' />
+              <SettingsIcons size="sm" />
             </div>
-            <button onClick={toggleDrawer} className="text-gray-500 hover:text-gray-700 text-3xl -mt-2">
+            <button
+              onClick={toggleDrawer}
+              className="text-gray-500 hover:text-gray-700 text-3xl -mt-2"
+            >
               &times;
             </button>
           </div>
@@ -71,8 +75,12 @@ const Notification = () => {
                   </div>
                 </div>
               </div>
-              <div className='text-end mt-5'>
-            <Btn variant='secondary' size='lg'>View all notifications</Btn>
+            </div>
+          </div>
+          <div className="text-end mt-5">
+            <Btn variant="secondary" size="lg">
+              View all notifications
+            </Btn>
           </div>
         </div>
       </Drawer>
