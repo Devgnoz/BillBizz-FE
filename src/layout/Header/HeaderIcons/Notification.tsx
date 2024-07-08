@@ -20,13 +20,13 @@ const Notification = () => {
       <Drawer onClose={toggleDrawer} open={isDrawerOpen} position="right">
 <div className="flex items-center justify-between p-5">
 <h5 className="text-lg font-semibold text-gray-700">Notification</h5>
-<div className="flex gap-2 items-center">
+<div className="flex gap-2 items-center justify-end">
 <div>
 <SettingsIcons size="sm" />
 </div>
 <button
               onClick={toggleDrawer}
-              className="text-gray-500 hover:text-gray-700 text-3xl"
+              className="text-gray-500 hover:text-gray-700 text-3xl -mt-2"
 >
 &times;
 </button>

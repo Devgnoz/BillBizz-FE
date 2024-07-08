@@ -6,6 +6,10 @@ import PlusCircle from "../assets/icons/PlusCircle";
 import ArrowDownIcon from "../assets/icons/ArrowDownIcon";
 import ArrowUpIcon from "../assets/icons/ArrowUpIcon";
 import RefreshIcon from "../assets/icons/RefreshIcon";
+import Customers from "../features/sales/Customers";
+import SearchBar from "../features/sales/SearchBar";
+import SortBy from "../features/sales/SortBy";
+import Print from "../features/sales/Print";
 
 type Props = {};
 
@@ -95,6 +99,18 @@ const Sales = ({}: Props) => {
       </div>
       <div className="pl-5 pr-5 w-[100%]">
         <Cards />
+      </div>
+      <div className="p-5">
+      <div className="w-[100%] p-3 bg-gray-100  ">
+          <Customers/>
+      </div>
+      <div className="flex pl-3 pr-3 items-center gap-5">
+        <div className="w-[80%]">
+          <SearchBar/>
+        </div>
+        <SortBy/>
+        <Print/>
+      </div>
       </div>
     </>
   );
