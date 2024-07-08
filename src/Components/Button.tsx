@@ -1,10 +1,10 @@
 import { cva } from "class-variance-authority";
-
+ 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "tertiary" | "fourthiary";
   size?: "sm" | "md" | "lg" | "xl";
 };
-
+ 
 export default function Button({
   variant = "primary",
   size = "md",
@@ -12,7 +12,6 @@ export default function Button({
 }: ButtonProps) {
   return <button {...props} className={buttonVariants({ variant, size })} />;
 }
-
 const buttonVariants = cva(
   "text-center rounded-md font-semibold flex items-center",
   {
