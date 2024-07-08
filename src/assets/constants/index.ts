@@ -45,7 +45,7 @@ const navlist = [
       "Currency Adjustment",
     ],
     icon: squreUserRound,
-    route: "/home",
+    route: "/accountant",
   },
   {
     nav: "Supplier",
@@ -85,7 +85,6 @@ const navlist = [
   },
 ];
 
-
 export const paymentTermsList = [
   {
     title: "Net 30",
@@ -118,7 +117,7 @@ export const paymentTermsList = [
   },
 ];
 
-export  const organizationList = [
+export const organizationList = [
   { title: "Profile" },
   { title: "Branding" },
   { title: "Custom Domain" },
@@ -129,9 +128,9 @@ export  const organizationList = [
   { title: "Manage Subscription" },
 ];
 
-export   const taxList = [{ title: "Tax" }, { title: "MSME Settings" }];
+export const taxList = [{ title: "Tax" }, { title: "MSME Settings" }];
 
-export  const usersAndRoleList = [
+export const usersAndRoleList = [
   { title: "Users" },
   { title: "Roles" },
   { title: "User Preferences" },
@@ -145,7 +144,7 @@ export const preferencesList = [
   { title: "Customer Portal" },
   { title: "Vendor Portal" },
 ];
-export const   SalesList = [
+export const SalesList = [
   { title: "Quotes" },
   { title: "Sales Order" },
   { title: "Delivery Challans" },
@@ -157,7 +156,7 @@ export const   SalesList = [
   { title: "Packing Slips" },
 ];
 
-export  const purchasesList = [
+export const purchasesList = [
   { title: "Expenses" },
   { title: "Recurring Expensess" },
   { title: "Bills" },
@@ -167,14 +166,14 @@ export  const purchasesList = [
   { title: "Vendor Credit" },
 ];
 
-export   const itemsList = [{ title: "Item" }, { title: "Inventory Adjustment" }];
+export const itemsList = [{ title: "Item" }, { title: "Inventory Adjustment" }];
 
-export   const onlinePaymentList = [
+export const onlinePaymentList = [
   { title: "Customer Payments" },
   { title: "vendor Payments" },
 ];
 
-export   const customizationList = [
+export const customizationList = [
   { title: "Reporting Tags" },
   { title: "Web Tabs" },
   { title: "Digital Signature" },
@@ -182,11 +181,10 @@ export   const customizationList = [
   { title: "PDF Templates" },
 ];
 
-export   const ReminderList = [
+export const ReminderList = [
   { title: "Reminders" },
   { title: "Email Notification" },
   { title: "SMS Notification" },
 ];
-
 
 export default navlist;

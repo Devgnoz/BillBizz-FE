@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        maroon: '#800020', // Add your custom color here
+        maroon: '#820000', // Add your custom color here
         lightBeige: '#F7E7CE',
         customColor1: "rgb(243,237,217)",
         customColor2: "rgb(214,238,214)",
