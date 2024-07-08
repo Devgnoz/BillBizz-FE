@@ -21,7 +21,12 @@ export default {
         gray:"rgb(88,89,83)",
         lightPink:"rgb(250,242,230)",
         darkRed:"rgb(130,0,0)",
-        lightRose:"rgb(254,251,248)"
+        lightRose:"rgb(254,251,248)",
+        WhiteIce:"#E3E6D5",
+        CreamBg:"rgba(253, 248, 240, 1)",
+        labelColor:"#495160",
+        inputBorder:"rgba(206, 206, 206, 1)",
+        outlineButton:"rgba(86, 81, 72, 1)"
       },
     },
   },

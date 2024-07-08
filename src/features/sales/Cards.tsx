@@ -3,7 +3,7 @@ import OrderCards from "./OrderCards"
 type Props = {}
 
 const Cards = ({}: Props) => {
-    const [activeCard, setActiveCard] = useState<number | null>(null);
+    const [activeCard, setActiveCard] = useState<number | null>(0);
     const handleCardClick = (index: number) => {
         setActiveCard(index);
       };
