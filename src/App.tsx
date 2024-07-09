@@ -6,6 +6,7 @@ import Inventory from "./pages/Inventory";
 import Sales from "./pages/Sales";
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
+import Cash from "./pages/Cash";
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/accountant" element={<Accountant />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/organization" element={<Organization />}></Route>
+          <Route path="/cash" element={<Cash/>}></Route>
         </Route>
       </Routes>
     </>

@@ -66,7 +66,7 @@ const navlist = [
     icon: newspapper,
     route: "/home",
   },
-];
+];  
 
 export const paymentTermsList = [
   {
