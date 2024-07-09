@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../public/bill-bizz-logo.png";
 import navlist from "../../assets/constants";
 
-type Props = {};
-
-const SideBar = ({}: Props) => {
+const SideBar = () => {
   return (
     <aside className="bg-maroon h-full w-52">
       <nav>
@@ -29,7 +27,7 @@ const SideBar = ({}: Props) => {
               <ul className="ml-8">
                 {item.sub.map((subItem, subIndex) => (
                   <li key={subIndex} className="font-semibold text-lightBeige">
-                    {subItem}
+                    <Link to={subItem.route}>{subItem.title}</Link>
                   </li>
                 ))}
               </ul>

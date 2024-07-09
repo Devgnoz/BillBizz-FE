@@ -101,7 +101,7 @@ const Sales = ({}: Props) => {
         <Cards />
       </div>
       <div className="p-5">
-      <div className="w-[100%] p-3 bg-gray-100  ">
+      <div className="w-[100%] p-3 bg-gray-100">
           <Customers/>
       </div>
       <div className="flex pl-3 pr-3 items-center gap-5">

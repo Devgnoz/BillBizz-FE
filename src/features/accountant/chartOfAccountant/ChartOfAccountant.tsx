@@ -1,5 +1,5 @@
-import Button from "../../../Components/Button";
-import CirclePlus from "../../../assets/icons/circleplus";
+import NewAccountModal from "./NewAccountModal";
+import AccountTypes from "../chartOfAccountant/AccountTypes"
 
 type Props = {};
 
@@ -15,13 +15,14 @@ const ChartOfAccountant = ({}: Props) => {
           </p>
         </div>
         <div className="button-frame">
-          <Button variant="secondary" className="flex items-center">
-            <CirclePlus color="white" size="14" />{" "}
-            <p className="text-xs">New Account</p>
-          </Button>
+          <NewAccountModal/>
+        </div>
+      </div><br />
+      <div className="bottom-side mt-1">
+        <div className="p-3">
+       <AccountTypes/>
         </div>
       </div>
-      <div className="bottom-side"></div>
     </div>
   );
 };
