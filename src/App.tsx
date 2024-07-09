@@ -7,6 +7,7 @@ import Sales from "./pages/Sales";
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import Cash from "./pages/Cash";
+import ManualHome from "./features/accountant/manualJournel/ManualHome";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/sales" element={<Sales />} />
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/cash" element={<Cash/>}></Route>
+          <Route path="/manual-journel" element={<ManualHome/>}></Route>
         </Route>
       </Routes>
     </>

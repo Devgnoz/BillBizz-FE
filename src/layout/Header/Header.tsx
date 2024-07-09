@@ -10,7 +10,7 @@ type Props = {};
 
 const Header = ({}: Props) => {
   return (
-    <div className="p-4 flex items-center gap-4 w-full border-b-orange-200" style={{borderBottom:"1.5px solid rgba(28, 28, 28, 0.1)"}}>
+    <div className="p-4 flex items-center gap-4 w-full border-b-slate-400 border-y-orange-200" style={{borderBottom:"1.5px solid rgba(28, 28, 28, 0.1)"}}>
       <div className="flex-grow">
         <SearchBar />
       </div>
