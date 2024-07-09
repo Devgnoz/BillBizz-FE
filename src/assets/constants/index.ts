@@ -12,77 +12,57 @@ import usersRound from "../icons/users-round";
 
 const navlist = [
   {
-    nav: "Dashboard",
-    sub: null,
+    nav: "Home",
     icon: home,
     route: "/dashboard",
   },
   {
     nav: "Inventory",
-    sub: [{ title: "Item", route: "/item" }],
     icon: box,
     route: "/inventory",
   },
   {
     nav: "Customer",
-    sub: null,
     icon: userRound,
     route: "/home",
   },
   {
     nav: "Sales",
-    sub: [
-      { title: "Sales Order", route: "/sales-order" },
-      { title: "POS", route: "/pos" },
-    ],
     icon: shoppingCart,
     route: "/sales",
   },
   {
     nav: "Accountant",
-    sub: [
-      { title: "Chart of Account", route: "/chart-of-account" },
-      { title: "Manual Journals", route: "/manual-journals" },
-      { title: "Bank", route: "/bank" },
-      { title: "Cash", route: "/cash" },
-      { title: "Currency Adjustment", route: "/currency-adjustment" },
-    ],
     icon: squreUserRound,
     route: "/accountant",
   },
   {
     nav: "Supplier",
-    sub: null,
     icon: truck,
     route: "/home",
   },
   {
     nav: "Expense",
-    sub: null,
     icon: circleDollar,
     route: "/home",
   },
   {
     nav: "Staff",
-    sub: null,
     icon: usersRound,
     route: "/home",
   },
   {
     nav: "Purchase",
-    sub: null,
     icon: shoppingBag,
     route: "/home",
   },
   {
     nav: "Payroll",
-    sub: null,
     icon: receiptIndianRupee,
     route: "/home",
   },
   {
     nav: "Reports",
-    sub: null,
     icon: newspapper,
     route: "/home",
   },
