@@ -17,7 +17,6 @@ export default {
         cardBorder: "rgba(130, 0, 0, 1)",
         organizationBg: "rgb(243,230,230)",
         textColor: "rgb(48,63,88,1)",
-<<<<<<< HEAD
         dropdownText: "rgba(75, 92, 121, 1)",
         softBeige: "rgb(247,231,206)",
         gray: "rgb(88,89,83)",
@@ -29,21 +28,6 @@ export default {
         labelColor: "#495160",
         inputBorder: "rgba(206, 206, 206, 1)",
         outlineButton: "rgba(86, 81, 72, 1)"
-=======
-        dropdownText:"rgba(75, 92, 121, 1)",
-        softBeige:"rgb(247,231,206)",
-        gray:"rgb(88,89,83)",
-        lightPink:"rgb(250,242,230)",
-        darkRed:"rgb(130,0,0)",
-        lightRose:"rgb(254,251,248)",
-        WhiteIce:"#E3E6D5",
-        CreamBg:"rgba(253, 248, 240, 1)",
-        labelColor:"#495160",
-        inputBorder:"rgba(206, 206, 206, 1)",
-        outlineButton:"rgba(86, 81, 72, 1)",
-        spaceCadet:"#4B5C79",
-        tableBorder:"rgba(234, 236, 240, 1)"
->>>>>>> 1427355f29d3188683afbc12fddcfa0027cb4a79
       },
     },
   },
