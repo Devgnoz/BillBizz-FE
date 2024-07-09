@@ -10,7 +10,48 @@ import xMark from "../../assets/Images/x.svg";
 import { paymentTermsList } from "../../assets/constants/index";
 import useApi from "../../Hooks/useApi";
 import { endponints } from "../../Services/apiEndpoints";
-import { toast, Toaster } from 'react-hot-toast';
+import { toast, Toaster } from "react-hot-toast";
+
+interface InputData {
+  organizationLogo: string;
+  organizationName: string;
+  organizationCountry: string;
+  organizationIndustry: string;
+  addline1: string;
+  addline2: string;
+  city: string;
+  pincode: string;
+  state: string;
+  organizationPhNum: string;
+  website: string;
+  baseCurrency: string;
+  fiscalYear: string;
+  reportBasis: string;
+  language: string;
+  timeZone: string;
+  dateFormat: string;
+  dateSplit: string;
+  companyId: string;
+  companyIdField: string;
+  taxId: string;
+  taxIdField: string;
+  addfield:{ label: string, value: string }[];
+  qrLocation: string;
+  qrSignature: string;
+  twitter: string;
+  insta: string;
+  linkedin: string;
+  facebook: string;
+  accountHolderName: string;
+  bankName: string;
+  accNum: string;
+  ifsc: string;
+}
+
+interface Field {
+  label: string;
+  value: string;
+}
 
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +60,8 @@ const CreateOrganizationForm = () => {
   const [sign, setSign] = useState<File | null>(null);
   const [additionalData, setAdditionalData] = useState<any | null>([]);
   const { request: getAdditionalData } = useApi("get");
-  const { request: createOrganization } = useApi("mPost");
-  const [inputData, setInputData] = useState({
+  const { request: createOrganization } = useApi("post");
+  const [fields, setFields] = useState<{ label: string, value: string }[]>([{ label: "", value: "" }]);  const [inputData, setInputData] = useState<InputData>({
     organizationLogo: "", //image field
     organizationName: "",
     organizationCountry: "",
@@ -43,7 +84,7 @@ const CreateOrganizationForm = () => {
     companyIdField: "",
     taxId: "",
     taxIdField: "",
-    // addfield: "",
+    addfield: [],
     qrLocation: "", // image field
     qrSignature: "", // image field
     twitter: "",
@@ -56,7 +97,7 @@ const CreateOrganizationForm = () => {
     ifsc: "",
   });
 
-  console.log(inputData);
+  // console.log(inputData);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -68,7 +109,6 @@ const CreateOrganizationForm = () => {
       const { response, error } = await getAdditionalData(url);
       if (!error && response) {
         setAdditionalData(response.data[0]);
-        // console.log(response.data[0]);
       }
     } catch (error) {
       console.log(error);
@@ -90,9 +130,9 @@ const CreateOrganizationForm = () => {
     const file = e.target.files?.[0];
     if (file) {
       setSign(file);
-      setInputData((prevDetails) => ({
+      setInputData((prevDetails: any) => ({
         ...prevDetails,
-        qrSignature: file,
+        qrSignature: URL.createObjectURL(file),
       }));
     }
   };
@@ -101,9 +141,9 @@ const CreateOrganizationForm = () => {
     const file = e.target.files?.[0];
     if (file) {
       setQrcode(file);
-      setInputData((prevDetails) => ({
+      setInputData((prevDetails: any) => ({
         ...prevDetails,
-        qrLocation: file,
+        qrLocation: URL.createObjectURL(file),
       }));
     }
   };
@@ -112,71 +152,89 @@ const CreateOrganizationForm = () => {
     const file = e.target.files?.[0];
     if (file) {
       setLogo(file);
-      setInputData((prevDetails) => ({
+      setInputData((prevDetails: any) => ({
         ...prevDetails,
-        organizationLogo: file,
+        organizationLogo: URL.createObjectURL(file),
       }));
     }
   };
 
-const handleCreateOrganization = async (e: any) => {
+  const handleCreateOrganization = async (e: any) => {
     e.preventDefault();
-  
-    const formData = new FormData();
-    formData.append("organizationLogo",inputData.organizationLogo);    
-    formData.append("organizationName",inputData.organizationName);
-    formData.append("organizationCountry",inputData.organizationCountry);
-    formData.append("organizationIndustry",inputData.organizationIndustry);
-    formData.append("addline1",inputData.addline1);
-    formData.append("addline2",inputData.addline2);
-    formData.append("city",inputData.city);
-    formData.append("pincode",inputData.pincode);
-    formData.append("state",inputData.state);
-    formData.append("organizationPhNum",inputData.organizationPhNum);
-    formData.append("website",inputData.website);
-    formData.append("baseCurrency",inputData.baseCurrency);
-    formData.append("fiscalYear",inputData.fiscalYear);
-    formData.append("reportBasis",inputData.reportBasis);
-    formData.append("language",inputData.language);
-    formData.append("timeZone",inputData.timeZone);
-    formData.append("dateFormat",inputData.dateFormat);
-    formData.append("dateSplit",inputData.dateSplit);
-    formData.append("companyId",inputData.companyId);
-    formData.append("companyIdField",inputData.companyIdField);
-    formData.append("taxId",inputData.taxId);
-    formData.append("taxIdField",inputData.taxIdField);
-    // formData.append("addfield", inputData.addfield);
-    formData.append("qrLocation",inputData.qrLocation);
-    formData.append("qrSignature",inputData.qrSignature);
-    formData.append("twitter",inputData.twitter);
-    formData.append("insta",inputData.insta);
-    formData.append("linkedin",inputData.linkedin);
-    formData.append("facebook",inputData.facebook);
-    formData.append("accountHolderName",inputData.accountHolderName);
-    formData.append("bankName",inputData.bankName);
-    formData.append("accNum",inputData.accNum);
-    formData.append("ifsc",inputData.ifsc);
+    const formData: any = new FormData();
+    formData.append("organizationLogo", inputData.organizationLogo);
+    formData.append("organizationName", inputData.organizationName);
+    formData.append("organizationCountry", inputData.organizationCountry);
+    formData.append("organizationIndustry", inputData.organizationIndustry);
+    formData.append("addline1", inputData.addline1);
+    formData.append("addline2", inputData.addline2);
+    formData.append("city", inputData.city);
+    formData.append("pincode", inputData.pincode);
+    formData.append("state", inputData.state);
+    formData.append("organizationPhNum", inputData.organizationPhNum);
+    formData.append("website", inputData.website);
+    formData.append("baseCurrency", inputData.baseCurrency);
+    formData.append("fiscalYear", inputData.fiscalYear);
+    formData.append("reportBasis", inputData.reportBasis);
+    formData.append("language", inputData.language);
+    formData.append("timeZone", inputData.timeZone);
+    formData.append("dateFormat", inputData.dateFormat);
+    formData.append("dateSplit", inputData.dateSplit);
+    formData.append("companyId", inputData.companyId);
+    formData.append("companyIdField", inputData.companyIdField);
+    formData.append("taxId", inputData.taxId);
+    formData.append("taxIdField", inputData.taxIdField);
+    // formData.append("addfield", JSON.stringify(fields)); 
+    formData.append("qrLocation", inputData.qrLocation);
+    formData.append("qrSignature", inputData.qrSignature);
+    formData.append("twitter", inputData.twitter);
+    formData.append("insta", inputData.insta);
+    formData.append("linkedin", inputData.linkedin);
+    formData.append("facebook", inputData.facebook);
+    formData.append("accountHolderName", inputData.accountHolderName);
+    formData.append("bankName", inputData.bankName);
+    formData.append("accNum", inputData.accNum);
+    formData.append("ifsc", inputData.ifsc);
 
-    console.log(formData);
-    
-    try {
-        const url = `${endponints.CREATE_ORGANIZATION}`;
-        const apiResponse = await createOrganization(url,formData);
-        console.log(apiResponse, "api response");
-        
-        const { response, error } = apiResponse;
-        if (!error && response) {
-            toast.success(response.data.message);
-            console.log(response.data.message, "message");
-        } else {
-            console.log(error.response.data.message);
-            toast.error(error.response.data.message);
-        }
-    } catch (error) {
-        console.log(error);
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
     }
-};
 
+    // Log the formData entries
+    console.log(inputData, "ID");
+
+    try {
+      const url = `${endponints.CREATE_ORGANIZATION}`;
+      const apiResponse = await createOrganization(url, formData);
+      console.log(apiResponse, "api response");
+
+      const { response, error } = apiResponse;
+      if (!error && response) {
+        toast.success(response.data.message);
+        console.log(response.data.message, "message");
+      } else {
+        console.log(error.response.data.message);
+        toast.error(error.response.data.message);
+      }
+    } catch (error) {
+      console.log(error, "try");
+    }
+  };
+
+  const addAdditionalField = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setFields([...fields, { label: "", value: "" }]);
+  };
+
+  const handleFieldChange = (index: number, e: ChangeEvent<HTMLInputElement>, fieldName: 'label' | 'value') => {
+    const { value } = e.target;
+    const newFields = [...fields];
+    newFields[index][fieldName] = value;
+    setFields(newFields);
+  };
+
+  console.log(fields,"fields");
+  
 
   return (
     <div
@@ -209,7 +267,7 @@ const handleCreateOrganization = async (e: any) => {
       </div>
 
       {/* FORM */}
-      <form className="text-slate-800" onSubmit={handleCreateOrganization}>
+      <form className="text-slate-800" >
         <label>
           <div className="h-56 p-3 border-dashed border-neutral-400 w-96 rounded-md mt-5 border text-slate-800 ">
             <div className="bg-lightPink flex h-28 justify-center items-center">
@@ -268,7 +326,7 @@ const handleCreateOrganization = async (e: any) => {
             placeholder="Name"
             name="organizationName"
             value={inputData.organizationName}
-            onChange={(e) => handleInputChange(e)}
+            onChange={handleInputChange}
           />{" "}
           <div className="grid grid-cols-2 gap-4 my-3">
             <div className="relative ">
@@ -278,7 +336,7 @@ const handleCreateOrganization = async (e: any) => {
               <div className="relative w-full mt-3">
                 <select
                   value={inputData.organizationCountry}
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                   name="organizationCountry"
                   id="Location"
                   className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -305,7 +363,7 @@ const handleCreateOrganization = async (e: any) => {
               </label>
               <div className="relative w-full mt-3">
                 <select
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                   name="organizationIndustry"
                   id="organizationIndustry"
                   className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -345,7 +403,7 @@ const handleCreateOrganization = async (e: any) => {
                 placeholder="Street 1"
                 name="addline1"
                 value={inputData.addline1}
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />{" "}
             </div>
 
@@ -355,7 +413,7 @@ const handleCreateOrganization = async (e: any) => {
                 placeholder="Street 1"
                 name="addline2"
                 value={inputData.addline2}
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />{" "}
             </div>
           </div>
@@ -366,7 +424,7 @@ const handleCreateOrganization = async (e: any) => {
                 placeholder="City"
                 value={inputData.city}
                 name="city"
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />{" "}
             </div>
 
@@ -377,7 +435,7 @@ const handleCreateOrganization = async (e: any) => {
                 type="text"
                 value={inputData.pincode}
                 name="pincode"
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />{" "}
             </div>
           </div>
@@ -385,7 +443,7 @@ const handleCreateOrganization = async (e: any) => {
             <div className="relative ">
               <div className="relative w-full">
                 <select
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                   name="state"
                   id="state"
                   className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -418,7 +476,7 @@ const handleCreateOrganization = async (e: any) => {
                 type="tel"
                 value={inputData.organizationPhNum}
                 name="organizationPhNum"
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />{" "}
             </div>
           </div>
@@ -435,7 +493,7 @@ const handleCreateOrganization = async (e: any) => {
               className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
               value={inputData.website}
               name="website"
-              onChange={(e) => handleInputChange(e)}
+              onChange={handleInputChange}
             />
           </div>
           <p className="mt-4">
@@ -450,7 +508,7 @@ const handleCreateOrganization = async (e: any) => {
 
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="baseCurrency"
                     id="currency"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -486,7 +544,7 @@ const handleCreateOrganization = async (e: any) => {
 
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="fiscalYear"
                     id="fiscalYear"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -524,7 +582,7 @@ const handleCreateOrganization = async (e: any) => {
               </label>{" "}
               {"  "}
               <input
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 value="Accrual"
                 name="reportBasis"
                 type="radio"
@@ -537,7 +595,7 @@ const handleCreateOrganization = async (e: any) => {
                 of invoice date)
               </label>
               <input
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
                 type="radio"
                 value="cash"
                 name="reportBasis"
@@ -560,7 +618,7 @@ const handleCreateOrganization = async (e: any) => {
                 </label>
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="language"
                     id="Location"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -589,7 +647,7 @@ const handleCreateOrganization = async (e: any) => {
                 <div className="relative w-full my-3">
                   <select
                     name="timeZone"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     id="timeZone"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
@@ -617,7 +675,7 @@ const handleCreateOrganization = async (e: any) => {
                 </label>
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="dateFormat"
                     id="dateFormat"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -655,7 +713,7 @@ const handleCreateOrganization = async (e: any) => {
                   </label>
                   <div className="relative w-full mt-3">
                     <select
-                      onChange={(e) => handleInputChange(e)}
+                      onChange={handleInputChange}
                       name="dateSplit"
                       id="dateSplit"
                       className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -695,7 +753,7 @@ const handleCreateOrganization = async (e: any) => {
               <div>
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="companyId"
                     id="companyId"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -731,7 +789,7 @@ const handleCreateOrganization = async (e: any) => {
                   className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   value={inputData.companyIdField}
                   name="companyIdField"
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -742,7 +800,7 @@ const handleCreateOrganization = async (e: any) => {
               <div>
                 <div className="relative w-full mt-3">
                   <select
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                     name="taxId"
                     id="taxId"
                     className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -777,53 +835,72 @@ const handleCreateOrganization = async (e: any) => {
                 className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                 value={inputData.taxIdField}
                 name="taxIdField"
-                onChange={(e) => handleInputChange(e)}
+                onChange={handleInputChange}
               />
             </div>
           </div>
+          <div>
           <p className="mt-4">
-            <b>Additional Fiels</b>
+            <b>Additional Field</b>
           </p>
-          <div className="bg-white  border-slate-200  border-2 rounded-md mt-4 p-5">
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <div>
-                <label htmlFor="" className="text-slate-600">
-                  Label
-                </label>
-                <input
-                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                  placeholder="Value"
-                />{" "}
-              </div>
+      {fields.length>0 && fields.map((field, index) => (
+        <div key={index} className="bg-white border-slate-200 border-2 rounded-md mt-4 p-5">
 
-              <div>
-                <label htmlFor="" className="text-slate-600">
-                  Label
-                </label>
-                <input
-                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
-                  placeholder="Value"
-                />{" "}
-              </div>
+          <div className="grid grid-cols-2 gap-4 mt-4">
+            <div>
+              <label htmlFor={`label-${index}`} className="text-slate-600">
+                Label Name
+              </label>
+              <input
+                type="text" 
+                id={`label-${index}`}
+                name="label"
+                value={field.label}
+                onChange={(e) => handleFieldChange(index, e, 'label')}
+                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2 border-slate-200 h-[39px] p-2"
+                placeholder="Value"
+              />
+            </div>
+
+            <div>
+              <label htmlFor={`value-${index}`} className="text-slate-600">
+                Value
+              </label>
+              <input
+                type="text"
+                id={`value-${index}`}
+                name="value"
+                value={field.value}
+                onChange={(e) => handleFieldChange(index, e,'value')}
+                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2 border-slate-200 h-[39px] p-2"
+                placeholder="Value"
+              />
             </div>
           </div>
-          <p className="text-darkRed mt-5 text-sm flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
-            <b> Add New Field</b>
-          </p>
+        </div>
+      ))}
+      
+      <button onClick={addAdditionalField} className="mt-5">
+        <p className="text-darkRed mt-5 text-sm flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <b> Add New Field</b>
+        </p>
+      </button>
+    </div>
+
           <p className=" my-4">
             <b>QR Location</b>
           </p>
@@ -945,7 +1022,7 @@ const handleCreateOrganization = async (e: any) => {
                     className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                     value={inputData.twitter}
                     name="twitter"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                   />
                   <img src={xMark} className="mt-3" alt="" />
                 </div>
@@ -964,7 +1041,7 @@ const handleCreateOrganization = async (e: any) => {
                     className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                     value={inputData.insta}
                     name="insta"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                   />
                   <img src={xMark} className="mt-3" alt="" />
                 </div>
@@ -988,7 +1065,7 @@ const handleCreateOrganization = async (e: any) => {
                     className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                     value={inputData.linkedin}
                     name="linkedin"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                   />
                   <img src={xMark} className="mt-3" alt="" />
                 </div>
@@ -1008,7 +1085,7 @@ const handleCreateOrganization = async (e: any) => {
                     className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                     value={inputData.facebook}
                     name="facebook"
-                    onChange={(e) => handleInputChange(e)}
+                    onChange={handleInputChange}
                   />
                   <img src={xMark} className="mt-3" alt="" />
 
@@ -1035,7 +1112,7 @@ const handleCreateOrganization = async (e: any) => {
                   className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   value={inputData.accountHolderName}
                   name="accountHolderName"
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -1048,7 +1125,7 @@ const handleCreateOrganization = async (e: any) => {
                   className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   value={inputData.bankName}
                   name="bankName"
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -1062,7 +1139,7 @@ const handleCreateOrganization = async (e: any) => {
                   className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   value={inputData.accNum}
                   name="accNum"
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -1074,7 +1151,7 @@ const handleCreateOrganization = async (e: any) => {
                   className="pl-9 text-sm mt-3 w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
                   value={inputData.ifsc}
                   name="ifsc"
-                  onChange={(e) => handleInputChange(e)}
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
@@ -1089,16 +1166,15 @@ const handleCreateOrganization = async (e: any) => {
             ))}
           </div>
           <div className="flex my-4 gap-4">
-            {/* <Button
+            <Button
               variant="secondary"
               size="lg"
               onClick={(e) => handleCreateOrganization(e)}
             >
               {" "}
               Save
-            </Button> */}
+            </Button>
 
-            <button type="submit">Save</button>
             <Button variant="fourthiary" size="lg">
               {" "}
               Cancel
