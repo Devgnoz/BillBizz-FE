@@ -26,7 +26,9 @@ export default {
         CreamBg:"rgba(253, 248, 240, 1)",
         labelColor:"#495160",
         inputBorder:"rgba(206, 206, 206, 1)",
-        outlineButton:"rgba(86, 81, 72, 1)"
+        outlineButton:"rgba(86, 81, 72, 1)",
+        spaceCadet:"#4B5C79",
+        tableBorder:"rgba(234, 236, 240, 1)"
       },
     },
   },

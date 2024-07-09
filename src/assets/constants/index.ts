@@ -19,7 +19,7 @@ const navlist = [
   },
   {
     nav: "Inventory",
-    sub: ["item"],
+    sub: [{ title: "Item", route: "/item" }],
     icon: box,
     route: "/inventory",
   },
@@ -31,18 +31,21 @@ const navlist = [
   },
   {
     nav: "Sales",
-    sub: ["Sales Order", "POS"],
+    sub: [
+      { title: "Sales Order", route: "/sales-order" },
+      { title: "POS", route: "/pos" },
+    ],
     icon: shoppingCart,
     route: "/sales",
   },
   {
     nav: "Accountant",
     sub: [
-      "Chart of Account",
-      "Manual Journals",
-      "Bank",
-      "Cash",
-      "Currency Adjustment",
+      { title: "Chart of Account", route: "/chart-of-account" },
+      { title: "Manual Journals", route: "/manual-journals" },
+      { title: "Bank", route: "/bank" },
+      { title: "Cash", route: "/cash" },
+      { title: "Currency Adjustment", route: "/currency-adjustment" },
     ],
     icon: squreUserRound,
     route: "/accountant",
@@ -83,7 +86,7 @@ const navlist = [
     icon: newspapper,
     route: "/home",
   },
-];
+];  
 
 export const paymentTermsList = [
   {
