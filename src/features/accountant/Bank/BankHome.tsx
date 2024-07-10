@@ -1,6 +1,6 @@
 import Ellipsis from "../../../assets/icons/Ellipsis"
+import NewBankModal from "../../Bank/NewBankModal"
 import SearchBar from "../../sales/SearchBar"
-
 import Table from "./Table"
 
 
@@ -18,7 +18,7 @@ function BankHome({}: Props) {
     </p>
   </div>
   <div className="ml-auto gap-3 flex items-center">
-
+   <NewBankModal/>
     <div className="cursor-pointer">
       <Ellipsis />
     </div>

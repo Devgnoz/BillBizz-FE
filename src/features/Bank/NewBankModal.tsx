@@ -23,13 +23,12 @@ const NewBankModal = ({}: Props) => {
         onClick={openModal}
         variant="secondary"
         className="flex items-center"
-        size="lg"
       >
-        <CirclePlus color="white" size="14" />{" "}
-        <p className="text-xs">Create Account</p>
+        <CirclePlus color="white" size="24" />{" "}
+        <p className="text-md">Create Account</p>
       </Button>
 
-      <Modal open={isModalOpen} onClose={closeModal} className="w-[65%]">
+      <Modal open={isModalOpen} onClose={closeModal} className="w-[68%]">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
