@@ -1,6 +1,4 @@
 import Ellipsis from "../assets/icons/Ellipsis"
-import PlusCircle from "../assets/icons/PlusCircle"
-import Button from "../Components/Button"
 import CreateAccountModal from "../features/Cash/CreateAccountModal"
 import Table from "../features/Cash/Table"
 import SearchBar from "../features/sales/SearchBar"
@@ -30,7 +28,7 @@ function Cash({}: Props) {
 
     <div className="mt-5 bg-white">
     <div className="p-6">
-        <SearchBar/>
+        <SearchBar placeholder="Search Accounts"/>
     </div>
     <div>
         <Table/>
