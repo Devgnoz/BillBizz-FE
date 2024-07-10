@@ -26,7 +26,7 @@ const Notification = () => {
 </div>
 <button
               onClick={toggleDrawer}
-              className="text-gray-500 hover:text-gray-700 text-3xl -mt-2"
+              className="text-textColor font-normal hover:text-gray-700 text-3xl -mt-1"
 >
 &times;
 </button>
@@ -69,7 +69,7 @@ const Notification = () => {
 <div className="flex-grow">
 <h5 className="font-bold text-sm text-gray-700">{notification.title}</h5>
 <p className="text-xs text-gray-700">{notification.description}</p>
-<div className="flex justify-between mt-2 font-bold text-gray-700">
+<div className="flex justify-between mt-2 font-semibold text-gray-700">
 <p className="text-xs">{notification.time}</p>
 <p className="text-xs">{notification.date}</p>
 </div>
@@ -78,7 +78,7 @@ const Notification = () => {
             ))}
 </div>
 </div>
-<div className="text-end mt-5">
+<div className="flex justify-end me-3 mt-5">
 <Btn variant="secondary" size="lg">
             View all notifications
 </Btn>
