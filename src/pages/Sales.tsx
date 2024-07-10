@@ -106,7 +106,7 @@ const Sales = ({}: Props) => {
       </div>
       <div className="flex pl-3 pr-3 items-center gap-5">
         <div className="w-[80%]">
-          <SearchBar/>
+          <SearchBar placeholder="Search Sales Order"/>
         </div>
         <SortBy/>
         <Print/>
