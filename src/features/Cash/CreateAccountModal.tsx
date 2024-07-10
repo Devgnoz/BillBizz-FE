@@ -1,9 +1,10 @@
 import { useState } from "react";
 import PlusCircle from "../../assets/icons/PlusCircle"
 import Button from "../../Components/Button"
-import Modal from "../../Components/model/Modal";
+// import Modal from "../../Components/model/Modal";
 import CashImage from "../../assets/Images/Group 11.png";
 import bgImage from "../../assets/Images/14.png"; 
+import Modal from "../../components/model/Modal";
 type Props = {}
 
 function CreateAccountModal({}: Props) {
