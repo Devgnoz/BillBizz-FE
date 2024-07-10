@@ -8,6 +8,7 @@ import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import Cash from "./pages/Cash";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
+import NewJournal from "./features/accountant/manualJournel/NewJournal";
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/cash" element={<Cash/>}></Route>
           <Route path="/manual-journel" element={<ManualHome/>}></Route>
+          <Route path="/newjournal" element={<NewJournal/>}></Route>
         </Route>
       </Routes>
     </>
