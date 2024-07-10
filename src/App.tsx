@@ -9,6 +9,8 @@ import Accountant from "./pages/Accountant";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
 import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
+import BankHome from "./features/accountant/Bank/BankHome";
+
 function App() {
   return (
     <>
@@ -22,6 +24,7 @@ function App() {
           <Route path="/cash" element={<Cash/>}></Route>
           <Route path="/manual-journel" element={<ManualHome/>}></Route>
           <Route path="/newjournal" element={<NewJournal/>}></Route>
+          <Route path="/bank" element={<BankHome/>}></Route>
         </Route>
       </Routes>
     </>
