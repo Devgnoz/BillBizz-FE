@@ -1,5 +1,7 @@
 import NewAccountModal from "./NewAccountModal";
-import AccountTypes from "../chartOfAccountant/AccountTypes"
+import AccountTypes from "../chartOfAccountant/AccountTypes";
+import Table from "./Table";
+import SearchBar from "../../../Components/SearchBar";
 
 type Props = {};
 
@@ -15,13 +17,14 @@ const ChartOfAccountant = ({}: Props) => {
           </p>
         </div>
         <div className="button-frame">
-          <NewAccountModal/>
+          <NewAccountModal />
         </div>
-      </div><br />
-      <div className="bottom-side mt-1">
-        <div className="p-3">
-       <AccountTypes/>
-        </div>
+      </div>
+      <br />
+      <div className="flex flex-col gap-3 p-3 bg-white mt-1">
+        <AccountTypes />
+        <SearchBar />
+        <Table />
       </div>
     </div>
   );

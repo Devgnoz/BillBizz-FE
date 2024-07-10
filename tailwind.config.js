@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        maroon: '#820000', // Add your custom color here
+        maroon: '#820000',
         lightBeige: '#F7E7CE',
         iconhover: ' #530015',
         customColor1: "rgb(243,237,217)",
