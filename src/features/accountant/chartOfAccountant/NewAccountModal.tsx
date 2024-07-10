@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
-// import Modal from "../../../Components/model/Modal";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png"; 
-import Modal from "../../../components/model/Modal";
+import Modal from "../../../Components/model/Modal";
 type Props = {}
 
 function NewAccountModal({}: Props) {

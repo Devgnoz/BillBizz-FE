@@ -1,7 +1,8 @@
-import Ellipsis from "../assets/icons/Ellipsis"
-import CreateAccountModal from "../features/Cash/CreateAccountModal"
-import Table from "../features/Cash/Table"
-import SearchBar from "../features/sales/SearchBar"
+import Ellipsis from "../../../assets/icons/Ellipsis"
+import SearchBar from "../../sales/SearchBar"
+import CreateAccountModal from "./CreateAccountModal"
+import Table from "./Table"
+
 
 type Props = {}
 

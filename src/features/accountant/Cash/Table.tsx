@@ -1,4 +1,4 @@
-import Ellipsis from "../../assets/icons/Ellipsis";
+import Ellipsis from "../../../assets/icons/Ellipsis";
 
 const Table = () => {
   const data = [
