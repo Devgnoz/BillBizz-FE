@@ -310,6 +310,7 @@ const CreateOrganizationForm = () => {
             </div>
           </div>
           <input
+        
             type="file"
             className="hidden"
             onChange={(e) => handleLogoChange(e)}
@@ -327,6 +328,7 @@ const CreateOrganizationForm = () => {
             name="organizationName"
             value={inputData.organizationName}
             onChange={handleInputChange}
+            required
           />{" "}
           <div className="grid grid-cols-2 gap-4 my-3">
             <div className="relative ">

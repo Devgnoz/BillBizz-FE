@@ -7,6 +7,7 @@ import bgImage from "../../assets/Images/14.png";
 
 type Props = {};
 
+
 function CreateAccountModal({}: Props) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [accounts, setAccounts] = useState({
