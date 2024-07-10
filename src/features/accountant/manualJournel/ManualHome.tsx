@@ -1,9 +1,9 @@
 import Ellipsis from '../../../assets/icons/Ellipsis'
 import SearchBar from '../../sales/SearchBar'
-import Table from '../../Cash/Table'
 import Button from '../../../Components/Button'
 import PlusCircle from '../../../assets/icons/PlusCircle'
 import { Link } from 'react-router-dom'
+import Table from '../Cash/Table'
 
 type Props = {}
 

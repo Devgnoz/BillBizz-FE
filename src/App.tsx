@@ -6,9 +6,9 @@ import Inventory from "./pages/Inventory";
 import Sales from "./pages/Sales";
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
-import Cash from "./pages/Cash";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
 import NewJournal from "./features/accountant/manualJournel/NewJournal";
+import Cash from "./features/accountant/Cash/Cash";
 function App() {
   return (
     <>
