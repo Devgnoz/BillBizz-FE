@@ -20,7 +20,7 @@ export default {
         dropdownText: "rgba(75, 92, 121, 1)",
         softBeige: "rgb(247,231,206)",
         gray: "rgb(88,89,83)",
-        lightPink: "rgb(250,242,230)",
+        lightPink: "rgb(250,242,240)",
         darkRed: "rgb(130,0,0)",
         lightRose: "rgb(254,251,248)",
         WhiteIce: "#E3E6D5",
