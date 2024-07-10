@@ -29,7 +29,7 @@ function Organization({}: Props) {
             </div>
             <button
               onClick={toggleDrawer}
-              className="text-gray-500 hover:text-gray-700 text-3xl -mt-2"
+              className="font-normal text-textColor hover:text-gray-700 text-3xl -mt-1"
             >
               &times;
             </button>
