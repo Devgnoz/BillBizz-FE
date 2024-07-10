@@ -39,10 +39,10 @@ console.log(accounts);
   return (
     <div>
       <Button onClick={openModal} variant="secondary" className="flex items-center justify-center" size="xl">
-        <span className="flex items-center px-2.5"><PlusCircle /> &nbsp; Create Account</span>
+        <span className="flex items-center px-2.5"><PlusCircle color=""/> &nbsp; Create Account</span>
       </Button>
 
-      <Modal open={isModalOpen} onClose={closeModal}>
+      <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div

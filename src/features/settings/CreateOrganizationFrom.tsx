@@ -11,6 +11,9 @@ import { paymentTermsList } from "../../assets/constants/index";
 import useApi from "../../Hooks/useApi";
 import { endponints } from "../../Services/apiEndpoints";
 import { toast, Toaster } from "react-hot-toast";
+import CehvronDown from "../../assets/icons/CehvronDown";
+import Plus from "../../assets/icons/Plus";
+import PlusCircle from "../../assets/icons/PlusCircle";
 
 interface InputData {
   organizationLogo: string;
@@ -48,10 +51,10 @@ interface InputData {
   ifsc: string;
 }
 
-interface Field {
-  label: string;
-  value: string;
-}
+// interface Field {
+//   label: string;
+//   value: string;
+// }
 
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -184,7 +187,7 @@ const CreateOrganizationForm = () => {
     formData.append("companyIdField", inputData.companyIdField);
     formData.append("taxId", inputData.taxId);
     formData.append("taxIdField", inputData.taxIdField);
-    // formData.append("addfield", JSON.stringify(fields)); 
+    formData.append("addfield", JSON.stringify(fields)); 
     formData.append("qrLocation", inputData.qrLocation);
     formData.append("qrSignature", inputData.qrSignature);
     formData.append("twitter", inputData.twitter);
@@ -212,6 +215,44 @@ const CreateOrganizationForm = () => {
       if (!error && response) {
         toast.success(response.data.message);
         console.log(response.data.message, "message");
+        setInputData({
+          organizationLogo: "", 
+          organizationName: "",
+          organizationCountry: "",
+          organizationIndustry: "",
+          addline1: "",
+          addline2: "",
+          city: "",
+          pincode: "",
+          state: "",
+          organizationPhNum: "",
+          website: "",
+          baseCurrency: "",
+          fiscalYear: "",
+          reportBasis: "",
+          language: "",
+          timeZone: "",
+          dateFormat: "",
+          dateSplit: "",
+          companyId: "",
+          companyIdField: "",
+          taxId: "",
+          taxIdField: "",
+          addfield: [],
+          qrLocation: "", 
+          qrSignature: "", 
+          twitter: "",
+          insta: "",
+          linkedin: "",
+          facebook: "",
+          accountHolderName: "",
+          bankName: "",
+          accNum: "",
+          ifsc: "",
+        })
+        setQrcode(null)
+        setSign(null)
+        setLogo(null)
       } else {
         console.log(error.response.data.message);
         toast.error(error.response.data.message);
@@ -238,8 +279,8 @@ const CreateOrganizationForm = () => {
 
   return (
     <div
-      className="bg-lightRose p-3 overflow-y-scroll hide-scrollbar "
-      style={{ height: "89vh" }}
+      className="bg-lightRose px-3 pt-3 overflow-y-scroll hide-scrollbar "
+      style={{ height: "92vh" }}
     >
       <div className="bg-softBeige rounded-md h-28 grid grid-cols-12 gap-4">
         <div className="ms-2 p-2 col-span-5 text-center mt-3">
@@ -269,27 +310,15 @@ const CreateOrganizationForm = () => {
       {/* FORM */}
       <form className="text-slate-800" >
         <label>
-          <div className="h-56 p-3 border-dashed border-neutral-400 w-96 rounded-md mt-5 border text-slate-800 ">
+          <div className="h-56 p-3 border-dashed border-neutral-400 w-96 rounded-md mt-5 border bg-white text-slate-800 ">
             <div className="bg-lightPink flex h-28 justify-center items-center">
               {logo ? (
                 <img src={URL.createObjectURL(logo)} alt="" className="h-24" />
               ) : (
                 <>
-                  <div className="justify-center flex items-center bg-darkRed text-white w-5 h-5 p-1 rounded-full">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-7 "
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 4.5v15m7.5-7.5h-15"
-                      />
-                    </svg>
+                  <div className="justify-center flex items-center bg-darkRed text-white w-5 h-5 p-3 rounded-full">
+                    <Plus color="white" />
+                    
                   </div>
                   <p className="text-sm ms-2">
                     {" "}
@@ -323,7 +352,7 @@ const CreateOrganizationForm = () => {
         <div className="bg-white border-slate-200  border-2 rounded-md mt-4 p-5">
           <label className="text-slate-600">Organization Name</label>
           <input
-            className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+            className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
             placeholder="Name"
             name="organizationName"
             value={inputData.organizationName}
@@ -341,20 +370,14 @@ const CreateOrganizationForm = () => {
                   onChange={handleInputChange}
                   name="organizationCountry"
                   id="Location"
-                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="block appearance-none w-full   text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 >
                   <option value="">Select a country</option>
                   <option value="india">India</option>
                   <option value="argentina">Argentina</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg
-                    className="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                  </svg>
+                <CehvronDown color="gray"/>
                 </div>
               </div>
             </div>
@@ -368,7 +391,7 @@ const CreateOrganizationForm = () => {
                   onChange={handleInputChange}
                   name="organizationIndustry"
                   id="organizationIndustry"
-                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 >
                   <option value="">Select Industry</option>
 
@@ -384,13 +407,7 @@ const CreateOrganizationForm = () => {
                   )}
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg
-                    className="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                  </svg>
+                <CehvronDown color="gray"/>
                 </div>
               </div>
             </div>
@@ -401,7 +418,7 @@ const CreateOrganizationForm = () => {
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>
               <input
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 placeholder="Street 1"
                 name="addline1"
                 value={inputData.addline1}
@@ -411,7 +428,7 @@ const CreateOrganizationForm = () => {
 
             <div>
               <input
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 placeholder="Street 1"
                 name="addline2"
                 value={inputData.addline2}
@@ -422,7 +439,7 @@ const CreateOrganizationForm = () => {
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>
               <input
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 placeholder="City"
                 value={inputData.city}
                 name="city"
@@ -432,7 +449,7 @@ const CreateOrganizationForm = () => {
 
             <div>
               <input
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 placeholder="Pincode"
                 type="text"
                 value={inputData.pincode}
@@ -448,7 +465,7 @@ const CreateOrganizationForm = () => {
                   onChange={handleInputChange}
                   name="state"
                   id="state"
-                  className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 >
                   <option value="">Select a State</option>
 
@@ -460,20 +477,14 @@ const CreateOrganizationForm = () => {
                   </option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg
-                    className="fill-current h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                  </svg>
-                </div>
+                       <CehvronDown color="gray"/>
+                       </div>
               </div>
             </div>
 
             <div>
               <input
-                className="pl-9 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 placeholder="Phone"
                 type="tel"
                 value={inputData.organizationPhNum}
@@ -492,7 +503,7 @@ const CreateOrganizationForm = () => {
             <input
               type="text"
               placeholder="Value"
-              className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+              className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
               value={inputData.website}
               name="website"
               onChange={handleInputChange}
@@ -513,7 +524,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="baseCurrency"
                     id="currency"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select Currency</option>
 
@@ -528,13 +539,8 @@ const CreateOrganizationForm = () => {
                     </option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -549,7 +555,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="fiscalYear"
                     id="fiscalYear"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select Financial Year</option>
 
@@ -567,13 +573,8 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -623,7 +624,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="language"
                     id="Location"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select a Language</option>
 
@@ -631,13 +632,8 @@ const CreateOrganizationForm = () => {
                     <option value="Tamil">Tamil</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -651,7 +647,7 @@ const CreateOrganizationForm = () => {
                     name="timeZone"
                     onChange={handleInputChange}
                     id="timeZone"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select Time zone</option>
 
@@ -659,13 +655,8 @@ const CreateOrganizationForm = () => {
                     <option value="UTC">UTC</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -680,7 +671,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="dateFormat"
                     id="dateFormat"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select Date Format</option>
 
@@ -698,13 +689,8 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -718,7 +704,7 @@ const CreateOrganizationForm = () => {
                       onChange={handleInputChange}
                       name="dateSplit"
                       id="dateSplit"
-                      className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     >
                       <option value="">Select Date Split</option>
 
@@ -736,13 +722,8 @@ const CreateOrganizationForm = () => {
                       )}
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                      </svg>
+                    <CehvronDown color="gray"/>
+
                     </div>
                   </div>
                 </div>
@@ -758,7 +739,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="companyId"
                     id="companyId"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select a Company Id</option>
 
@@ -774,13 +755,8 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -788,7 +764,7 @@ const CreateOrganizationForm = () => {
                 <input
                   type="text"
                   placeholder="Company Id"
-                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start   bg-white border border-slate-300 h-[39px] p-2"
                   value={inputData.companyIdField}
                   name="companyIdField"
                   onChange={handleInputChange}
@@ -805,7 +781,7 @@ const CreateOrganizationForm = () => {
                     onChange={handleInputChange}
                     name="taxId"
                     id="taxId"
-                    className="block appearance-none w-full bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   >
                     <option value="">Select Tax Id</option>
 
@@ -820,13 +796,8 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg
-                      className="fill-current h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M5.516 7.548a1 1 0 0 1 1.4.1l2.534 2.932a1 1 0 0 0 1.6 0l2.533-2.932a1 1 0 0 1 1.502 1.298l-3.032 3.507a1 1 0 0 1-1.6 0L5.416 8.946a1 1 0 0 1 .1-1.398z" />
-                    </svg>
+                  <CehvronDown color="gray"/>
+
                   </div>
                 </div>
               </div>
@@ -834,7 +805,7 @@ const CreateOrganizationForm = () => {
               <input
                 type="text"
                 placeholder="Tax Id"
-                className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                 value={inputData.taxIdField}
                 name="taxIdField"
                 onChange={handleInputChange}
@@ -859,7 +830,7 @@ const CreateOrganizationForm = () => {
                 name="label"
                 value={field.label}
                 onChange={(e) => handleFieldChange(index, e, 'label')}
-                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2 border-slate-200 h-[39px] p-2"
+                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
                 placeholder="Value"
               />
             </div>
@@ -874,7 +845,7 @@ const CreateOrganizationForm = () => {
                 name="value"
                 value={field.value}
                 onChange={(e) => handleFieldChange(index, e,'value')}
-                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2 border-slate-200 h-[39px] p-2"
+                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
                 placeholder="Value"
               />
             </div>
@@ -883,21 +854,8 @@ const CreateOrganizationForm = () => {
       ))}
       
       <button onClick={addAdditionalField} className="mt-5">
-        <p className="text-darkRed mt-5 text-sm flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6 mr-2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-            />
-          </svg>
+        <p className="text-darkRed mt-5 text-sm flex gap-2 items-center">
+        <PlusCircle color="darkRed"/>
           <b> Add New Field</b>
         </p>
       </button>
@@ -930,20 +888,7 @@ const CreateOrganizationForm = () => {
               </div>
               <div className="col-span-2 flex items-center justify-center">
                 <div className="bg-darkRed text-white items-center justify-center rounded-full flex h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
+                  <Plus color="white"/>
                 </div>
               </div>
             </div>
@@ -980,20 +925,9 @@ const CreateOrganizationForm = () => {
               </div>
               <div className="col-span-2 flex items-center justify-center">
                 <div className="bg-darkRed text-white items-center justify-center rounded-full flex h-10 w-10">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
+                 
+                  <Plus color="white"/>
+
                 </div>
               </div>
             </div>
@@ -1021,7 +955,7 @@ const CreateOrganizationForm = () => {
                   <input
                     type="text"
                     placeholder="Add Link"
-                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
                     value={inputData.twitter}
                     name="twitter"
                     onChange={handleInputChange}
@@ -1040,7 +974,7 @@ const CreateOrganizationForm = () => {
                   <input
                     type="text"
                     placeholder="Add Link"
-                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                     value={inputData.insta}
                     name="insta"
                     onChange={handleInputChange}
@@ -1064,7 +998,7 @@ const CreateOrganizationForm = () => {
                   <input
                     type="text"
                     placeholder="Add Link"
-                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                     value={inputData.linkedin}
                     name="linkedin"
                     onChange={handleInputChange}
@@ -1084,12 +1018,15 @@ const CreateOrganizationForm = () => {
                   <input
                     type="text"
                     placeholder="Add Link"
-                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                    className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                     value={inputData.facebook}
                     name="facebook"
                     onChange={handleInputChange}
                   />
+                  <div>
+                  </div>
                   <img src={xMark} className="mt-3" alt="" />
+
 
                   <div></div>
                 </div>
@@ -1111,7 +1048,7 @@ const CreateOrganizationForm = () => {
                 <input
                   type="text"
                   placeholder="Value"
-                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                   value={inputData.accountHolderName}
                   name="accountHolderName"
                   onChange={handleInputChange}
@@ -1124,7 +1061,7 @@ const CreateOrganizationForm = () => {
                 <input
                   type="text"
                   placeholder="Value"
-                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                   value={inputData.bankName}
                   name="bankName"
                   onChange={handleInputChange}
@@ -1138,7 +1075,7 @@ const CreateOrganizationForm = () => {
                 <input
                   type="number"
                   placeholder="Value"
-                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                   value={inputData.accNum}
                   name="accNum"
                   onChange={handleInputChange}
@@ -1150,7 +1087,7 @@ const CreateOrganizationForm = () => {
                 <input
                   type="text"
                   placeholder="Value"
-                  className="pl-9 text-sm mt-3 w-[100%] rounded-md text-start border-2  border-slate-200  h-[39px] p-2"
+                  className="pl-9 text-sm mt-3 w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                   value={inputData.ifsc}
                   name="ifsc"
                   onChange={handleInputChange}

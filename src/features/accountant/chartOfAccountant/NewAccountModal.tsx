@@ -35,7 +35,7 @@ function NewAccountModal({}: Props) {
         <p className="text-xs">New Account</p>
       </Button>
 
-      <Modal open={isModalOpen} onClose={closeModal}>
+          <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div

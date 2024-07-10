@@ -20,7 +20,7 @@ export default {
         dropdownText: "rgba(75, 92, 121, 1)",
         softBeige: "rgb(247,231,206)",
         gray: "rgb(88,89,83)",
-        lightPink: "rgb(250,242,230)",
+        lightPink: "rgb(250,242,240)",
         darkRed: "rgb(130,0,0)",
         lightRose: "rgb(254,251,248)",
         WhiteIce: "#E3E6D5",
@@ -28,7 +28,8 @@ export default {
         labelColor: "#495160",
         inputBorder: "rgba(206, 206, 206, 1)",
         outlineButton: "rgba(86, 81, 72, 1)",
-        tableBorder:"#EAECF0"
+        tableBorder:"#EAECF0",
+        hr:"rgba(204, 204, 204, 1)"
       },
     },
   },
