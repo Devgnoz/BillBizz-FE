@@ -3,11 +3,57 @@ import SearchBar from '../../sales/SearchBar'
 import Button from '../../../Components/Button'
 import PlusCircle from '../../../assets/icons/PlusCircle'
 import { Link } from 'react-router-dom'
-import Table from '../Cash/Table'
+import Table from './Table'
+import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon';
+import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon';
+import { useEffect, useRef, useState } from 'react'
 
 type Props = {}
 
 function ManualHome({}: Props) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const dropdownItems = [
+    {
+      icon: <ArrowDownIcon />,
+      text: 'Import Journel',
+      onClick: () => {
+        console.log('Import Sales Order clicked');
+      },
+    },
+    {
+      icon: <ArrowUpIcon />,
+      text: 'Export Journel',
+      onClick: () => {
+        console.log('Export Sales Order clicked');
+      },
+    },
+    {
+      icon: <ArrowUpIcon />,
+      text: 'Manage Journel',
+      onClick: () => {
+        console.log('Export Current View clicked');
+      },
+    }
+  ];
   return (
     <>
     <div className="p-5 bg-slate-50 h-[100vh]">
@@ -24,9 +70,30 @@ function ManualHome({}: Props) {
       <span className="flex items-center px-2.5"><PlusCircle /> &nbsp; New Journel</span>
     </Button>
     </Link>
-    <div className="cursor-pointer">
-      <Ellipsis />
-    </div>
+    <div className="relative">
+              <div onClick={toggleDropdown} className="cursor-pointer">
+                <Ellipsis />
+              </div>
+              {isDropdownOpen && (
+                <div
+                  ref={dropdownRef}
+                  className="absolute top-full right-0 mt-2 w-48 bg-white shadow-xl z-10"
+                >
+                  <ul className="py-1 text-dropdownText">
+                    {dropdownItems.map((item, index) => (
+                      <li
+                        key={index}
+                        onClick={item.onClick}
+                        className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
+                      >
+                        {item.icon}
+                        {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
     </div>
     <div>
     </div>
