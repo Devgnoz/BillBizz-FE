@@ -5,7 +5,7 @@ import BookXIcon from '../../../assets/icons/BookXIcon';
 import NewspaperIcon from '../../../assets/icons/NewspaperIcon';
 
 const Customers = () => {
-  const [selected, setSelected] = useState('All');
+  const [selected, setSelected] = useState('');
 
   const customers = [
     {
@@ -58,7 +58,7 @@ const Customers = () => {
 
   return (
     <>
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
       {customers.slice(0, 4).map((customer) => (  
         <button
           key={customer.key}
@@ -78,7 +78,7 @@ const Customers = () => {
         </button>
       ))}
     </div>
-      <div className='flex mt-2 justify-between gap-3'>
+      <div className='grid grid-cols-1 lg:grid-cols-5 gap-2'>
  {customers.slice(4).map((customer) => (
         <button
           key={customer.key}
