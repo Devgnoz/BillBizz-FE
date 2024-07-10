@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
+import Modal from "../../../Components/model/Modal";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png"; 
-import Modal from "../../../Components/model/Modal";
 type Props = {}
 
 function NewAccountModal({}: Props) {
@@ -23,7 +23,7 @@ function NewAccountModal({}: Props) {
             <p className="text-xs">New Account</p>
           </Button>
 
-          <Modal open={isModalOpen} onClose={closeModal}>
+          <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
