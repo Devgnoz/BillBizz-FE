@@ -30,7 +30,7 @@ const NewUnit = ({}: Props) => {
           <p className="text-md">New Unit</p>
         </Button>
 
-        <Modal open={isModalOpen} onClose={closeModal} className="w-[38%]">
+        <Modal open={isModalOpen} onClose={closeModal} className="w-[39%]">
           <div className="p-5 mt-3">
             <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
               <div
