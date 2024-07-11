@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
-import TrashCan from "../../../assets/icons/TrashCan";
-import PlusIcon from "../../../assets/icons/PlusIcon";
-import Button from "../../../Components/Button";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import CheveronLeftIcon from '../../../assets/icons/CheveronLeftIcon';
+import TrashCan from '../../../assets/icons/TrashCan';
+import PlusIcon from '../../../assets/icons/PlusIcon';
+import Button from '../../../Components/Button';
+import AccountDropdown from './AccountDropdown';
+import ContactDropdown from './ContactDropdown';
 
 type Props = {};
 
@@ -17,37 +19,121 @@ function NewJournal({}: Props) {
     "Actions",
   ];
 
-  const [rows, setRows] = useState([
+  const initialRows = [
     {
-      account: "",
+      account: "Account receivable",
       description: "Description",
       contact: "",
       debits: "5000.00",
       credits: "0.00",
     },
-  ]);
+    {
+      account: "Sales Revenue",
+      description: "Description",
+      contact: "",
+      debits: "5000.00",
+      credits: "0.00",
+    },
+  ];
+
+  const [rows, setRows] = useState(initialRows);
+  const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState<boolean[]>(Array(initialRows.length).fill(false));
+  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState<boolean[]>(Array(initialRows.length).fill(false));
+  const [accountSearch, setAccountSearch] = useState<string[]>(Array(initialRows.length).fill(''));
+  const [contactSearch, setContactSearch] = useState<string[]>(Array(initialRows.length).fill(''));
 
   const addRow = () => {
     setRows([
       ...rows,
       {
-        account: "",
+        account: "Account receivable",
         description: "Description",
         contact: "",
         debits: "5000.00",
         credits: "0.00",
       },
     ]);
+    setIsAccountDropdownOpen([...isAccountDropdownOpen, false]);
+    setIsContactDropdownOpen([...isContactDropdownOpen, false]);
+    setAccountSearch([...accountSearch, '']);
+    setContactSearch([...contactSearch, '']);
   };
 
   const deleteRow = (index: number) => {
     setRows(rows.filter((_, rowIndex) => rowIndex !== index));
+    setIsAccountDropdownOpen(isAccountDropdownOpen.filter((_, i) => i !== index));
+    setIsContactDropdownOpen(isContactDropdownOpen.filter((_, i) => i !== index));
+    setAccountSearch(accountSearch.filter((_, i) => i !== index));
+    setContactSearch(contactSearch.filter((_, i) => i !== index));
+  };
+
+  const accountOptions = [
+    "Account receivable",
+    "Sales Revenue",
+    "Employee Advance",
+    "Petty Cash",
+  ];
+
+  const contactOptions = [
+    "John Doe",
+    "Jane Smith",
+    "Robert Brown",
+  ];
+
+  const handleAccountSelect = (index: number, account: string) => {
+    const newRows = [...rows];
+    newRows[index].account = account;
+    setRows(newRows);
+    const newDropdownOpen = [...isAccountDropdownOpen];
+    newDropdownOpen[index] = false;
+    setIsAccountDropdownOpen(newDropdownOpen);
+  };
+
+  const handleContactSelect = (index: number, contact: string) => {
+    const newRows = [...rows];
+    newRows[index].contact = contact;
+    setRows(newRows);
+    const newDropdownOpen = [...isContactDropdownOpen];
+    newDropdownOpen[index] = false;
+    setIsContactDropdownOpen(newDropdownOpen);
+  };
+
+  const handleAccountSearchChange = (index: number, value: string) => {
+    const newSearch = [...accountSearch];
+    newSearch[index] = value;
+    setAccountSearch(newSearch);
+  };
+
+  const handleContactSearchChange = (index: number, value: string) => {
+    const newSearch = [...contactSearch];
+    newSearch[index] = value;
+    setContactSearch(newSearch);
+  };
+
+  const handleAccountDropdownToggle = (index: number, isOpen: boolean) => {
+    setIsAccountDropdownOpen(isAccountDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
+  };
+
+  const handleContactDropdownToggle = (index: number, isOpen: boolean) => {
+    setIsContactDropdownOpen(isContactDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
+  };
+
+  const clearAccountSearch = (index: number) => {
+    const newSearch = [...accountSearch];
+    newSearch[index] = '';
+    setAccountSearch(newSearch);
+  };
+
+  const clearContactSearch = (index: number) => {
+    const newSearch = [...contactSearch];
+    newSearch[index] = '';
+    setContactSearch(newSearch);
   };
 
   return (
     <div className="p-5">
       <div className="flex items-center gap-5">
-        <Link to={"/manual-journel"}>
+        <Link to={"/manualjournal"}>
           <div
             style={{ borderRadius: "50%" }}
             className="w-[40px] h-[40px] flex items-center justify-center bg-white"
@@ -97,9 +183,7 @@ function NewJournal({}: Props) {
               />
             </div>
             <div className="w-[26%]">
-              <label className="block text-sm text-textColor">
-                Journal Type
-              </label>
+              <label className="block text-sm text-textColor">Journal Type</label>
               <div className="flex items-center justify-start mt-3">
                 <input
                   type="checkbox"
@@ -144,25 +228,31 @@ function NewJournal({}: Props) {
               <tbody className="text-center text-dropdownText">
                 {rows.map((row, index) => (
                   <tr className="border-b border-tableBorder" key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <select name="" id="" className="text-sm text-center  p-2">
-                        <option value="" className="bg-gray text-white">Account receivable</option>
-                        <option value="" className="bg-gray text-white">Account receivable</option>
-                        
-                      </select>
-                    </td>
+                    <AccountDropdown
+                      index={index}
+                      account={row.account}
+                      accountOptions={accountOptions}
+                      isDropdownOpen={isAccountDropdownOpen[index]}
+                      search={accountSearch[index]}
+                      onAccountSelect={handleAccountSelect}
+                      onSearchChange={handleAccountSearchChange}
+                      onDropdownToggle={handleAccountDropdownToggle}
+                      clearSearch={clearAccountSearch}
+                    />
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       {row.description}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">
-                      <select
-                        name=""
-                        id=""
-                        className="border border-inputBorder rounded-md text-sm p-2 w-[200px]"
-                      >
-                        <option value="">Select Contact</option>
-                      </select>
-                    </td>
+                    <ContactDropdown
+                      index={index}
+                      contact={row.contact}
+                      contactOptions={contactOptions}
+                      isDropdownOpen={isContactDropdownOpen[index]}
+                      search={contactSearch[index]}
+                      onContactSelect={handleContactSelect}
+                      onSearchChange={handleContactSearchChange}
+                      onDropdownToggle={handleContactDropdownToggle}
+                      clearSearch={clearContactSearch}
+                    />
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
                       {row.debits}
                     </td>
@@ -201,9 +291,7 @@ function NewJournal({}: Props) {
           <span className="text-textColor font-bold text-xl">Rs 50000.00</span>
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-base font-semibold text-cardBorder">
-            Difference
-          </span>
+          <span className="text-base font-semibold text-cardBorder">Difference</span>
           <span className="text-lg font-bold text-cardBorder">Rs 0.00</span>
         </div>
         <hr className="mt-3 border-t border-hr" />
