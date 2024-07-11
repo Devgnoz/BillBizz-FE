@@ -76,7 +76,7 @@ const Sales = ({}: Props) => {
         </div>
         <div className="ml-auto gap-3 flex items-center">
           <Button variant="secondary" className="flex items-center justify-center" size="xl">
-            <span className="flex items-center px-2.5"><PlusCircle /> &nbsp; New Sales Order</span>
+            <span className="flex items-center px-2.5"><PlusCircle color="white"/> &nbsp; New Sales Order</span>
           </Button>
 
           <div onClick={toggleDropdown} className="cursor-pointer">
