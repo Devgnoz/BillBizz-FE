@@ -154,7 +154,7 @@ function Category({}: Props) {
                   </div>
                   <div className="flex space-x-2">
                     <p onClick={() => openModal(false, false, true, item)} className="cursor-pointer">
-                      <PencilEdit />
+                      <PencilEdit color='' />
                     </p>
                     <p className="cursor-pointer">
                       <TrashCan color='' />

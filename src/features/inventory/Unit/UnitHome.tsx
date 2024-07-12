@@ -1,4 +1,4 @@
-import Ellipsis from "../../assets/icons/Ellipsis";
+import Ellipsis from "../../../assets/icons/Ellipsis";
 import NewUnit from "./NewUnit";
 import UnitTable from "./UnitTable";
 

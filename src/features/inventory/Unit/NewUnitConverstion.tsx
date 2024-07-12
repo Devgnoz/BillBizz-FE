@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Button from "../../Components/Button";
-import CirclePlus from "../../assets/icons/circleplus";
-import Modal from "../../Components/model/Modal";
-import CehvronDown from "../../assets/icons/CehvronDown";
-import bgImage from "../../assets/Images/Frame 6.png"
+import Button from "../../../Components/Button";
+import CirclePlus from "../../../assets/icons/circleplus";
+import Modal from "../../../Components/model/Modal";
+import CehvronDown from "../../../assets/icons/CehvronDown";
+import bgImage from "../../../assets/Images/Frame 6.png"
 type Props = {};
 
 const NewUnitConverstion = ({}: Props) => {
