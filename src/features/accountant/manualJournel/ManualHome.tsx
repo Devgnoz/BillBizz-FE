@@ -67,7 +67,7 @@ function ManualHome({}: Props) {
   <div className="ml-auto gap-3 flex items-center">
     <Link to={"/newjournal"}>
     <Button  variant="secondary" className="flex items-center justify-center" size="xl">
-      <span className="flex items-center px-2.5"><PlusCircle /> &nbsp; New Journel</span>
+      <span className="flex items-center px-2.5"><PlusCircle color='white' /> &nbsp; New Journel</span>
     </Button>
     </Link>
     <div className="relative">
