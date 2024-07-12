@@ -1,4 +1,4 @@
-import Category from "../features/inventory/Category";
+import Category from "../features/inventory/Category/Category";
 
 type Props = {};
 
