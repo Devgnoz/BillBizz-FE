@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Button from "../../Components/Button";
-import CirclePlus from "../../assets/icons/circleplus";
-import Modal from "../../Components/model/Modal";
-import bgImage from "../../assets/Images/14.png";
-import savings from "../../assets/Images/Savings.png";
-import CehvronDown from "../../assets/icons/CehvronDown";
+import Button from "../../../Components/Button";
+import CirclePlus from "../../../assets/icons/circleplus";
+import Modal from "../../../Components/model/Modal";
+import bgImage from "../../../assets/Images/14.png";
+import savings from "../../../assets/Images/Savings.png";
+import CehvronDown from "../../../assets/icons/CehvronDown";
 type Props = {};
 
 const NewBankModal = ({}: Props) => {
@@ -108,22 +108,25 @@ const NewBankModal = ({}: Props) => {
                   <div className="relative ">
                     <div className="relative w-full">
                       <select className="block appearance-none w-full  text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                        <option value="" className="text-gray">Select currency</option>
+                        <option value="" className="text-gray">
+                          Select currency
+                        </option>
 
                         <option value="kerala" className="text-slate-300">
                           INR
                         </option>
                       </select>
                       <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-
-                       <CehvronDown color="gray"/>
+                        <CehvronDown color="gray" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Description</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Description
+                </label>
                 <textarea
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-2 pt-5 pl-2"

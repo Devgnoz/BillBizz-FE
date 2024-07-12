@@ -5,6 +5,7 @@ import EyeIcon from '../assets/icons/EyeIcon';
 import PackageIcon from '../assets/icons/PackageIcon';
 import ClipboardIcon from '../assets/icons/ClipboardIcon';
 import BrandModal from '../features/inventory/BrandModal';
+import Category from '../features/inventory/Category/Category';
 
 type Props = {};
 
@@ -69,6 +70,7 @@ function Inventory({}: Props) {
       <div className="flex justify-end">
         <div onClick={toggleDropdown} className="cursor-pointer">
           <Ellipsis />
+          <Category/>
         </div>
         {isDropdownOpen && (
           <div ref={dropdownRef} className="absolute top-32 right-16 mt-2 w-56 bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
