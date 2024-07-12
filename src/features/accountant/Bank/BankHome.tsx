@@ -1,5 +1,5 @@
 import Ellipsis from "../../../assets/icons/Ellipsis"
-import NewBankModal from "../../Bank/NewBankModal"
+import NewBankModal from "./NewBankModal"
 import SearchBar from "../../sales/SearchBar"
 import Table from "./Table"
 

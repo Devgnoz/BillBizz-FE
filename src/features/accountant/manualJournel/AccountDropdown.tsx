@@ -53,7 +53,7 @@ const AccountDropdown = ({
         </div>
       </div>
       {isDropdownOpen && (
-        <div className="absolute z-10 p-2 w-full bg-white border border-tableBorder rounded-lg mt-1">
+        <div className="absolute z-10 p-2 w-[102%] bg-white border border-tableBorder rounded-lg mt-1">
           <SearchDropdown
             placeholder="Search"
             value={search}

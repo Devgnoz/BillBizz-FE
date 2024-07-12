@@ -30,7 +30,7 @@ export default {
         outlineButton: "rgba(86, 81, 72, 1)",
         tableBorder:"#EAECF0",
         hr:"rgba(204, 204, 204, 1)",
-        dropdownBorder:"#D0D0D0"
+        dropdownBorder:"#DCDEE2"
       },
     },
   },

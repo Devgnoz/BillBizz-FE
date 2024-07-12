@@ -144,7 +144,7 @@ function NewJournal({}: Props) {
         <p className="text-textColor text-xl font-bold">Create New Journal</p>
       </div>
 
-      <div className="mt-5 p-3 rounded-md bg-white">
+      <div className="mt-5 p-3 pb-5 rounded-md bg-white">
         <div className="grid gap-5 p-4">
           <div className="flex items-center justify-between w-full gap-9">
             <div className="w-[40%]">
@@ -296,7 +296,7 @@ function NewJournal({}: Props) {
         </div>
         <hr className="mt-3 border-t border-hr" />
         <br />
-        <div className="flex items-center justify-end gap-3 ">
+        <div className="flex items-center justify-end gap-3">
           <Button variant="fourthiary">Cancel</Button>
           <Button variant="fourthiary">Save as Draft</Button>
           <Button variant="secondary">Save & Publish</Button>
