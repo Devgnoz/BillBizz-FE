@@ -28,7 +28,7 @@ function App() {
           <Route path="/newjournal" element={<NewJournal/>}></Route>
           <Route path="/bank" element={<BankHome/>}></Route>
           <Route path="/inventory/unit" element={<UnitHome/>}></Route>
-          <Route path="//inventory/unit/unit-conversion" element={<Unitconversion/>}></Route>
+          <Route path="/inventory/unit/unit-conversion" element={<Unitconversion/>}></Route>
         </Route>
       </Routes>
     </>
