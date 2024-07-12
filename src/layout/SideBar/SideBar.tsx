@@ -1,17 +1,13 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../public/bill-bizz-logo.png";
 import navlist from "../../assets/constants";
 
-type Props = {};
+type Props = {
+  activeIndex: number | null;
+  setActiveIndex: (index: number) => void;
+};
 
-const SideBar = ({}: Props) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const handleClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
+const SideBar = ({ activeIndex, setActiveIndex }: Props) => {
   return (
     <aside className="bg-maroon h- w-[72px]">
       <nav>
@@ -24,10 +20,7 @@ const SideBar = ({}: Props) => {
           <div className="flex justify-center" key={index}>
             <ul>
               <Link to={item.route}>
-                <li
-                  className={`pb-3`}
-                  onClick={() => handleClick(index)}
-                >
+                <li className={`pb-3`} onClick={() => setActiveIndex(index)}>
                   <div
                     className={`px-2 py-2 rounded-lg hover:bg-iconhover flex justify-center ${
                       activeIndex === index ? "bg-iconhover" : ""
