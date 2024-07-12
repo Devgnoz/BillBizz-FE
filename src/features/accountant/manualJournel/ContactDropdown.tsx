@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import SearchDropdown from './SearchDropdown';
+import CehvronDown from '../../../assets/icons/CehvronDown';
 
 type ContactDropdownProps = {
   index: number;
@@ -38,6 +40,7 @@ const ContactDropdown: React.FC<ContactDropdownProps> = ({
     }, []);
   return (
     <td className="px-6 py-4 whitespace-nowrap relative">
+        <div className='flex items-center justify-center'>
       <input
         type="text"
         value={contact}
@@ -47,16 +50,18 @@ const ContactDropdown: React.FC<ContactDropdownProps> = ({
           onDropdownToggle(index, !isDropdownOpen);
           clearSearch(index);
         }}
-        className="rounded-md cursor-pointer text-sm p-2 w-full text-center"
-      />
+        className="rounded-md cursor-pointer text-sm p-2 border text-start border-inputBorder"
+      /> 
+      <div className='-ms-8'>
+      <CehvronDown color='#818894'/>
+      </div>
+      </div>
       {isDropdownOpen && (
-        <div className="absolute z-10 p-2 w-full bg-white border border-tableBorder rounded-lg mt-1">
-          <input
-            type="text"
+        <div className="absolute z-10 p-2 w-[89%] bg-white border border-tableBorder rounded-lg mt-1">
+           <SearchDropdown
             placeholder="Search"
             value={search}
             onChange={(e) => onSearchChange(index, e.target.value)}
-            className="w-full mb-2 p-1 border border-inputBorder rounded-md"
           />
           <ul className="overflow-y-auto text-start max-h-40">
             {contactOptions
