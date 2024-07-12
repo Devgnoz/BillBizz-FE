@@ -10,8 +10,6 @@ import ManualHome from "./features/accountant/manualJournel/ManualHome";
 import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
-import UnitHome from "./features/Unit/UnitHome";
-import Unitconversion from "./features/Unit/Unitconversion";
 
 function App() {
   return (
@@ -27,8 +25,6 @@ function App() {
           <Route path="/manualjournal" element={<ManualHome/>}></Route>
           <Route path="/newjournal" element={<NewJournal/>}></Route>
           <Route path="/bank" element={<BankHome/>}></Route>
-          <Route path="/inventory/unit" element={<UnitHome/>}></Route>
-          <Route path="//inventory/unit/unit-conversion" element={<Unitconversion/>}></Route>
         </Route>
       </Routes>
     </>
