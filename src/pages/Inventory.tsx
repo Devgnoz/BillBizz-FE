@@ -4,14 +4,19 @@ import HandShakeIcon from '../assets/icons/HandShakeIcon';
 import EyeIcon from '../assets/icons/EyeIcon';
 import PackageIcon from '../assets/icons/PackageIcon';
 import ClipboardIcon from '../assets/icons/ClipboardIcon';
-import BrandModal from '../features/inventory/BrandModal';
-import Category from '../features/inventory/Category/Category';
+import Category from '../features/Inventory/Category/Category';
+import BrandModal from '../features/Inventory/BrandModal';
+import RackModal from '../features/Inventory/Rack/RackModal'
+
+
 
 type Props = {};
 
 function Inventory({}: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
+  const [isRackModalOpen, setIsRackModalOpen] = useState(false);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -53,7 +58,7 @@ function Inventory({}: Props) {
       icon: <PackageIcon color='#4B5C79' />,
       text: "View Rack",
       onClick: () => {
-        console.log("View Rack clicked");
+       setIsRackModalOpen(true);
       },
     },
     {
@@ -89,6 +94,7 @@ function Inventory({}: Props) {
         )}
       </div>
       {isBrandModalOpen && <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />}
+      {isRackModalOpen && <RackModal ref={modalRef} onClose={()=>setIsRackModalOpen(false)}/>}
     </div>
   );
 }

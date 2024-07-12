@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { unitConversionTableHead } from "../../assets/constants/inventory";
-import CheveronLeftIcon from "../../assets/icons/CheveronLeftIcon";
-import TrashCan from "../../assets/icons/TrashCan";
-import Button from "../../Components/Button";
+import { unitConversionTableHead } from "../../../assets/constants/inventory";
+import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
+import TrashCan from "../../../assets/icons/TrashCan";
+import Button from "../../../Components/Button";
 import NewUnitConverstion from "./NewUnitConverstion";
 import EditUnitConversion from "./EditUnitConversion";
 

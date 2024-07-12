@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { unitTableHead } from "../../assets/constants/inventory";
-import Pen from "../../assets/icons/Pen";
-import Eye from "../../assets/icons/Eye";
-import Delete from "../../assets/icons/Delete";
+import { unitTableHead } from "../../../assets/constants/inventory";
+import Pen from "../../../assets/icons/Pen";
+import Eye from "../../../assets/icons/Eye";
+import Delete from "../../../assets/icons/Delete";
 import { Link } from "react-router-dom";
-import Button from "../../Components/Button";
+import Button from "../../../Components/Button";
 
 type Props = {};
 
