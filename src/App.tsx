@@ -10,6 +10,8 @@ import ManualHome from "./features/accountant/manualJournel/ManualHome";
 import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
+import Unitconversion from "./features/Unit/Unitconversion";
+import UnitHome from "./features/Unit/UnitHome";
 
 function App() {
   return (
@@ -21,10 +23,15 @@ function App() {
           <Route path="/accountant" element={<Accountant />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/organization" element={<Organization />}></Route>
-          <Route path="/cash" element={<Cash/>}></Route>
-          <Route path="/manualjournal" element={<ManualHome/>}></Route>
-          <Route path="/newjournal" element={<NewJournal/>}></Route>
-          <Route path="/bank" element={<BankHome/>}></Route>
+          <Route path="/cash" element={<Cash />}></Route>
+          <Route path="/manualjournal" element={<ManualHome />}></Route>
+          <Route path="/newjournal" element={<NewJournal />}></Route>
+          <Route path="/bank" element={<BankHome />}></Route>
+          <Route path="/inventory/unit" element={<UnitHome />}></Route>
+          <Route
+            path="/inventory/unit/unit-conversion"
+            element={<Unitconversion />}
+          ></Route>
         </Route>
       </Routes>
     </>
