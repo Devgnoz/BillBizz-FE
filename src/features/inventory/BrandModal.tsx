@@ -3,6 +3,7 @@ import Modal from "../../Components/model/Modal";
 import bgImage from "../../assets/Images/Frame 6.png";
 import NewBrandModal from "./NewBrandModal";
 
+
 type BrandModalProps = {
   onClose: () => void;
 };

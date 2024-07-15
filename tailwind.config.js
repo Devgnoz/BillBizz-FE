@@ -28,9 +28,10 @@ export default {
         labelColor: "#495160",
         inputBorder: "rgba(206, 206, 206, 1)",
         outlineButton: "rgba(86, 81, 72, 1)",
-        tableBorder:"#EAECF0",
-        hr:"rgba(204, 204, 204, 1)",
-        dropdownBorder:"#DCDEE2"
+        tableBorder: "#EAECF0",
+        hr: "rgba(204, 204, 204, 1)",
+        dropdownBorder: "#DCDEE2",
+        BgSubhead: "#E3E6D5",
       },
     },
   },

@@ -20,6 +20,20 @@ const navlist = [
     nav: "Inventory",
     icon: box,
     route: "/inventory",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Item",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Unit of Measurement",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Customer",
@@ -30,6 +44,32 @@ const navlist = [
     nav: "Sales",
     icon: shoppingCart,
     route: "/sales",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/sales",
+      },
+      {
+        headName: "Sales Order",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Invoice",
+        rounte: "/inventory",
+      },
+      {
+        headName: "POS",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Sales Return",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Credit Note",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Accountant",
@@ -66,7 +106,7 @@ const navlist = [
     icon: newspapper,
     route: "/home",
   },
-];  
+];
 
 export const paymentTermsList = [
   {
