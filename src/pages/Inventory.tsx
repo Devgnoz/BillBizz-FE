@@ -1,18 +1,28 @@
-import { useEffect, useRef, useState } from 'react';
-import Ellipsis from '../assets/icons/Ellipsis';
-import HandShakeIcon from '../assets/icons/HandShakeIcon';
-import EyeIcon from '../assets/icons/EyeIcon';
-import PackageIcon from '../assets/icons/PackageIcon';
-import ClipboardIcon from '../assets/icons/ClipboardIcon';
-import Category from '../features/Inventory/Category/Category';
-import BrandModal from '../features/Inventory/BrandModal';
-import RackModal from '../features/Inventory/Rack/RackModal'
-
+import { useState, useEffect, useRef } from "react";
+import Button from "../Components/Button";
+import Cards from "../features/Inventory/Cards";
+import Ellipsis from "../assets/icons/Ellipsis";
+import PlusCircle from "../assets/icons/PlusCircle";
+import ArrowDownIcon from "../assets/icons/ArrowDownIcon";
+import ArrowUpIcon from "../assets/icons/ArrowUpIcon";
+import RefreshIcon from "../assets/icons/RefreshIcon";
+import SearchBar from "../features/sales/SearchBar";
+import SortBy from "../features/sales/SortBy";
+import Print from "../features/sales/Print";
+import BarCharts from "../features/Inventory/BarCharts";
+import BrandModal from "../features/inventory/BrandModal";
+import RackModal from "../features/inventory/Rack/RackModal";
+import ClipboardIcon from "../assets/icons/ClipboardIcon";
+import PackageIcon from "../assets/icons/PackageIcon";
+import EyeIcon from "../assets/icons/EyeIcon";
+import HandShakeIcon from "../assets/icons/HandShakeIcon";
+import Category from "../features/inventory/Category/Category";
+import DashboardHome from "../features/inventory/Dashboard/DashboardHome";
 
 
 type Props = {};
 
-function Inventory({ }: Props) {
+const Inventory = ({}: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [isRackModalOpen, setIsRackModalOpen] = useState(false);
@@ -71,6 +81,8 @@ function Inventory({ }: Props) {
   ];
 
   return (
+
+
     <>
     <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
       <div className="flex justify-end">
@@ -98,10 +110,9 @@ function Inventory({ }: Props) {
       {isBrandModalOpen && <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />}
       {isRackModalOpen && <RackModal ref={modalRef} onClose={()=>setIsRackModalOpen(false)}/>}
     </div>
-
+      <DashboardHome/>  
     </>
-
   );
-}
+};
 
 export default Inventory;
