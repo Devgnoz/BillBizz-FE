@@ -11,7 +11,6 @@ import BrandModal from "../features/Inventory/BrandModal";
 import NewCustomerModal from "../features/Customer/NewCustomerModal";
 
 
-
 type Props = {};
 
 const Inventory = ({}: Props) => {
@@ -27,7 +26,10 @@ const Inventory = ({}: Props) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       if (!isBrandModalOpen) {
         setIsDropdownOpen(false);
       }
@@ -43,28 +45,28 @@ const Inventory = ({}: Props) => {
 
   const dropdownItems = [
     {
-      icon: <HandShakeIcon color='#4B5C79' />,
+      icon: <HandShakeIcon color="#4B5C79" />,
       text: "View Manufacture",
       onClick: () => {
         console.log("View Manufacture clicked");
       },
     },
     {
-      icon: <EyeIcon color='#4B5C79' />,
+      icon: <EyeIcon color="#4B5C79" />,
       text: "View Brand",
       onClick: () => {
         setIsBrandModalOpen(true);
       },
     },
     {
-      icon: <PackageIcon color='#4B5C79' />,
+      icon: <PackageIcon color="#4B5C79" />,
       text: "View Rack",
       onClick: () => {
-       setIsRackModalOpen(true);
+        setIsRackModalOpen(true);
       },
     },
     {
-      icon: <ClipboardIcon color='#4B5C79' />,
+      icon: <ClipboardIcon color="#4B5C79" />,
       text: "View Category",
       onClick: () => {
         console.log("View Category clicked");
@@ -73,8 +75,6 @@ const Inventory = ({}: Props) => {
   ];
 
   return (
-
-
     <>
     <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
       <div className="flex justify-end">
@@ -98,12 +98,45 @@ const Inventory = ({}: Props) => {
               ))}
             </ul>
           </div>
+          <Category />
+
+          {isDropdownOpen && (
+            <div
+              ref={dropdownRef}
+              className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10"
+              style={{ borderRadius: "4px", padding: "8px" }}
+            >
+              <ul className="text-dropdownText">
+                {dropdownItems.map((item, index) => (
+                  <>
+                    <li
+                      key={index}
+                      onClick={item.onClick}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
+                    >
+                      {item.icon}
+                      {item.text}
+                    </li>
+                    {index < dropdownItems.length - 1 && (
+                      <hr className="border-dropdownBorder" />
+                    )}
+                  </>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        {isBrandModalOpen && (
+          <BrandModal
+            ref={modalRef}
+            onClose={() => setIsBrandModalOpen(false)}
+          />
+        )}
+        {isRackModalOpen && (
+          <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
         )}
       </div>
-      {isBrandModalOpen && <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />}
-      {isRackModalOpen && <RackModal ref={modalRef} onClose={()=>setIsRackModalOpen(false)}/>}
-    </div>
-      <DashboardHome/>  
+      <DashboardHome />
     </>
   );
 };

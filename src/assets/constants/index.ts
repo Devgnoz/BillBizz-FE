@@ -20,21 +20,97 @@ const navlist = [
     nav: "Inventory",
     icon: box,
     route: "/inventory",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Item",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Unit of Measurement",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Customer",
     icon: userRound,
-    route: "/home",
+    route: "/customer",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/customer",
+      },
+      {
+        headName: "Customer",
+        rounte: "/sales",
+      },
+    ],
   },
   {
     nav: "Sales",
     icon: shoppingCart,
     route: "/sales",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/sales",
+      },
+      {
+        headName: "Sales Order",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Invoice",
+        rounte: "/inventory",
+      },
+      {
+        headName: "POS",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Sales Return",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Credit Note",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Accountant",
     icon: squreUserRound,
     route: "/accountant",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/sales",
+      },
+      {
+        headName: "Chart Of Account",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Manuval Journals",
+        rounte: "/manualjournal",
+      },
+      {
+        headName: "Bank",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Cash",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Currency Adjustment",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Supplier",
@@ -66,7 +142,7 @@ const navlist = [
     icon: newspapper,
     route: "/home",
   },
-];  
+];
 
 export const paymentTermsList = [
   {
