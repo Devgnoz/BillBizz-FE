@@ -1,15 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Button from "../Components/Button";
-import Cards from "../features/Inventory/Cards";
 import Ellipsis from "../assets/icons/Ellipsis";
-import PlusCircle from "../assets/icons/PlusCircle";
-import ArrowDownIcon from "../assets/icons/ArrowDownIcon";
-import ArrowUpIcon from "../assets/icons/ArrowUpIcon";
-import RefreshIcon from "../assets/icons/RefreshIcon";
-import SearchBar from "../features/sales/SearchBar";
-import SortBy from "../features/sales/SortBy";
-import Print from "../features/sales/Print";
-import BarCharts from "../features/Inventory/BarCharts";
 import BrandModal from "../features/inventory/BrandModal";
 import RackModal from "../features/inventory/Rack/RackModal";
 import ClipboardIcon from "../assets/icons/ClipboardIcon";
@@ -18,7 +8,6 @@ import EyeIcon from "../assets/icons/EyeIcon";
 import HandShakeIcon from "../assets/icons/HandShakeIcon";
 import Category from "../features/inventory/Category/Category";
 import DashboardHome from "../features/inventory/Dashboard/DashboardHome";
-
 
 type Props = {};
 
@@ -84,46 +73,51 @@ const Inventory = ({}: Props) => {
   ];
 
   return (
-
-
     <>
-    <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
-      <div className="flex justify-end">
-        <div onClick={toggleDropdown} className="cursor-pointer">
-          <Ellipsis />
-        </div>
-<Category/>
-
-        {isDropdownOpen && (
-          <div ref={dropdownRef} className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
-            <ul className="text-dropdownText">
-              {dropdownItems.map((item, index) => (
-                <>
-                  <li
-                    key={index}
-                    onClick={item.onClick}
-                    className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
-                  >
-                    {item.icon}
-                    {item.text}
-                  </li>
-                  {index < dropdownItems.length - 1 && (
-                    <hr className="border-dropdownBorder" />
-                  )}
-                </>
-              ))}
-            </ul>
+      <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
+        <div className="flex justify-end">
+          <div onClick={toggleDropdown} className="cursor-pointer">
+            <Ellipsis />
           </div>
+          <Category />
+
+          {isDropdownOpen && (
+            <div
+              ref={dropdownRef}
+              className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10"
+              style={{ borderRadius: "4px", padding: "8px" }}
+            >
+              <ul className="text-dropdownText">
+                {dropdownItems.map((item, index) => (
+                  <>
+                    <li
+                      key={index}
+                      onClick={item.onClick}
+                      className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
+                    >
+                      {item.icon}
+                      {item.text}
+                    </li>
+                    {index < dropdownItems.length - 1 && (
+                      <hr className="border-dropdownBorder" />
+                    )}
+                  </>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        {isBrandModalOpen && (
+          <BrandModal
+            ref={modalRef}
+            onClose={() => setIsBrandModalOpen(false)}
+          />
+        )}
+        {isRackModalOpen && (
+          <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
         )}
       </div>
-      {isBrandModalOpen && (
-        <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />
-      )}
-      {isRackModalOpen && (
-        <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
-      )}
-    </div>
-      <DashboardHome/>  
+      <DashboardHome />
     </>
   );
 };

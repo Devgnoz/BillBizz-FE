@@ -38,7 +38,17 @@ const navlist = [
   {
     nav: "Customer",
     icon: userRound,
-    route: "/home",
+    route: "/customer",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/customer",
+      },
+      {
+        headName: "Customer",
+        rounte: "/sales",
+      },
+    ],
   },
   {
     nav: "Sales",
@@ -75,6 +85,32 @@ const navlist = [
     nav: "Accountant",
     icon: squreUserRound,
     route: "/accountant",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/sales",
+      },
+      {
+        headName: "Chart Of Account",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Manuval Journals",
+        rounte: "/manualjournal",
+      },
+      {
+        headName: "Bank",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Cash",
+        rounte: "/inventory",
+      },
+      {
+        headName: "Currency Adjustment",
+        rounte: "/inventory",
+      },
+    ],
   },
   {
     nav: "Supplier",
