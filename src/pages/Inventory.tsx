@@ -8,7 +8,6 @@ import DashboardHome from "../features/Inventory/Dashboard/DashboardHome";
 import RackModal from "../features/Inventory/Rack/RackModal";
 import Category from "../features/Inventory/Category/Category";
 import BrandModal from "../features/Inventory/BrandModal";
-import NewCustomerModal from "../features/Customer/NewCustomerModal";
 
 
 

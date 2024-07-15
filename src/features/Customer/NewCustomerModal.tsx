@@ -61,8 +61,7 @@ const NewCustomerModal = ({}: Props) => {
                   &times;
                 </div>
               </div>
-    
-              <form className="text-slate-600 text-sm overflow-scroll hide-scrollbar space-y-4 p-2"  style={{ height: "480px" }}>
+              <form className="text-slate-600 text-sm overflow-scroll hide-scrollbar space-y-5 p-2"  style={{ height: "480px" }}>
                 <label htmlFor="">
                   Cutomer Type <br />
                   <input type="radio" value="Business" className="m-2  bg-black" />{" "}
