@@ -78,7 +78,6 @@ const Inventory = ({}: Props) => {
     <>
     <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
       <div className="flex justify-end">
-        <NewCustomerModal/>
         <div onClick={toggleDropdown} className="cursor-pointer">
           <Ellipsis />
         </div>
