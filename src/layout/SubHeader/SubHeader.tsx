@@ -1,5 +1,5 @@
 type Props = {
-  activeIndex: number | null;
+  activeIndex: rating | null;
 };
 
 const SubHeader = ({ activeIndex }: Props) => {

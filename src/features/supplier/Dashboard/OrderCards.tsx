@@ -1,5 +1,6 @@
 import React from "react";
 import { cva } from "class-variance-authority";
+import ArrowIconNoUnderline from "../../../assets/icons/ArrowIconNoUnderline";
 
 type CardProps = {
   icon: React.ReactNode;
@@ -29,10 +30,17 @@ const Card: React.FC<CardProps> = ({ icon, title, count, rating, active = false,
         {icon}
       </div>
 
-      <div className="text-textColor">
-        <h2 className="text-sm font-bold">{title}</h2>
-        <p className="text-gray-500 text-[12px]">{count}</p>
-        <div className="text-md font-bold mt-2" style={{color : active ? "rgba(130, 0, 0, 1)" : ""}}>{rating}</div>
+      <div className="space-y-2">
+        <h2 className="text-[18px] font-bold">{title}</h2>
+        <p className="text-black font-extrabold text-2xl" style={{color : active ? "rgba(130, 0, 0, 1)" : ""}}>{count}</p>
+        <div className="flex justify-between items-center">
+        <div className="text-md font-bold  flex items-center  p-1 text-green-800 rounded-md bg-green-200" >
+          {rating}%<ArrowIconNoUnderline size={20} color="#166534"/>
+        </div>
+        <div className="flex items-center justify-center">
+        <p className="text-[12.5px]">Compared to last month</p>
+        </div>
+        </div>
       </div>
     </div>
   );

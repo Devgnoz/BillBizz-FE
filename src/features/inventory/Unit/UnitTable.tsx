@@ -9,7 +9,7 @@ import Button from "../../../Components/Button";
 type Props = {};
 
 const UnitTable = ({}: Props) => {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<rating | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const data = [
@@ -36,7 +36,7 @@ const UnitTable = ({}: Props) => {
     },
   ];
 
-  const toggleDropdown = (index: number | null) => {
+  const toggleDropdown = (index: rating | null) => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 

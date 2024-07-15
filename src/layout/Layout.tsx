@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<rating | null>(null);
 
   return (
     <div className="flex">

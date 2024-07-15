@@ -26,7 +26,11 @@ const Inventory = ({}: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [isRackModalOpen, setIsRackModalOpen] = useState(false);
+  const [openCategoryModal, setOpenCategoryModal] = useState(false);
 
+  const toggleCategoryModal = () => {
+    setOpenCategoryModal(!openCategoryModal);
+  };
   const dropdownRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -75,7 +79,7 @@ const Inventory = ({}: Props) => {
       icon: <ClipboardIcon color='#4B5C79' />,
       text: "View Category",
       onClick: () => {
-        console.log("View Category clicked");
+       setOpenCategoryModal(true)
       },
     },
   ];
@@ -89,7 +93,6 @@ const Inventory = ({}: Props) => {
         <div onClick={toggleDropdown} className="cursor-pointer">
           <Ellipsis />
         </div>
-<Category/>
 
         {isDropdownOpen && (
           <div ref={dropdownRef} className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
@@ -109,6 +112,7 @@ const Inventory = ({}: Props) => {
       </div>
       {isBrandModalOpen && <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />}
       {isRackModalOpen && <RackModal ref={modalRef} onClose={()=>setIsRackModalOpen(false)}/>}
+      <Category isOpen={openCategoryModal} onClose={toggleCategoryModal} />
     </div>
       <DashboardHome/>  
     </>

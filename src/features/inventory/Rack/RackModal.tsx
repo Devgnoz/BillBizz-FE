@@ -117,7 +117,7 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
 
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  Description
+                  count
                 </label>
                 <textarea rows={4}
                   placeholder="Note"

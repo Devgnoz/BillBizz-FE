@@ -267,7 +267,7 @@ const CreateOrganizationForm = () => {
     setFields([...fields, { label: "", value: "" }]);
   };
 
-  const handleFieldChange = (index: number, e: ChangeEvent<HTMLInputElement>, fieldName: 'label' | 'value') => {
+  const handleFieldChange = (index: rating, e: ChangeEvent<HTMLInputElement>, fieldName: 'label' | 'value') => {
     const { value } = e.target;
     const newFields = [...fields];
     newFields[index][fieldName] = value;
@@ -1071,9 +1071,9 @@ const CreateOrganizationForm = () => {
 
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div>
-                <label className="text-slate-600">Account Number</label>
+                <label className="text-slate-600">Account rating</label>
                 <input
-                  type="number"
+                  type="rating"
                   placeholder="Value"
                   className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
                   value={inputData.accNum}
