@@ -12,7 +12,7 @@ const Cards = ({}: Props) => {
       icon: <i className="fa-solid fa-cart-shopping text-xl text-black"></i>,
       title: "Order placed",
       description: "Lorem ipsum dolor sit amet",
-      number: 100,
+      number: "$100",
     },
     {
       icon: <i className="fa-solid fa-cogs text-xl text-black"></i>,
