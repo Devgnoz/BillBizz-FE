@@ -12,7 +12,7 @@ import RackModal from '../features/Inventory/Rack/RackModal'
 
 type Props = {};
 
-function Inventory({}: Props) {
+function Inventory({ }: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [isRackModalOpen, setIsRackModalOpen] = useState(false);
@@ -71,14 +71,16 @@ function Inventory({}: Props) {
   ];
 
   return (
+    <>
     <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
       <div className="flex justify-end">
         <div onClick={toggleDropdown} className="cursor-pointer">
           <Ellipsis />
-          <Category/>
         </div>
+<Category/>
+
         {isDropdownOpen && (
-          <div ref={dropdownRef} className="absolute top-32 right-16 mt-2 w-56 bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
+          <div ref={dropdownRef} className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
             <ul className="text-dropdownText">
               {dropdownItems.map((item, index) => (
                 <>
@@ -96,6 +98,9 @@ function Inventory({}: Props) {
       {isBrandModalOpen && <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />}
       {isRackModalOpen && <RackModal ref={modalRef} onClose={()=>setIsRackModalOpen(false)}/>}
     </div>
+
+    </>
+
   );
 }
 
