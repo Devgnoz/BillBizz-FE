@@ -10,10 +10,9 @@ import ManualHome from "./features/accountant/manualJournel/ManualHome";
 import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
+import Customer from "./pages/Customer";
 import UnitHome from "./features/Inventory/Unit/UnitHome";
 import Unitconversion from "./features/Inventory/Unit/Unitconversion";
-
-import Customer from "./pages/Customer";
 
 function App() {
   return (
