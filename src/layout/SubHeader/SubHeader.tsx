@@ -23,7 +23,8 @@ const SubHeader = ({ activeIndex }: Props) => {
           <Link to={item.rounte}>
             <div
               key={index}
-              className={`font-medium py-2 px-4 rounded-full cursor-pointer ${
+              className={`font-medium
+                 py-2 px-4 rounded-full cursor-pointer ${
                 selectedIndex === index ? "bg-white" : "hover:bg-white"
               }`}
               onClick={() => handleSelect(index)}
