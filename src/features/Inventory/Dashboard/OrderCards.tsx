@@ -1,7 +1,7 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 
-import ArrowUpIconWithoutUnderLine from "../../assets/icons/ArrowUpIconWithoutUnderLine";
+import ArrowUpIconWithoutUnderLine from "../../../assets/icons/ArrowUpIconWithoutUnderLine";
 
 type CardProps = {
   icon: React.ReactNode;

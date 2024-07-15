@@ -1,7 +1,7 @@
 import { useState } from "react";
-import OrderCards from "../Inventory/OrderCards";
-import ArrowUpIcon from "../../assets/icons/ArrowUpIcon";
-import Boxes from "../../assets/icons/Boxes";
+import OrderCards from "./OrderCards";
+import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
+import Boxes from "../../../assets/icons/Boxes";
 
 type Props = {};
 
