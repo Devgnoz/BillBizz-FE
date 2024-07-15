@@ -1,7 +1,9 @@
 
+import React from 'react'
+
 type Props = {}
 
-const Dashboard = ({}: Props) => {
+function Dashboard({}: Props) {
   return (
     <div>Dashboard</div>
   )
