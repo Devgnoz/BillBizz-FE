@@ -4,12 +4,11 @@ import ClipboardIcon from "../assets/icons/ClipboardIcon";
 import PackageIcon from "../assets/icons/PackageIcon";
 import EyeIcon from "../assets/icons/EyeIcon";
 import HandShakeIcon from "../assets/icons/HandShakeIcon";
-import DashboardHome from "../features/Inventory/Dashboard/DashboardHome";
-import RackModal from "../features/Inventory/Rack/RackModal";
-import Category from "../features/Inventory/Category/Category";
-import BrandModal from "../features/Inventory/BrandModal";
+import DashboardHome from "../features/inventory/Dashboard/DashboardHome";
+import RackModal from "../features/inventory/Rack/RackModal";
+import Category from "../features/inventory/Category/Category";
+import BrandModal from "../features/inventory/BrandModal";
 import NewCustomerModal from "../features/Customer/NewCustomerModal";
-
 
 type Props = {};
 
@@ -76,30 +75,13 @@ const Inventory = ({}: Props) => {
 
   return (
     <>
-    <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
-      <div className="flex justify-end">
-        <NewCustomerModal/>
-        <div onClick={toggleDropdown} className="cursor-pointer">
-          <Ellipsis />
-        </div>
-<Category/>
-
-        {isDropdownOpen && (
-          <div ref={dropdownRef} className="absolute top-44 right-16 mt-2 w-[15.8%] bg-white shadow-xl z-10" style={{ borderRadius: "4px", padding: "8px" }}>
-            <ul className="text-dropdownText">
-              {dropdownItems.map((item, index) => (
-                <>
-                  <li key={index} onClick={item.onClick} className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer">
-                    {item.icon}
-                    {item.text}
-                  </li>
-                  {index < dropdownItems.length - 1 && <hr className='border-dropdownBorder' />}
-                </>
-              ))}
-            </ul>
+      <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
+        <div className="flex justify-end">
+          <NewCustomerModal />
+          <div onClick={toggleDropdown} className="cursor-pointer">
+            <Ellipsis />
           </div>
           <Category />
-
           {isDropdownOpen && (
             <div
               ref={dropdownRef}
@@ -108,9 +90,8 @@ const Inventory = ({}: Props) => {
             >
               <ul className="text-dropdownText">
                 {dropdownItems.map((item, index) => (
-                  <>
+                  <div key={index}>
                     <li
-                      key={index}
                       onClick={item.onClick}
                       className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer"
                     >
@@ -120,22 +101,19 @@ const Inventory = ({}: Props) => {
                     {index < dropdownItems.length - 1 && (
                       <hr className="border-dropdownBorder" />
                     )}
-                  </>
+                  </div>
                 ))}
               </ul>
             </div>
           )}
         </div>
-        {isBrandModalOpen && (
-          <BrandModal
-            ref={modalRef}
-            onClose={() => setIsBrandModalOpen(false)}
-          />
-        )}
-        {isRackModalOpen && (
-          <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
-        )}
       </div>
+      {isBrandModalOpen && (
+        <BrandModal ref={modalRef} onClose={() => setIsBrandModalOpen(false)} />
+      )}
+      {isRackModalOpen && (
+        <RackModal ref={modalRef} onClose={() => setIsRackModalOpen(false)} />
+      )}
       <DashboardHome />
     </>
   );
