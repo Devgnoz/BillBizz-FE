@@ -4,11 +4,10 @@ import ClipboardIcon from "../assets/icons/ClipboardIcon";
 import PackageIcon from "../assets/icons/PackageIcon";
 import EyeIcon from "../assets/icons/EyeIcon";
 import HandShakeIcon from "../assets/icons/HandShakeIcon";
-import DashboardHome from "../features/inventory/Dashboard/DashboardHome";
-import RackModal from "../features/inventory/Rack/RackModal";
-import Category from "../features/inventory/Category/Category";
-import BrandModal from "../features/inventory/BrandModal";
-import NewCustomerModal from "../features/Customer/NewCustomerModal";
+import DashboardHome from "../features/Inventory/Dashboard/DashboardHome";
+import RackModal from "../features/Inventory/Rack/RackModal";
+import Category from "../features/Inventory/Category/Category";
+import BrandModal from "../features/Inventory/BrandModal";
 
 type Props = {};
 
@@ -77,7 +76,6 @@ const Inventory = ({}: Props) => {
     <>
       <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
         <div className="flex justify-end">
-          <NewCustomerModal />
           <div onClick={toggleDropdown} className="cursor-pointer">
             <Ellipsis />
           </div>
