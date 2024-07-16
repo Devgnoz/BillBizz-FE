@@ -89,7 +89,7 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
         </div>
       </Modal>
 
-      <Modal open={isModalOpen} onClose={closeModal} className="w-[32%]">
+      <Modal open={isModalOpen} onClose={closeModal} style={{width:'35%'}}>
         <div className="p-5 mt-3">
           <div className=" flex p-4 rounded-xl  relative overflow-hidden">
             <h3 className="text-xl font-bold text-textColor">Add Rack</h3>
