@@ -31,7 +31,7 @@ const navlist = [
       },
       {
         headName: "Unit of Measurement",
-        rounte: "/inventory",
+        rounte: "/inventory/unit",
       },
     ],
   },
