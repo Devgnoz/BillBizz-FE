@@ -3,8 +3,8 @@ import logo from "../../../public/bill-bizz-logo.png";
 import navlist from "../../assets/constants";
 
 type Props = {
-  activeIndex: number | null;
-  setActiveIndex: (index: number) => void;
+  activeIndex: rating | null;
+  setActiveIndex: (index: rating) => void;
 };
 
 const SideBar = ({ activeIndex, setActiveIndex }: Props) => {

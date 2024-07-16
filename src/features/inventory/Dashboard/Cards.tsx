@@ -6,8 +6,8 @@ import Boxes from "../../../assets/icons/box";
 type Props = {};
 
 const Cards = ({}: Props) => {
-  const [activeCard, setActiveCard] = useState<number | null>(0);
-  const handleCardClick = (index: number) => {
+  const [activeCard, setActiveCard] = useState<rating | null>(0);
+  const handleCardClick = (index: rating) => {
     setActiveCard(index);
   };
 
@@ -22,7 +22,7 @@ const Cards = ({}: Props) => {
       title: "Total Inventory Value",
       percentageComp: "86%",
       comparedDes: "Compared to last month",
-      number: "$50,000",
+      rating: "$50,000",
     },
     {
       icon: (
@@ -34,7 +34,7 @@ const Cards = ({}: Props) => {
       title: "Total Sales Value",
       percentageComp: "86%",
       comparedDes: "Compared to last month",
-      number: "$120,000",
+      rating: "$120,000",
     },
     {
       icon: (
@@ -46,7 +46,7 @@ const Cards = ({}: Props) => {
       title: "Turnover Rate",
       percentageComp: "86%",
       comparedDes: "Compared to last month",
-      number: "4 times",
+      rating: "4 times",
     },
     {
       icon: (
@@ -58,7 +58,7 @@ const Cards = ({}: Props) => {
       title: "Pending Purchase",
       percentageComp: "86%",
       comparedDes: "Compared to last month",
-      number: "10 Orders",
+      rating: "10 Orders",
     },
     {
       icon: (
@@ -70,7 +70,7 @@ const Cards = ({}: Props) => {
       title: "Pending Sales",
       percentageComp: "86%",
       comparedDes: "Compared to last month",
-      number: "20 Orders",
+      rating: "20 Orders",
     },
   ];
 
@@ -87,7 +87,7 @@ const Cards = ({}: Props) => {
             title={card.title}
             comparedDes={card.comparedDes}
             percentageComp={card.percentageComp}
-            number={card.number}
+            rating={card.rating}
             active={activeCard === index}
             onClick={() => handleCardClick(index)}
           />

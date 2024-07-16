@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
 
 interface DataItem {
   name: string;
-  value: number;
+  value: rating;
   img: string;
 }
 
@@ -16,8 +16,8 @@ const data: DataItem[] = [
 ];
 
 interface CustomAxisTickProps {
-  x: number;
-  y: number;
+  x: rating;
+  y: rating;
   payload: {
     value: string;
   };
@@ -34,11 +34,11 @@ const renderCustomAxisTick = ({ x, y, payload }: CustomAxisTickProps) => {
 };
 
 interface CustomBarLabelProps {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  value: number;
+  x: rating;
+  y: rating;
+  width: rating;
+  height: rating;
+  value: rating;
 }
 
 const renderCustomBarLabel = ({ x, y, width, value }: CustomBarLabelProps) => {

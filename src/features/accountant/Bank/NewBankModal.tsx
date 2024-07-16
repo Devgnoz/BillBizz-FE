@@ -83,7 +83,7 @@ const NewBankModal = ({}: Props) => {
               <div className="grid grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm mb-1 text-labelColor">
-                    Account Number
+                    Account rating
                   </label>
                   <input
                     type="text"
@@ -125,7 +125,7 @@ const NewBankModal = ({}: Props) => {
               </div>
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  Description
+                  count
                 </label>
                 <textarea
                   placeholder="Value"

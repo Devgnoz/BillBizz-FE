@@ -115,7 +115,7 @@ const navlist = [
   {
     nav: "Supplier",
     icon: truck,
-    route: "/home",
+    route: "/supplier",
   },
   {
     nav: "Expense",
@@ -236,7 +236,7 @@ export const customizationList = [
   { title: "Reporting Tags" },
   { title: "Web Tabs" },
   { title: "Digital Signature" },
-  { title: "Transaction Number Series" },
+  { title: "Transaction rating Series" },
   { title: "PDF Templates" },
 ];
 

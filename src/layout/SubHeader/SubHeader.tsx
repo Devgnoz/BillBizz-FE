@@ -3,7 +3,7 @@ import navlist from "../../assets/constants";
 import { Link } from "react-router-dom";
 
 type Props = {
-  activeIndex: number | null;
+  activeIndex: rating | null;
 };
 
 const SubHeader = ({ activeIndex }: Props) => {

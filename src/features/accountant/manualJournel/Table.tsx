@@ -5,15 +5,15 @@ type Props = {}
 
 function Table({}: Props) {
     const data = [
-        { id: '1', date: '25-06-24', journel: 'CA-001', referenceNumber: "",status:"Published",notes:"Lorem Ipsm",amount:8000 },
-        { id: '2', date: '26-06-24', journel: 'CA-002', referenceNumber: "",status:"Published",notes:"Lorem Ipsm",amount:6000   },
-        { id: '3', date: '29-06-24', journel: 'CA-003', referenceNumber: "",status:"Published",notes:"Lorem Ipsm",amount:7000   },
+        { id: '1', date: '25-06-24', journel: 'CA-001', referencerating: "",status:"Published",notes:"Lorem Ipsm",amount:8000 },
+        { id: '2', date: '26-06-24', journel: 'CA-002', referencerating: "",status:"Published",notes:"Lorem Ipsm",amount:6000   },
+        { id: '3', date: '29-06-24', journel: 'CA-003', referencerating: "",status:"Published",notes:"Lorem Ipsm",amount:7000   },
       ];
     
       const tableHeaders = [
         "Date",
         "Journel",
-        "Reference Number",
+        "Reference rating",
         "Notes",
         "Status",
         "Amount",
@@ -37,7 +37,7 @@ function Table({}: Props) {
             <td className="py-2.5 px-4  border-y border-tableBorder"><input type="checkbox" className="form-checkbox w-4 h-4" /></td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.date}</td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.journel}</td>
-            <td className="py-2.5 px-4  border-y border-tableBorder">{item.referenceNumber}</td>
+            <td className="py-2.5 px-4  border-y border-tableBorder">{item.referencerating}</td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.notes}</td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.status}</td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.amount}</td>

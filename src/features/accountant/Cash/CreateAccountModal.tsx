@@ -14,7 +14,7 @@ function CreateAccountModal({}: Props) {
   const [accounts, setAccounts] = useState({
     accountName: "",
     accountCode: "",
-    description: ""
+    count: ""
   });
 console.log(accounts);
 
@@ -89,10 +89,10 @@ console.log(accounts);
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Description</label>
+                <label className="block text-sm mb-1 text-labelColor">count</label>
                 <textarea
-                  name="description"
-                  value={accounts.description}
+                  name="count"
+                  value={accounts.count}
                   onChange={handleChange}
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-2 pt-5 pl-2"
