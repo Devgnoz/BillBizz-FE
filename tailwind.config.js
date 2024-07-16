@@ -32,7 +32,8 @@ export default {
         hr: "rgba(204, 204, 204, 1)",
         dropdownBorder: "#DCDEE2",
         BgSubhead: "#E3E6D5",
-        loremcolor: "#8F99A9"
+        loremcolor: "#8F99A9",
+        cuscolumnbg:"#F3F3F3"
       },
     },
   },

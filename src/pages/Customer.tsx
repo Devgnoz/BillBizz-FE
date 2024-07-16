@@ -12,7 +12,7 @@ type Props = {}
 function Customer({ }: Props) {
   return (
     <>
-      <div className="p-5 flex items-center relative">
+      <div className=" px-6 flex items-center relative">
         <div>
           <h3 className="font-bold text-2xl text-textColor">Customer</h3>
           <p className="text-sm text-gray mt-1">
@@ -28,23 +28,23 @@ function Customer({ }: Props) {
       <div>
         <Cards />
       </div>
-      <div className="pl-5 pr-5 mt-3">
-      <div className="bg-white p-5">
-        <div className="w-[100%] p-3 bg-gray-100">
-          <Customers />
-        </div>
-        <div className="flex pl-3 pr-3 items-center gap-5">
-          <div className="w-[80%]">
-            <SearchBar placeholder="Search Sales Order" />
+      <div className="px-6 mt-3">
+        <div className="bg-white p-5">
+          <div className="w-[100%] p-3 bg-gray-100">
+            <Customers />
           </div>
-          <SortBy />
-          <Print />
+          <div className="flex pl-3 pr-3 items-center gap-5">
+            <div className="w-[80%]">
+              <SearchBar placeholder="Search Sales Order" />
+            </div>
+            <SortBy />
+            <Print />
+          </div>
+          <div className="p-5">
+            {/* table */}
+            <Table />
+          </div>
         </div>
-        <div className="p-5">
-          {/* table */}
-          <Table/>
-        </div>
-      </div>
       </div>
     </>
   )

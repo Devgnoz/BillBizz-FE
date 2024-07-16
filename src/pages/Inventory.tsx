@@ -78,7 +78,7 @@ const Inventory = ({ }: Props) => {
 
   return (
     <>
-      <div className="p-3 m-5 w-[95%] h-[50px] rounded-full bg-lightBeige">
+      <div className="p-3 m-5 h-[50px] rounded-full bg-lightBeige">
         <div className="flex justify-end">
           <div onClick={toggleDropdown} className="cursor-pointer">
             <Ellipsis />
