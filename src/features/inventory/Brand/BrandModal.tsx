@@ -1,11 +1,11 @@
 import { forwardRef, useState } from "react";
 import bgImage from "../../../assets/Images/Frame 6.png";
 import NewBrandModal from "./NewBrandModal";
-import Modal from "../../../Components/model/Modal";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import OutlineTrashIcon from "../../../assets/icons/OutlineTrashIcon";
 import PencilIcon from "../../../assets/icons/PencilIcon";
+import Modal from "../../../components/model/Modal";
 
 
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Modal from "../../../Components/model/Modal";
 import Button from "../../../Components/Button";
 import Pen from "../../../assets/icons/Pen";
 import CehvronDown from "../../../assets/icons/CehvronDown";
 import bgImage from "../../../assets/Images/6.png"
+import Modal from "../../../components/model/Modal";
 
 
 type Props = {};

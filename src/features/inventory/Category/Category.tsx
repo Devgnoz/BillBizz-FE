@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '../../../Components/Button';
-import Modal from '../../../Components/model/Modal';
 import bgImage from '../../../assets/Images/Frame 6.png';
-import CirclePlus from '../../.././assets/icons/circleplus';
 import PencilEdit from '../../.././assets/icons/PencilEdit';
 import TrashCan from '../../.././assets/icons/TrashCan';
 import PlusCircle from '../../../assets/icons/PlusCircle';
+import Modal from '../../../components/model/Modal';
+
 
 type Category = {
   categoryName: string;
