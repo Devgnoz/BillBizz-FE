@@ -1,8 +1,12 @@
-type Props = { color: string; classname?: string };
+type Props = { 
+  color: string; 
+  classname?: string; 
+  onClick?: () => void; // Add onClick as an optional property
+};
 
-const ListFilter = ({ color, classname }: Props) => {
+const ListFilter = ({ color, classname, onClick }: Props) => {
   return (
-    <div className={classname}>
+    <div className={classname} onClick={onClick}>
       <svg
         width="24"
         height="24"

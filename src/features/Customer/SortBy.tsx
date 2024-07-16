@@ -59,7 +59,6 @@ function SortBy({}: Props) {
       },
     },
   ];
-
   return (
     <div>
       <button

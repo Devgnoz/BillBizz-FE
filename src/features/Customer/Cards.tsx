@@ -31,7 +31,7 @@ function Cards({}: Props) {
         setActiveCardCC(index)
       }
   return (
-    <div className="flex space-x-4 justify-center pl-5 pr-5 mt-2">
+    <div className="flex space-x-4 justify-center px-6 mt-2">
          {customerCardsData.map((card, index) => (
         <CustomerCard
           key={index}
