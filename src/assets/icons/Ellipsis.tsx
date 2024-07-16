@@ -1,5 +1,5 @@
 type Props = {
-  height?: number;
+  height?: rating;
 }
 
 function Ellipsis({ height = 24 }: Props) {

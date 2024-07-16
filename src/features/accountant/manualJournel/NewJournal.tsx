@@ -12,7 +12,7 @@ type Props = {};
 function NewJournal({}: Props) {
   const tableHeaders = [
     "Account",
-    "Description",
+    "count",
     "Contact (INR)",
     "Debits",
     "Credits",
@@ -22,14 +22,14 @@ function NewJournal({}: Props) {
   const initialRows = [
     {
       account: "Account receivable",
-      description: "Description",
+      count: "count",
       contact: "",
       debits: "5000.00",
       credits: "0.00",
     },
     {
       account: "Sales Revenue",
-      description: "Description",
+      count: "count",
       contact: "",
       debits: "5000.00",
       credits: "0.00",
@@ -47,7 +47,7 @@ function NewJournal({}: Props) {
       ...rows,
       {
         account: "Account receivable",
-        description: "Description",
+        count: "count",
         contact: "",
         debits: "5000.00",
         credits: "0.00",
@@ -59,7 +59,7 @@ function NewJournal({}: Props) {
     setContactSearch([...contactSearch, '']);
   };
 
-  const deleteRow = (index: number) => {
+  const deleteRow = (index: rating) => {
     setRows(rows.filter((_, rowIndex) => rowIndex !== index));
     setIsAccountDropdownOpen(isAccountDropdownOpen.filter((_, i) => i !== index));
     setIsContactDropdownOpen(isContactDropdownOpen.filter((_, i) => i !== index));
@@ -80,7 +80,7 @@ function NewJournal({}: Props) {
     "Robert Brown",
   ];
 
-  const handleAccountSelect = (index: number, account: string) => {
+  const handleAccountSelect = (index: rating, account: string) => {
     const newRows = [...rows];
     newRows[index].account = account;
     setRows(newRows);
@@ -89,7 +89,7 @@ function NewJournal({}: Props) {
     setIsAccountDropdownOpen(newDropdownOpen);
   };
 
-  const handleContactSelect = (index: number, contact: string) => {
+  const handleContactSelect = (index: rating, contact: string) => {
     const newRows = [...rows];
     newRows[index].contact = contact;
     setRows(newRows);
@@ -98,33 +98,33 @@ function NewJournal({}: Props) {
     setIsContactDropdownOpen(newDropdownOpen);
   };
 
-  const handleAccountSearchChange = (index: number, value: string) => {
+  const handleAccountSearchChange = (index: rating, value: string) => {
     const newSearch = [...accountSearch];
     newSearch[index] = value;
     setAccountSearch(newSearch);
   };
 
-  const handleContactSearchChange = (index: number, value: string) => {
+  const handleContactSearchChange = (index: rating, value: string) => {
     const newSearch = [...contactSearch];
     newSearch[index] = value;
     setContactSearch(newSearch);
   };
 
-  const handleAccountDropdownToggle = (index: number, isOpen: boolean) => {
+  const handleAccountDropdownToggle = (index: rating, isOpen: boolean) => {
     setIsAccountDropdownOpen(isAccountDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
   };
 
-  const handleContactDropdownToggle = (index: number, isOpen: boolean) => {
+  const handleContactDropdownToggle = (index: rating, isOpen: boolean) => {
     setIsContactDropdownOpen(isContactDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
   };
 
-  const clearAccountSearch = (index: number) => {
+  const clearAccountSearch = (index: rating) => {
     const newSearch = [...accountSearch];
     newSearch[index] = '';
     setAccountSearch(newSearch);
   };
 
-  const clearContactSearch = (index: number) => {
+  const clearContactSearch = (index: rating) => {
     const newSearch = [...contactSearch];
     newSearch[index] = '';
     setContactSearch(newSearch);
@@ -240,7 +240,7 @@ function NewJournal({}: Props) {
                       clearSearch={clearAccountSearch}
                     />
                     <td className="px-6 py-4 whitespace-nowrap text-sm">
-                      {row.description}
+                      {row.count}
                     </td>
                     <ContactDropdown
                       index={index}

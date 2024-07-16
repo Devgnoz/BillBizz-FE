@@ -4,10 +4,10 @@ import BookXIcon from "../../assets/icons/BookXIcon";
 import NewspaperIcon from "../../assets/icons/NewspaperIcon";
 import OpenedBookIcon from "../../assets/icons/OpenedBookIcon";
 
-const Customers = () => {
+const Suppliers = () => {
   const [selected, setSelected] = useState('All');
 
-  const customers = [
+  const Suppliers = [
     {
       icon: <BookIcon color="#585953" />,
       title: "All",
@@ -40,7 +40,7 @@ const Customers = () => {
 
   return (
     <div className="flex gap-3 justify-between">
-      {customers.map((customer) => (
+      {Suppliers.map((customer) => (
         <button
           key={customer.title}
           onClick={() => setSelected(customer.title)}
@@ -56,4 +56,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Suppliers;

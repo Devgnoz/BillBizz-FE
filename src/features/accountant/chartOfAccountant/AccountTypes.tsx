@@ -4,10 +4,10 @@ import OpenedBookIcon from '../../../assets/icons/OpenedBookIcon';
 import BookXIcon from '../../../assets/icons/BookXIcon';
 import NewspaperIcon from '../../../assets/icons/NewspaperIcon';
 
-const Customers = () => {
+const Suppliers = () => {
   const [selected, setSelected] = useState('');
 
-  const customers = [
+  const Suppliers = [
     {
       icon: <BookIcon color="#585953" />,
       title: "All",
@@ -59,7 +59,7 @@ const Customers = () => {
   return (
     <>
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
-      {customers.slice(0, 4).map((customer) => (  
+      {Suppliers.slice(0, 4).map((customer) => (  
         <button
           key={customer.key}
           onClick={() => setSelected(customer.title)}
@@ -79,7 +79,7 @@ const Customers = () => {
       ))}
     </div>
       <div className='grid grid-cols-1 lg:grid-cols-5 gap-2'>
- {customers.slice(4).map((customer) => (
+ {Suppliers.slice(4).map((customer) => (
         <button
           key={customer.key}
           onClick={() => setSelected(customer.title)}
@@ -102,4 +102,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Suppliers;

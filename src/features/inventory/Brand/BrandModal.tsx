@@ -17,22 +17,22 @@ const BrandModal = forwardRef<HTMLDivElement, BrandModalProps>(({ onClose }, ref
   const cardData = [
     {
       title: "Xperia",
-      description: "Lorem ipsum dolor sit amet cons",
+      count: "Lorem ipsum dolor sit amet cons",
     },
     {
       title: "Galaxy",
-      description: "Lorem ipsum dolor sit amet cons",
+      count: "Lorem ipsum dolor sit amet cons",
     },
     {
       title: "Iphone",
-      description: "Lorem ipsum dolor sit amet cons",
+      count: "Lorem ipsum dolor sit amet cons",
     },
   ];
 
   const [isEditModalOpen, setEditModalOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState<{ title: string; description: string } | null>(null);
+  const [selectedCard, setSelectedCard] = useState<{ title: string; count: string } | null>(null);
 
-  const openEditModal = (card: { title: string; description: string }) => {
+  const openEditModal = (card: { title: string; count: string }) => {
     setSelectedCard(card);
     setEditModalOpen(true);
   };
@@ -79,7 +79,7 @@ const BrandModal = forwardRef<HTMLDivElement, BrandModalProps>(({ onClose }, ref
                 <div className="p-3 border w-[272px] h-[59px] border-tableBorder rounded-lg flex justify-between">
                   <div>
                     <h6 className="text-sm text-textColor font-semibold">{item.title}</h6>
-                    <p className="text-xs text-loremcolor">{item.description}</p>
+                    <p className="text-xs text-loremcolor">{item.count}</p>
                   </div>
                   <div className="flex space-x-2">
                     <button onClick={() => openEditModal(item)}>

@@ -89,7 +89,7 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
         </div>
       </Modal>
 
-      <Modal open={isModalOpen} onClose={closeModal} className="w-[32%]">
+      <Modal open={isModalOpen} onClose={closeModal} style={{width:'35%'}}>
         <div className="p-5 mt-3">
           <div className=" flex p-4 rounded-xl  relative overflow-hidden">
             <h3 className="text-xl font-bold text-textColor">Add Rack</h3>
@@ -117,7 +117,7 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
 
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  Description
+                  count
                 </label>
                 <textarea rows={4}
                   placeholder="Note"
