@@ -15,6 +15,7 @@ import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Table";
 import Customer from "./pages/Customer";
+import Item from "./features/inventory/Item/Item";
 
 function App() {
   return (
@@ -26,16 +27,19 @@ function App() {
           <Route path="/accountant" element={<Accountant />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/organization" element={<Organization />}></Route>
-          <Route path="/cash" element={<Cash/>}></Route>
-          <Route path="/manualjournal" element={<ManualHome/>}></Route>
-          <Route path="/newjournal" element={<NewJournal/>}></Route>
-          <Route path="/bank" element={<BankHome/>}></Route>
-          <Route path="/inventory/unit" element={<UnitHome/>}></Route>
-          <Route path="/inventory/unit/unit-conversion" element={<Unitconversion/>}></Route>
-          <Route path="/supplier" element={<Supplier/>}/>
-          <Route path="/supplier/table" element={<Table/>}>  
-          </Route>
+          <Route path="/cash" element={<Cash />}></Route>
+          <Route path="/manualjournal" element={<ManualHome />}></Route>
+          <Route path="/newjournal" element={<NewJournal />}></Route>
+          <Route path="/bank" element={<BankHome />}></Route>
+          <Route path="/inventory/unit" element={<UnitHome />}></Route>
+          <Route
+            path="/inventory/unit/unit-conversion"
+            element={<Unitconversion />}
+          ></Route>
+          <Route path="/supplier" element={<Supplier />} />
+          <Route path="/supplier/table" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
+          <Route path="/inventory/Item" element={<Item />}></Route>
           <Route
             path="/inventory/unit/unit-conversion"
             element={<Unitconversion />}
