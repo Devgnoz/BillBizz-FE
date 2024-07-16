@@ -59,6 +59,18 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
     closeModal();
   };
 
+type Props = {};
+
+function CustomiseColmn({}: Props) {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <>
       <div className="cursor-pointer" onClick={openModal}>
@@ -70,6 +82,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
           <div className="flex justify-between items-center mb-3">
             <h3 className="text-lg font-semibold text-textColor">Customise Column</h3>
             <div className="text-3xl font-light cursor-pointer" onClick={closeModal}>
+
               &times;
             </div>
           </div>
@@ -107,10 +120,12 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
               Save
             </button>
           </div>
+
         </div>
       </Modal>
     </>
   );
 };
+
 
 export default CustomiseColmn;
