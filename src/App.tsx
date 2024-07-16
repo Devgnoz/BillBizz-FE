@@ -12,6 +12,7 @@ import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
 import Unitconversion from "./features/inventory/Unit/Unitconversion";
+import Customer from "./pages/Customer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/bank" element={<BankHome/>}></Route>
           <Route path="/inventory/unit" element={<UnitHome/>}></Route>
           <Route path="/inventory/unit/unit-conversion" element={<Unitconversion/>}></Route>
+          <Route path="/customer" element={<Customer/>}></Route>
         </Route>
       </Routes>
     </>

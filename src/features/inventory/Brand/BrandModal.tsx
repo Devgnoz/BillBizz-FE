@@ -1,11 +1,12 @@
 import { forwardRef, useState } from "react";
-import Modal from "../../Components/model/Modal";
-import bgImage from "../../assets/Images/Frame 6.png";
+import bgImage from "../../../assets/Images/Frame 6.png";
 import NewBrandModal from "./NewBrandModal";
-import PencilIcon from "../../assets/icons/PencilIcon";
-import OutlineTrashIcon from "../../assets/icons/OutlineTrashIcon";
-import Button from "../../Components/Button";
-import PlusCircle from "../../assets/icons/PlusCircle";
+import Modal from "../../../Components/model/Modal";
+import Button from "../../../Components/Button";
+import PlusCircle from "../../../assets/icons/PlusCircle";
+import OutlineTrashIcon from "../../../assets/icons/OutlineTrashIcon";
+import PencilIcon from "../../../assets/icons/PencilIcon";
+
 
 
 type BrandModalProps = {

@@ -24,7 +24,7 @@ const navlist = [
   {
     nav: "Customer",
     icon: userRound,
-    route: "/home",
+    route: "/customer",
   },
   {
     nav: "Sales",

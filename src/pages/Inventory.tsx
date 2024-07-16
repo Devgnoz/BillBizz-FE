@@ -1,16 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Button from "../Components/Button";
-import Cards from "../features/Inventory/Cards";
 import Ellipsis from "../assets/icons/Ellipsis";
-import PlusCircle from "../assets/icons/PlusCircle";
-import ArrowDownIcon from "../assets/icons/ArrowDownIcon";
-import ArrowUpIcon from "../assets/icons/ArrowUpIcon";
-import RefreshIcon from "../assets/icons/RefreshIcon";
-import SearchBar from "../features/sales/SearchBar";
-import SortBy from "../features/sales/SortBy";
-import Print from "../features/sales/Print";
-import BarCharts from "../features/Inventory/BarCharts";
-import BrandModal from "../features/inventory/BrandModal";
+import BrandModal from "../features/inventory/Brand/BrandModal";
 import RackModal from "../features/inventory/Rack/RackModal";
 import ClipboardIcon from "../assets/icons/ClipboardIcon";
 import PackageIcon from "../assets/icons/PackageIcon";
