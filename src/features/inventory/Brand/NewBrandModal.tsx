@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import Button from "../../Components/Button";
-import Modal from "../../Components/model/Modal";
+import Modal from "../../../Components/model/Modal";
+import Button from "../../../Components/Button";
+
 
 type Props = {
   isOpen: boolean;
