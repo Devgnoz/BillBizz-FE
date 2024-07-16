@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import PencilEdit from "../../.././assets/icons/PencilEdit";
 import TrashCan from "../../.././assets/icons/TrashCan";
@@ -5,6 +6,7 @@ import PlusCircle from "../../../assets/icons/PlusCircle";
 import bgImage from "../../../assets/Images/Frame 6.png";
 import Button from "../../../Components/Button";
 import Modal from "../../../Components/model/Modal";
+
 
 type Category = {
   categoryName: string;
