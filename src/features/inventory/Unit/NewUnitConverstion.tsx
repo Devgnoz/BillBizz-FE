@@ -28,7 +28,7 @@ const NewUnitConverstion = ({}: Props) => {
         <p className="text-md">New Unit Conversion</p>
       </Button>
 
-      <Modal open={isModalOpen} onClose={closeModal} className="w-[55%]">
+      <Modal open={isModalOpen} onClose={closeModal} style={{width:"55%"}}>
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div
