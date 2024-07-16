@@ -59,8 +59,8 @@ function SortBy({ }: Props) {
 
     return (
         <div>
-            <button onClick={toggleDropdown} className="w-[98px] h-[34.5px] text-sm flex items-center justify-center" style={{ border: "0.5px solid #565148", borderRadius: "8px", color: "#565148" }}>
-                <span className="flex items-center px-2.5" style={{ gap: "8px", fontWeight: "500" }}>
+            <button onClick={toggleDropdown} className="w-[98px] h-[34.5px] text-sm flex items-center justify-center rounded-lg" style={{ border: "0.5px solid #565148", color: "#565148" }}>
+                <span className="flex items-center px-2.5 font-medium gap-2">
                     <ListIcon color="#565148" /> Sort By
                 </span>
             </button>
@@ -72,8 +72,8 @@ function SortBy({ }: Props) {
                                 <li onClick={item.onClick} className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer">
                                     {item.text}
                                 </li>
-                                <div className="pl-2 pr-2"> 
-                                {(item.text === "Name" || item.text === "Contact") && <hr className="border-dropdownBorder" />}
+                                <div className="pl-2 pr-2">
+                                    {(item.text === "Name" || item.text === "Contact") && <hr className="border-dropdownBorder" />}
                                 </div>
                             </div>
                         ))}

@@ -4,6 +4,7 @@ const Print = () => {
     <div>
       <button
         className="w-20 h-8 text-sm flex items-center justify-center border border-gray-500 rounded-lg text-gray-500"
+        style={{ border: "0.5px solid #565148", borderRadius: "8px", color: "#565148" }}
       >
         <span className="flex items-center px-2.5 gap-2 font-medium">
           <PrinterIcon color="#565148" /> Print
