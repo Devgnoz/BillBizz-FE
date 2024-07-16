@@ -13,7 +13,7 @@ import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
 import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
-import Table from "./features/supplier/Table";
+import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 
 function App() {

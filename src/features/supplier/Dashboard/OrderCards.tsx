@@ -11,7 +11,7 @@ type CardProps = {
   onClick?: () => void;
 };
 
-const cardVariants = cva("p-4 rounded-xl shadow-xl cursor-pointer", {
+const cardVariants = cva("p-4 rounded-xl  cursor-pointer", {
   variants: {
     active: {
       true: "bg-cardBg border-cardBorder border-2",
