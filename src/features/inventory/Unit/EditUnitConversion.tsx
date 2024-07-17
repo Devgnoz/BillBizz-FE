@@ -20,7 +20,7 @@ const EditUnitConversion = ({}: Props) => {
   };
   return (
     <div>
-      <Button variant="fourthiary" onClick={openModal} size="sm">
+      <Button variant="secondary" onClick={openModal} size="sm">
         <Pen color="currentColor" />
         Edit
       </Button>
@@ -83,10 +83,10 @@ const EditUnitConversion = ({}: Props) => {
             </div>
 
             <div className="flex justify-end gap-2 mb-3 mt-10">
-              <Button onClick={closeModal} variant="fourthiary" size="lg">
+              <Button onClick={closeModal} variant="secondary" size="lg">
                 Cancel
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="primary" size="lg">
                 Save
               </Button>
             </div>

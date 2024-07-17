@@ -246,4 +246,14 @@ export const ReminderList = [
   { title: "SMS Notification" },
 ];
 
+export const newPurchaseOrderTableHead=[
+  "Product",
+  "Quantity",
+  "Rate",
+  "Tax",
+  "Discount",
+   "Actions" 
+
+]
+
 export default navlist;
