@@ -19,7 +19,7 @@ const Item = ({}: Props) => {
             egestas consectetur amet.
           </p>
         </div>
-        <Button variant="secondary" size="xl">
+        <Button variant="primary" size="lg">
           <span className="flex gap-3 items-center">
             <PlusCircle color="white" />
             <p className="text-sm font-medium">Add Item</p>
