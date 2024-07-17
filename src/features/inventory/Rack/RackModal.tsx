@@ -1,10 +1,10 @@
 import React, { forwardRef, useState } from "react";
 import bgImage from "../../../assets/Images/6.png";
-import Modal from "../../../Components/model/Modal";
 import PencilEdit from "../../../assets/icons/PencilEdit";
 import TrashCan from "../../../assets/icons/TrashCan";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
+import Modal from "../../../components/model/Modal";
 
 type Props = {
   onClose: () => void;

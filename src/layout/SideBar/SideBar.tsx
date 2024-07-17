@@ -1,15 +1,28 @@
 import { Link } from "react-router-dom";
 import logo from "../../../public/bill-bizz-logo.png";
 import navlist from "../../assets/constants";
+import { useEffect } from "react";
 
 type Props = {
-  activeIndex: rating | null;
-  setActiveIndex: (index: rating) => void;
+  activeIndex: number | null;
+  setActiveIndex: (index: number) => void;
 };
 
 const SideBar = ({ activeIndex, setActiveIndex }: Props) => {
+  useEffect(() => {
+    const savedIndex = localStorage.getItem("savedIndex");
+    if (savedIndex !== null) {
+      setActiveIndex(Number(savedIndex));
+    }
+  }, [activeIndex]);
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index);
+    localStorage.setItem("savedIndex", index.toString());
+  };
+
   return (
-    <aside className="bg-maroon h- w-[72px]">
+    <aside className="bg-primary_main h- w-[72px]">
       <nav>
         <div className="flex justify-between items-center px-6 pt-7 pb-5">
           <img src={logo} alt="logo" />
@@ -20,7 +33,7 @@ const SideBar = ({ activeIndex, setActiveIndex }: Props) => {
           <div className="flex justify-center" key={index}>
             <ul>
               <Link to={item.route}>
-                <li className={`pb-3`} onClick={() => setActiveIndex(index)}>
+                <li className={`pb-3`} onClick={() => handleClick(index)}>
                   <div
                     className={`px-2 py-2 rounded-lg hover:bg-iconhover flex justify-center ${
                       activeIndex === index ? "bg-iconhover" : ""
