@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from '../../../Components/Button';
 import Modal from '../../../Components/model/Modal';
 import bgImage from '../../../assets/Images/Frame 6.png';
-import PlusCircle from '../../../assets/icons/PlusCircle';
 import PencilEdit from '../../../assets/icons/PencilEdit';
+import PlusCircle from '../../../assets/icons/PlusCircle';
 import TrashCan from '../../../assets/icons/TrashCan';
 
 type Category = {
