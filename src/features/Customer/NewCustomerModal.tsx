@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Button from "../../Components/Button";
-import CirclePlus from "../../assets/icons/circleplus";
 import CehvronDown from "../../assets/icons/CehvronDown";
 import Upload from "../../assets/icons/Upload";
 import Modal from "../../Components/model/Modal";
+import PlusCircle from "../../assets/icons/PlusCircle";
+
 
 type Props = {};
 
@@ -30,9 +31,14 @@ const NewCustomerModal = ({}: Props) => {
 
   return (
     <div>
-      <Button onClick={openModal} variant="primary" size="xl">
-        <CirclePlus color="white" size="16" />
-        <p className="text-sm font-medium">Add Customer</p>
+      <Button
+        onClick={openModal}
+        variant="primary"
+        className="flex items-center"
+          size="xl"
+      >
+        <PlusCircle color="white"  />{" "}
+        <p className="text-sm font-medium">New Customer</p>
       </Button>
 
       <Modal
@@ -566,15 +572,16 @@ const NewCustomerModal = ({}: Props) => {
             </form>
           </div>
 
-          <div className="flex justify-end gap-2 mb-3 m-5">
-            <Button variant="secondary" size="lg">
-              Save
-            </Button>
-            <Button onClick={closeModal} variant="fourthiary" size="lg">
-              Cancel
-            </Button>
-          </div>
-        </>
+            <div className="flex justify-end gap-2 mb-3 m-5">
+                 
+                 <Button variant="primary" size="lg">
+                   Save
+                 </Button>
+                  <Button onClick={closeModal} variant="secondary" size="lg">
+                   Cancel
+                 </Button>
+               </div>
+    </>
       </Modal>
     </div>
   );

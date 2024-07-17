@@ -68,7 +68,7 @@ const Unitconversion = ({}: Props) => {
                     <td className="cursor-pointer py-2.5 px-4 border-y border-tableBorder">
                       <div className="flex justify-center gap-3">
                         <EditUnitConversion/>
-                        <Button variant="fourthiary"  size="sm"><TrashCan color="currentColor"/>Delete</Button>
+                        <Button variant="secondary"  size="sm"><TrashCan color="currentColor"/>Delete</Button>
 
                       </div>
                     </td>

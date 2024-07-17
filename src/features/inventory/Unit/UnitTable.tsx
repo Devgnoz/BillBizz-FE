@@ -9,7 +9,7 @@ import Button from "../../../Components/Button";
 type Props = {};
 
 const UnitTable = ({}: Props) => {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState<rating | null>(null);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const data = [
@@ -36,7 +36,7 @@ const UnitTable = ({}: Props) => {
     },
   ];
 
-  const toggleDropdown = (index: rating | null) => {
+  const toggleDropdown = (index: number | null) => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
@@ -95,7 +95,8 @@ const UnitTable = ({}: Props) => {
                 <td className="cursor-pointer relative py-2.5 px-4 border-y items-center flex justify-center border-tableBorder">
                   <div className="">
                     <Button
-                      variant="fourthiary"
+                      variant="secondary"
+                      size="sm"
                       onClick={() => toggleDropdown(index)}
                     >
                       <Pen color="currentColor" />

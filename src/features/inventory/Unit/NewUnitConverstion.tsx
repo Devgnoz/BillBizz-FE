@@ -20,12 +20,11 @@ const NewUnitConverstion = ({}: Props) => {
     <div>
       <Button
         onClick={openModal}
-        variant="secondary"
-        className="flex items-center"
-        size="lg"
+        variant="primary"
+        size="xl"
       >
-        <CirclePlus color="white" size="14" />{" "}
-        <p className="text-md">New Unit Conversion</p>
+        <CirclePlus color="white" size="28" />{" "}
+        <p className="text-sm font-medium">New Unit Conversion</p>
       </Button>
 
       <Modal open={isModalOpen} onClose={closeModal} style={{ width: "55%" }}>
@@ -75,10 +74,13 @@ const NewUnitConverstion = ({}: Props) => {
             </div>
 
             <div className="flex justify-end gap-2 mb-3 mt-10">
-              <Button onClick={closeModal} variant="fourthiary" size="lg">
+
+              
+              <Button onClick={closeModal} variant="secondary" size="lg">
+
                 Cancel
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="primary" size="lg">
                 Save
               </Button>
             </div>

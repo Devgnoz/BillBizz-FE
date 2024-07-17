@@ -16,8 +16,11 @@ import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
+import NewPurchaseOrder from "./features/purchase/NewPurchaseOrder";
+import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
 import Item from "./features/inventory/Item/item";
+
 
 function App() {
   return (
@@ -54,6 +57,7 @@ function App() {
             path="/inventory/unit/unit-conversion"
             element={<Unitconversion />}
           ></Route>
+          <Route path="purchase/purchase-order/new" element={<NewPurchaseOrder/>}></Route>
         </Route>
       </Routes>
     </>
