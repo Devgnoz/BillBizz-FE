@@ -92,7 +92,7 @@ const navlist = [
       },
       {
         headName: "Chart Of Account",
-        rounte: "/inventory",
+        rounte: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Manuval Journals",

@@ -20,10 +20,8 @@ const Item = ({}: Props) => {
           </p>
         </div>
         <Button variant="primary" size="lg">
-          <span className="flex gap-3 items-center">
             <PlusCircle color="white" />
             <p className="text-sm font-medium">Add Item</p>
-          </span>
         </Button>
       </div>
       <div className="flex flex-col mt-4 gap-2 bg-white rounded-lg p-6">

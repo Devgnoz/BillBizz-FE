@@ -1,5 +1,3 @@
-import Button from "../Components/Button";
-import PlusCircle from "../assets/icons/PlusCircle";
 import Cards from "../features/Customer/Cards";
 import Dropdown from "../features/Customer/Dropdown";
 import NewCustomerModal from "../features/Customer/NewCustomerModal";
