@@ -6,8 +6,8 @@ import RefreshIcon from '../../../assets/icons/RefreshIcon'
 import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon'
 import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon'
 import Cards from './Cards'
-import TopSuppliers from './TopSuppliers'
-import SuppliersRetentionRate from './SuppliersRetentionRate'
+import TopCustomers from './TopCustomers'
+import CustomersRetentionRate from './CustomersRetentionRate'
 import RepeatPurchaseRate from './RepeatPurchaseRate'
 import AvaragePurchase from './AvaragePurchase'
 type Props = {}
@@ -65,17 +65,18 @@ function Dashboard({}: Props) {
     ];
   return (
     <>
-    <div className='p-6 space-y-8'>
+    <div className='p-6 space-y-8 text-[#303F58]'>
     <div className=" flex  items-center relative">
         <div>
-          <h3 className="font-bold text-2xl text-textColor">Supplier</h3>
+          <h3 className="font-bold text-2xl text-textColor">Customers</h3>
           <p className="text-sm text-gray mt-1">
             Lorem ipsum dolor sit amet consectetur. Commodo enim odio fringilla egestas consectetur amet.
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-          <Button variant="secondary" className="flex items-center justify-center" size="xl">
-            <span className="flex items-center px-2.5"><PlusCircle color="white"/> &nbsp;Add Supplier</span>
+          <Button variant="primary"  size="xl">
+           <PlusCircle color="white"/>
+           <p className='text-[13px] font-medium'>Add Customer</p>
           </Button>
 
           <div onClick={toggleDropdown} className="cursor-pointer">
@@ -101,10 +102,10 @@ function Dashboard({}: Props) {
       {/* Top suppliers and supplier rentaion rate overtime */}
       <div className='grid grid-cols-3 gap-5'>
           <div className='flex justify-center '>
-            <TopSuppliers/>
+            <TopCustomers/>
           </div>
           <div className='col-span-2 flex justify-center'>
-            <SuppliersRetentionRate/>
+            <CustomersRetentionRate/>
           </div>
           <div className='col-span-2 flex justify-center '>
           <RepeatPurchaseRate/>

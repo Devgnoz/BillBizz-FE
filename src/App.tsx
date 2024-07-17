@@ -13,10 +13,11 @@ import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
 import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
-import Table from "./features/supplier/Home/Table";
+import Table from "./features/supplier/SupplierHome/Table";
 import Customer from "./pages/Customer";
-import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
 import Item from "./features/inventory/Item/item";
+import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
+import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
 
 
 
@@ -41,9 +42,10 @@ function App() {
             element={<Unitconversion />}
           ></Route>
           <Route path="/supplier" element={<Supplier />} />
-          <Route path="/supplier/table" element={<Table />}></Route>
+          <Route path="/supplier/home" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
-          <Route path="/customer/seecustomerdetails" element={<SeeCustomerDetails />}></Route>
+          <Route path="/customer/home" element={<CustomerHome />}></Route>
+          <Route path="/customer/view/:id" element={<SeeCustomerDetails/>}/>
           <Route path="/inventory/Item" element={<Item />}></Route>
           <Route
             path="/inventory/unit/unit-conversion"

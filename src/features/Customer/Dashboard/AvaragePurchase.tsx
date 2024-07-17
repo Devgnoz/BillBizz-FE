@@ -15,7 +15,7 @@ const AveragePurchase = () => {
   return (
     <div className='bg-white rounded-lg w-full px-8'>
       <div className='flex justify-between mt-5 items-center'>
-      <h3 className=' text-xl font-bold '>Avarage Purchase Value</h3>  
+      <h3 className=' text-[16px] font-bold '>Avarage Purchase Value</h3>  
       <select
           className="border border-[#565148] h-8 pl-3 pr-4 rounded-md bg-[#FEFDFA]  text-xs font-semibold text-gray-800"
           style={{ color: "#585953" }}

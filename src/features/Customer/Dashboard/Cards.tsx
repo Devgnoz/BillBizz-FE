@@ -10,19 +10,19 @@ const Cards = ({}: Props) => {
   const cards = [
     {
       icon: <i className="fa-solid fa-cart-shopping text-xl text-black"></i>,
-      title: "Total Suppliers",
+      title: "Total Customers",
       count: "1500",
       rating: "12,95",
     },
     {
       icon: <i className="fa-solid fa-cogs text-xl text-black"></i>,
-      title: "New Suppliers",
+      title: "New Customers",
       count: "120",
       rating: "18,95",
     },
     {
         icon: <i className="fa-solid fa-cogs text-xl text-black"></i>,
-        title: "Active Suppliers",
+        title: "Active Customers",
         count: "800",
         rating: "12,95",
     },
@@ -34,14 +34,14 @@ const Cards = ({}: Props) => {
     },
     {
         icon: <i className="fa-solid fa-cogs text-xl text-black"></i>,
-        title: "Suppliers Churn Rate",
+        title: "Customers Churn Rate",
         count: "15%",
         rating: "10",
     },
   ];
   return (
     <div>
-        <div className="flex space-x-4  justify-center">
+        <div className="flex justify-between">
       {cards.map((card, index) => (
         <OrderCards
           key={index}

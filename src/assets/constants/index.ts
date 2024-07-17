@@ -23,30 +23,30 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Item",
-        rounte: "/inventory/Item",
+        subRoute: "/inventory/Item",
       },
       {
         headName: "Unit of Measurement",
-        rounte: "/inventory/unit",
+        subRoute: "/inventory/unit",
       },
     ],
   },
   {
     nav: "Customer",
     icon: userRound,
-    route: "/sales",
+    route: "/customer",
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/customer",
       },
       {
         headName: "Customer",
-        rounte: "/customer",
+        subRoute: "/customer/home",
       },
     ],
   },
@@ -57,27 +57,27 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/sales",
       },
       {
         headName: "Sales Order",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Invoice",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "POS",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Sales Return",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Credit Note",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
     ],
   },
@@ -88,27 +88,27 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/sales",
       },
       {
         headName: "Chart Of Account",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Manuval Journals",
-        rounte: "/manualjournal",
+        subRoute: "/manualjournal",
       },
       {
         headName: "Bank",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Cash",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Currency Adjustment",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
     ],
   },
@@ -116,6 +116,16 @@ const navlist = [
     nav: "Supplier",
     icon: truck,
     route: "/supplier",
+    subhead:[
+      {
+        headName: "Dashboard",
+        subRoute: "/supplier",
+      },
+      {
+        headName:"Supplier",
+        subRoute:"/supplier/home"
+      }
+    ]
   },
   {
     nav: "Expense",

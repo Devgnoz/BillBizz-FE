@@ -1,6 +1,6 @@
-import AllClients from "../../assets/Images/All-clients.png"
-import Active from "../../assets/Images/Active clients.png"
-import Inactive from "../../assets/Images/client_5895553 2.png"
+import AllClients from "../../../assets/Images/All-clients.png"
+import Active from "../../../assets/Images/Active clients.png"
+import Inactive from "../../../assets/Images/client_5895553 2.png"
 import { useState } from "react";
 import CustomerCard from "./CustomerCard";
 type Props = {}

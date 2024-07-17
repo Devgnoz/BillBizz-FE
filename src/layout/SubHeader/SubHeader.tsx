@@ -30,7 +30,7 @@ const SubHeader = ({ activeIndex }: Props) => {
         navlist[activeIndex] &&
         navlist[activeIndex].subhead &&
         navlist[activeIndex].subhead.map((item, index) => (
-          <Link to={item.rounte}>
+          <Link to={item.subRoute}>
             <div
               key={index}
               className={`font-medium

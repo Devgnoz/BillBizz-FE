@@ -84,9 +84,9 @@ function Category({ isOpen, onClose }: Props) {
         </div>
 
         <div className="flex justify-end me-2 my-4">
-          <Button variant="secondary" size="lg" onClick={openAddModal}>
+          <Button variant="primary" size="xl" onClick={openAddModal}>
             <PlusCircle color="white" />
-            Add Category
+            <p className='text-sm'>Add Category</p>
           </Button>
         </div>
 
@@ -112,12 +112,12 @@ function Category({ isOpen, onClose }: Props) {
         </div>
 
         <div className="flex justify-end my-3">
-          <Button variant="secondary" size="lg">
-            Save
+          <Button className="flex justify-center" variant="primary" size="lg">
+           Save
           </Button>
         </div>
-
-        <Modal open={isAddCategoryModal} onClose={closeAddModal} className="w-[33%]">
+         {/* Add Category */}
+        <Modal open={isAddCategoryModal} onClose={closeAddModal} style={{ width: "40.5%" }}>
           <div className="p-6 space-y-8">
             <div className="flex justify-between items-center">
               <h3 className="text-xl font-bold text-textColor">Add Category</h3>
@@ -143,18 +143,19 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="flex justify-end gap-2 mb-3">
-                <Button variant="secondary" size="lg">
-                  Save
-                </Button>
-                <Button onClick={closeAddModal} variant="fourthiary" size="lg">
+              <Button className="flex justify-center" onClick={closeAddModal} variant="tertiary" size="lg">
                   Cancel
                 </Button>
+               <Button className="flex justify-center" variant="primary" size="lg">
+                Save
+               </Button>
+                
               </div>
             </form>
           </div>
         </Modal>
-
-        <Modal open={isEditCategoryModal} onClose={closeEditModal} className="w-[33%]">
+          {/* Edit Category */}
+        <Modal open={isEditCategoryModal} onClose={closeEditModal} style={{ width: "40.5%" }}>
           <div className="p-6 space-y-8">
             <div className="flex justify-between items-center">
               <h3 className="text-xl font-bold text-textColor">Edit Category</h3>
@@ -186,11 +187,11 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="flex justify-end gap-2 mb-3">
-                <Button variant="secondary" size="lg">
-                  Save
-                </Button>
-                <Button onClick={closeEditModal} variant="fourthiary" size="lg">
+              <Button className='flex justify-center' onClick={closeEditModal} variant="tertiary" size="lg">
                   Cancel
+                </Button>
+                <Button className='flex justify-center' variant="primary" size="lg">
+                  Save
                 </Button>
               </div>
             </form>

@@ -1,6 +1,6 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import vectorImage from "../../assets/Images/Vector.png";
+import vectorImage from "../../../assets/Images/Vector.png";
 
 type CustomerCardProps = {
   icon: string;
