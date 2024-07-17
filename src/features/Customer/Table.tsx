@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomiseColmn from "./CustomiseColmn";
 import Button from "../../Components/Button";
+import { Link } from "react-router-dom";
 
 interface Column {
     id: string;
@@ -14,8 +15,8 @@ const Table = () => {
         { id: "companyName", label: "Company Name", visible: true },
         { id: "contact", label: "Contact", visible: true },
         { id: "email", label: "Email", visible: true },
-        { id: "receivables", label: "Receivables(BCY)", visible: true },
         { id: "customerDetails", label: "Customer details", visible: true },
+        { id: "receivables", label: "Receivables(BCY)", visible: true },
     ];
 
     const [columns, setColumns] = useState<Column[]>(initialColumns);
@@ -29,7 +30,10 @@ const Table = () => {
     const renderColumnContent = (colId: string, item: any) => {
         if (colId === "customerDetails") {
             return <div className="flex justify-center">
-                <Button variant="fifth" className="font-medium rounded-lg text-[9.5px]">See details</Button></div>;
+                <Link to={"/customer/seecustomerdetails"}>
+                <Button variant="fifth" className="font-medium rounded-lg text-[9.5px]">See details</Button>
+                </Link>
+                </div>;
         }
         return item[colId as keyof typeof item];
     };

@@ -79,7 +79,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
 
               <div
                 key={col.id}
-                className="flex items-center py-2 px-2 gap-2 mb-3 mt-3 bg-cuscolumnbg cursor-move "
+                className="flex items-center py-2 px-2 gap-2 mb-2 mt-3 bg-cuscolumnbg cursor-move "
                 draggable
                 onDragStart={onDragStart(index)}
                 onDragOver={onDragOver(index)}
@@ -88,7 +88,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
                 <MoveIcon color="#8F99A9" />
                 <input
                   type="checkbox"
-                  className="h-5 w-5 rounded-xl"
+                  className="h-5 w-5 rounded-xl accent-dropdownText"
                   checked={col.visible}
                   onChange={() => handleVisibilityChange(col.id)}
                 />
@@ -97,15 +97,12 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
             ))}
           </div>
           <div className="flex justify-center">
-            <Button className="w-full h-[35px] px-[30%] font-medium rounded-md text-sm" variant="fifth"><PlusCircle color="#565148" /> Add Custom Field</Button>
+            <Button className="w-full h-[35px] px-[30%] mt-2 font-medium rounded-md text-sm" variant="fifth">
+              <PlusCircle color="#565148" /> Add Custom Field</Button>
           </div>
-          <div className="flex justify-end mt-4">
-            <button
-              className="bg-red-500 text-white py-2 px-4 rounded"
-              onClick={saveChanges}
-            >
-              Save
-            </button>
+          <div className="flex justify-end mt-4 gap-4">
+          <Button onClick={closeModal} variant="fifth" className="rounded-md" size="lg">Cancel</Button>
+          <Button onClick={saveChanges} variant="secondary" size="lg">Save</Button>
           </div>
         </div>
       </Modal>

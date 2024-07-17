@@ -15,6 +15,7 @@ import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Table";
 import Customer from "./pages/Customer";
+import SeeCustomerDetails from "./features/Customer/SeeCustomerDetails";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/supplier/table" element={<Table/>}>  
           </Route>
           <Route path="/customer" element={<Customer />}></Route>
+          <Route path="/customer/seecustomerdetails" element={<SeeCustomerDetails />}></Route>
           <Route
             path="/inventory/unit/unit-conversion"
             element={<Unitconversion />}

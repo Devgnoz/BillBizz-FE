@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import SearchDropdown from "./SearchDropdown";
 import DownArrow from "../../../assets/icons/DownArrow";
 interface AccountDropdownProps {
-  index: rating;
+  index: number;
   account: string;
   accountOptions: string[];
   isDropdownOpen: boolean;
   search: string;
-  onAccountSelect: (index: rating, account: string) => void;
-  onSearchChange: (index: rating, value: string) => void;
-  onDropdownToggle: (index: rating, isOpen: boolean) => void;
-  clearSearch: (index: rating) => void;
+  onAccountSelect: (index: number, account: string) => void;
+  onSearchChange: (index: number, value: string) => void;
+  onDropdownToggle: (index: number, isOpen: boolean) => void;
+  clearSearch: (index: number) => void;
 }
 
 const AccountDropdown = ({
