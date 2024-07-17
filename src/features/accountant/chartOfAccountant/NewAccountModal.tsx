@@ -18,24 +18,20 @@ function NewAccountModal({}: Props) {
     setModalOpen(false);
   };
 
-  const options = chartOfAcc.flatMap((item) =>
-    item.subhead.map((subitem) => ({
-      label: subitem,
-      value: subitem,
-    }))
-  );
+  // const options = chartOfAcc.flatMap((item) =>
+  //   item.subhead.map((subitem) => ({
+  //     label: subitem,
+  //     value: subitem,
+  //   }))
+  // );
   return (
     <div>
-      <Button
-        onClick={openModal}
-        variant="secondary"
-        className="flex items-center"
-      >
-        <CirclePlus color="white" size="14" />{" "}
-        <p className="text-xs">New Account</p>
+      <Button onClick={openModal} variant="primary">
+        <CirclePlus color="white" size="16" />
+        <p className="text-sm">New Account</p>
       </Button>
 
-          <Modal open={isModalOpen} onClose={closeModal} className="">
+      <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
             <div

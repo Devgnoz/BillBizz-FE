@@ -7,7 +7,7 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   className?: string;
 };
 
-const buttonVariants = cva("text-center flex items-center", {
+const buttonVariants = cva("flex text-center items-center", {
   variants: {
     variant: {
       primary:
@@ -20,10 +20,10 @@ const buttonVariants = cva("text-center flex items-center", {
         "bg-fourthiary_main hover:bg-fourthiary_hover active:bg-fourthiary_active disabled:bg-fourthiary_disabled rounded-md gap-2 border border-gray-500 text-white",
     },
     size: {
-      sm: "w-[68px] h-[26px] p-[10px_12px] gap-[4px] rounded-tl-[8px] text-[10px]",
-      md: "w-[80px] h-[32px] p-[10px_12px] gap-[4px] rounded-tl-[8px] text-[12px]",
-      lg: "w-[120px] h-[38px] p-[16px_12px] gap-[8px] rounded-tl-[8px] text-[16px]",
-      xl: "w-[148px] h-[48px] p-[16px_12px] gap-[10px] rounded-tl-[8px] text-[18px]",
+      sm: "px-[0.625rem] py-2 rounded-xl",
+      md: "px-[0.625rem] py-3 rounded-xl",
+      lg: "px-4 py-3 rounded-xl ",
+      xl: "px-4 py-3 rounded-xl",
     },
   },
   defaultVariants: {
@@ -35,7 +35,7 @@ const buttonVariants = cva("text-center flex items-center", {
 export default function Button({
   variant = "primary",
   size = "md",
-  className = "",
+  className = "p-4",
   ...props
 }: ButtonProps) {
   const combinedClassName = `${buttonVariants({ variant, size })} ${className}`;

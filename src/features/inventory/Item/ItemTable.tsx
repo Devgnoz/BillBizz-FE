@@ -79,13 +79,8 @@ const ItemTable = () => {
                 {item.email}
               </td>
               <td className="py-2.5 px-4 border-y border-tableBorder flex justify-center">
-                <Button
-                  variant="fourthiary"
-                  size="sm"
-                  style={{ border: "1px solid #565148", color: "#565148" }}
-                >
-                  {" "}
-                  See details
+                <Button variant="secondary" size="sm">
+                  <p className="text-[10px]">See details</p>
                 </Button>
               </td>
               <td className="py-2.5 px-4 border-y border-tableBorder">

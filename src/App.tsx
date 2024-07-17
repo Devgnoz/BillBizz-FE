@@ -17,9 +17,7 @@ import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
 import Item from "./features/inventory/Item/item";
-
-
-
+import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
 
 function App() {
   return (
@@ -43,8 +41,15 @@ function App() {
           <Route path="/supplier" element={<Supplier />} />
           <Route path="/supplier/table" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
-          <Route path="/customer/seecustomerdetails" element={<SeeCustomerDetails />}></Route>
+          <Route
+            path="/customer/seecustomerdetails"
+            element={<SeeCustomerDetails />}
+          ></Route>
           <Route path="/inventory/Item" element={<Item />}></Route>
+          <Route
+            path="/accountant/chart-OF-accountant"
+            element={<ChartOfAccountant />}
+          ></Route>
           <Route
             path="/inventory/unit/unit-conversion"
             element={<Unitconversion />}
