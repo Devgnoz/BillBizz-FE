@@ -1,4 +1,3 @@
-import React from 'react'
 import Ellipsis from '../../../assets/icons/Ellipsis';
 
 type Props = {}

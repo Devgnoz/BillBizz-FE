@@ -55,6 +55,8 @@ export default {
         dropdownBorder: "#DCDEE2",
         BgSubhead: "#E3E6D5",
         loremcolor: "#8F99A9",
+        cuscolumnbg:"#F3F3F3",
+        checkBox:"#97998E"
         cuscolumnbg: "#F3F3F3"
       },
     },

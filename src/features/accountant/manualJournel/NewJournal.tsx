@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CheveronLeftIcon from '../../../assets/icons/CheveronLeftIcon';
 import TrashCan from '../../../assets/icons/TrashCan';
@@ -59,7 +59,7 @@ function NewJournal({}: Props) {
     setContactSearch([...contactSearch, '']);
   };
 
-  const deleteRow = (index: rating) => {
+  const deleteRow = (index: number) => {
     setRows(rows.filter((_, rowIndex) => rowIndex !== index));
     setIsAccountDropdownOpen(isAccountDropdownOpen.filter((_, i) => i !== index));
     setIsContactDropdownOpen(isContactDropdownOpen.filter((_, i) => i !== index));
@@ -80,7 +80,7 @@ function NewJournal({}: Props) {
     "Robert Brown",
   ];
 
-  const handleAccountSelect = (index: rating, account: string) => {
+  const handleAccountSelect = (index: number, account: string) => {
     const newRows = [...rows];
     newRows[index].account = account;
     setRows(newRows);
@@ -89,7 +89,7 @@ function NewJournal({}: Props) {
     setIsAccountDropdownOpen(newDropdownOpen);
   };
 
-  const handleContactSelect = (index: rating, contact: string) => {
+  const handleContactSelect = (index: number, contact: string) => {
     const newRows = [...rows];
     newRows[index].contact = contact;
     setRows(newRows);
@@ -98,33 +98,33 @@ function NewJournal({}: Props) {
     setIsContactDropdownOpen(newDropdownOpen);
   };
 
-  const handleAccountSearchChange = (index: rating, value: string) => {
+  const handleAccountSearchChange = (index: number, value: string) => {
     const newSearch = [...accountSearch];
     newSearch[index] = value;
     setAccountSearch(newSearch);
   };
 
-  const handleContactSearchChange = (index: rating, value: string) => {
+  const handleContactSearchChange = (index: number, value: string) => {
     const newSearch = [...contactSearch];
     newSearch[index] = value;
     setContactSearch(newSearch);
   };
 
-  const handleAccountDropdownToggle = (index: rating, isOpen: boolean) => {
+  const handleAccountDropdownToggle = (index: number, isOpen: boolean) => {
     setIsAccountDropdownOpen(isAccountDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
   };
 
-  const handleContactDropdownToggle = (index: rating, isOpen: boolean) => {
+  const handleContactDropdownToggle = (index: number, isOpen: boolean) => {
     setIsContactDropdownOpen(isContactDropdownOpen.map((open, i) => (i === index ? isOpen : open)));
   };
 
-  const clearAccountSearch = (index: rating) => {
+  const clearAccountSearch = (index: number) => {
     const newSearch = [...accountSearch];
     newSearch[index] = '';
     setAccountSearch(newSearch);
   };
 
-  const clearContactSearch = (index: rating) => {
+  const clearContactSearch = (index: number) => {
     const newSearch = [...contactSearch];
     newSearch[index] = '';
     setContactSearch(newSearch);
@@ -263,7 +263,7 @@ function NewJournal({}: Props) {
                       onClick={() => deleteRow(index)}
                       className="px-6 py-6 items-center whitespace-nowrap text-sm flex justify-center cursor-pointer"
                     >
-                      <TrashCan />
+                      <TrashCan color='red' />
                     </td>
                   </tr>
                 ))}
