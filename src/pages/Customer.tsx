@@ -1,5 +1,3 @@
-import Button from "../Components/Button";
-import PlusCircle from "../assets/icons/PlusCircle";
 import Cards from "../features/Customer/Cards";
 import Dropdown from "../features/Customer/Dropdown";
 import NewCustomerModal from "../features/Customer/NewCustomerModal";
@@ -23,9 +21,6 @@ function Customer({}: Props) {
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-          <Button variant="primary" size="lg">
-            <PlusCircle color="white" /> &nbsp; Add Customer
-          </Button>
           <NewCustomerModal />
           <Dropdown />
         </div>
