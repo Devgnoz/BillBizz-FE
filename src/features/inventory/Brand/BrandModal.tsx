@@ -5,7 +5,7 @@ import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import OutlineTrashIcon from "../../../assets/icons/OutlineTrashIcon";
 import PencilIcon from "../../../assets/icons/PencilIcon";
-import Modal from "../../../components/model/Modal";
+import Modal from "../../../Components/model/Modal";
 
 
 

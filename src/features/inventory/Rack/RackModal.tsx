@@ -1,10 +1,10 @@
-import React, { forwardRef, useState } from "react";
-import bgImage from "../../../assets/Images/6.png";
+import { forwardRef, useState } from "react";
 import PencilEdit from "../../../assets/icons/PencilEdit";
-import TrashCan from "../../../assets/icons/TrashCan";
-import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
-import Modal from "../../../components/model/Modal";
+import TrashCan from "../../../assets/icons/TrashCan";
+import bgImage from "../../../assets/Images/6.png";
+import Button from "../../../Components/Button";
+import Modal from "../../../Components/model/Modal";
 
 type Props = {
   onClose: () => void;
@@ -89,7 +89,7 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
         </div>
       </Modal>
 
-      <Modal open={isModalOpen} onClose={closeModal} style={{width:'35%'}}>
+      <Modal open={isModalOpen} onClose={closeModal} style={{ width: "35%" }}>
         <div className="p-5 mt-3">
           <div className=" flex p-4 rounded-xl  relative overflow-hidden">
             <h3 className="text-xl font-bold text-textColor">Add Rack</h3>
@@ -119,7 +119,8 @@ const RackModal = forwardRef<HTMLDivElement, Props>(({ onClose }, ref) => {
                 <label className="block text-sm mb-1 text-labelColor">
                   count
                 </label>
-                <textarea rows={4}
+                <textarea
+                  rows={4}
                   placeholder="Note"
                   className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2 "
                 />
