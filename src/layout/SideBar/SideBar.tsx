@@ -22,7 +22,7 @@ const SideBar = ({ activeIndex, setActiveIndex }: Props) => {
   };
 
   return (
-    <aside className="bg-maroon h- w-[72px]">
+    <aside className="bg-primary_main h- w-[72px]">
       <nav>
         <div className="flex justify-between items-center px-6 pt-7 pb-5">
           <img src={logo} alt="logo" />

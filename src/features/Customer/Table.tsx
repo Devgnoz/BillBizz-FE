@@ -52,7 +52,7 @@ const Table = () => {
       return (
         <div className="flex justify-center">
           <Button
-            variant="fifth"
+            variant="fourthiary"
             className="font-medium rounded-lg text-[9.5px]"
           >
             See details

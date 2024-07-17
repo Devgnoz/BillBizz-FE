@@ -116,7 +116,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
           <div className="flex justify-center">
             <Button
               className="w-full h-[35px] px-[30%] font-medium rounded-md text-sm"
-              variant="fifth"
+              variant="fourthiary"
             >
               <PlusCircle color="#565148" /> Add Custom Field
             </Button>
