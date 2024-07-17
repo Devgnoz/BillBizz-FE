@@ -2,6 +2,7 @@ import Button from "../Components/Button";
 import PlusCircle from "../assets/icons/PlusCircle";
 import Cards from "../features/Customer/Cards";
 import Dropdown from "../features/Customer/Dropdown";
+import NewCustomerModal from "../features/Customer/NewCustomerModal";
 import SortBy from "../features/Customer/SortBy";
 import Table from "../features/Customer/Table";
 import Customers from "../features/sales/Customers";
@@ -25,10 +26,10 @@ function Customer({}: Props) {
           <Button variant="primary" size="lg">
             <PlusCircle color="white" /> &nbsp; Add Customer
           </Button>
+          <NewCustomerModal />
           <Dropdown />
         </div>
       </div>
-
       <div>
         <Cards />
       </div>

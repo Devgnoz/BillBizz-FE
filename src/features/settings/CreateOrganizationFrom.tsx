@@ -16,6 +16,7 @@ import Plus from "../../assets/icons/Plus";
 import PlusCircle from "../../assets/icons/PlusCircle";
 
 interface InputData {
+  organizationId:string
   organizationLogo: string;
   organizationName: string;
   organizationCountry: string;
@@ -38,7 +39,7 @@ interface InputData {
   companyIdField: string;
   taxId: string;
   taxIdField: string;
-  addfield:{ label: string, value: string }[];
+  addfield: { label: string; value: string }[];
   qrLocation: string;
   qrSignature: string;
   twitter: string;
@@ -51,20 +52,21 @@ interface InputData {
   ifsc: string;
 }
 
-// interface Field {
-//   label: string;
-//   value: string;
-// }
-
 const CreateOrganizationForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logo, setLogo] = useState<File | null>(null);
   const [qrCode, setQrcode] = useState<File | null>(null);
   const [sign, setSign] = useState<File | null>(null);
   const [additionalData, setAdditionalData] = useState<any | null>([]);
+  const [oneOrganization, setOneOrganization] = useState<any | []>([]);
   const { request: getAdditionalData } = useApi("get");
   const { request: createOrganization } = useApi("post");
-  const [fields, setFields] = useState<{ label: string, value: string }[]>([{ label: "", value: "" }]);  const [inputData, setInputData] = useState<InputData>({
+  const { request: getOneOrganization } = useApi("get");
+  const [fields, setFields] = useState<{ label: string; value: string }[]>([
+    { label: "", value: "" },
+  ]);
+  const [inputData, setInputData] = useState<InputData>({
+    organizationId:"",
     organizationLogo: "", //image field
     organizationName: "",
     organizationCountry: "",
@@ -100,7 +102,7 @@ const CreateOrganizationForm = () => {
     ifsc: "",
   });
 
-  // console.log(inputData);
+  console.log(inputData);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -112,14 +114,28 @@ const CreateOrganizationForm = () => {
       const { response, error } = await getAdditionalData(url);
       if (!error && response) {
         setAdditionalData(response.data[0]);
+        console.log(response);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const getOrganization = async () => {
+    try {
+      let apiResponse;
+      const url = `${endponints.GET_ONE_ORGANIZATION}/INDORG0001`;
+      apiResponse = await getOneOrganization(url);
+      const { response, error } = apiResponse;
+      if (!error && response?.data) {
+        setOneOrganization(response.data);
+      }
+    } catch (error) {}
+  };
+
   useEffect(() => {
     getDropdownList();
+    getOrganization();
   }, []);
 
   const handleInputChange = (
@@ -129,35 +145,22 @@ const CreateOrganizationForm = () => {
     setInputData({ ...inputData, [name]: value });
   };
 
-  const handleSignChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setSign(file);
-      setInputData((prevDetails: any) => ({
-        ...prevDetails,
-        qrSignature: URL.createObjectURL(file),
-      }));
-    }
-  };
+  const handleFileChange = (
 
-  const handleQrocodeChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e: ChangeEvent<HTMLInputElement>,
+    key: 'qrSignature' | 'qrLocation' | 'organizationLogo'
+  ) => {
+    console.log("enter into function");
+    
     const file = e.target.files?.[0];
     if (file) {
-      setQrcode(file);
-      setInputData((prevDetails: any) => ({
-        ...prevDetails,
-        qrLocation: URL.createObjectURL(file),
-      }));
-    }
-  };
+      if (key === 'qrSignature') setSign(file);
+      if (key === 'qrLocation') setQrcode(file);
+      if (key === 'organizationLogo') setLogo(file);
 
-  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setLogo(file);
       setInputData((prevDetails: any) => ({
         ...prevDetails,
-        organizationLogo: URL.createObjectURL(file),
+        [key]: URL.createObjectURL(file),
       }));
     }
   };
@@ -165,8 +168,9 @@ const CreateOrganizationForm = () => {
   const handleCreateOrganization = async (e: any) => {
     e.preventDefault();
     const formData: any = new FormData();
+    formData.append("organizationId",oneOrganization.organizationId)
     formData.append("organizationLogo", inputData.organizationLogo);
-    formData.append("organizationName", inputData.organizationName);
+    formData.append("organizationName", oneOrganization.organizationName);
     formData.append("organizationCountry", inputData.organizationCountry);
     formData.append("organizationIndustry", inputData.organizationIndustry);
     formData.append("addline1", inputData.addline1);
@@ -187,7 +191,7 @@ const CreateOrganizationForm = () => {
     formData.append("companyIdField", inputData.companyIdField);
     formData.append("taxId", inputData.taxId);
     formData.append("taxIdField", inputData.taxIdField);
-    formData.append("addfield", JSON.stringify(fields)); 
+    formData.append("addfield", fields);
     formData.append("qrLocation", inputData.qrLocation);
     formData.append("qrSignature", inputData.qrSignature);
     formData.append("twitter", inputData.twitter);
@@ -203,9 +207,6 @@ const CreateOrganizationForm = () => {
       console.log(key, value);
     }
 
-    // Log the formData entries
-    console.log(inputData, "ID");
-
     try {
       const url = `${endponints.CREATE_ORGANIZATION}`;
       const apiResponse = await createOrganization(url, formData);
@@ -214,9 +215,9 @@ const CreateOrganizationForm = () => {
       const { response, error } = apiResponse;
       if (!error && response) {
         toast.success(response.data.message);
-        console.log(response.data.message, "message");
         setInputData({
-          organizationLogo: "", 
+          organizationId:"",
+          organizationLogo: "",
           organizationName: "",
           organizationCountry: "",
           organizationIndustry: "",
@@ -239,8 +240,8 @@ const CreateOrganizationForm = () => {
           taxId: "",
           taxIdField: "",
           addfield: [],
-          qrLocation: "", 
-          qrSignature: "", 
+          qrLocation: "",
+          qrSignature: "",
           twitter: "",
           insta: "",
           linkedin: "",
@@ -249,12 +250,13 @@ const CreateOrganizationForm = () => {
           bankName: "",
           accNum: "",
           ifsc: "",
-        })
-        setQrcode(null)
-        setSign(null)
-        setLogo(null)
+        });
+        setQrcode(null);
+        setSign(null);
+        setLogo(null);
+        setFields([...fields, { label: "", value: "" }]);
+        
       } else {
-        console.log(error.response.data.message);
         toast.error(error.response.data.message);
       }
     } catch (error) {
@@ -267,15 +269,18 @@ const CreateOrganizationForm = () => {
     setFields([...fields, { label: "", value: "" }]);
   };
 
-  const handleFieldChange = (index: rating, e: ChangeEvent<HTMLInputElement>, fieldName: 'label' | 'value') => {
+  const handleFieldChange = (
+    index: number,
+    e: ChangeEvent<HTMLInputElement>,
+    fieldName: "label" | "value"
+  ) => {
     const { value } = e.target;
     const newFields = [...fields];
     newFields[index][fieldName] = value;
     setFields(newFields);
   };
 
-  console.log(fields,"fields");
-  
+  // console.log(fields, "fields");
 
   return (
     <div
@@ -294,7 +299,11 @@ const CreateOrganizationForm = () => {
             <p className="mt-1">
               <b>Organization Profile</b>
             </p>{" "}
-            <div className="ms-3 bg-white rounded-md p-1">ID:56974398198</div>
+            {
+              <div className="ms-3 bg-white rounded-md p-1">
+                ID:{oneOrganization.organizationId}
+              </div>
+            }
           </div>
         </div>
 
@@ -308,7 +317,7 @@ const CreateOrganizationForm = () => {
       </div>
 
       {/* FORM */}
-      <form className="text-slate-800" >
+      <form className="text-slate-800">
         <label>
           <div className="h-56 p-3 border-dashed border-neutral-400 w-96 rounded-md mt-5 border bg-white text-slate-800 ">
             <div className="bg-lightPink flex h-28 justify-center items-center">
@@ -318,7 +327,6 @@ const CreateOrganizationForm = () => {
                 <>
                   <div className="justify-center flex items-center bg-darkRed text-white w-5 h-5 p-3 rounded-full">
                     <Plus color="white" />
-                    
                   </div>
                   <p className="text-sm ms-2">
                     {" "}
@@ -339,11 +347,10 @@ const CreateOrganizationForm = () => {
             </div>
           </div>
           <input
-        
+          accept="image/*"
             type="file"
             className="hidden"
-            onChange={(e) => handleLogoChange(e)}
-          />
+            onChange={(e) => handleFileChange(e, 'organizationLogo')}          />
         </label>
         <p className="mt-4">
           <b>Organizational Details</b>
@@ -352,11 +359,12 @@ const CreateOrganizationForm = () => {
         <div className="bg-white border-slate-200  border-2 rounded-md mt-4 p-5">
           <label className="text-slate-600">Organization Name</label>
           <input
+            disabled
             className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
             placeholder="Name"
             name="organizationName"
-            value={inputData.organizationName}
-            onChange={handleInputChange}
+            value={oneOrganization.organizationName}
+            // onChange={handleInputChange}
             required
           />{" "}
           <div className="grid grid-cols-2 gap-4 my-3">
@@ -377,7 +385,7 @@ const CreateOrganizationForm = () => {
                   <option value="argentina">Argentina</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <CehvronDown color="gray"/>
+                  <CehvronDown color="gray" />
                 </div>
               </div>
             </div>
@@ -407,7 +415,7 @@ const CreateOrganizationForm = () => {
                   )}
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <CehvronDown color="gray"/>
+                  <CehvronDown color="gray" />
                 </div>
               </div>
             </div>
@@ -477,8 +485,8 @@ const CreateOrganizationForm = () => {
                   </option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                       <CehvronDown color="gray"/>
-                       </div>
+                  <CehvronDown color="gray" />
+                </div>
               </div>
             </div>
 
@@ -539,8 +547,7 @@ const CreateOrganizationForm = () => {
                     </option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -573,8 +580,7 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -632,8 +638,7 @@ const CreateOrganizationForm = () => {
                     <option value="Tamil">Tamil</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -655,8 +660,7 @@ const CreateOrganizationForm = () => {
                     <option value="UTC">UTC</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -675,22 +679,60 @@ const CreateOrganizationForm = () => {
                   >
                     <option value="">Select Date Format</option>
 
+                    {additionalData?.dateFormat?.short &&
+                    additionalData?.dateFormat.short.length > 0 ? (
+                      <>
+                        <optgroup label="Short">
+                          {additionalData.dateFormat.short.map(
+                            (item: any, index: any) => (
+                              <option key={`short-${index}`} value={item}>
+                                {item}
+                              </option>
+                            )
+                          )}
+                        </optgroup>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+
                     {additionalData?.dateFormat?.medium &&
                     additionalData?.dateFormat.medium.length > 0 ? (
-                      additionalData.dateFormat.medium.map(
-                        (item: any, index: any) => (
-                          <option key={index} value={item}>
-                            {item}
-                          </option>
-                        )
-                      )
+                      <>
+                        <optgroup label="Medium">
+                          {additionalData.dateFormat.medium.map(
+                            (item: any, index: any) => (
+                              <option key={`medium-${index}`} value={item}>
+                                {item}
+                              </option>
+                            )
+                          )}
+                        </optgroup>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+
+                    {additionalData?.dateFormat?.long &&
+                    additionalData?.dateFormat.long.length > 0 ? (
+                      <>
+                        <optgroup label="Long">
+                          {additionalData.dateFormat.long.map(
+                            (item: any, index: any) => (
+                              <option key={`long-${index}`} value={item}>
+                                {item}
+                              </option>
+                            )
+                          )}
+                        </optgroup>
+                      </>
                     ) : (
                       <></>
                     )}
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
 
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -722,8 +764,7 @@ const CreateOrganizationForm = () => {
                       )}
                     </select>
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <CehvronDown color="gray"/>
-
+                      <CehvronDown color="gray" />
                     </div>
                   </div>
                 </div>
@@ -755,8 +796,7 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -796,8 +836,7 @@ const CreateOrganizationForm = () => {
                     )}
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray"/>
-
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
               </div>
@@ -813,54 +852,62 @@ const CreateOrganizationForm = () => {
             </div>
           </div>
           <div>
-          <p className="mt-4">
-            <b>Additional Field</b>
-          </p>
-      {fields.length>0 && fields.map((field, index) => (
-        <div key={index} className="bg-white border-slate-200 border-2 rounded-md mt-4 p-5">
+            <p className="mt-4">
+              <b>Additional Field</b>
+            </p>
+            {fields.length > 0 &&
+              fields.map((field, index) => (
+                <div
+                  key={index}
+                  className="bg-white border-slate-200 border-2 rounded-md mt-4 p-5"
+                >
+                  <div className="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <label
+                        htmlFor={`label-${index}`}
+                        className="text-slate-600"
+                      >
+                        Label Name
+                      </label>
+                      <input
+                        type="text"
+                        id={`label-${index}`}
+                        name="label"
+                        value={field.label}
+                        onChange={(e) => handleFieldChange(index, e, "label")}
+                        className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
+                        placeholder="Value"
+                      />
+                    </div>
 
-          <div className="grid grid-cols-2 gap-4 mt-4">
-            <div>
-              <label htmlFor={`label-${index}`} className="text-slate-600">
-                Label Name
-              </label>
-              <input
-                type="text" 
-                id={`label-${index}`}
-                name="label"
-                value={field.label}
-                onChange={(e) => handleFieldChange(index, e, 'label')}
-                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
-                placeholder="Value"
-              />
-            </div>
+                    <div>
+                      <label
+                        htmlFor={`value-${index}`}
+                        className="text-slate-600"
+                      >
+                        Value
+                      </label>
+                      <input
+                        type="text"
+                        id={`value-${index}`}
+                        name="value"
+                        value={field.value}
+                        onChange={(e) => handleFieldChange(index, e, "value")}
+                        className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
+                        placeholder="Value"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
 
-            <div>
-              <label htmlFor={`value-${index}`} className="text-slate-600">
-                Value
-              </label>
-              <input
-                type="text"
-                id={`value-${index}`}
-                name="value"
-                value={field.value}
-                onChange={(e) => handleFieldChange(index, e,'value')}
-                className="pl-9 mt-3 text-sm w-[100%] rounded-md text-start bg-white border border-slate-300 h-[39px] p-2"
-                placeholder="Value"
-              />
-            </div>
+            <button onClick={addAdditionalField} className="mt-5">
+              <p className="text-darkRed mt-5 text-sm flex gap-2 items-center">
+                <PlusCircle color="darkRed" />
+                <b> Add New Field</b>
+              </p>
+            </button>
           </div>
-        </div>
-      ))}
-      
-      <button onClick={addAdditionalField} className="mt-5">
-        <p className="text-darkRed mt-5 text-sm flex gap-2 items-center">
-        <PlusCircle color="darkRed"/>
-          <b> Add New Field</b>
-        </p>
-      </button>
-    </div>
-
           <p className=" my-4">
             <b>QR Location</b>
           </p>
@@ -888,15 +935,14 @@ const CreateOrganizationForm = () => {
               </div>
               <div className="col-span-2 flex items-center justify-center">
                 <div className="bg-darkRed text-white items-center justify-center rounded-full flex h-10 w-10">
-                  <Plus color="white"/>
+                  <Plus color="white" />
                 </div>
               </div>
             </div>
             <input
               type="file"
               className="hidden"
-              onChange={(e) => handleQrocodeChange(e)}
-            />
+              onChange={(e) => handleFileChange(e, 'qrLocation')}            />
           </label>
           <p className=" my-4">
             <b>Invoice Signatory</b>
@@ -925,17 +971,15 @@ const CreateOrganizationForm = () => {
               </div>
               <div className="col-span-2 flex items-center justify-center">
                 <div className="bg-darkRed text-white items-center justify-center rounded-full flex h-10 w-10">
-                 
-                  <Plus color="white"/>
-
+                  <Plus color="white" />
                 </div>
               </div>
             </div>
             <input
               type="file"
               className="hidden"
-              onChange={(e) => handleSignChange(e)}
-            />
+              onChange={(e) => handleFileChange(e, 'qrSignature')}
+              />
           </label>
           <p className=" my-4">
             <b>Add Social Media</b>
@@ -1023,10 +1067,8 @@ const CreateOrganizationForm = () => {
                     name="facebook"
                     onChange={handleInputChange}
                   />
-                  <div>
-                  </div>
+                  <div></div>
                   <img src={xMark} className="mt-3" alt="" />
-
 
                   <div></div>
                 </div>
@@ -1071,7 +1113,7 @@ const CreateOrganizationForm = () => {
 
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div>
-                <label className="text-slate-600">Account rating</label>
+                <label className="text-slate-600">Account Number</label>
                 <input
                   type="rating"
                   placeholder="Value"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Modal from "../../../Components/model/Modal";
 import Button from "../../../Components/Button";
+import Modal from "../../../components/model/Modal";
 
 
 type Props = {
