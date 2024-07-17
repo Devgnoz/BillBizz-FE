@@ -21,8 +21,8 @@ const Table = () => {
       contact: 9643658165,
       email: "John123@gmail.com",
       supplierDetails: "See details",
-      payablesBCY: 0.00,
-      unusedCreditsBCY: 0.00,
+      payablesBCY: 0.0,
+      unusedCreditsBCY: 0.0,
     },
     {
       id: "2",
@@ -31,8 +31,8 @@ const Table = () => {
       contact: 9463658765,
       email: "John123@gmail.com",
       supplierDetails: "See details",
-      payablesBCY: 0.00,
-      unusedCreditsBCY: 0.00,
+      payablesBCY: 0.0,
+      unusedCreditsBCY: 0.0,
     },
     {
       id: "3",
@@ -41,8 +41,8 @@ const Table = () => {
       contact: 9463658765,
       email: "John123@gmail.com",
       supplierDetails: "See details",
-      payablesBCY: 0.00,
-      unusedCreditsBCY: 0.00,
+      payablesBCY: 0.0,
+      unusedCreditsBCY: 0.0,
     },
   ];
 
@@ -60,7 +60,7 @@ const Table = () => {
   return (
     <div className="overflow-x-auto ">
       <table className="min-w-full bg-white mb-5">
-        <thead className="text-[12px] text-center text-dropdownText">
+        <thead className="text-[12px] text-center text-dropdownText ">
           <tr style={{ backgroundColor: "#F9F7F0" }}>
             <th className="py-3 px-4 border-b border-tableBorder">
               <input type="checkbox" className="form-checkbox w-4 h-4" />

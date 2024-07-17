@@ -19,15 +19,23 @@ type Props = {
 function Category({ isOpen, onClose }: Props) {
   const [isAddCategoryModal, setIsAddCategoryModal] = useState(false);
   const [isEditCategoryModal, setIsEditCategoryModal] = useState(false);
-  const [editableCategory, setEditableCategory] = useState<Category | null>(null);
+  const [editableCategory, setEditableCategory] = useState<Category | null>(
+    null
+  );
 
   const categories: Category[] = [
-    { categoryName: 'Electronics', notes: 'Lorem ipsm dolor sit amet cons' },
-    { categoryName: 'Office supplies', notes: 'Lorem ipsm dolor sit amet cons' },
-    { categoryName: 'Apparel', notes: 'Lorem ipsm dolor sit amet cons' },
-    { categoryName: 'Home Appliance', notes: 'Lorem ipsm dolor sit amet cons' },
-    { categoryName: 'Furniture', notes: 'Lorem ipsm dolor sit amet cons' },
-    { categoryName: 'Health & Beauty', notes: 'Lorem ipsm dolor sit amet cons' },
+    { categoryName: "Electronics", notes: "Lorem ipsm dolor sit amet cons" },
+    {
+      categoryName: "Office supplies",
+      notes: "Lorem ipsm dolor sit amet cons",
+    },
+    { categoryName: "Apparel", notes: "Lorem ipsm dolor sit amet cons" },
+    { categoryName: "Home Appliance", notes: "Lorem ipsm dolor sit amet cons" },
+    { categoryName: "Furniture", notes: "Lorem ipsm dolor sit amet cons" },
+    {
+      categoryName: "Health & Beauty",
+      notes: "Lorem ipsm dolor sit amet cons",
+    },
   ];
 
   const openAddModal = () => {
@@ -67,7 +75,10 @@ function Category({ isOpen, onClose }: Props) {
               Have an insight on the profit or loss incurred due to the change in exchange rates
             </p>
           </div>
-          <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={onClose}>
+          <div
+            className="ms-auto text-3xl cursor-pointer relative z-10"
+            onClick={onClose}
+          >
             &times;
           </div>
         </div>
@@ -156,8 +167,10 @@ function Category({ isOpen, onClose }: Props) {
                 <label className="block text-sm mb-1 text-labelColor">Name</label>
                 <input
                   type="text"
-                  onChange={(e) => handleEditChange('categoryName', e.target.value)}
-                  value={editableCategory?.categoryName || ''}
+                  onChange={(e) =>
+                    handleEditChange("categoryName", e.target.value)
+                  }
+                  value={editableCategory?.categoryName || ""}
                   placeholder="Electronics"
                   className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2 text-zinc-700 h-10"
                 />
@@ -165,8 +178,8 @@ function Category({ isOpen, onClose }: Props) {
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">Notes</label>
                 <textarea
-                  value={editableCategory?.notes || ''}
-                  onChange={(e) => handleEditChange('notes', e.target.value)}
+                  value={editableCategory?.notes || ""}
+                  onChange={(e) => handleEditChange("notes", e.target.value)}
                   placeholder="Notes"
                   className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2"
                   rows={4}

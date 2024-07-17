@@ -3,15 +3,15 @@ import SearchDropdown from './SearchDropdown';
 import CehvronDown from '../../../assets/icons/CehvronDown';
 
 type ContactDropdownProps = {
-  index: rating;
+  index: number;
   contact: string;
   contactOptions: string[];
   isDropdownOpen: boolean;
   search: string;
-  onContactSelect: (index: rating, contact: string) => void;
-  onSearchChange: (index: rating, value: string) => void;
-  onDropdownToggle: (index: rating, isOpen: boolean) => void;
-  clearSearch: (index: rating) => void;
+  onContactSelect: (index: number, contact: string) => void;
+  onSearchChange: (index: number, value: string) => void;
+  onDropdownToggle: (index: number, isOpen: boolean) => void;
+  clearSearch: (index: number) => void;
 };
 
 const ContactDropdown: React.FC<ContactDropdownProps> = ({

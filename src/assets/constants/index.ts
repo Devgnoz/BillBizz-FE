@@ -27,7 +27,7 @@ const navlist = [
       },
       {
         headName: "Item",
-        rounte: "/inventory",
+        rounte: "/inventory/Item",
       },
       {
         headName: "Unit of Measurement",
@@ -38,15 +38,15 @@ const navlist = [
   {
     nav: "Customer",
     icon: userRound,
-    route: "/customer",
+    route: "/sales",
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/customer",
+        rounte: "/sales",
       },
       {
         headName: "Customer",
-        rounte: "/sales",
+        rounte: "/customer",
       },
     ],
   },

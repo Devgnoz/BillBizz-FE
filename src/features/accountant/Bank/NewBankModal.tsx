@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
-import Modal from "../../../Components/model/Modal";
 import bgImage from "../../../assets/Images/14.png";
 import savings from "../../../assets/Images/Savings.png";
 import CehvronDown from "../../../assets/icons/CehvronDown";
+import Modal from "../../../Components/model/Modal";
 type Props = {};
 
 const NewBankModal = ({}: Props) => {

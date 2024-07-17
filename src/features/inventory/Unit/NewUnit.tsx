@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
-import Modal from "../../../Components/model/Modal";
 import bgImage from "../../../assets/Images/12.png";
 import CehvronDown from "../../../assets/icons/CehvronDown";
+import Modal from "../../../Components/model/Modal";
 
 type Props = {};
 

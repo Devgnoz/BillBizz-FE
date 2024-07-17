@@ -1,3 +1,4 @@
+// Path: tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -7,6 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
+
+        primary_main: '#820000',
+        primary_hover: '#750000',
+        primary_active: '#620000',
+        primary_disabled: '#9EA9BB',
+
+        secondary_main: '#FEFDFA',
+        secondary_hover: '#FDF8F0',
+        secondary_active: '#F7E7CE',
+        secondary_disabled: '#FDF8F0',
+
+        tertiary_main: '#FCFFED',
+        tertiary_hover: '#E3E6D5',
+        tertiary_active: '#CACCBE',
+        tertiary_disabled: '#FEFFF9',
+
+        fourthiary_main: '#2C353B',
+        fourthiary_hover: '#232A2F',
+        fourthiary_active: '#232A2F',
+        fourthiary_disabled: '#BEC0C2',
+
         maroon: '#820000',
         lightBeige: '#F7E7CE',
         iconhover: ' #530015',
@@ -32,7 +54,10 @@ export default {
         hr: "rgba(204, 204, 204, 1)",
         dropdownBorder: "#DCDEE2",
         BgSubhead: "#E3E6D5",
-        loremcolor: "#8F99A9"
+        loremcolor: "#8F99A9",
+        cuscolumnbg:"#F3F3F3",
+        checkBox:"#97998E"
+        cuscolumnbg: "#F3F3F3"
       },
     },
   },

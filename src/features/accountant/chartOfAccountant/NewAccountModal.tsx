@@ -3,8 +3,8 @@ import Button from "../../../Components/Button";
 import CirclePlus from "../../../assets/icons/circleplus";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png";
-import Modal from "../../../Components/model/Modal";
 import chartOfAcc from "../../../assets/constants/chartOfAcc";
+import Modal from "../../../Components/model/Modal";
 type Props = {};
 
 function NewAccountModal({}: Props) {
