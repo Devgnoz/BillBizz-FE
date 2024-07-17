@@ -15,8 +15,8 @@ const CehvronDown = ({color}: Props) => {
           d="M6 9L12 15L18 9"
           stroke={color}
           stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+        strokeLinejoin="round"
         />
       </svg>
     </div>

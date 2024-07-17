@@ -11,7 +11,7 @@ import BrandModal from "../features/inventory/Brand/BrandModal";
 
 type Props = {};
 
-const Inventory = ({ }: Props) => {
+const Inventory = ({}: Props) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [isRackModalOpen, setIsRackModalOpen] = useState(false);

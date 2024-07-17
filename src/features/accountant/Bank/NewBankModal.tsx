@@ -4,7 +4,7 @@ import CirclePlus from "../../../assets/icons/circleplus";
 import bgImage from "../../../assets/Images/14.png";
 import savings from "../../../assets/Images/Savings.png";
 import CehvronDown from "../../../assets/icons/CehvronDown";
-import Modal from "../../../Components/model/Modal";
+import Modal from "../../../components/model/Modal";
 type Props = {};
 
 const NewBankModal = ({}: Props) => {

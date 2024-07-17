@@ -1,7 +1,6 @@
+type Props = { color: string };
 
-type Props = {color:string};
-
-const Plus = ({color}: Props) => {
+const Plus = ({ color }: Props) => {
   return (
     <div>
       <svg
@@ -15,8 +14,8 @@ const Plus = ({color}: Props) => {
           d="M5 12H19M12 5V19"
           stroke={color}
           stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

@@ -13,8 +13,8 @@ export default function ArrowDownIcon({}: Props) {
         d="M12 17V3M12 17L6 11M12 17L18 11M19 21H5"
         stroke="gray"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
