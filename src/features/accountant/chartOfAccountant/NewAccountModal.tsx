@@ -4,7 +4,7 @@ import CirclePlus from "../../../assets/icons/circleplus";
 import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png";
 import chartOfAcc from "../../../assets/constants/chartOfAcc";
-import Modal from "../../../components/model/Modal";
+import Modal from "../../../Components/model/Modal";
 type Props = {};
 
 function NewAccountModal({}: Props) {
@@ -69,7 +69,7 @@ function NewAccountModal({}: Props) {
                       className="text-maroon"
                       key={index}
                       label={item.head}
-                      style={{ margin: "10px", }}
+                      style={{ margin: "10px" }}
                     >
                       {item.subhead.map((subitem, subindex) => (
                         <option

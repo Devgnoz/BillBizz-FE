@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ListFilter from "../../assets/icons/ListFilter";
-import Modal from "../../components/model/Modal";
+import Modal from "../../Components/model/Modal";
 import SearchBar from "../sales/SearchBar";
 import MoveIcon from "../../assets/icons/MoveIcon";
 import Button from "../../Components/Button";

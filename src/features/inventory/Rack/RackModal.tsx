@@ -4,7 +4,7 @@ import PlusCircle from "../../../assets/icons/PlusCircle";
 import TrashCan from "../../../assets/icons/TrashCan";
 import bgImage from "../../../assets/Images/6.png";
 import Button from "../../../Components/Button";
-import Modal from "../../../components/model/Modal";
+import Modal from "../../../Components/model/Modal";
 
 type Props = {
   onClose: () => void;

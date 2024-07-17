@@ -3,7 +3,7 @@ import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/14.png";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
-import Modal from "../../../components/model/Modal";
+import Modal from "../../../Components/model/Modal";
 
 type Props = {};
 
