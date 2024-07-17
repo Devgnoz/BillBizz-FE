@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Button from "../../../Components/Button";
 import Modal from "../../../Components/model/Modal";
 
-
 type Props = {
   isOpen: boolean;
   onClose: () => void;
@@ -29,10 +28,12 @@ function NewBrandModal({ isOpen, onClose, initialData }: Props) {
         <div className="flex justify-between items-center">
           <h3 className="text-xl font-bold text-textColor">
             {initialData ? "Edit Brand" : "Add Brand"}
-            </h3>
-          <div className="ms-auto text-3xl font-normal
+          </h3>
+          <div
+            className="ms-auto text-3xl font-normal
            cursor-pointer relative z-10 text-textColor"
-            onClick={onClose}>
+            onClick={onClose}
+          >
             &times;
           </div>
         </div>

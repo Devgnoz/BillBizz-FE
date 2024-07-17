@@ -16,8 +16,8 @@ import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
-import Item from "./features/inventory/Item/item";
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
+import Item from "./features/inventory/Item/item";
 
 function App() {
   return (

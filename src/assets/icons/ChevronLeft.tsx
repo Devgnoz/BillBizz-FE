@@ -15,8 +15,8 @@ const ChevronLeft = ({ color }: Props) => {
           d="M15 18L9 12L15 6"
           stroke={color}
           stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+        strokeLinejoin="round"
         />
       </svg>
     </div>

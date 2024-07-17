@@ -16,7 +16,7 @@ import Plus from "../../assets/icons/Plus";
 import PlusCircle from "../../assets/icons/PlusCircle";
 
 interface InputData {
-  organizationId:string
+  organizationId: string;
   organizationLogo: string;
   organizationName: string;
   organizationCountry: string;
@@ -53,20 +53,20 @@ interface InputData {
 }
 
 const CreateOrganizationForm = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [logo, setLogo] = useState<File | null>(null);
   const [qrCode, setQrcode] = useState<File | null>(null);
   const [sign, setSign] = useState<File | null>(null);
   const [additionalData, setAdditionalData] = useState<any | null>([]);
   const [oneOrganization, setOneOrganization] = useState<any | []>([]);
-  const { request: getAdditionalData } = useApi("get");
-  const { request: createOrganization } = useApi("post");
-  const { request: getOneOrganization } = useApi("get");
+  const { request: getAdditionalData } = useApi("get", 5004);
+  const { request: createOrganization } = useApi("post", 5004);
+  const { request: getOneOrganization } = useApi("get", 5004);
   const [fields, setFields] = useState<{ label: string; value: string }[]>([
     { label: "", value: "" },
   ]);
   const [inputData, setInputData] = useState<InputData>({
-    organizationId:"",
+    organizationId: "",
     organizationLogo: "", //image field
     organizationName: "",
     organizationCountry: "",
@@ -104,9 +104,9 @@ const CreateOrganizationForm = () => {
 
   console.log(inputData);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   const getDropdownList = async () => {
     try {
@@ -146,17 +146,16 @@ const CreateOrganizationForm = () => {
   };
 
   const handleFileChange = (
-
     e: ChangeEvent<HTMLInputElement>,
-    key: 'qrSignature' | 'qrLocation' | 'organizationLogo'
+    key: "qrSignature" | "qrLocation" | "organizationLogo"
   ) => {
     console.log("enter into function");
-    
+
     const file = e.target.files?.[0];
     if (file) {
-      if (key === 'qrSignature') setSign(file);
-      if (key === 'qrLocation') setQrcode(file);
-      if (key === 'organizationLogo') setLogo(file);
+      if (key === "qrSignature") setSign(file);
+      if (key === "qrLocation") setQrcode(file);
+      if (key === "organizationLogo") setLogo(file);
 
       setInputData((prevDetails: any) => ({
         ...prevDetails,
@@ -168,7 +167,7 @@ const CreateOrganizationForm = () => {
   const handleCreateOrganization = async (e: any) => {
     e.preventDefault();
     const formData: any = new FormData();
-    formData.append("organizationId",oneOrganization.organizationId)
+    formData.append("organizationId", oneOrganization.organizationId);
     formData.append("organizationLogo", inputData.organizationLogo);
     formData.append("organizationName", oneOrganization.organizationName);
     formData.append("organizationCountry", inputData.organizationCountry);
@@ -216,7 +215,7 @@ const CreateOrganizationForm = () => {
       if (!error && response) {
         toast.success(response.data.message);
         setInputData({
-          organizationId:"",
+          organizationId: "",
           organizationLogo: "",
           organizationName: "",
           organizationCountry: "",
@@ -255,7 +254,6 @@ const CreateOrganizationForm = () => {
         setSign(null);
         setLogo(null);
         setFields([...fields, { label: "", value: "" }]);
-        
       } else {
         toast.error(error.response.data.message);
       }
@@ -347,10 +345,11 @@ const CreateOrganizationForm = () => {
             </div>
           </div>
           <input
-          accept="image/*"
+            accept="image/*"
             type="file"
             className="hidden"
-            onChange={(e) => handleFileChange(e, 'organizationLogo')}          />
+            onChange={(e) => handleFileChange(e, "organizationLogo")}
+          />
         </label>
         <p className="mt-4">
           <b>Organizational Details</b>
@@ -942,7 +941,8 @@ const CreateOrganizationForm = () => {
             <input
               type="file"
               className="hidden"
-              onChange={(e) => handleFileChange(e, 'qrLocation')}            />
+              onChange={(e) => handleFileChange(e, "qrLocation")}
+            />
           </label>
           <p className=" my-4">
             <b>Invoice Signatory</b>
@@ -978,8 +978,8 @@ const CreateOrganizationForm = () => {
             <input
               type="file"
               className="hidden"
-              onChange={(e) => handleFileChange(e, 'qrSignature')}
-              />
+              onChange={(e) => handleFileChange(e, "qrSignature")}
+            />
           </label>
           <p className=" my-4">
             <b>Add Social Media</b>

@@ -12,7 +12,7 @@ const SubHeader = ({ activeIndex }: Props) => {
   useEffect(() => {
     const savedSelectedIndex = localStorage.getItem("savedSelectedIndex");
     if (savedSelectedIndex !== null) {
-      setSelectedIndex(Number(0));
+      setSelectedIndex(Number(savedSelectedIndex));
     }
   }, [activeIndex]);
 
@@ -30,13 +30,11 @@ const SubHeader = ({ activeIndex }: Props) => {
         navlist[activeIndex] &&
         navlist[activeIndex].subhead &&
         navlist[activeIndex].subhead.map((item, index) => (
-          <Link to={item.rounte}>
+          <Link key={index} to={item.rounte}>
             <div
-              key={index}
-              className={`font-medium
-                 py-2 px-4 rounded-full cursor-pointer ${
-                   selectedIndex === index ? "bg-white" : "hover:bg-white"
-                 }`}
+              className={`font-medium py-2 px-4 rounded-full cursor-pointer ${
+                selectedIndex === index ? "bg-white" : "hover:bg-white"
+              }`}
               onClick={() => handleSelect(index)}
             >
               {item.headName}

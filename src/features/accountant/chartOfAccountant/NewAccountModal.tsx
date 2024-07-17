@@ -69,6 +69,7 @@ function NewAccountModal({}: Props) {
                       className="text-maroon"
                       key={index}
                       label={item.head}
+                      style={{ margin: "10px" }}
                     >
                       {item.subhead.map((subitem, subindex) => (
                         <option

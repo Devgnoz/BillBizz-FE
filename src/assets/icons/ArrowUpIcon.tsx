@@ -13,8 +13,8 @@ export default function ArrowUpIcon({}: Props) {
         d="M18 9L12 3M12 3L6 9M12 3V17M5 21H19"
         stroke="gray"
         strokeWidth="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
