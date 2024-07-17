@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SearchBar from '../../Components/SearchBar';
+import SearchBar from '../../../Components/SearchBar';
 
 const SortSupplier = ({ isOpen, onClose }) => {
   const [columns, setColumns] = useState([

@@ -1,12 +1,10 @@
-
-import { useState } from "react";
-import PencilEdit from "../../.././assets/icons/PencilEdit";
-import TrashCan from "../../.././assets/icons/TrashCan";
-import PlusCircle from "../../../assets/icons/PlusCircle";
-import bgImage from "../../../assets/Images/Frame 6.png";
-import Button from "../../../Components/Button";
-import Modal from "../../../Components/model/Modal";
-
+import { useState } from 'react';
+import Button from '../../../Components/Button';
+import Modal from '../../../Components/model/Modal';
+import bgImage from '../../../assets/Images/Frame 6.png';
+import PencilEdit from '../../../assets/icons/PencilEdit';
+import PlusCircle from '../../../assets/icons/PlusCircle';
+import TrashCan from '../../../assets/icons/TrashCan';
 
 type Category = {
   categoryName: string;
@@ -66,19 +64,15 @@ function Category({ isOpen, onClose }: Props) {
   return (
     <Modal open={isOpen} onClose={onClose} className="w-[65%]">
       <div className="p-5 mt-3">
-        <div className="mb-5 flex px-5 py-3 rounded-xl relative bg-CreamBg justify-between overflow-hidden">
+        <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden h-24">
           <div
-            className="absolute right-16 top-0 bottom-24 w-[178px] h-[89px] bg-cover"
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundRepeat: "no-repeat",
-            }}
+            className="absolute top-0 right-12 h-24 w-[200px] bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${bgImage})` }}
           ></div>
-          <div className="space-y-2">
-            <h2 className="font-bold text-xl">Manage Category</h2>
-            <p className="text-md">
-              Have an insight on the profit or loss incurred due to the change
-              in exchange rates
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-textColor">Manage Category</h3>
+            <p className="text-dropdownText font-semibold text-sm mt-2">
+              Have an insight on the profit or loss incurred due to the change in exchange rates
             </p>
           </div>
           <div
@@ -89,75 +83,23 @@ function Category({ isOpen, onClose }: Props) {
           </div>
         </div>
 
-        <div className="flex justify-end mb-3">
-          <Button onClick={openAddModal} variant="secondary" size="md">
-            <p className="text-[14px] flex justify-center items-center">
-              <PlusCircle color="white" />
-              &nbsp;&nbsp;Add Category
-            </p>
+        <div className="flex justify-end me-2 my-4">
+          <Button variant="secondary" size="lg" onClick={openAddModal}>
+            <PlusCircle color="white" />
+            Add Category
           </Button>
         </div>
 
-        <Modal
-          open={isAddCategoryModal}
-          onClose={closeAddModal}
-          className="w-[35%]"
-        >
-          <div className="p-6 space-y-8">
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-bold">Add Category</h3>
-              <div
-                className="ms-auto text-3xl cursor-pointer relative z-10"
-                onClick={closeAddModal}
-              >
-                &times;
-              </div>
-            </div>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-md mb-1 text-labelColor">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Electronics"
-                  className="border-inputBorder outline-none w-full text-md border rounded py-3 px-3"
-                />
-              </div>
-              <div>
-                <label className="block text-md mb-1 text-labelColor">
-                  count
-                </label>
-                <textarea
-                  placeholder="Notes"
-                  className="border-inputBorder outline-none w-full text-md border rounded py-3 px-3 h-28"
-                />
-              </div>
-              <div className="flex justify-end gap-3">
-                <Button onClick={closeAddModal} variant="fourthiary" size="lg">
-                  Cancel
-                </Button>
-                <Button onClick={closeAddModal} variant="secondary" size="lg">
-                  Save
-                </Button>
-              </div>
-            </form>
-          </div>
-        </Modal>
-
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 gap-5">
           {categories.map((item) => (
             <div key={item.categoryName} className="flex p-2">
-              <div className="border border-slate-200 rounded-xl w-72 h-auto p-3 flex justify-between">
+              <div className="border border-slate-200 text-textColor rounded-xl w-96 h-auto p-3 flex justify-between">
                 <div>
                   <h3 className="text-sm font-bold">{item.categoryName}</h3>
-                  <p className="text-sm">{item.notes}</p>
+                  <p className="text-xs text-textColor">{item.notes}</p>
                 </div>
                 <div className="flex space-x-2">
-                  <p
-                    onClick={() => openEditModal(item)}
-                    className="cursor-pointer"
-                  >
+                  <p className="cursor-pointer" onClick={() => openEditModal(item)}>
                     <PencilEdit color="currentColor" />
                   </p>
                   <p className="cursor-pointer">
@@ -168,31 +110,61 @@ function Category({ isOpen, onClose }: Props) {
             </div>
           ))}
         </div>
+
         <div className="flex justify-end my-3">
           <Button variant="secondary" size="lg">
             Save
           </Button>
         </div>
-        <Modal
-          open={isEditCategoryModal}
-          onClose={closeEditModal}
-          className="w-[35%]"
-        >
+
+        <Modal open={isAddCategoryModal} onClose={closeAddModal} className="w-[33%]">
           <div className="p-6 space-y-8">
             <div className="flex justify-between items-center">
-              <h3 className="text-xl font-bold">Edit Category</h3>
-              <div
-                className="ms-auto text-3xl cursor-pointer relative"
-                onClick={closeEditModal}
-              >
+              <h3 className="text-xl font-bold text-textColor">Add Category</h3>
+              <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={closeAddModal}>
                 &times;
               </div>
             </div>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-md mb-1 text-labelColor">
-                  Name
-                </label>
+            <form className="">
+              <div className="mb-4">
+                <label className="block text-sm mb-1 text-labelColor">Name</label>
+                <input
+                  type="text"
+                  placeholder="Electronics"
+                  className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2 text-zinc-700 h-10"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm mb-1 text-labelColor">Notes</label>
+                <textarea
+                  placeholder="Notes"
+                  className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2"
+                  rows={4}
+                />
+              </div>
+              <div className="flex justify-end gap-2 mb-3">
+                <Button variant="secondary" size="lg">
+                  Save
+                </Button>
+                <Button onClick={closeAddModal} variant="fourthiary" size="lg">
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </div>
+        </Modal>
+
+        <Modal open={isEditCategoryModal} onClose={closeEditModal} className="w-[33%]">
+          <div className="p-6 space-y-8">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-bold text-textColor">Edit Category</h3>
+              <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={closeEditModal}>
+                &times;
+              </div>
+            </div>
+            <form className="">
+              <div className="mb-4">
+                <label className="block text-sm mb-1 text-labelColor">Name</label>
                 <input
                   type="text"
                   onChange={(e) =>
@@ -200,26 +172,25 @@ function Category({ isOpen, onClose }: Props) {
                   }
                   value={editableCategory?.categoryName || ""}
                   placeholder="Electronics"
-                  className="border-inputBorder outline-none w-full text-md border rounded py-3 px-3"
+                  className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2 text-zinc-700 h-10"
                 />
               </div>
-              <div>
-                <label className="block text-md mb-1 text-labelColor">
-                  count
-                </label>
+              <div className="mb-4">
+                <label className="block text-sm mb-1 text-labelColor">Notes</label>
                 <textarea
                   value={editableCategory?.notes || ""}
                   onChange={(e) => handleEditChange("notes", e.target.value)}
                   placeholder="Notes"
-                  className="border-inputBorder outline-none w-full text-md border rounded py-3 px-3 h-28"
+                  className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2"
+                  rows={4}
                 />
               </div>
-              <div className="flex justify-end gap-3">
+              <div className="flex justify-end gap-2 mb-3">
+                <Button variant="secondary" size="lg">
+                  Save
+                </Button>
                 <Button onClick={closeEditModal} variant="fourthiary" size="lg">
                   Cancel
-                </Button>
-                <Button onClick={closeEditModal} variant="secondary" size="lg">
-                  Save
                 </Button>
               </div>
             </form>

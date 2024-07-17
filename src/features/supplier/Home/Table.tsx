@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Button from "../../Components/Button";
+import React, { useState } from 'react';
+import Button from "../../../Components/Button";
 import SortSupplier from "./SortSupplier";
 
 const Table = () => {

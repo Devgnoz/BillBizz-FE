@@ -7,6 +7,9 @@ import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon'
 import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon'
 import Cards from './Cards'
 import TopSuppliers from './TopSuppliers'
+import SuppliersRetentionRate from './SuppliersRetentionRate'
+import RepeatPurchaseRate from './RepeatPurchaseRate'
+import AvaragePurchase from './AvaragePurchase'
 type Props = {}
 
 function Dashboard({}: Props) {
@@ -96,11 +99,19 @@ function Dashboard({}: Props) {
       {/* Cards */}
       <Cards/>
       {/* Top suppliers and supplier rentaion rate overtime */}
-      <div className='grid grid-cols-3 space-x-10'>
-          <div>
+      <div className='grid grid-cols-3 gap-5'>
+          <div className='flex justify-center '>
             <TopSuppliers/>
           </div>
-          <div className='col-span-2'></div>
+          <div className='col-span-2 flex justify-center'>
+            <SuppliersRetentionRate/>
+          </div>
+          <div className='col-span-2 flex justify-center '>
+          <RepeatPurchaseRate/>
+          </div>
+          <div className=' flex justify-center'>
+          <AvaragePurchase/>
+          </div>
       </div>
       </div>
     
