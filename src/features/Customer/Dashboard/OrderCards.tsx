@@ -11,7 +11,7 @@ type CardProps = {
   onClick?: () => void;
 };
 
-const cardVariants = cva("p-4 rounded-xl  cursor-pointer", {
+const cardVariants = cva(" rounded-xl px-4  cursor-pointer", {
   variants: {
     active: {
       true: "bg-cardBg border-cardBorder border-2",
@@ -25,23 +25,23 @@ const cardVariants = cva("p-4 rounded-xl  cursor-pointer", {
 
 const Card: React.FC<CardProps> = ({ icon, title, count, rating, active = false, onClick }) => {
   return (
-    <div className={cardVariants({ active })} onClick={onClick} style={{width:"100%",height:"50%"}}>
-      <div className="rounded-full w-[40px] h-[40px] flex items-center justify-center mb-4">
+    <div className={`${cardVariants({ active })} w-[270px] h-[158px] space-y-[6px]`} onClick={onClick}>
+      <div className="rounded-full w-[40px] h-[40px]  ">
         {icon}
       </div>
 
-      <div className="space-y-2">
-        <h2 className="text-[18px] font-bold">{title}</h2>
-        <p className="text-black font-extrabold text-2xl" style={{color : active ? "rgba(130, 0, 0, 1)" : ""}}>{count}</p>
+      < >
+        <h2 className="text-[14px] font-bold text-[#303F58]">{title}</h2>
+        <p className="text-[#303F58] font-extrabold text-2xl" style={{color : active ? "#820000" : ""}}>{count}</p>
         <div className="flex justify-between items-center">
-        <div className="text-md font-bold  flex items-center  p-1 text-green-800 rounded-md bg-green-200" >
-          {rating}%<ArrowIconNoUnderline size={20} color="#166534"/>
+        <div className="text-[12px] p-[4px] font-bold  flex items-center   text-[#32A38E] rounded-md bg-[#D8F2EE]" >
+          {rating}%<ArrowIconNoUnderline size={16} color="#32A38E"/>
         </div>
         <div className="flex items-center justify-center">
         <p className="text-[12.5px]">Compared to last month</p>
         </div>
         </div>
-      </div>
+      </>
     </div>
   );
 };

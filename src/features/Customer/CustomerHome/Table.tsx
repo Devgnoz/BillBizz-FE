@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CustomiseColmn from "./CustomiseColmn";
-import Button from "../../Components/Button";
+import Button from "../../../Components/Button";
+import { Link } from "react-router-dom";
  
 interface Column {
   id: string;
@@ -51,12 +52,15 @@ const Table = () => {
     if (colId === "customerDetails") {
       return (
 <div className="flex justify-center">
+
+<Link to={"/customer/view/1"} >
 <Button
             variant="fourthiary"
             className="font-medium rounded-lg text-[9.5px]"
 >
             See details
 </Button>
+</Link>
 </div>
       );
     }

@@ -38,15 +38,15 @@ const navlist = [
   {
     nav: "Customer",
     icon: userRound,
-    route: "/sales",
+    route: "/customer",
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        rounte: "/customer",
       },
       {
         headName: "Customer",
-        rounte: "/customer",
+        rounte: "/customer/home",
       },
     ],
   },
@@ -116,6 +116,16 @@ const navlist = [
     nav: "Supplier",
     icon: truck,
     route: "/supplier",
+    subhead:[
+      {
+        headName: "Dashboard",
+        rounte: "/supplier",
+      },
+      {
+        headName:"Supplier",
+        rounte:"/supplier/home"
+      }
+    ]
   },
   {
     nav: "Expense",
