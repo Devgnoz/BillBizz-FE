@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Ellipsis from "../../assets/icons/Ellipsis";
-import ArrowDownIcon from "../../assets/icons/ArrowDownIcon";
-import ArrowUpIcon from "../../assets/icons/ArrowUpIcon";
-import RefreshIcon from "../../assets/icons/RefreshIcon";
+import Ellipsis from "../../../assets/icons/Ellipsis";
+import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
+import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
+import RefreshIcon from "../../../assets/icons/RefreshIcon";
 
 type Props = {}
 

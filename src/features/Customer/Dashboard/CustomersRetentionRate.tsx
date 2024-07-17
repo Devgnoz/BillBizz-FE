@@ -40,23 +40,23 @@ const renderCustomTooltip = ({ payload, label }: any) => {
   return null;
 };
 
-const SuppliersRetentionRate: React.FC = () => {
+const CustomersRetentionRate: React.FC = () => {
   return (
     <div  className='bg-white  rounded-lg w-full py-8'>
-      <h3 className='ms-10 mb-6 text-xl font-bold'>Suppliers Retention Rate Over Time</h3>
+      <h3 className='ms-10 mb-6 text-[16px] font-bold'>Customers Retention Rate Over Time</h3>
       <ResponsiveContainer width="100%" height={340} >
         <LineChart width={300} data={data}>
           <XAxis
             dataKey="name"
             stroke='#4A5568' // Set X-axis stroke color to match grid line color
-            fontSize={12}
+            fontSize={10}
             axisLine={false}
             tickLine={false}
             padding={{ left: 30, right: 30 }}
           />
           <YAxis
             stroke='#4A5568'
-            fontSize={12}
+            fontSize={10}
             axisLine={false}
             tickLine={false}
             tick={{ fontSize: 12 }}
@@ -71,4 +71,4 @@ const SuppliersRetentionRate: React.FC = () => {
   );
 };
 
-export default SuppliersRetentionRate;
+export default CustomersRetentionRate;

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ListFilter from "../../assets/icons/ListFilter";
-import Modal from "../../Components/model/Modal";
-import SearchBar from "../sales/SearchBar";
-import MoveIcon from "../../assets/icons/MoveIcon";
-import Button from "../../Components/Button";
-import PlusCircle from "../../assets/icons/PlusCircle";
+import ListFilter from "../../../assets/icons/ListFilter";
+import Modal from "../../../Components/model/Modal";
+import SearchBar from "../../sales/SearchBar";
+import MoveIcon from "../../../assets/icons/MoveIcon";
+import Button from "../../../Components/Button";
+import PlusCircle from "../../../assets/icons/PlusCircle";
 
 type Column = {
   id: string;
@@ -116,7 +116,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
           <div className="flex justify-center">
             <Button
               className="w-full h-[35px] px-[30%] mt-2 font-medium rounded-md text-sm"
-              variant="fifth"
+              variant="fourthiary"
             >
               <PlusCircle color="#565148" /> Add Custom Field
             </Button>
@@ -124,7 +124,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
           <div className="flex justify-end mt-4 gap-4">
             <Button
               onClick={closeModal}
-              variant="fifth"
+              variant="fourthiary"
               className="rounded-md"
               size="lg"
             >

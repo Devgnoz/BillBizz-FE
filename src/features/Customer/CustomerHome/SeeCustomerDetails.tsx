@@ -7,7 +7,7 @@ function SeeCustomerDetails({}: Props) {
   return (
     <div className="px-6">
       <div className="flex items-center gap-5 bg-white rounded-md  p-5">
-        <Link to={"/customer"}>
+        <Link to={"/customer/home"}>
           <div
             style={{ borderRadius: "50%" }}
             className="w-[40px] h-[40px] flex items-center justify-center bg-white"

@@ -81,15 +81,15 @@ const CustomBar = (props: any) => {
   );
 };
 
-const TopSuppliers = () => {
+const TopCustomers = () => {
   return (
     <div className='bg-white rounded-lg w-full py-8'>
-      <h3 className='ms-10 text-xl font-bold'>Top Suppliers by Purchase Volume</h3>
-      <h4 className='ms-10 py-4 text-[14px] text-[#4A5568]'>Purchase Volume</h4>
+      <h3 className='ms-10 text-[16px] font-bold'>Top Customers by Sales Volume</h3>
+      <h4 className='ms-10 py-4 text-[10px] text-[#4A5568]'>Sales Volume</h4>
       <BarChart  width={450} height={280} data={data}>
         <XAxis
           stroke='#4A5568'
-          fontSize={12}
+          fontSize={10}
           axisLine={false}
           tickLine={false}
           dataKey="name"
@@ -98,7 +98,7 @@ const TopSuppliers = () => {
           stroke='#4A5568'
           axisLine={false}
           tickLine={false}
-          fontSize={12}
+          fontSize={10}
         />
         <Tooltip content={renderCustomTooltip} cursor={{ fill: 'transparent' }} />
         <Bar shape={<CustomBar />} barSize={40} dataKey="value" fill="#8884d8">
@@ -109,10 +109,10 @@ const TopSuppliers = () => {
         </Bar>
       </BarChart>
       <div className='flex justify-center'>
-        <h3 className='text-center text-[14px] text-[#4A5568] pt-3'>Suppliers</h3>
+        <h3 className='text-center text-[10px] text-[#4A5568] pt-3'>Customers</h3>
       </div>
     </div>
   );
 };
 
-export default TopSuppliers;
+export default TopCustomers;
