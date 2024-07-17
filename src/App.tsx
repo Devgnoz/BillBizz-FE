@@ -15,10 +15,10 @@ import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
+import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
+import Item from "./features/inventory/Item/item";
 
-import SeeCustomerDetails from "./features/Customer/SeeCustomerDetails";
 
-import Item from "./features/inventory/Item/Item";
 
 
 function App() {
