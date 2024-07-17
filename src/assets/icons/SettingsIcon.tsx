@@ -1,16 +1,15 @@
-
 type Props = {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: "sm" | "md" | "lg" | "xl";
 };
 
 const sizeClasses = {
-  sm: 'w-[21px] h-[21px]',
-  md: 'w-6 h-6',
-  lg: 'w-8 h-8',
-  xl: 'w-10 h-10',
+  sm: "w-[21px] h-[21px]",
+  md: "w-6 h-6",
+  lg: "w-8 h-8",
+  xl: "w-10 h-10",
 };
 
-const SettingsIcons = ({ size = 'md' }: Props) => {
+const SettingsIcons = ({ size = "md" }: Props) => {
   const sizeClass = sizeClasses[size];
 
   return (

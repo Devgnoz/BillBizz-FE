@@ -1,50 +1,49 @@
 import axios from "axios";
 
-// const BASE_URL=import.meta.env.VITE_REACT_APP_API_URL
-const BASE_URL="http://localhost:5004/"
-
-const baseInstance = () => {
-  let headers: Record<string, string> = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  };
-  return axios.create({
-    baseURL:BASE_URL,
-    headers
-  })
+const BASE_URLS: Record<number, string> = {
+  5000: "http://localhost:5000/",
+  5001: "http://localhost:5001/",
+  5002: "http://localhost:5002/",
+  5003: "http://localhost:5003/",
+  5004: "http://localhost:5004/",
+  5005: "http://localhost:5005/",
+  5006: "http://localhost:5006/",
+  5007: "http://localhost:5007/",
+  5008: "http://localhost:5008/",
+  5009: "http://localhost:5009/",
 };
 
-
-const authInstance = () => {
-  const authToken: string | null = localStorage.getItem("token");
+const createInstance = (
+  port: number,
+  contentType: string,
+  useAuth: boolean
+) => {
+  const baseURL = BASE_URLS[port];
   let headers: Record<string, string> = {
-    "Content-Type": "application/json",
+    "Content-Type": contentType,
     Accept: "application/json",
   };
 
-  if (authToken) {
-    headers = { ...headers, Authorization: `Token ${authToken}` };
+  if (useAuth) {
+    const authToken: string | null = localStorage.getItem("token");
+    if (authToken) {
+      headers = { ...headers, Authorization: `Token ${authToken}` };
+    }
   }
+
   return axios.create({
-    baseURL:BASE_URL,
-    headers
-  })
+    baseURL,
+    headers,
+  });
 };
 
-const MauthInstance = () => {
-//   const authToken: string | null = localStorage.getItem("token");
-  let headers: Record<string, string> = {
-    "Content-Type": "multipart/form-data",
-    Accept: "application/json",
-  };
+const baseInstance = (port: number) =>
+  createInstance(port, "application/json", false);
 
-//   if (authToken) {
-//     headers = { ...headers, Authorization: `Token ${authToken}` };
-//   }
-  return axios.create({
-    baseURL:BASE_URL,
-    headers
-  })
-};
+const authInstance = (port: number) =>
+  createInstance(port, "application/json", true);
+
+const MauthInstance = (port: number) =>
+  createInstance(port, "multipart/form-data", true);
 
 export default { baseInstance, authInstance, MauthInstance };

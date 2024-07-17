@@ -16,15 +16,11 @@ import Supplier from "./pages/Supplier";
 import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
-import Item from "./features/inventory/Item/item";
-<<<<<<< HEAD
 import NewPurchaseOrder from "./features/purchase/NewPurchaseOrder";
-
-
-
-=======
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
->>>>>>> 12d1561bb3f48d91535c4e4234a9bef1f0912e01
+import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
+import Item from "./features/inventory/Item/item";
+
 
 function App() {
   return (

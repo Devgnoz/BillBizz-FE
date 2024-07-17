@@ -1,24 +1,30 @@
 import { useState } from "react";
-import { AxiosRequestConfig, AxiosResponse } from "axios"; 
+import { AxiosRequestConfig, AxiosResponse } from "axios";
 import axiosInstance from "../Services/axiosInstance";
 
 interface ApiResponse {
   response: AxiosResponse | null;
-  error: any; 
+  error: any;
 }
 
-const useApi = (type: string) => {
-  const [data, setData] = useState<any>(null); 
+const useApi = (type: string, port: number) => {
+  const [data, setData] = useState<any>(null);
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const authToken = localStorage.getItem("token");
 
-  const request = async (url: string, payload?: any, header?: AxiosRequestConfig): Promise<ApiResponse> => {
+  const request = async (
+    url: string,
+    payload?: any,
+    header?: AxiosRequestConfig
+  ): Promise<ApiResponse> => {
     setLoading(true);
     let response: AxiosResponse | undefined;
-    const api = authToken ? axiosInstance.authInstance() : axiosInstance.baseInstance(); 
-    const mApi = axiosInstance.MauthInstance();
-    
+    const api = authToken
+      ? axiosInstance.authInstance(port)
+      : axiosInstance.baseInstance(port);
+    const mApi = axiosInstance.MauthInstance(port);
+
     try {
       switch (type) {
         case "post":
@@ -28,7 +34,7 @@ const useApi = (type: string) => {
           response = await api.patch(url, payload, header);
           break;
         case "mPost":
-          response = await mApi.post(url, payload,header);
+          response = await mApi.post(url, payload, header);
           break;
         case "mPut":
           response = await mApi.put(url, payload, header);
@@ -46,9 +52,9 @@ const useApi = (type: string) => {
           response = await api.get(url);
           break;
       }
-      
+
       if (response) {
-        setError(!response.status.toString().startsWith('2')); 
+        setError(!response.status.toString().startsWith("2"));
         setData(response.data);
         return { response, error: null } as ApiResponse;
       } else {

@@ -1,3 +1,4 @@
+
 type Props = { color: string , height:number, width:number};
 
 function PrinterIcon({ color,height,width }: Props) {
@@ -15,6 +16,7 @@ function PrinterIcon({ color,height,width }: Props) {
         strokeWidth="1"
         stroke-linecap="round"
         stroke-linejoin="round"
+
       />
     </svg>
   );
