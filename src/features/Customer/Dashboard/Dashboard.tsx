@@ -10,6 +10,7 @@ import Cards from './Cards'
 import CustomersRetentionRate from './CustomersRetentionRate'
 import RepeatPurchaseRate from './RepeatPurchaseRate'
 import TopCustomers from './TopCustomers'
+import NewCustomerModal from '../CustomerHome/NewCustomerModal'
 type Props = {}
 
 function Dashboard({}: Props) {
@@ -74,10 +75,7 @@ function Dashboard({}: Props) {
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-          <Button variant="primary"  size="xl">
-           <PlusCircle color="white"/>
-           <p className='text-sm font-medium'>Add Customer</p>
-          </Button>
+          <NewCustomerModal page=''/>
 
           <div onClick={toggleDropdown} className="cursor-pointer">
             <Ellipsis />
