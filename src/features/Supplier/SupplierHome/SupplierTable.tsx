@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from "../../../Components/Button";
-import SortSupplier from "./SortSupplier";
+import Sort from "./Sort";
 
-const Table = () => {
+const SupplierTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -108,9 +108,9 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      <SortSupplier isOpen={isModalOpen} onClose={closeModal} />
+      <Sort isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
 
-export default Table;
+export default SupplierTable;

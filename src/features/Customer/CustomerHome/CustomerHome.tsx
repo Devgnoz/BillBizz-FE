@@ -14,7 +14,7 @@ type Props = {}
 function CustomerHome({}: Props) {
   return (
     <>
-      <div className=" px-6 flex items-center relative">
+      <div className=" px-6 space-y-8 flex items-center relative">
         <div>
           <h3 className="font-bold text-2xl text-textColor">Customer</h3>
           <p className="text-sm text-gray mt-1">
@@ -37,14 +37,14 @@ function CustomerHome({}: Props) {
           </div>
           <div className="flex pl-3 pr-3 items-center gap-5">
             <div className="w-[80%]">
-              <SearchBar placeholder="Search Sales Order" />
+              <SearchBar placeholder="Search Sales Order"/>
             </div>
             <SortBy />
             <Print />
           </div>
           <div className="p-5">
             {/* table */}
-            <Table />
+            <Table  />
           </div>
         </div>
       </div>

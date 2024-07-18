@@ -30,7 +30,7 @@ const SubHeader = ({ activeIndex }: Props) => {
         navlist[activeIndex] &&
         navlist[activeIndex].subhead &&
         navlist[activeIndex].subhead.map((item, index) => (
-          <Link key={index} to={item.rounte}>
+          <Link to={item.subRoute}>
             <div
               className={`font-medium py-2 px-4 rounded-full cursor-pointer ${
                 selectedIndex === index ? "bg-white" : "hover:bg-white"

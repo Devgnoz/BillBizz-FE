@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { newPurchaseOrderTableHead } from "../../assets/constants"
-import Pen from "../../assets/icons/Pen"
-import TrashCan from "../../assets/icons/TrashCan"
-import SearchBar from "../../Components/SearchBar"
-import CehvronDown from "../../assets/icons/CehvronDown"
-import CirclePlus from "../../assets/icons/circleplus"
+import { newPurchaseOrderTableHead } from "../../../assets/constants"
+import Pen from "../../../assets/icons/Pen"
+import TrashCan from "../../../assets/icons/TrashCan"
+
+import CehvronDown from "../../../assets/icons/CehvronDown"
+import CirclePlus from "../../../assets/icons/circleplus"
+import SearchBar from "../../../Components/SearchBar"
 
 
 
@@ -80,7 +81,7 @@ const NeworderTable = ({}: Props) => {
                     <SearchBar
                       searchValue={searchValue}
                       onSearchChange={setSearchValue}
-                    />
+                      placeholder="Select Supplier" />
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
                         <img

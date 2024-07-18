@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
-import CheveronLeftIcon from "../../assets/icons/CheveronLeftIcon";
-import CehvronDown from "../../assets/icons/CehvronDown";
+import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
+import CehvronDown from "../../../assets/icons/CehvronDown";
 import NeworderTable from "./NeworderTable";
-import Button from "../../Components/Button";
-import PlusCircle from "../../assets/icons/PlusCircle";
+import Button from "../../../Components/Button";
+import PlusCircle from "../../../assets/icons/PlusCircle";
 import { PrinterIcon } from "@heroicons/react/16/solid";
 import { useEffect, useRef, useState } from "react";
-import SearchBar from "../../Components/SearchBar";
-import CirclePlus from "../../assets/icons/circleplus";
-import NewCustomerModal from "../Customer/CustomerHome/NewCustomerModal";
-import Upload from "../../assets/icons/Upload";
+import SearchBar from "../../../Components/SearchBar";
+import CirclePlus from "../../../assets/icons/circleplus";
+import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
+import Upload from "../../../assets/icons/Upload";
 
 type Props = {};
 
@@ -92,6 +92,7 @@ const NewPurchaseOrder = ({}: Props) => {
                     <SearchBar
                       searchValue={searchValue}
                       onSearchChange={setSearchValue}
+                      placeholder="Select Supplier" 
                     />
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
@@ -215,7 +216,7 @@ const NewPurchaseOrder = ({}: Props) => {
                     <SearchBar
                       searchValue={searchValue}
                       onSearchChange={setSearchValue}
-                    />
+                      placeholder="Select Supplier" />
 
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
@@ -277,7 +278,7 @@ const NewPurchaseOrder = ({}: Props) => {
                     <SearchBar
                       searchValue={searchValue}
                       onSearchChange={setSearchValue}
-                    />
+                      placeholder="Select Supplier" />
 
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">

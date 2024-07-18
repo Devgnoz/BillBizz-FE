@@ -68,22 +68,19 @@ function Dashboard({}: Props) {
     },
   ];
   return (
-      <div className="p-6 space-y-8 text-[#303F58]">
-        <div className=" flex  items-center relative">
-          <div>
-            <h3 className="font-bold text-2xl text-textColor">
-              Customer Overview
-            </h3>
-            <p className="text-sm text-gray mt-1">
-              Lorem ipsum dolor sit amet consectetur. Commodo enim odio
-              fringilla egestas consectetur amet.
-            </p>
-          </div>
-          <div className="ml-auto gap-3 flex items-center">
-            <Button variant="primary" size="xl">
-              <PlusCircle color="white" />
-              <p className="text-[13px] font-medium">Add Customer</p>
-            </Button>
+
+    <>
+    <div className='p-6 space-y-8 text-[#303F58]'>
+    <div className=" flex  items-center relative">
+        <div>
+          <h3 className="font-bold text-2xl text-textColor">Customer Overview</h3>
+          <p className="text-sm text-gray mt-1">
+            Lorem ipsum dolor sit amet consectetur. Commodo enim odio fringilla egestas consectetur amet.
+          </p>
+        </div>
+        <div className="ml-auto gap-3 flex items-center">
+          <NewCustomerModal page=''/>
+
 
             <div onClick={toggleDropdown} className="cursor-pointer">
               <Ellipsis />
@@ -128,6 +125,8 @@ function Dashboard({}: Props) {
           </div>
         </div>
       </div>
+
+      </>
   );
 }
 
