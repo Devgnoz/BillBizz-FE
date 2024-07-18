@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Ellipsis from "../../../assets/icons/Ellipsis";
+import SearchBar from "../../../Components/SearchBar";
 
 interface Account {
   id: string;
@@ -13,6 +14,7 @@ interface Account {
 
 const Table = () => {
   const [accountData, setAccountData] = useState<Account[]>([]);
+  const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
     fetchAllAccounts();
@@ -31,6 +33,17 @@ const Table = () => {
     }
   };
 
+  const filteredAccounts = accountData.filter((account) => {
+    const searchValueLower = searchValue.toLowerCase();
+    return (
+      account.accountName.toLowerCase().startsWith(searchValueLower) ||
+      account.accountCode.toLowerCase().startsWith(searchValueLower) ||
+      account.accountSubhead.toLowerCase().startsWith(searchValueLower) ||
+      account.accountHead.toLowerCase().startsWith(searchValueLower) ||
+      account.description.toLowerCase().startsWith(searchValueLower)
+    );
+  });
+
   const tableHeaders = [
     "Account Name",
     "Account Code",
@@ -41,7 +54,8 @@ const Table = () => {
   ];
 
   return (
-    <div className="">
+    <div>
+      <SearchBar searchValue={searchValue} onSearchChange={setSearchValue} />
       <div className="max-h-[25rem] overflow-y-auto">
         <table className="min-w-full bg-white mb-5">
           <thead className="text-[12px] text-center text-dropdownText">
@@ -60,7 +74,7 @@ const Table = () => {
             </tr>
           </thead>
           <tbody className="text-dropdownText text-center text-[13px]">
-            {accountData.map((item) => (
+            {filteredAccounts.map((item) => (
               <tr key={item.id} className="relative">
                 <td className="py-2.5 px-4 border-y border-tableBorder">
                   <input type="checkbox" className="form-checkbox w-4 h-4" />
