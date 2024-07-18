@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { newPurchaseOrderTableHead } from "../../assets/constants"
-import Pen from "../../assets/icons/Pen"
-import TrashCan from "../../assets/icons/TrashCan"
-import SearchBar from "../../Components/SearchBar"
-import CehvronDown from "../../assets/icons/CehvronDown"
-import CirclePlus from "../../assets/icons/circleplus"
+import { newPurchaseOrderTableHead } from "../../../assets/constants"
+import Pen from "../../../assets/icons/Pen"
+import TrashCan from "../../../assets/icons/TrashCan"
+
+import CehvronDown from "../../../assets/icons/CehvronDown"
+import CirclePlus from "../../../assets/icons/circleplus"
+import SearchBar from "../../../Components/SearchBar"
 
 
 

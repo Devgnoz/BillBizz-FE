@@ -88,23 +88,23 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        rounte: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Chart Of Account",
         rounte: "/accountant/chart-OF-accountant",
       },
       {
-        headName: "Manuval Journals",
-        rounte: "/manualjournal",
+        headName: "Manual Journals",
+        rounte: "/accountant/manualjournal",
       },
       {
         headName: "Bank",
-        rounte: "/inventory",
+        rounte: "/accountant/bank",
       },
       {
         headName: "Cash",
-        rounte: "/inventory",
+        rounte: "/accountant/cash",
       },
       {
         headName: "Currency Adjustment",
@@ -140,8 +140,27 @@ const navlist = [
   {
     nav: "Purchase",
     icon: shoppingBag,
-    route: "/home",
+    route: "/purchase",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/purchase",
+      },
+      {
+        headName: "Purchase Order",
+        rounte: "/purchase/purchase-order",
+      },
+      {
+        headName: "Payment Made",
+        rounte: "/purchase/payment-made",
+      },
+      {
+        headName: "Debit Note",
+        rounte: "/purchase/debitnote",
+      },
+    ],
   },
+ 
   {
     nav: "Payroll",
     icon: receiptIndianRupee,

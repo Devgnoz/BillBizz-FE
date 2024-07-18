@@ -1,19 +1,21 @@
-import { useEffect, useRef, useState } from 'react'
-import Button from '../../../Components/Button'
-import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon'
-import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon'
-import Ellipsis from '../../../assets/icons/Ellipsis'
-import PlusCircle from '../../../assets/icons/PlusCircle'
-import RefreshIcon from '../../../assets/icons/RefreshIcon'
-import AvaragePurchase from './AvaragePurchase'
-import Cards from './Cards'
-import CustomersRetentionRate from './CustomersRetentionRate'
-import RepeatPurchaseRate from './RepeatPurchaseRate'
-import TopCustomers from './TopCustomers'
+import { useEffect, useRef, useState } from "react";
+import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
+import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
+import Ellipsis from "../../../assets/icons/Ellipsis";
+import PlusCircle from "../../../assets/icons/PlusCircle";
+import RefreshIcon from "../../../assets/icons/RefreshIcon";
+import Button from "../../../Components/Button";
+import SortBy from "./SortBy";
+import Print from "./Print";
+import Table from "./Table";
+import SearchBar from "../../../Components/SearchBar";
+import PaymentsType from "./PaymentsType";
+
 type Props = {}
 
-function Dashboard({}: Props) {
+const PaymentMade = (props: Props) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState<string>("");
     const dropdownRef = useRef<HTMLDivElement>(null);
   
     const toggleDropdown = () => {
@@ -36,14 +38,14 @@ function Dashboard({}: Props) {
     const dropdownItems = [
       {
         icon: <ArrowDownIcon/>,
-        text: "Import Supplier",
+        text: "Import Payment",
         onClick: () => {
           console.log("Import Sales Order clicked");
         },
       },
       {
         icon:<ArrowUpIcon/>,
-        text: "Export Supplier",
+        text: "Export Payment",
         onClick: () => {
           console.log("Export Sales Order clicked");
         },
@@ -65,10 +67,9 @@ function Dashboard({}: Props) {
     ];
   return (
     <>
-    <div className='px-6 space-y-8 text-[#303F58]'>
-    <div className=" flex  items-center relative">
+    <div className="px-6 flex   items-center relative">
         <div>
-          <h3 className="font-bold text-2xl text-textColor">Customer Overview</h3>
+          <h3 className="font-bold text-2xl text-textColor">Payment</h3>
           <p className="text-sm text-gray mt-1">
             Lorem ipsum dolor sit amet consectetur. Commodo enim odio fringilla egestas consectetur amet.
           </p>
@@ -76,7 +77,7 @@ function Dashboard({}: Props) {
         <div className="ml-auto gap-3 flex items-center">
           <Button variant="primary"  size="xl">
            <PlusCircle color="white"/>
-           <p className='text-sm font-medium'>Add Customer</p>
+           <p className='text-sm font-medium'>New Payment</p>
           </Button>
 
           <div onClick={toggleDropdown} className="cursor-pointer">
@@ -96,29 +97,28 @@ function Dashboard({}: Props) {
             </div>
           )}
         </div>
+       
         </div>
-      {/* Cards */}
-      <Cards/>
-      {/* Top suppliers and supplier rentaion rate overtime */}
-      <div className='grid grid-cols-3 gap-5'>
-          <div className='flex justify-center '>
-            <TopCustomers/>
+        <div className="px-6 mt-3">
+        <div className="bg-white p-5">
+          <div className="w-[100%] p-3 bg-gray-100">
+            <PaymentsType />
           </div>
-          <div className='col-span-2 flex justify-center'>
-            <CustomersRetentionRate/>
+          <div className="flex w-full pl-3 pr-3 items-center gap-6">
+            <div className="w-[85%]">
+              <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Payments"/>
+            </div>
+            <SortBy />
+            <Print />
           </div>
-          <div className='col-span-2 flex justify-center '>
-          <RepeatPurchaseRate/>
+          <div className="p-3">
+            {/* table */}
+            <Table />
           </div>
-          <div className=' flex justify-center'>
-          <AvaragePurchase/>
-          </div>
+        </div>
       </div>
-      </div>
-    
-      
     </>
   )
 }
 
-export default Dashboard
+export default PaymentMade

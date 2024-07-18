@@ -20,10 +20,10 @@ const buttonVariants = cva("flex text-center items-center", {
         "bg-fourthiary_main hover:bg-fourthiary_hover active:bg-fourthiary_active disabled:bg-fourthiary_disabled rounded-md gap-2 border border-gray-500 text-white",
     },
     size: {
-      sm: "px-[0.625rem] py-2 rounded-xl",
-      md: "px-[0.625rem] py-3 rounded-xl",
-      lg: "px-4 py-3 rounded-xl ",
-      xl: "px-4 py-3 rounded-xl",
+      sm: "px-[0.625rem] py-2 rounded-lg",
+      md: "px-[0.625rem] py-3 rounded-lg",
+      lg: "px-4 py-3 rounded-lg",
+      xl: "px-4 py-3 rounded-lg",
     },
   },
   defaultVariants: {
