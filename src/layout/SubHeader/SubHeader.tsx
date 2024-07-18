@@ -12,7 +12,7 @@ const SubHeader = ({ activeIndex }: Props) => {
   useEffect(() => {
     const savedSelectedIndex = localStorage.getItem("savedSelectedIndex");
     if (savedSelectedIndex !== null) {
-      setSelectedIndex(Number(savedSelectedIndex));
+      setSelectedIndex(Number(0));
     }
   }, [activeIndex]);
 

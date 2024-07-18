@@ -4,5 +4,11 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: #f6f6f6
+  background: #f6f6f6;
+}
+
+h1 {
+  color: rgb(48, 63, 88, 1);
+  font-weight: 700;
+  font-size: 1.5rem;
 }
