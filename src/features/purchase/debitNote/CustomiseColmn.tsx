@@ -1,10 +1,11 @@
 import { useState } from "react"
-import ListFilter from "../../assets/icons/ListFilter";
-import Modal from "../../Components/model/Modal";
-import SearchBar from "../sales/SearchBar";
-import MoveIcon from "../../assets/icons/MoveIcon";
-import Button from "../../Components/Button";
-import PlusCircle from "../../assets/icons/PlusCircle";
+import ListFilter from "../../../assets/icons/ListFilter";
+import Modal from "../../../Components/model/Modal";
+import SearchBar from "../../sales/SearchBar";
+import MoveIcon from "../../../assets/icons/MoveIcon";
+import Button from "../../../Components/Button";
+import PlusCircle from "../../../assets/icons/PlusCircle";
+
 
 
 type Column = {
@@ -68,7 +69,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
 
   return (
     <>
-      <div className="cursor-pointer" onClick={openModal}>
+      <div className="cursor-pointer flex justify-center" onClick={openModal}>
         <ListFilter color="#4B5C79" classname="w-[18px] h-[18px]" />
       </div>
 

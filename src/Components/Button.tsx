@@ -22,7 +22,7 @@ const buttonVariants = cva("text-center flex items-center", {
     size: {
       sm: "w-[68px] h-[26px] p-[10px_12px] gap-[4px] rounded-tl-[8px] text-[10px]",
       md: "w-[80px] h-[32px] p-[10px_12px] gap-[4px] rounded-tl-[8px] text-[12px]",
-      lg: "w-[120px] h-[38px] p-[16px_12px] gap-[8px] rounded-tl-[8px] text-[16px]",
+      lg: " h-[38px] p-[16px_12px] gap-[8px] rounded-tl-[8px] text-[14px]",
       xl: "w-[148px] h-[48px] p-[16px_12px] gap-[10px] rounded-tl-[8px] text-[18px]",
     },
   },

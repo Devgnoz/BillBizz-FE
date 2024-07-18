@@ -130,8 +130,23 @@ const navlist = [
   {
     nav: "Purchase",
     icon: shoppingBag,
-    route: "/home",
+    route: "",
+    subhead: [
+      {
+        headName: "Dashboard",
+        rounte: "/",
+      },
+      {
+        headName: "Purchase Order",
+        rounte: "/",
+      },
+      {
+        headName: "Debit Note",
+        rounte: "/purchase/debitnote",
+      },
+    ],
   },
+
   {
     nav: "Payroll",
     icon: receiptIndianRupee,

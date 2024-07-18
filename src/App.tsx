@@ -17,6 +17,8 @@ import Table from "./features/supplier/Home/Table";
 import Customer from "./pages/Customer";
 import SeeCustomerDetails from "./features/Customer/CustomerDetails/SeeCustomerDetails";
 import Item from "./features/inventory/Item/item";
+import DebitNote from "./features/purchase/debitNote/DebitNote";
+import ViewDebitNote from "./features/purchase/debitNote/viewDebitNote/ViewDebitNote";
 
 
 
@@ -45,10 +47,9 @@ function App() {
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/seecustomerdetails" element={<SeeCustomerDetails />}></Route>
           <Route path="/inventory/Item" element={<Item />}></Route>
-          <Route
-            path="/inventory/unit/unit-conversion"
-            element={<Unitconversion />}
-          ></Route>
+          <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
+          <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
+          <Route path="/inventory/unit/unit-conversion" element={<Unitconversion />}></Route>
         </Route>
       </Routes>
     </>

@@ -1,6 +1,8 @@
 import { useState } from "react";
-import CustomiseColmn from "./CustomiseColmn";
-import Button from "../../Components/Button";
+    import CustomiseColmn from "./CustomiseColmn";
+import DotIcon from "../../../assets/icons/DotIcon";
+import { Link } from "react-router-dom";
+
 
 interface Column {
   id: string;
@@ -8,14 +10,15 @@ interface Column {
   visible: boolean;
 }
 
-const Table = () => {
+const DebitTable = () => {
   const initialColumns: Column[] = [
-    { id: "name", label: "Name", visible: true },
-    { id: "companyName", label: "Company Name", visible: true },
-    { id: "contact", label: "Contact", visible: true },
-    { id: "email", label: "Email", visible: true },
-    { id: "receivables", label: "Receivables(BCY)", visible: true },
-    { id: "customerDetails", label: "Customer details", visible: true },
+    { id: "name", label: "Supplier Name", visible: true },
+    { id: "companyName", label: "Date", visible: true },
+    { id: "contact", label: "Reference", visible: true },
+    { id: "email", label: "Debit Note", visible: true },
+    { id: "receivables", label: "Amount", visible: true },
+    { id: "customerDetails", label: "Status", visible: true },
+    { id: "balance", label: "Balance", visible: false },
   ];
 
   const [columns, setColumns] = useState<Column[]>(initialColumns);
@@ -24,39 +27,21 @@ const Table = () => {
     {
       id: "1",
       name: "John Doe",
-      companyName: "Electrotech Solution",
-      contact: "9643658765",
-      email: "electrotech@gmail.com",
-      receivables: "electrotech@gmail.com",
-    },
-    {
-      id: "2",
-      name: "Divya Kumar",
-      companyName: "Max Lab",
-      contact: "9643658765",
-      email: "John123@gmail.com",
-      receivables: "John123@gmail.com",
-    },
-    {
-      id: "3",
-      name: "Kiran Kammath",
-      companyName: "ABC Electronics",
-      contact: "9643658765",
-      email: "John123@gmail.com",
-      receivables: "John123@gmail.com",
+      companyName: "15 May 2023",
+      contact: "134267",
+      email: "lorem ipsum",
+      receivables: "60.00",
     },
   ];
 
   const renderColumnContent = (colId: string, item: any) => {
     if (colId === "customerDetails") {
       return (
-        <div className="flex justify-center">
-          <Button
-            variant="fourthiary"
-            className="font-medium rounded-lg text-[9.5px]"
-          >
-            See details
-          </Button>
+        <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center gap-1.5 bg-BgSubhead rounded-2xl px-2 pt-0.5 pb-0.5">
+         <DotIcon color="#495160"/>
+         <p className="text-outlineButton text-xs font-medium">Issued</p>
+            </div>
         </div>
       );
     }
@@ -82,7 +67,7 @@ const Table = () => {
                   </th>
                 )
             )}
-            <th className="py-2 px-4 font-medium border-b border-tableBorder">
+            <th className="py-3 px-4 font-medium border-b border-tableBorder">
               <CustomiseColmn columns={columns} setColumns={setColumns} />
             </th>
           </tr>
@@ -100,7 +85,9 @@ const Table = () => {
                       key={col.id}
                       className="py-2.5 px-4 border-y border-tableBorder"
                     >
+                        <Link to={"/purchase/viewdebitnote"}> 
                       {renderColumnContent(col.id, item)}
+                      </Link>
                     </td>
                   )
               )}
@@ -112,4 +99,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default DebitTable;

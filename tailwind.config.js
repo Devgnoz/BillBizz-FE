@@ -57,7 +57,10 @@ export default {
         loremcolor: "#8F99A9",
         cuscolumnbg:"#F3F3F3",
         checkBox:"#97998E",
-        cuscolumnbg: "#F3F3F3"
+        cuscolumnbg: "#F3F3F3",
+        borderRight:"#A3A9B3",
+        pdftext:"#0A2540",
+        pdfbg:"#F9F9FA"
       },
     },
   },
