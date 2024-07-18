@@ -68,6 +68,7 @@ function Dashboard({}: Props) {
     },
   ];
   return (
+
     <>
     <div className='p-6 space-y-8 text-[#303F58]'>
     <div className=" flex  items-center relative">
@@ -79,6 +80,7 @@ function Dashboard({}: Props) {
         </div>
         <div className="ml-auto gap-3 flex items-center">
           <NewCustomerModal page=''/>
+
 
             <div onClick={toggleDropdown} className="cursor-pointer">
               <Ellipsis />
@@ -123,6 +125,7 @@ function Dashboard({}: Props) {
           </div>
         </div>
       </div>
+
       </>
   );
 }
