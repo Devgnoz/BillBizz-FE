@@ -23,15 +23,15 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Item",
-        rounte: "/inventory/Item",
+        subRoute: "/inventory/Item",
       },
       {
         headName: "Unit of Measurement",
-        rounte: "/inventory/unit",
+        subRoute: "/inventory/unit",
       },
     ],
   },
@@ -42,11 +42,11 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/customer",
+        subRoute: "/customer",
       },
       {
         headName: "Customer",
-        rounte: "/customer/home",
+        subRoute: "/customer/home",
       },
     ],
   },
@@ -57,27 +57,27 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/sales",
       },
       {
         headName: "Sales Order",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Invoice",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "POS",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Sales Return",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Credit Note",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
     ],
   },
@@ -88,27 +88,27 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/accountant/chart-OF-accountant",
+        subRoute: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Chart Of Account",
-        rounte: "/accountant/chart-OF-accountant",
+        subRoute: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Manual Journals",
-        rounte: "/accountant/manualjournal",
+        subRoute: "/accountant/manualjournal",
       },
       {
         headName: "Bank",
-        rounte: "/accountant/bank",
+        subRoute: "/accountant/bank",
       },
       {
         headName: "Cash",
-        rounte: "/accountant/cash",
+        subRoute: "/accountant/cash",
       },
       {
         headName: "Currency Adjustment",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
     ],
   },
@@ -119,11 +119,11 @@ const navlist = [
     subhead:[
       {
         headName: "Dashboard",
-        rounte: "/supplier",
+        subRoute: "/supplier",
       },
       {
         headName:"Supplier",
-        rounte:"/supplier/home"
+        subRoute:"/supplier/home"
       }
     ]
   },
@@ -144,19 +144,19 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/purchase",
+        subRoute: "/purchase",
       },
       {
         headName: "Purchase Order",
-        rounte: "/purchase/purchase-order",
+        subRoute: "/purchase/purchase-order",
       },
       {
         headName: "Payment Made",
-        rounte: "/purchase/payment-made",
+        subRoute: "/purchase/payment-made",
       },
       {
         headName: "Debit Note",
-        rounte: "/purchase/debitnote",
+        subRoute: "/purchase/debitnote",
       },
     ],
   },
