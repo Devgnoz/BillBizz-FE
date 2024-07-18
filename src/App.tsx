@@ -15,7 +15,6 @@ import Unitconversion from "./features/inventory/Unit/Unitconversion";
 import Supplier from "./pages/Supplier";
 import Customer from "./pages/Customer";
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
-import Item from "./features/inventory/Item/item";
 import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
 import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
 import Table from "./features/accountant/chartOfAccountant/Table";
@@ -24,6 +23,10 @@ import PaymentMade from "./features/purchase/paymentMade/PaymentMade";
 import Purchase from "./pages/Purchase";
 import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView";
+import ItemHome from "./features/inventory/Item/ItemHome";
+
+
+
 
 
 function App() {
@@ -50,7 +53,11 @@ function App() {
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
-          <Route path="/inventory/Item" element={<Item />}></Route>
+          <Route path="/supplier/home" element={<Table />}></Route>
+          <Route path="/customer" element={<Customer />}></Route>
+          <Route path="/customer/home" element={<CustomerHome />}></Route>
+          <Route path="/customer/view/:id" element={<SeeCustomerDetails/>}/>
+          <Route path="/inventory/Item" element={<ItemHome/>}></Route>
           <Route
             path="/accountant/chart-OF-accountant"
             element={<ChartOfAccountant />}

@@ -66,10 +66,10 @@ function Dashboard({}: Props) {
     ];
   return (
     <>
-    <div className='px-6 space-y-8 text-[#303F58]'>
+    <div className='p-6 space-y-8 text-[#303F58]'>
     <div className=" flex  items-center relative">
         <div>
-          <h3 className="font-bold text-2xl text-textColor">Customer Overview</h3>
+          <h3 className="font-bold text-2xl text-textColor">Customers</h3>
           <p className="text-sm text-gray mt-1">
             Lorem ipsum dolor sit amet consectetur. Commodo enim odio fringilla egestas consectetur amet.
           </p>

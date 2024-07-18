@@ -44,7 +44,7 @@ function CustomerHome({}: Props) {
           </div>
           <div className="p-5">
             {/* table */}
-            <Table />
+            <Table  />
           </div>
         </div>
       </div>

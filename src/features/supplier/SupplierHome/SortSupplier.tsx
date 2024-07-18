@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SearchBar from '../../../Components/SearchBar';
 
-const SortSupplier = ({ isOpen, onClose }) => {
+const SortSupplier = ({ isOpen, onClose }:any) => {
+  const [searchValue, setSearchValue] = useState<string>("");
   const [columns, setColumns] = useState([
     { id: 1, name: "Name", visible: true },
     { id: 2, name: "Company Name", visible: true },
@@ -12,7 +13,7 @@ const SortSupplier = ({ isOpen, onClose }) => {
     { id: 7, name: "Payable Unused Credits", visible: false },
   ]);
 
-  const handleCheckboxChange = (id) => {
+  const handleCheckboxChange = (id:number) => {
     const newColumns = columns.map(column =>
       column.id === id ? { ...column, visible: !column.visible } : column
     );
@@ -26,7 +27,7 @@ const SortSupplier = ({ isOpen, onClose }) => {
           <h2 className="text-lg font-semibold">Customise Column</h2>
         </div>
         <div className="p-4">
-          <SearchBar style={{ marginBottom: '1rem' }} />
+          <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Payments" />
           <div>
             {columns.map((column) => (
               <div
