@@ -24,7 +24,7 @@ const SubHeader = ({ activeIndex }: Props) => {
   return (
     <div className="bg-BgSubhead flex mx-7 pl-7 py-5 my-4 rounded-full items-center gap-4">
       <div className="bg-white px-4 py-2 rounded-full text-sm">
-        <span className="text-lg">&#60;</span> Home
+         Home
       </div>
       {activeIndex !== null &&
         navlist[activeIndex] &&
