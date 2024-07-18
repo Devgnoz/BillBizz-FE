@@ -1,16 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import Button from "../../../Components/Button";
-import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
-import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
-import Ellipsis from "../../../assets/icons/Ellipsis";
-import PlusCircle from "../../../assets/icons/PlusCircle";
-import RefreshIcon from "../../../assets/icons/RefreshIcon";
-import AvaragePurchase from "./AvaragePurchase";
-import Cards from "./Cards";
-import CustomersRetentionRate from "./CustomersRetentionRate";
-import RepeatPurchaseRate from "./RepeatPurchaseRate";
-import TopCustomers from "./TopCustomers";
-type Props = {};
+import { useEffect, useRef, useState } from 'react'
+import Button from '../../../Components/Button'
+import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon'
+import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon'
+import Ellipsis from '../../../assets/icons/Ellipsis'
+import PlusCircle from '../../../assets/icons/PlusCircle'
+import RefreshIcon from '../../../assets/icons/RefreshIcon'
+import AvaragePurchase from './AvaragePurchase'
+import Cards from './Cards'
+import CustomersRetentionRate from './CustomersRetentionRate'
+import RepeatPurchaseRate from './RepeatPurchaseRate'
+import TopCustomers from './TopCustomers'
+import NewCustomerModal from '../CustomerHome/NewCustomerModal'
+type Props = {}
 
 function Dashboard({}: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
