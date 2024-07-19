@@ -6,8 +6,8 @@ import SearchBar from "../../sales/SearchBar"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"
 import NewSupplierModal from "./AddSupplierModal";
-import Table from "./Table"
 import ItemSort from "../../inventory/Item/ItemSort"
+import SupplierTable from "./SupplierTable"
 
 
 type Props = {}
@@ -46,7 +46,7 @@ function SupplierHome({}: Props) {
           </div>
           <div className="p-5">
             {/* table */}
-            <Table />
+            <SupplierTable />
           </div>
         </div>
       </div>

@@ -28,6 +28,7 @@ import Purchase from "./pages/Purchase";
 import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
+import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
 
 
 
@@ -59,6 +60,7 @@ function App() {
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
           <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
           <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
+          <Route path="/purchase/debit-note/new" element={<NewDebitNote/>}></Route>
           <Route path="/supplier/home" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
