@@ -20,6 +20,8 @@ import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDeta
 
 import SupplierHome from "./features/Supplier/SupplierHome/SupplierHome";
 import Table from "./features/accountant/chartOfAccountant/Table";
+import DebitNote from "./features/purchase/debitNote/DebitNote";
+import ViewDebitNote from "./features/purchase/debitNote/viewDebitNote/ViewDebitNote";
 import NewPurchaseOrder from "./features/purchase/purchaseOrder/NewPurchaseOrder";
 import PaymentMade from "./features/purchase/paymentMade/PaymentMade";
 import Purchase from "./pages/Purchase";
@@ -55,6 +57,8 @@ function App() {
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
+          <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
+          <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
           <Route path="/supplier/home" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
