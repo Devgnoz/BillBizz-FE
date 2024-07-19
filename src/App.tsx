@@ -20,7 +20,8 @@ import Item from "./features/inventory/Item/item";
 import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
 
 import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
-import Table from "./features/accountant/chartOfAccountant/Table";
+
+import SupplierHome from "./features/Supplier/SupplierHome/SupplierHome";
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
             element={<Unitconversion />}
           ></Route>
           <Route path="/supplier" element={<Supplier />} />
-          <Route path="/supplier/home" element={<Table/>}></Route>
+          <Route path="/supplier/home" element={<SupplierHome />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>

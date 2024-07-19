@@ -1,116 +1,123 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import SupplierColumn from "./SupplierColumn";
 import Button from "../../../Components/Button";
-import SortSupplier from "./SortSupplier";
-
+import { Link } from "react-router-dom";
+ 
+interface Column {
+  id: string;
+  label: string;
+  visible: boolean;
+}
+ 
 const Table = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+  const initialColumns: Column[] = [
+    { id: "name", label: "Name", visible: true },
+    { id: "companyName", label: "Company Name", visible: true },
+    { id: "contact", label: "Contact", visible: true },
+    { id: "email", label: "Email", visible: true },
+    { id: "payables", label: "Payables(BCY)", visible: true },
+    { id: "unused",label: "Unused Credit(BCY)", visible:true},
+    { id: "supplierDetails", label: "Supplier details", visible: true },
+  ];
+ 
+  const [columns, setColumns] = useState<Column[]>(initialColumns);
+ 
   const data = [
     {
       id: "1",
-      name: "Office Stocks",
-      companyName: "Office essentials",
-      contact: 9643658165,
-      email: "John123@gmail.com",
-      supplierDetails: "See details",
-      payablesBCY: 0.0,
-      unusedCreditsBCY: 0.0,
+      name: "John Doe",
+      companyName: "Electrotech Solution",
+      contact: "9643658765",
+      email: "electrotech@gmail.com",
+      payables : 0.00,
+      unused :0.00,
     },
     {
       id: "2",
       name: "Divya Kumar",
       companyName: "Max Lab",
-      contact: 9463658765,
+      contact: "9643658765",
       email: "John123@gmail.com",
-      supplierDetails: "See details",
-      payablesBCY: 0.0,
-      unusedCreditsBCY: 0.0,
+      payables:  0.00,
+      unused :0.00,
     },
     {
       id: "3",
-      name: "Divya Kumar",
-      companyName: "Max Lab",
-      contact: 9463658765,
+      name: "Kiran Kammath",
+      companyName: "ABC Electronics",
+      contact: "9643658765",
       email: "John123@gmail.com",
-      supplierDetails: "See details",
-      payablesBCY: 0.0,
-      unusedCreditsBCY: 0.0,
+      payables:  0.00,
+      unused :0.00,
     },
   ];
+ 
+  const renderColumnContent = (colId: string, item: any) => {
+    if (colId === "supplierDetails") {
+      return (
+<div className="flex justify-center">
 
-  const tableHeaders = [
-    "Name",
-    "Company Name",
-    "Contact",
-    "Email",
-    "Supplier details",
-    "Payables(BCY)",
-    "Unused Credits (BCY)",
-    <Button onClick={openModal}>Sort</Button>,
-  ];
-
+<Link to={"/customer/view/1"} >
+<Button
+            variant="fourthiary"
+            className="font-medium rounded-lg text-[9.5px]"
+>
+            See details
+</Button>
+</Link>
+</div>
+      );
+    }
+    return item[colId as keyof typeof item];
+  };
+ 
   return (
-    <div className="overflow-x-auto ">
-      <table className="min-w-full bg-white mb-5">
-        <thead className="text-[12px] text-center text-dropdownText ">
-          <tr style={{ backgroundColor: "#F9F7F0" }}>
-            <th className="py-3 px-4 border-b border-tableBorder">
-              <input type="checkbox" className="form-checkbox w-4 h-4" />
-            </th>
-            {tableHeaders.map((heading, index) => (
-              <th
-                className="py-2 px-4 font-medium border-b border-tableBorder"
-                key={index}
-              >
-                {heading}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="text-dropdownText text-center text-[13px]">
+<div className="overflow-x-auto">
+<table className="min-w-full bg-white mb-5">
+<thead className="text-[12px] text-center text-dropdownText">
+<tr style={{ backgroundColor: "#F9F7F0" }}>
+<th className="py-3 px-4 border-b border-tableBorder">
+<input type="checkbox" className="form-checkbox w-4 h-4" />
+</th>
+            {columns.map(
+              (col) =>
+                col.visible && (
+<th
+                    key={col.id}
+                    className="py-2 px-4 font-medium border-b border-tableBorder"
+>
+                    {col.label}
+</th>
+                )
+            )}
+<th className="py-2 px-4 font-medium border-b border-tableBorder">
+<SupplierColumn columns={columns} setColumns={setColumns} />
+</th>
+</tr>
+</thead>
+<tbody className="text-dropdownText text-center  text-[13px]">
           {data.map((item) => (
-            <tr key={item.id} className="relative">
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                <input type="checkbox" className="form-checkbox w-4 h-4" />
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.name}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.companyName}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.contact}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.supplierDetails}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.payablesBCY}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder">
-                {item.unusedCreditsBCY}
-              </td>
-              <td className="py-2.5 px-4 border-y border-tableBorder"></td>
-              <td className="py-2.5 px-4 border-y border-tableBorder"></td>
-              <td className="cursor-pointer py-2.5 px-4 border-y border-tableBorder">
-                <div className="flex justify-end"></div>
-              </td>
-            </tr>
+<tr key={item.id} className="relative">
+<td className="py-2.5 px-4 border-y border-tableBorder">
+<input type="checkbox" className="form-checkbox w-4 h-4" />
+</td>
+              {columns.map(
+                (col) =>
+                  col.visible && (
+<td
+                      key={col.id}
+                      className="py-2.5 px-4 border-y border-tableBorder"
+>
+                      {renderColumnContent(col.id, item)}
+</td>
+                  )
+              )}
+</tr>
           ))}
-        </tbody>
-      </table>
-      <SortSupplier isOpen={isModalOpen} onClose={closeModal} />
-    </div>
+</tbody>
+</table>
+</div>
   );
 };
-
+ 
 export default Table;
