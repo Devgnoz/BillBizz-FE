@@ -1,5 +1,3 @@
-import PlusCircle from "../../../assets/icons/PlusCircle"
-import Button from "../../../Components/Button"
 import Customers from "../../sales/Customers"
 import Print from "../../sales/Print"
 import SearchBar from "../../sales/SearchBar"
@@ -16,7 +14,7 @@ type Props = {}
 function CustomerHome({}: Props) {
   return (
     <>
-      <div className=" px-6 flex items-center relative">
+      <div className=" px-6 space-y-8 flex items-center relative">
         <div>
           <h3 className="font-bold text-2xl text-textColor">Customer</h3>
           <p className="text-sm text-gray mt-1">
@@ -25,10 +23,7 @@ function CustomerHome({}: Props) {
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-          <Button variant="primary" size="lg">
-            <PlusCircle color="white" /> &nbsp; Add Customer
-          </Button>
-          <NewCustomerModal />
+          <NewCustomerModal page=""/>
           <Dropdown />
         </div>
       </div>
@@ -42,14 +37,14 @@ function CustomerHome({}: Props) {
           </div>
           <div className="flex pl-3 pr-3 items-center gap-5">
             <div className="w-[80%]">
-              <SearchBar placeholder="Search Sales Order" />
+              <SearchBar placeholder="Search Sales Order"/>
             </div>
             <SortBy />
             <Print />
           </div>
           <div className="p-5">
             {/* table */}
-            <Table />
+            <Table  />
           </div>
         </div>
       </div>

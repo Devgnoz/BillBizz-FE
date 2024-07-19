@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
 import SearchBar from "../../sales/SearchBar";
