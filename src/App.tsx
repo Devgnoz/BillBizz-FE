@@ -26,7 +26,7 @@ import NewPurchaseOrder from "./features/purchase/purchaseOrder/NewPurchaseOrder
 import PaymentMade from "./features/purchase/paymentMade/PaymentMade";
 import Purchase from "./pages/Purchase";
 import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
-import PaymentView from "./features/purchase/paymentMade/PaymentView";
+import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 
 
