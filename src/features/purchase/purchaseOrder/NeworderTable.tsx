@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react"
-import { newPurchaseOrderTableHead } from "../../assets/constants"
-import Pen from "../../assets/icons/Pen"
-import TrashCan from "../../assets/icons/TrashCan"
-import SearchBar from "../../Components/SearchBar"
-import CehvronDown from "../../assets/icons/CehvronDown"
-import CirclePlus from "../../assets/icons/circleplus"
+import { newPurchaseOrderTableHead } from "../../../assets/constants"
+import Pen from "../../../assets/icons/Pen"
+import TrashCan from "../../../assets/icons/TrashCan"
+
+import CehvronDown from "../../../assets/icons/CehvronDown"
+import CirclePlus from "../../../assets/icons/circleplus"
+import SearchBar from "../../../Components/SearchBar"
 
 
 
 type Props = {}
 
 const NeworderTable = ({}: Props) => {
-
+  const [searchValue, setSearchValue] = useState<string>("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState<string | null>(
     null
   );
@@ -77,7 +78,10 @@ const NeworderTable = ({}: Props) => {
                     ref={dropdownRef}
                     className="absolute z-10 bg-white  shadow  rounded-md mt-1 p-2 -m-9 w-[50%] space-y-1"
                   >
-                    <SearchBar />
+                    <SearchBar
+                      searchValue={searchValue}
+                      onSearchChange={setSearchValue}
+                      placeholder="Select Supplier" />
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
                         <img
@@ -102,7 +106,7 @@ const NeworderTable = ({}: Props) => {
                        <CirclePlus color="darkRed" size="18"/>
                       </div>
                       <div className="col-span-10    text-sm flex gap-2 items-center">
-                      <p className="text-darkRed"><b>Add new Customer</b></p>
+                      <p className="text-darkRed"><b>Add New Item</b></p>
                       <div className="ms-auto text-xl cursor-pointer relative -mt-2">
                           &times;
                         </div>

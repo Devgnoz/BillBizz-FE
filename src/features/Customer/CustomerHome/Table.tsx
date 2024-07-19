@@ -16,7 +16,7 @@ const Table = () => {
     { id: "contact", label: "Contact", visible: true },
     { id: "email", label: "Email", visible: true },
     { id: "receivables", label: "Receivables(BCY)", visible: true },
-    { id: "customerDetails", label: "Customer details", visible: true },
+    { id: "supplierDetails", label: "Supplier details", visible: true },
   ];
  
   const [columns, setColumns] = useState<Column[]>(initialColumns);

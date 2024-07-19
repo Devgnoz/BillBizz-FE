@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
-import CheveronLeftIcon from "../../assets/icons/CheveronLeftIcon";
-import CehvronDown from "../../assets/icons/CehvronDown";
+import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
+import CehvronDown from "../../../assets/icons/CehvronDown";
 import NeworderTable from "./NeworderTable";
-import Button from "../../Components/Button";
-import PlusCircle from "../../assets/icons/PlusCircle";
+import Button from "../../../Components/Button";
+import PlusCircle from "../../../assets/icons/PlusCircle";
 import { PrinterIcon } from "@heroicons/react/16/solid";
 import { useEffect, useRef, useState } from "react";
-import SearchBar from "../../Components/SearchBar";
-import CirclePlus from "../../assets/icons/circleplus";
+import SearchBar from "../../../Components/SearchBar";
+import CirclePlus from "../../../assets/icons/circleplus";
+import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
+import Upload from "../../../assets/icons/Upload";
 
 type Props = {};
 
 const NewPurchaseOrder = ({}: Props) => {
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [selected, setSelected] = useState<string | null>(null);
   const [openDropdownIndex, setOpenDropdownIndex] = useState<string | null>(
     null
   );
@@ -85,7 +89,11 @@ const NewPurchaseOrder = ({}: Props) => {
                     ref={dropdownRef}
                     className="absolute z-10 bg-white  shadow  rounded-md mt-1 p-2 -m-9 w-[50%] space-y-1"
                   >
-                    <SearchBar />
+                    <SearchBar
+                      searchValue={searchValue}
+                      onSearchChange={setSearchValue}
+                      placeholder="Select Supplier" 
+                    />
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
                         <img
@@ -100,21 +108,13 @@ const NewPurchaseOrder = ({}: Props) => {
                             Phone: 9643287899
                           </p>
                         </div>
-                        <div className="ms-auto text-xl cursor-pointer relative -mt-2">
+                        <div className="ms-auto text-2xl cursor-pointer relative -mt-2 pe-2">
                           &times;
                         </div>
                       </div>
                     </div>
-                    <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-4">
-                      <div className="col-span-2 flex items-center justify-center">
-                       <CirclePlus color="darkRed" size="18"/>
-                      </div>
-                      <div className="col-span-10    text-sm flex gap-2 items-center">
-                      <p className="text-darkRed"><b>Add new Customer</b></p>
-                      <div className="ms-auto text-xl cursor-pointer relative -mt-2">
-                          &times;
-                        </div>
-                      </div>
+                    <div className="hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-4">
+                      <NewCustomerModal page="purchase" />
                     </div>
                   </div>
                 )}
@@ -128,10 +128,68 @@ const NewPurchaseOrder = ({}: Props) => {
                 >
                   Delivery Address
                 </label>
-                <input type="radio" /> <label htmlFor="">Customer</label>
-                {"   "}
-                <input type="radio" className="ms-5" />{" "}
-                <label htmlFor="">Warehouse</label>
+                <div className="flex items-center space-x-4 text-textColor text-sm">
+                  <div className="flex gap-2 justify-center items-center ">
+                    <div className="grid place-items-center mt-1">
+                      <input
+                        id="customer"
+                        type="radio"
+                        name="deliveryAddress"
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "customer"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={() => setSelected("customer")}
+                        checked={selected === "customer"}
+                      />
+                      <div
+                        id="customer"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "customer"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label
+                      htmlFor="customer"
+                      className="text-start font-medium"
+                    >
+                      Customer
+                    </label>
+                  </div>
+                  <div className="flex gap-2  justify-center items-center">
+                    <div className="grid place-items-center mt-1">
+                      <input
+                        id="warehouse"
+                        type="radio"
+                        name="deliveryAddress"
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "warehouse"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={() => setSelected("warehouse")}
+                        checked={selected === "warehouse"}
+                      />
+                      <div
+                        id="warehouse"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "warehouse"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label
+                      htmlFor="warehouse"
+                      className="text-start font-medium"
+                    >
+                      Warehouse
+                    </label>
+                  </div>
+                </div>
               </div>
               <div></div>
 
@@ -155,7 +213,11 @@ const NewPurchaseOrder = ({}: Props) => {
                     ref={dropdownRef}
                     className="absolute z-10 bg-white  shadow  rounded-md mt-1 p-2 -m-9 w-[50%] space-y-1"
                   >
-                    <SearchBar />
+                    <SearchBar
+                      searchValue={searchValue}
+                      onSearchChange={setSearchValue}
+                      placeholder="Select Supplier" />
+
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
                         <img
@@ -170,21 +232,13 @@ const NewPurchaseOrder = ({}: Props) => {
                             Phone: 9643287899
                           </p>
                         </div>
-                        <div className="ms-auto text-xl cursor-pointer relative -mt-2">
+                        <div className="ms-auto text-2xl cursor-pointer relative -mt-2 pe-2">
                           &times;
                         </div>
                       </div>
                     </div>
-                    <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-4">
-                      <div className="col-span-2 flex items-center justify-center">
-                       <CirclePlus color="darkRed" size="18"/>
-                      </div>
-                      <div className="col-span-10    text-sm flex gap-2 items-center">
-                      <p className="text-darkRed"><b>Add new Customer</b></p>
-                      <div className="ms-auto text-xl cursor-pointer relative -mt-2">
-                          &times;
-                        </div>
-                      </div>
+                    <div className="hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-4">
+                      <NewCustomerModal page="purchase" />
                     </div>
                   </div>
                 )}
@@ -221,7 +275,11 @@ const NewPurchaseOrder = ({}: Props) => {
                     ref={dropdownRef}
                     className="absolute z-10 bg-white  shadow  rounded-md mt-1 p-2 -m-9 w-[50%] space-y-1"
                   >
-                    <SearchBar />
+                    <SearchBar
+                      searchValue={searchValue}
+                      onSearchChange={setSearchValue}
+                      placeholder="Select Supplier" />
+
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
                       <div className="col-span-2 flex items-center justify-center">
                         <img
@@ -232,10 +290,11 @@ const NewPurchaseOrder = ({}: Props) => {
                       <div className="col-span-10 flex ">
                         <div>
                           <p className="font-normal text-sm">Electronics</p>
-                          <p className="text-xs text-textColor">Karnataka Yoga <br />
-                          Sanga, Bangalore <br />
-                          683576</p>
-                          
+                          <p className="text-xs text-textColor">
+                            Karnataka Yoga <br />
+                            Sanga, Bangalore <br />
+                            683576
+                          </p>
                         </div>
                         <div className="ms-auto text-xl cursor-pointer relative -mt-2">
                           &times;
@@ -244,11 +303,13 @@ const NewPurchaseOrder = ({}: Props) => {
                     </div>
                     <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-4">
                       <div className="col-span-2 flex items-center justify-center">
-                       <CirclePlus color="darkRed" size="18"/>
+                        <CirclePlus color="darkRed" size="18" />
                       </div>
                       <div className="col-span-10    text-sm flex gap-2 items-center">
-                      <p className="text-darkRed"><b>Add new Address</b></p>
-                      <div className="ms-auto text-xl cursor-pointer relative -mt-2">
+                        <p className="text-darkRed">
+                          <b>Add new Address</b>
+                        </p>
+                        <div className="ms-auto text-xl cursor-pointer relative -mt-2">
                           &times;
                         </div>
                       </div>
@@ -349,37 +410,43 @@ const NewPurchaseOrder = ({}: Props) => {
         </div>
 
         <div>
-          <div className="bg-secondary_main p-5 text-sm rounded-xl">
+          <div className="bg-secondary_main p-5 text-sm rounded-xl space-y-4 text-textColor">
             <p className="font-bold">Add Item</p>
             <NeworderTable />
             <button className="mt-1">
-              <p className="text-darkRed mt-5 text-sm flex gap-2 items-center">
+              <p className="text-darkRed my-3 text-sm flex gap-2 items-center">
                 <PlusCircle color="darkRed" />
                 <b> Add Item</b>
               </p>
             </button>{" "}
-            <div className="space-y-1 mt-3">
-              <label htmlFor="">Add Note</label>
-              <textarea
-                name=""
-                id=""
-                placeholder="Note"
-                className="border-inputBorder w-full text-sm border rounded  p-2 "
-              ></textarea>
-
-              <label htmlFor="">Terms & Conditions</label>
-              <textarea
-                name=""
-                id=""
-                placeholder="Add Terms & Conditions of your business"
-                className="border-inputBorder w-full text-sm border rounded p-2 "
-              ></textarea>
+            <br />
+            <div>
+              <label htmlFor="" className="">
+                Add Note
+                <input
+                  name=""
+                  id=""
+                  placeholder="Note"
+                  className="border-inputBorder w-full text-sm border rounded  p-2 h-[57px] mt-2 "
+                />
+              </label>
             </div>
-            <div className="grid grid-cols-12 pb-4 mt-5 text-textColor border-b-2 border-slate-200">
-              <div className="col-span-10">
+            <div>
+              <label htmlFor="" className="">
+                Terms & Conditions
+                <input
+                  name=""
+                  id=""
+                  placeholder="Add Terms & Conditions of your business"
+                  className="border-inputBorder w-full text-sm border rounded p-2 h-[57px] mt-2"
+                />
+              </label>
+            </div>
+            <div className="grid grid-cols-12 pb-4  text-dropdownText border-b-2 border-slate-200">
+              <div className="col-span-10 mt-5">
                 <p>Untaxed Amount</p>
               </div>
-              <div className="col-span-2">
+              <div className="col-span-2 mt-5">
                 <p className="text-xl font-bold">RS 0.00</p>
               </div>
 
@@ -398,13 +465,24 @@ const NewPurchaseOrder = ({}: Props) => {
               </div>
 
               <div className="col-span-10 mt-1">
-                <p className="font-bold text-base">Total</p>
+                <p className="font-bold text-base text-black">Total</p>
               </div>
               <div className="col-span-2 mt-1">
                 <p className="text-base font-bold">RS 0.00</p>
               </div>
             </div>
-            <div className="flex gap-4 m-5 mt-36 justify-end">
+            <div className="text-textColor pt-3 space-y-2">
+              <p>Attach File to Purchase Order</p>
+          
+              <div className="border-dashed border border-neutral-300 p-2 rounded flex gap-2 text-stone-400">
+                <Upload />
+                <span>Upload File</span>
+              </div>
+              <p className="text-xs mt-1 text-gray-600">
+                You Can Upload a Maximum of 10 Files, 10 MB each
+              </p>
+            </div>
+            <div className="flex gap-4 m-5 justify-end">
               {" "}
               <Button variant="secondary" size="lg">
                 Cancel

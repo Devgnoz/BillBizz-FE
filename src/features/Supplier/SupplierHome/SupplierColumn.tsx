@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
 import SearchBar from "../../sales/SearchBar";
@@ -17,7 +17,7 @@ type Props = {
   setColumns: (columns: Column[]) => void;
 };
 
-const CustomiseColmn = ({ columns, setColumns }: Props) => {
+const SupplierColumn = ({ columns, setColumns }: Props) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [localColumns, setLocalColumns] = useState<Column[]>(columns);
 
@@ -140,4 +140,4 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
   );
 };
 
-export default CustomiseColmn;
+export default SupplierColumn;
