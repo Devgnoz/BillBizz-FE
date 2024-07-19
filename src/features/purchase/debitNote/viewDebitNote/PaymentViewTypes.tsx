@@ -1,8 +1,8 @@
 import { useState } from "react";
-import BookIcon from "../../../assets/icons/BookIcon";
-import PlusCircle from "../../../assets/icons/PlusCircle";
+import BookIcon from "../../../../assets/icons/BookIcon";
+import PlusCircle from "../../../../assets/icons/PlusCircle";
 
-const PaymentsType = () => {
+const PaymentViewTypes = () => {
   const [selected, setSelected] = useState("All");
 
   const Suppliers = [
@@ -14,7 +14,7 @@ const PaymentsType = () => {
 
   return (
     <div className="flex gap-3">
-     <div className="flex gap-3 w-[15%] justify-between">
+     <div className="flex gap-3 w-[100px] justify-between">
       {Suppliers.map((customer) => (
         <button
           key={customer.title}
@@ -33,7 +33,7 @@ const PaymentsType = () => {
         </button>
       ))}
     </div>
-    <div className="flex gap-3 w-[15%] justify-between">
+    <div className="flex gap-3 w-[164px] justify-between">
         <button
           className="flex items-center gap-2 p-2 w-[100%] justify-center bg-white rounded "          style={{ border: "1px solid #DADBDD" }}
         >
@@ -50,4 +50,4 @@ const PaymentsType = () => {
   );
 };
 
-export default PaymentsType;
+export default PaymentViewTypes;
