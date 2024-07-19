@@ -1,9 +1,20 @@
 import { useState } from 'react';
 import SearchBar from '../../../Components/SearchBar';
 
-const Sort = ({ isOpen, onClose }:any) => {
+interface Column {
+  id: number;
+  name: string;
+  visible: boolean;
+}
+
+interface SortProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Sort = ({ isOpen, onClose }: SortProps) => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [columns, setColumns] = useState([
+  const [columns, setColumns] = useState<Column[]>([
     { id: 1, name: "Name", visible: true },
     { id: 2, name: "Company Name", visible: true },
     { id: 3, name: "Email", visible: true },
@@ -13,7 +24,7 @@ const Sort = ({ isOpen, onClose }:any) => {
     { id: 7, name: "Payable Unused Credits", visible: false },
   ]);
 
-  const handleCheckboxChange = (id:number) => {
+  const handleCheckboxChange = (id: number) => {
     const newColumns = columns.map(column =>
       column.id === id ? { ...column, visible: !column.visible } : column
     );

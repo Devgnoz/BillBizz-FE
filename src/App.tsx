@@ -17,6 +17,8 @@ import Customer from "./pages/Customer";
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
 import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
 import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
+
+import SupplierHome from "./features/Supplier/SupplierHome/SupplierHome";
 import Table from "./features/accountant/chartOfAccountant/Table";
 import NewPurchaseOrder from "./features/purchase/purchaseOrder/NewPurchaseOrder";
 import PaymentMade from "./features/purchase/paymentMade/PaymentMade";
@@ -49,7 +51,7 @@ function App() {
             element={<Unitconversion />}
           ></Route>
           <Route path="/supplier" element={<Supplier />} />
-          <Route path="/supplier/home" element={<Table/>}></Route>
+          <Route path="/supplier/home" element={<SupplierHome />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
