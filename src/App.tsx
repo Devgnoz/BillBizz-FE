@@ -21,6 +21,8 @@ import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
 
 import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
 import Table from "./features/accountant/chartOfAccountant/Table";
+import DebitNote from "./features/purchase/debitNote/DebitNote";
+import ViewDebitNote from "./features/purchase/debitNote/viewDebitNote/ViewDebitNote";
 
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
           <Route path="/customer/home" element={<CustomerHome />}></Route>
           <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
           <Route path="/inventory/Item" element={<Item />}></Route>
+          <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
+          <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
           <Route
             path="/accountant/chart-OF-accountant"
             element={<ChartOfAccountant />}
