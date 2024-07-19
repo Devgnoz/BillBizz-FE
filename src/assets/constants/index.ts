@@ -9,7 +9,7 @@ import squreUserRound from "../icons/squre-user-round";
 import truck from "../icons/truck";
 import userRound from "../icons/user-round";
 import usersRound from "../icons/users-round";
-
+ 
 const navlist = [
   {
     nav: "Home",
@@ -127,7 +127,19 @@ const navlist = [
       }
     ]
   },
- {
+  {
+    nav: "Expense",
+    icon: circleDollar,
+    route: "/home",
+  },
+  {
+    nav: "Staff",
+    icon: usersRound,
+    route: "/home",
+  },
+  {
+    nav: "Purchase",
+    icon: shoppingBag,
     route: "/purchase",
     subhead: [
       {
@@ -160,7 +172,7 @@ const navlist = [
     route: "/home",
   },
 ];
-
+ 
 export const paymentTermsList = [
   {
     title: "Net 30",
@@ -192,7 +204,7 @@ export const paymentTermsList = [
     text: ": Payment is due on the 15th day of the month following the invoice date",
   },
 ];
-
+ 
 export const organizationList = [
   { title: "Profile" },
   { title: "Branding" },
@@ -203,15 +215,15 @@ export const organizationList = [
   { title: "Opening Balance" },
   { title: "Manage Subscription" },
 ];
-
+ 
 export const taxList = [{ title: "Tax" }, { title: "MSME Settings" }];
-
+ 
 export const usersAndRoleList = [
   { title: "Users" },
   { title: "Roles" },
   { title: "User Preferences" },
 ];
-
+ 
 export const preferencesList = [
   { title: "General" },
   { title: "Customet & Vendor" },
@@ -231,7 +243,7 @@ export const SalesList = [
   { title: "Delivery Notes" },
   { title: "Packing Slips" },
 ];
-
+ 
 export const purchasesList = [
   { title: "Expenses" },
   { title: "Recurring Expensess" },
@@ -241,14 +253,14 @@ export const purchasesList = [
   { title: "Purchase Orders" },
   { title: "Vendor Credit" },
 ];
-
+ 
 export const itemsList = [{ title: "Item" }, { title: "Inventory Adjustment" }];
-
+ 
 export const onlinePaymentList = [
   { title: "Customer Payments" },
   { title: "vendor Payments" },
 ];
-
+ 
 export const customizationList = [
   { title: "Reporting Tags" },
   { title: "Web Tabs" },
@@ -256,21 +268,21 @@ export const customizationList = [
   { title: "Transaction rating Series" },
   { title: "PDF Templates" },
 ];
-
+ 
 export const ReminderList = [
   { title: "Reminders" },
   { title: "Email Notification" },
   { title: "SMS Notification" },
 ];
-
+ 
 export const newPurchaseOrderTableHead=[
   "Product",
   "Quantity",
   "Rate",
   "Tax",
   "Discount",
-   "Actions" 
-
+   "Actions"
+ 
 ]
-
+ 
 export default navlist;
