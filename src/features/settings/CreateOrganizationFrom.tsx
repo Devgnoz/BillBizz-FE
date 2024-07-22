@@ -9,7 +9,7 @@ import facebooklogo from "../../assets/Images/facebook logo.svg";
 import xMark from "../../assets/Images/x.svg";
 import { paymentTermsList } from "../../assets/constants/index";
 import useApi from "../../Hooks/useApi";
-import { endponints } from "../../Services/apiEndpoints";
+import { endponits } from "../../Services/apiEndpoints";
 import { toast, Toaster } from "react-hot-toast";
 import CehvronDown from "../../assets/icons/CehvronDown";
 import Plus from "../../assets/icons/Plus";
@@ -112,7 +112,7 @@ const CreateOrganizationForm = () => {
 
   const getDropdownList = async () => {
     try {
-      const url = `${endponints.GET_ADDITIONAL_DATA}`;
+      const url = `${endponits.GET_ADDITIONAL_DATA}`;
       const { response, error } = await getAdditionalData(url);
       if (!error && response) {
         setAdditionalData(response.data[0]);
@@ -126,7 +126,7 @@ const CreateOrganizationForm = () => {
   const getOrganization = async () => {
     try {
       let apiResponse;
-      const url = `${endponints.GET_ONE_ORGANIZATION}/INDORG0001`;
+      const url = `${endponits.GET_ONE_ORGANIZATION}/INDORG0001`;
       apiResponse = await getOneOrganization(url);
       const { response, error } = apiResponse;
       if (!error && response?.data) {
@@ -209,7 +209,7 @@ const CreateOrganizationForm = () => {
     }
 
     try {
-      const url = `${endponints.CREATE_ORGANIZATION}`;
+      const url = `${endponits.CREATE_ORGANIZATION}`;
       const apiResponse = await createOrganization(url, formData);
       console.log(apiResponse, "api response");
 
@@ -583,43 +583,42 @@ const CreateOrganizationForm = () => {
                     {" "}
                     <span className="font-semibold">Accrual</span> (You owe tax
                     as of invoice date)
-                  </label>  <div className="flex gap-2  justify-center items-center ">
-                  <div className="grid place-items-center ms-5">
-                    <input
-                      id="cash"
-                      type="radio"
-                      name="reportBasis"
-                      value="cash"
-                      className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
-                        selected === "cash"
-                          ? "border-8 border-neutral-400"
-                          : "border-1 border-neutral-400"
-                      }`}
-                      onChange={(e) => {
-                        setSelected("cash");
-                        handleInputChange(e);
-                      }}
-                      checked={selected === "cash"}
-                    />
-                    <div
-                      id="cash"
-                      className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
-                        selected === "cash"
-                          ? "bg-neutral-100"
-                          : "bg-transparent"
-                      }`}
-                    />
+                  </label>{" "}
+                  <div className="flex gap-2  justify-center items-center ">
+                    <div className="grid place-items-center ms-5">
+                      <input
+                        id="cash"
+                        type="radio"
+                        name="reportBasis"
+                        value="cash"
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "cash"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={(e) => {
+                          setSelected("cash");
+                          handleInputChange(e);
+                        }}
+                        checked={selected === "cash"}
+                      />
+                      <div
+                        id="cash"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "cash"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label htmlFor="" className="text-slate-600">
+                      <span className="font-semibold">Cash</span> (You owe tax
+                      upon payment recipt)
+                    </label>
                   </div>
-                  <label htmlFor="" className="text-slate-600">
-                    <span className="font-semibold">Cash</span> (You owe tax
-                    upon payment recipt)
-                  </label>
                 </div>
-                </div>
-              
               </>
             </div>
-           
           </div>
           <p className="mt-4">
             <b>Preferences</b>
@@ -775,91 +774,90 @@ const CreateOrganizationForm = () => {
                 </div>
               </div>
             </div>
-       <div className="pt-4">
+            <div className="pt-4">
               <label htmlFor="companyId" className="text-slate-600 ">
                 Company Id
               </label>
-              </div>
-              <div className="grid grid-cols-2 gap-4 ">
-                <div>
-                  <div className="relative w-full mt-3">
-                    <select
-                      onChange={handleInputChange}
-                      name="companyId"
-                      id="companyId"
-                      className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    >
-                      <option value="">Select a Company Id</option>
-  
-                      {additionalData.companyId &&
-                      additionalData.companyId.length > 0 ? (
-                        additionalData.companyId.map((item: any, index: any) => (
-                          <option key={index} value={item}>
-                            {item}
-                          </option>
-                        ))
-                      ) : (
-                        <></>
-                      )}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <CehvronDown color="gray" />
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Company Id"
-                    className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start   bg-white border border-slate-300 h-[39px] p-2"
-                    value={inputData.companyIdField}
-                    name="companyIdField"
+            </div>
+            <div className="grid grid-cols-2 gap-4 ">
+              <div>
+                <div className="relative w-full mt-3">
+                  <select
                     onChange={handleInputChange}
-                  />
-                </div>
-              </div>
-             <div className="pt-4">
-                <label htmlFor="taxId" className="text-slate-600 ">
-                  Tax Id
-                </label>
-             </div>
-              <div className="grid grid-cols-2 gap-4 ">
-                <div>
-                  <div className="relative w-full mt-3">
-                    <select
-                      onChange={handleInputChange}
-                      name="taxId"
-                      id="taxId"
-                      className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    >
-                      <option value="">Select Tax Id</option>
-  
-                      {additionalData.taxId && additionalData.taxId.length > 0 ? (
-                        additionalData.taxId.map((item: any, index: any) => (
-                          <option key={index} value={item}>
-                            {item}
-                          </option>
-                        ))
-                      ) : (
-                        <></>
-                      )}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <CehvronDown color="gray" />
-                    </div>
+                    name="companyId"
+                    id="companyId"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="">Select a Company Id</option>
+
+                    {additionalData.companyId &&
+                    additionalData.companyId.length > 0 ? (
+                      additionalData.companyId.map((item: any, index: any) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      ))
+                    ) : (
+                      <></>
+                    )}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <CehvronDown color="gray" />
                   </div>
                 </div>
-  
+              </div>
+              <div>
                 <input
                   type="text"
-                  placeholder="Tax Id"
-                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
-                  value={inputData.taxIdField}
-                  name="taxIdField"
+                  placeholder="Company Id"
+                  className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start   bg-white border border-slate-300 h-[39px] p-2"
+                  value={inputData.companyIdField}
+                  name="companyIdField"
                   onChange={handleInputChange}
                 />
               </div>
-    
+            </div>
+            <div className="pt-4">
+              <label htmlFor="taxId" className="text-slate-600 ">
+                Tax Id
+              </label>
+            </div>
+            <div className="grid grid-cols-2 gap-4 ">
+              <div>
+                <div className="relative w-full mt-3">
+                  <select
+                    onChange={handleInputChange}
+                    name="taxId"
+                    id="taxId"
+                    className="block appearance-none w-full text-zinc-400 bg-white border border-slate-200 text-sm h-[39px] pl-9 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  >
+                    <option value="">Select Tax Id</option>
+
+                    {additionalData.taxId && additionalData.taxId.length > 0 ? (
+                      additionalData.taxId.map((item: any, index: any) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      ))
+                    ) : (
+                      <></>
+                    )}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <CehvronDown color="gray" />
+                  </div>
+                </div>
+              </div>
+
+              <input
+                type="text"
+                placeholder="Tax Id"
+                className="pl-9 text-sm w-[100%] mt-3 rounded-md text-start bg-white border border-slate-300  h-[39px] p-2"
+                value={inputData.taxIdField}
+                name="taxIdField"
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <div>
             <p className="mt-4">
