@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from '../../../../Components/Button'
-import PaymentViewTypes from '../../debitNote/viewDebitNote/PaymentViewTypes'
+import Button from '../../../Components/Button'
+import PaymentViewTypes from '../../purchase/debitNote/viewDebitNote/PaymentViewTypes'
 
 type Props = {}
 

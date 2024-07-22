@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
-import SearchBar from "../../sales/SearchBar";
+import SearchBar from "../../../Components/SearchBar";
 import MoveIcon from "../../../assets/icons/MoveIcon";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
@@ -18,6 +18,7 @@ type Props = {
 };
 
 const CustomiseColmn = ({ columns, setColumns }: Props) => {
+  const [searchValue, setSearchValue] = useState<string>("");
   const [isModalOpen, setModalOpen] = useState(false);
   const [localColumns, setLocalColumns] = useState<Column[]>(columns);
 
@@ -89,7 +90,7 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
               &times;
             </div>
           </div>
-          <SearchBar placeholder="Search" />
+          <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search" />
           <div>
             {localColumns.map((col, index) => (
               <div

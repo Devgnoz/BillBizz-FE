@@ -3,7 +3,7 @@ import Button from '../../../../Components/Button';
 import CheveronLeftIcon from '../../../../assets/icons/CheveronLeftIcon';
 import PencilEdit from '../../../../assets/icons/PencilEdit';
 import PdfView from './PdfView';
-import SideBar from './SideBar';
+import SideBar from '../../../sales/salesOrder/SideBar';
 
 type Props = {};
 
