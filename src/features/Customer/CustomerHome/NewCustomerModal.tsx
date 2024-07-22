@@ -34,7 +34,7 @@ const NewCustomerModal = ({ page }: Props) => {
     <div>
       {page && page == "purchase" ? (
         <button
-          className="w-full grid grid-cols-12 gap-1 px-4  items-center justify-center"
+          className="w-full grid grid-cols-12  px-4  items-center justify-center"
           onClick={openModal}
         >
           <div className="col-span-1 flex">

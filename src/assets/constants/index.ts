@@ -281,6 +281,7 @@ export const newPurchaseOrderTableHead=[
   "Rate",
   "Tax",
   "Discount",
+  "Amount",
    "Actions"
  
 ]

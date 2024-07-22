@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import PlusCircle from "../../../assets/icons/PlusCircle"
 import Button from "../../../Components/Button"
 import SearchBar from "../../sales/SearchBar"
@@ -21,9 +22,11 @@ function DebitNote({}: Props) {
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-        <Button  variant="primary" size="sm">
-        <PlusCircle color="white" /> <p className="text-sm font-medium">New Debit Note</p>
-      </Button>
+     <Link to="/purchase/debit-note/new">
+          <Button  variant="primary" size="sm">
+          <PlusCircle color="white" /> <p className="text-sm font-medium">New Debit Note</p>
+        </Button>
+     </Link>
          <DebitDropdown/>
         </div>
       </div>
