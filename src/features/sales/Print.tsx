@@ -1,10 +1,9 @@
 import PrinterIcon from "../../assets/icons/PrinterIcon";
+import Button from "../../Components/Button";
 const Print = () => {
 
   return (
-    <button className="px-2 py-2 gap-2 text-sm flex items-center justify-center border border-gray-500 rounded-lg text-gray-500">
-      <PrinterIcon color="#565148" /> <p className="font-medium">Print</p>
-    </button>
+    <Button variant="secondary" className="border-outlineButton text-outlineButton font-medium" size="sm">  <PrinterIcon color="#565148" height={16} width={16} /> <p className="text-sm font-medium">Print</p></Button>
 
   );
 };

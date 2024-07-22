@@ -42,7 +42,7 @@ const renderCustomTooltip = ({ payload, label }: any) => {
 
 const CustomersRetentionRate: React.FC = () => {
   return (
-    <div  className='bg-white  rounded-lg w-full py-8'>
+    <div className='bg-white  rounded-lg w-full py-8'>
       <h3 className='ms-10 mb-6 text-[16px] font-bold'>Customers Retention Rate Over Time</h3>
       <ResponsiveContainer width="100%" height={340} >
         <LineChart width={300} data={data}>
@@ -60,7 +60,7 @@ const CustomersRetentionRate: React.FC = () => {
             axisLine={false}
             tickLine={false}
             tick={{ fontSize: 12 }}
-            interval={0} 
+            interval={0}
           />
           <CartesianGrid vertical={false} stroke='#E2E8F0' /> {/* Display only Y-axis grid lines */}
           <RechartsTooltip content={renderCustomTooltip} cursor={false} /> {/* Disable cursor line */}
