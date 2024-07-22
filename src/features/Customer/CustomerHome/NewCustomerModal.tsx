@@ -50,15 +50,9 @@ const NewCustomerModal = ({ page }: Props) => {
           </div>
         </button>
       ) : (
-        <Button
-          onClick={openModal}
-          variant="primary"
-          className="flex items-center"
-          size="xl"
-        >
-          <PlusCircle color="white" />{" "}
-          <p className="text-sm font-medium">Add Customer</p>
-        </Button>
+        <Button onClick={openModal}  variant="primary" size="sm">
+        <PlusCircle color="white" /> <p className="text-sm font-medium">Add Customer</p>
+      </Button>
       )}
 
       <Modal

@@ -5,9 +5,9 @@ import Cards from "./Cards"
 import Dropdown from "./Dropdown"
 import NewCustomerModal from "./NewCustomerModal"
 import SortBy from "./SortBy"
-import Table from "./Table"
 import { useState } from "react"
 
+import CustomerTable from "./CustomerTable"
 
 
 type Props = {}
@@ -46,8 +46,8 @@ function CustomerHome({}: Props) {
           </div>
           <div className="p-5">
             {/* table */}
-            <Table  />
-          </div>
+            <CustomerTable/>
+            </div>
         </div>
       </div>
     </>
