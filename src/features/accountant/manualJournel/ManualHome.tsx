@@ -1,5 +1,5 @@
 import Ellipsis from "../../../assets/icons/Ellipsis";
-import SearchBar from "../../sales/SearchBar";
+import SearchBar from "../../../Components/SearchBar";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 type Props = {};
 
 function ManualHome({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -107,7 +108,7 @@ function ManualHome({}: Props) {
 
         <div className="mt-5 bg-white  p-5 rounded-xl">
           <div className="px-2 py-5">
-            <SearchBar placeholder="Search Journals" />
+            <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Journals" />
           </div>
           <div>
             <Table />

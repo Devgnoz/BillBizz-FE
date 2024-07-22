@@ -1,11 +1,12 @@
 import { useState } from "react";
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
-import SearchBar from "../../sales/SearchBar";
+import SearchBar from "../../../Components/SearchBar";
 
 type Props = {};
 
 function CustomiseColmn({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -39,7 +40,7 @@ function CustomiseColmn({}: Props) {
               &times;
             </div>
           </div>
-          <SearchBar placeholder="Search" />
+          <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search" />
           <div></div>
         </div>
       </Modal>
