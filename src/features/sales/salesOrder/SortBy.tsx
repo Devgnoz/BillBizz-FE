@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import ListIcon from "../../assets/icons/ListIcon"
+import ListIcon from "../../../assets/icons/ListIcon"
 
 type Props = {}
 

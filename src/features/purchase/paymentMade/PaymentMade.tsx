@@ -6,7 +6,7 @@ import PlusCircle from "../../../assets/icons/PlusCircle";
 import RefreshIcon from "../../../assets/icons/RefreshIcon";
 import Button from "../../../Components/Button";
 import SortBy from "./SortBy";
-import Print from "./Print";
+import Print from "../../../Components/PrintButton";
 import Table from "./Table";
 import SearchBar from "../../../Components/SearchBar";
 import PaymentsType from "./PaymentsType";
