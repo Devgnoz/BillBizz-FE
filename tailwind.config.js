@@ -63,7 +63,8 @@ export default {
         pdfbg:"#F9F9FA",
         backButton:"#F6F6F6",
         blk:"#0B1320",
-        billingBorder:"#DADBDD"
+        billingBorder:"#DADBDD",
+        membershipText:"#FCF8ED"
       },
     },
   },

@@ -17,7 +17,6 @@ import Customer from "./pages/Customer";
 import ChartOfAccountant from "./features/accountant/chartOfAccountant/ChartOfAccountant";
 import CustomerHome from "./features/Customer/CustomerHome/CustomerHome";
 import SeeCustomerDetails from "./features/Customer/CustomerHome/SeeCustomerDetails";
-
 import SupplierHome from "./features/Supplier/SupplierHome/SupplierHome";
 import Table from "./features/accountant/chartOfAccountant/Table";
 import DebitNote from "./features/purchase/debitNote/DebitNote";
@@ -57,14 +56,13 @@ function App() {
           <Route path="/supplier/home" element={<SupplierHome />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
-          <Route path="/customer/view/1" element={<SeeCustomerDetails/>}/>
+          <Route path="/customer/view" element={<SeeCustomerDetails/>}/>
           <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
           <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
           <Route path="/purchase/debit-note/new" element={<NewDebitNote/>}></Route>
           <Route path="/supplier/home" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
-          <Route path="/customer/view/:id" element={<SeeCustomerDetails/>}/>
           <Route path="/inventory/Item" element={<ItemHome/>}></Route>
           <Route
             path="/accountant/chart-OF-accountant"

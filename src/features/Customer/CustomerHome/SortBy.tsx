@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ListIcon from "../../../assets/icons/ListIcon";
+import Button from "../../../Components/Button";
 
 type Props = {};
 
@@ -61,22 +62,8 @@ function SortBy({}: Props) {
   ];
   return (
     <div>
-      <button
-        onClick={toggleDropdown}
-        className="w-[98px] h-[34.5px] text-sm flex items-center justify-center"
-        style={{
-          border: "0.5px solid #565148",
-          borderRadius: "8px",
-          color: "#565148",
-        }}
-      >
-        <span
-          className="flex items-center px-2.5"
-          style={{ gap: "8px", fontWeight: "500" }}
-        >
-          <ListIcon color="#565148" /> Sort By
-        </span>
-      </button>
+     <Button onClick={toggleDropdown} variant="secondary"  size="sm">
+     <ListIcon color="#565148" /> <p className="text-sm font-medium text-outlineButton">Sort By</p></Button>
       {isDropdownOpen && (
         <div
           ref={dropdownRef}

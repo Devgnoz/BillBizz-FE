@@ -120,11 +120,11 @@ const CustomiseColmn = ({ columns, setColumns }: Props) => {
               <PlusCircle color="#565148" /> Add Custom Field</Button>
           </div>
           <div className="flex justify-end mt-4 gap-4">
-          <Button onClick={closeModal} 
-          variant="secondary" className="px-10" size="sm">
-            <p className="text-sm font-medium">Cancel</p></Button>
+            <Button onClick={closeModal}
+              variant="secondary" className="pl-9 pr-9" size="sm">
+              <p className="text-sm font-medium">Cancel</p></Button>
 
-          <Button onClick={saveChanges} variant="primary" className="px-10" size="sm"><p className="text-sm font-medium">Save</p></Button>
+            <Button onClick={saveChanges} variant="primary" className="pl-8 pr-8" size="sm"><p className="text-sm font-medium">Save</p></Button>
           </div>
         </div>
       </Modal>
