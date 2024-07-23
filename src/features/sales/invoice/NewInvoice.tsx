@@ -161,21 +161,19 @@ const NewInvoice = ({}: Props) => {
 
               </div>
             <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-5">
-                <label className="block text-sm mb-1 text-labelColor">
-                  Invoice Date
-                </label>
-                <div className="relative w-full">
-                  <select className="block appearance-none w-full h-9  text-zinc-400 bg-white border border-inputBorder text-sm  pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    <option value="" className="text-gray">
-                      31/12/24
-                    </option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <CehvronDown color="gray" />
-                  </div>
-                </div>
-              </div>
+            <div className="col-span-5">
+  <label className="block text-sm mb-1 text-labelColor">
+    Invoice Date
+  </label>
+  <div className="relative w-full">
+    <input
+      type="date"
+      className="block appearance-none w-full h-9 text-zinc-400 bg-white border border-inputBorder text-sm pl-2 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500 px-2"
+      defaultValue="2024-12-31"
+    />
+  </div>
+</div>
+
               <div className="col-span-7">
                 <label className="block text-sm mb-1 text-labelColor">
                   Terms
@@ -258,12 +256,7 @@ const NewInvoice = ({}: Props) => {
               </div>
             <p className="font-bold">Add Item</p>
             <NewInvoiceTable />
-            <button className="mt-1">
-              <p className="text-darkRed my-3 text-sm flex gap-2 items-center">
-                <PlusCircle color="darkRed" />
-                <b> Add Item</b>
-              </p>
-            </button>{" "}
+           
             <br />
             <div className="text-sm">
               <label htmlFor="" className="">
