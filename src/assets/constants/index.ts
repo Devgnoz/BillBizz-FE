@@ -53,15 +53,15 @@ const navlist = [
   {
     nav: "Sales",
     icon: shoppingCart,
-    route: "/sales",
+    route: "/customer",
     subhead: [
       {
         headName: "Dashboard",
-        subRoute: "/sales",
+        subRoute: "/customer",
       },
       {
         headName: "Sales Order",
-        subRoute: "/inventory",
+        subRoute: "/sales/salesorder",
       },
       {
         headName: "Invoice",
@@ -77,7 +77,7 @@ const navlist = [
       },
       {
         headName: "Credit Note",
-        subRoute: "/inventory",
+        subRoute: "/sales/creditnote",
       },
     ],
   },

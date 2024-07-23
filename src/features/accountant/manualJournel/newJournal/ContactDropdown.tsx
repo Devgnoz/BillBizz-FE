@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import SearchDropdown from './SearchDropdown';
-import CehvronDown from '../../../assets/icons/CehvronDown';
+import CehvronDown from '../../../../assets/icons/CehvronDown';
 
 type ContactDropdownProps = {
   index: number;

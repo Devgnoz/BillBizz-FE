@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import ListIcon from "../../../assets/icons/ListIcon";
+import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
+import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
+import RefreshIcon from "../../../assets/icons/RefreshIcon";
+import Ellipsis from "../../../assets/icons/Ellipsis";
+
 
 type Props = {}
 
-function SortBy({}: Props) {
+function CreditDropdown({}: Props) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -26,53 +30,51 @@ function SortBy({}: Props) {
 
   const dropdownItems = [
     {
-      text: "Sales Order #",
+      icon: <ArrowDownIcon />,
+      text: "Import Sales Order",
       onClick: () => {
         console.log("Import Sales Order clicked");
       },
     },
     {
-      text: "Date",
+      icon: <ArrowUpIcon />,
+      text: "Export Sales Order",
       onClick: () => {
         console.log("Export Sales Order clicked");
       },
     },
     {
-      text: "Contact",
+      icon: <ArrowUpIcon />,
+      text: "Export Current View",
       onClick: () => {
         console.log("Export Current View clicked");
       },
     },
     {
-      text: "Customer Name",
+      icon: <RefreshIcon color="#4B5C79" />,
+      text: "Refresh List",
       onClick: () => {
         console.log("Refresh List clicked");
       },
     },
-    {
-      text: "Amount",
-      onClick: () => {
-        console.log("Refresh List clicked");
-      },
-    }
   ];
 
   return (
-    <div>
-      <button onClick={toggleDropdown} className="w-[98px] h-[34.5px] text-sm flex items-center justify-center" style={{border:"0.5px solid #565148",borderRadius:"8px",color:"#565148"}}>
-        <span className="flex items-center px-2.5" style={{gap:"8px",fontWeight:"500"}}>
-          <ListIcon color="#565148" /> Sort By
-        </span>
-      </button>
+    <>
+      <div onClick={toggleDropdown} className="cursor-pointer">
+        <Ellipsis />
+      </div>
+
       {isDropdownOpen && (
-        <div ref={dropdownRef} className="absolute w-[14.5%] top-26 right-44 mt-2 p-2 bg-white shadow-xl z-10">
+        <div ref={dropdownRef} className="absolute top-12 right-6 mt-2 w-52 p-1 bg-white shadow-2xl z-10">
           <ul className="py-1 text-dropdownText">
             {dropdownItems.map((item, index) => (
               <div key={index}>
                 <li onClick={item.onClick} className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer">
+                  {item.icon}
                   {item.text}
                 </li>
-                {index < 3 && (
+                {item.text !== "Refresh List" && (
                   <div className="pl-2 pr-2">
                     <hr className='border-dropdownBorder' />
                   </div>
@@ -82,8 +84,8 @@ function SortBy({}: Props) {
           </ul>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
-export default SortBy;
+export default CreditDropdown;

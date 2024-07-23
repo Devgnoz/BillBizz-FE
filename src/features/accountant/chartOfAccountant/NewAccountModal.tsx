@@ -5,14 +5,14 @@ import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png";
 import chartOfAcc from "../../../assets/constants/chartOfAcc";
 import Modal from "../../../Components/model/Modal";
-import axios from "axios";
+import useApi from "../../../Hooks/useApi";
+import { endponits } from "../../../Services/apiEndpoints";
 
-type Props = {
-  
-};
+type Props = {};
 
-function NewAccountModal({ }: Props) {
+function NewAccountModal({}: Props) {
   const [isModalOpen, setModalOpen] = useState(false);
+  const { request: NewAccount } = useApi("post", 5001);
   const [formValues, setFormValues] = useState({
     organizationId: "INDORG0001",
     accountName: "",
@@ -35,12 +35,13 @@ function NewAccountModal({ }: Props) {
     e.preventDefault();
     console.log(formValues);
     try {
-      const response = await axios.post(
-        "http://localhost:5001/add-account",
-        formValues
-      );
-      console.log(response.data);
+      const url = `${endponits.Add_NEW_ACCOUNT}`;
+      const body = formValues;
+      const { response, error } = await NewAccount(url, body);
       closeModal();
+      if (!error && response) {
+        console.log(response);
+      }
     } catch (error) {
       console.error(error);
     }

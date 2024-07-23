@@ -3,11 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Root from "./Root";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
-import Sales from "./pages/Sales";
+import SalesOrder from "./features/sales/salesOrder/SalesOrder"
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
-import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
@@ -28,8 +27,14 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
-import NewInvoice from "./features/sales/invoice/NewInvoice";
+import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
 import InvoiceHome from "./features/sales/invoice/InvoiceHome";
+import NewInvoice from "./features/sales/invoice/NewInvoice";
+import NewCreditNote from "./features/sales/CreditNote/NewCreditNote";
+import CreditNote from "./features/sales/CreditNote/CreditNote";
+import ViewCreditNote from "./features/sales/CreditNote/viewCreditNote/ViewCreditNote";
+import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
+
 
 function App() {
   return (
@@ -39,7 +44,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/accountant" element={<Accountant />} />
-          <Route path="/sales" element={<Sales />} />
+          <Route path="/sales/salesorder" element={<SalesOrder/>} />
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/accountant/cash" element={<Cash />}></Route>
           <Route
@@ -79,6 +84,12 @@ function App() {
             path="/inventory/unit/unit-conversion"
             element={<Unitconversion />}
           ></Route>
+          <Route path="/purchase" element={<Purchase/>}/>
+          <Route path="/purchase/purchase-order" element={<PurchaseOrder/>}/>
+          <Route path="/purchase/purchase-order/new" element={<NewPurchaseOrder/>}></Route>
+          <Route path="/purchase/payment-made" element={<PaymentMade/>}></Route>
+          <Route path="/purchase/payment-made/view" element={<PaymentView/>}></Route>
+          <Route path="/sales/viewsalesorder" element={<ViewSalesOrder/>}></Route>
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/purchase/purchase-order" element={<PurchaseOrder />} />
           <Route
@@ -96,6 +107,9 @@ function App() {
 
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
+          <Route path="/sales/credit-note/new" element={<NewCreditNote/>}></Route>
+          <Route path="/sales/creditnote" element={<CreditNote/>} />   
+          <Route path="/sales/viewcreditnote" element={<ViewCreditNote/>} />   
         </Route>
       </Routes>
     </>
