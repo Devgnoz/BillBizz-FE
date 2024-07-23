@@ -1,13 +1,12 @@
-import Customers from "./Customers"
-import Print from "../../../Components/PrintButton"
-import SearchBar from "../../../Components/SearchBar"
+import Customers from "../../sales/salesOrder/SalesOrderCustomers"
+import Print from "../../sales/salesOrder/Print"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"
 import NewCustomerModal from "./NewCustomerModal"
 import SortBy from "./SortBy"
 import { useState } from "react"
-
 import CustomerTable from "./CustomerTable"
+import SearchBar from "../../../Components/SearchBar"
 
 
 type Props = {}

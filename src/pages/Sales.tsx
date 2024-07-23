@@ -2,7 +2,7 @@ import SalesDashboard from '../features/sales/dashboard/SalesDashboard'
 
 type Props = {}
 
-const Sales = (props: Props) => {
+const Sales = ({}: Props) => {
   return (
    <>
    <SalesDashboard/>
