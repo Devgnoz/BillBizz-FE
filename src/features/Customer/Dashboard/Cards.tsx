@@ -41,7 +41,7 @@ const Cards = ({}: Props) => {
   ];
   return (
     <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between  w-full space-x-4">
       {cards.map((card, index) => (
         <OrderCards
           key={index}

@@ -4,11 +4,11 @@ import CheveronLeftIcon from "../../../../assets/icons/CheveronLeftIcon";
 import Button from "../../../../Components/Button";
 import Pen from "../../../../assets/icons/Pen";
 import MailIcon from "../../../../assets/icons/MailIcon";
-import SalesPdfView from "./SalesPdfView"
-import SalesOrderView from "./SalesOrderView"
+import SalesPdfView from "./SalesQuotePdfView"
+import SalesOrderView from "./SalesQuoteView"
 type Props = {};
 
-function ViewDebitNote({ }: Props) {
+function ViewSalesQuote({ }: Props) {
     const [isPdfView, setIsPdfView] = useState(false);
 
     const handleToggle = () => {
@@ -20,7 +20,7 @@ function ViewDebitNote({ }: Props) {
             <div className="px-6">
                 <div className="bg-white rounded-md p-5 mb-32">
                     <div className="flex items-center gap-5">
-                        <Link to={"/sales/salesorder"}>
+                        <Link to={"/sales/quote"}>
                             <div
                                 style={{ borderRadius: "50%" }}
                                 className="w-[40px] h-[40px] flex items-center justify-center bg-backButton"
@@ -28,14 +28,14 @@ function ViewDebitNote({ }: Props) {
                                 <CheveronLeftIcon />
                             </div>
                         </Link>
-                        <p className="text-textColor text-xl font-bold">View Order</p>
+                        <p className="text-textColor text-xl font-bold">View Sales Quote</p>
                     </div>
                     <br />
 
                 <div className="flex justify-between">
                     <div className="flex gap-3 items-center">
-                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Sales Order</p>
-                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Sales Order#S0001</p>
+                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Quote</p>
+                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">#QT-0001</p>
                         <p className="text-sm font-semibold text-textColor bg-cuscolumnbg p-1 text-center rounded-sm">Draft</p>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -71,4 +71,4 @@ function ViewDebitNote({ }: Props) {
     );
 }
 
-export default ViewDebitNote;
+export default ViewSalesQuote;

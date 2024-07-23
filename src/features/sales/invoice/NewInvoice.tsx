@@ -4,15 +4,16 @@ import Button from "../../../Components/Button";
 import SearchBar from "../../../Components/SearchBar";
 import CehvronDown from "../../../assets/icons/CehvronDown";
 import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
-import PlusCircle from "../../../assets/icons/PlusCircle";
 import PrinterIcon from "../../../assets/icons/PrinterIcon";
 import SettingsIcons from "../../../assets/icons/SettingsIcon";
 import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
 import NewInvoiceTable from "./NewInvoiceTable";
+import ManageSalesPerson from "./ManageSalesPerson";
 
 type Props = {};
 
 const NewInvoice = ({}: Props) => {
+  
   const [searchValue, setSearchValue] = useState<string>("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState<string | null>(
     null
@@ -44,11 +45,13 @@ const NewInvoice = ({}: Props) => {
     };
   }, [openDropdownIndex]);
 
+  
+
   return (
     <div className="px-8">
       <div className="flex gap-5">
         <Link to={"/sales/invoice"}>
-          <div className="flex justify-center items-center h-11 w-11 bg-tertiary_main rounded-full">
+          <div className="flex justify-center items-center h-11 w-11 bg-[#FFFFFF] rounded-full">
             <CheveronLeftIcon />
           </div>
         </Link>
@@ -61,7 +64,7 @@ const NewInvoice = ({}: Props) => {
 
       <div className="grid grid-cols-12 gap-4 py-5 rounded-lg">
         <div className="col-span-8">
-          <div className="bg-secondary_main p-5 min-h-max rounded-xl relative ">
+          <div className="bg-[#FFFFFF] p-5 min-h-max rounded-xl relative ">
             <p className="text-textColor text-xl font-bold">
               Enter Invoice details
             </p>
@@ -228,17 +231,7 @@ const NewInvoice = ({}: Props) => {
           &times;
         </div>
       </div>
-      <div className="hover:bg-gray-100 cursor-pointer border border-slate-400 rounded-lg py-3 flex justify-between items-center">
-        <div className="flex justify-between ps-4 text-[#820000]">
-          <div className="flex items-center space-x-1">
-            <SettingsIcons size="sm" bold={2.5} color="#820000" />
-            <p className="text-sm font-bold">Manage Sales Person</p>
-          </div>
-        </div>
-        <div className="ms-auto text-2xl cursor-pointer relative -mt-2 pe-2">
-          &times;
-        </div>
-      </div>
+      <ManageSalesPerson/>
     </div>
   )}
 </div>
@@ -284,7 +277,7 @@ const NewInvoice = ({}: Props) => {
       </div>
     </div>
     <div className="col-span-4">
-          <div className="bg-secondary_main p-5 text-sm rounded-xl space-y-4 text-textColor">
+          <div className="bg-[#FFFFFF] p-5 text-sm rounded-xl space-y-4 text-textColor">
            
             <div className="grid grid-cols-12 pb-4  text-dropdownText border-b-2 border-slate-200">
               <div className="col-span-10 mt-5">
@@ -318,15 +311,15 @@ const NewInvoice = ({}: Props) => {
           
             <div className="flex gap-4 pt-3 justify-end">
               {" "}
-              <Button variant="secondary" >
-                Cancel
+              <Button size="sm" variant="secondary" >
+                <p>Cancel</p>
               </Button>
-              <Button variant="secondary" >
+              <Button size="sm" variant="secondary" >
                 <PrinterIcon height={18} width={18} color="currentColor" />
-                Print
+                <p>Print</p>
               </Button>
-              <Button variant="primary" >
-                Save & Send
+              <Button size="sm" variant="primary" >
+                <p>Save & Send</p>
               </Button>{" "}
             </div>
           </div>

@@ -68,7 +68,7 @@ function Dashboard({}: Props) {
   return (
 
     <>
-    <div className='p-6 space-y-8 text-[#303F58]'>
+    <div className='px-6 space-y-8 text-[#303F58]'>
     <div className=" flex  items-center relative">
         <div>
           <h3 className="font-bold text-2xl text-textColor">Customer Overview</h3>
@@ -106,7 +106,10 @@ function Dashboard({}: Props) {
           </div>
         </div>
         {/* Cards */}
+        
         <Cards />
+       
+        
         {/* Top suppliers and supplier rentaion rate overtime */}
         <div className="grid grid-cols-3 gap-5">
           <div className="flex justify-center ">

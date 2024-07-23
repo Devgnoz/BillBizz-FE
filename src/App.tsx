@@ -28,9 +28,11 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
-import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
-import InvoiceHome from "./features/sales/Invoice/InvoiceHome";
-import NewInvoice from "./features/sales/Invoice/NewInvoice";
+import ViewSalesOrder from "./features/sales/salesOrder/viewSalesQuote/ViewSalesQuote"
+import InvoiceHome from "./features/sales/invoice/InvoiceHome";
+import NewInvoice from "./features/sales/invoice/NewInvoice";
+import QuoteHome from "./features/sales/quote/QuoteHome";
+import ViewSalesQuote from "./features/sales/quote/viewSalesOrder/ViewSalesQuote";
 
 
 function App() {
@@ -103,7 +105,9 @@ function App() {
           ></Route>
 
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
-          <Route path="/sales/invoice/new" element={<NewInvoice />} />   
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />
+          <Route path="/sales/quote" element={<QuoteHome/>}/>   
+          <Route path="/sales/quote/view" element={<ViewSalesQuote/>}/>  
         </Route>
       </Routes>
     </>
