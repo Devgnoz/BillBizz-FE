@@ -107,7 +107,9 @@ function App() {
 
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
+
           <Route path="/sales/credit-note/new" element={<NewCreditNote/>}></Route>
+
           <Route path="/sales/creditnote" element={<CreditNote/>} />   
           <Route path="/sales/viewcreditnote" element={<ViewCreditNote/>} />   
         </Route>
