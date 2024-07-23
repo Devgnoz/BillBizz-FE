@@ -5,12 +5,12 @@ import RefreshIcon from "../../../assets/icons/RefreshIcon";
 import Button from "../../../Components/Button";
 import Ellipsis from "../../../assets/icons/Ellipsis";
 import SalesOrderCard from "./SalesOrderCard"
-import SearchBar from "../SearchBar";
 import Print from "./Print";
 import SortBy from "./SortBy";
 import SalesOrderCustomers from "../salesOrder/SalesOrderCustomers"
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import SalesTable from "./SalesTable"
+import SearchBar from "./SearchBar";
 type Props = {};
 
 const Sales = ({}: Props) => {
