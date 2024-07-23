@@ -7,7 +7,6 @@ import SalesOrder from "./features/sales/salesOrder/SalesOrder"
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
-import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
@@ -31,7 +30,9 @@ import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
 import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
 import InvoiceHome from "./features/sales/Invoice/InvoiceHome";
 import NewInvoice from "./features/sales/Invoice/NewInvoice";
-
+import CreditNote from "./features/sales/creditNote/CreditNote"
+import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
+import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
 
 function App() {
   return (
@@ -104,6 +105,8 @@ function App() {
 
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
+          <Route path="/sales/creditnote" element={<CreditNote/>} />   
+          <Route path="/sales/viewcreditnote" element={<ViewCreditNote/>} />   
         </Route>
       </Routes>
     </>

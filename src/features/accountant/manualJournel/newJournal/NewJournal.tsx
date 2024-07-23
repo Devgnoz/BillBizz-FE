@@ -1,11 +1,11 @@
 import  { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CheveronLeftIcon from '../../../assets/icons/CheveronLeftIcon';
-import TrashCan from '../../../assets/icons/TrashCan';
-import PlusIcon from '../../../assets/icons/PlusIcon';
-import Button from '../../../Components/Button';
 import AccountDropdown from './AccountDropdown';
 import ContactDropdown from './ContactDropdown';
+import CheveronLeftIcon from '../../../../assets/icons/CheveronLeftIcon';
+import TrashCan from '../../../../assets/icons/TrashCan';
+import Button from '../../../../Components/Button';
+import PlusIcon from '../../../../assets/icons/PlusIcon';
 
 type Props = {};
 
@@ -133,12 +133,12 @@ function NewJournal({}: Props) {
   return (
     <div className="p-5">
       <div className="flex items-center gap-5">
-        <Link to={"/manualjournal"}>
+        <Link to={"/accountant/manualjournal"}>
           <div
             style={{ borderRadius: "50%" }}
             className="w-[40px] h-[40px] flex items-center justify-center bg-white"
           >
-            <CheveronLeftIcon />
+            <CheveronLeftIcon/>
           </div>
         </Link>
         <p className="text-textColor text-xl font-bold">Create New Journal</p>
@@ -297,9 +297,9 @@ function NewJournal({}: Props) {
         <hr className="mt-3 border-t border-hr" />
         <br />
         <div className="flex items-center justify-end gap-3">
-          <Button variant="fourthiary">Cancel</Button>
-          <Button variant="fourthiary">Save as Draft</Button>
-          <Button variant="secondary">Save & Publish</Button>
+          <Button variant="secondary" size='sm'>Cancel</Button>
+          <Button variant="secondary" size='sm'>Save as Draft</Button>
+          <Button variant="primary" size='sm'>Save & Publish</Button>
         </div>
       </div>
     </div>
