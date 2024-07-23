@@ -5,7 +5,7 @@ type CardProps = {
   icon: React.ReactNode;
   title: string;
   count: string;
-  rating: string;
+  rating: number;
   active?: boolean;
   onClick?: () => void;
 };

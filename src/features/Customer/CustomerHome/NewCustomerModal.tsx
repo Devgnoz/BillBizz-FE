@@ -33,22 +33,22 @@ const NewCustomerModal = ({ page }: Props) => {
   return (
     <div>
       {page && page == "purchase" ? (
-        <button
-          className="w-full grid grid-cols-12  px-4  items-center justify-center"
+          <div
+          className="w-full flex col-span-10  px-4  justify-between"
           onClick={openModal}
         >
-          <div className="col-span-1 flex">
+          <div className="flex items-center  space-x-1">
             <CirclePlus color="darkRed" size="18" />
-          </div>
-          <div className="col-span-10  text-sm flex  items-center">
-            <p className="text-darkRed">
+        
+            <p className="text-[#820000] text-sm">
               <b>Add new Customer</b>
             </p>
           </div>
-          <div className=" col-span-1 text-end text-2xl cursor-pointer relative ">
+          <div className=" col-span-2 text-end text-2xl cursor-pointer relative ">
             &times;
           </div>
-        </button>
+        </div>
+     
       ) : (
         <Button onClick={openModal}  variant="primary" size="sm">
         <PlusCircle color="white" /> <p className="text-sm font-medium">Add Customer</p>

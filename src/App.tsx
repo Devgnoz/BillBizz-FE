@@ -28,6 +28,7 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
+import NewInvoice from "./features/sales/invoice/NewInvoice";
 
 
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/accountant" element={<Accountant />} />
           <Route path="/sales" element={<Sales />} />
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/accountant/cash" element={<Cash />}></Route>
           <Route path="/accountant/manualjournal" element={<ManualHome />}></Route>
