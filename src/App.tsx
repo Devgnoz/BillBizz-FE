@@ -30,9 +30,9 @@ import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
 import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
 import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewInvoice from "./features/sales/invoice/NewInvoice";
-import NewCreditNote from "./features/sales/CreditNote/NewCreditNote";
-import CreditNote from "./features/sales/CreditNote/CreditNote";
-import ViewCreditNote from "./features/sales/CreditNote/viewCreditNote/ViewCreditNote";
+import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
+import CreditNote from "./features/sales/creditNote/CreditNote";
+import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
 import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
 
 
