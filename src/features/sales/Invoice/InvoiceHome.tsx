@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Ellipsis from "../../../assets/icons/Ellipsis";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import Button from "../../../Components/Button";
@@ -8,12 +8,60 @@ import BookopenCheck from "../../../assets/icons/BookopenCheck";
 import BookX from "../../../assets/icons/BookX";
 import { Link } from "react-router-dom";
 import newspaper from "../../../assets/icons/newspaper";
+import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
+import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
 
 type Props = {};
 
 const InvoiceHome = ({}: Props) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [selectedTab, setSelectedTab] = useState<string>("All");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const dropdownItems = [
+    {
+      icon: <ArrowDownIcon />,
+      text: "Import Journals",
+      onClick: () => {
+        console.log("Import Sales Order clicked");
+      },
+    },
+    {
+      icon: <ArrowUpIcon />,
+      text: "Export Journals",
+      onClick: () => {
+        console.log("Export Sales Order clicked");
+      },
+    },
+    {
+      icon: <ArrowUpIcon />,
+      text: "Manage Templates",
+      onClick: () => {
+        console.log("Export Current View clicked");
+      },
+    }
+  ];
 
   const filterList = [
     { title: "All", icon: Booktext },
@@ -79,7 +127,7 @@ const InvoiceHome = ({}: Props) => {
   ];
 
   return (
-    <div className="py-2 px-7">
+    <div className="mx-5 my-4">
       <div className="flex mb-8">
         <div>
           <h1>Invoice</h1>
@@ -97,13 +145,37 @@ const InvoiceHome = ({}: Props) => {
           </Link>
          
 
-          <Ellipsis />
+          <div onClick={toggleDropdown} className="cursor-pointer">
+              <Ellipsis />
+            </div>
+
+            {isDropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="absolute top-60  right- mt-2 w-48 bg-white shadow-xl z-10"
+              >
+                <ul className="py-1 text-dropdownText">
+                  {dropdownItems.map((item, index) => (
+                   <>
+                      <li
+                        key={index}
+                        onClick={item.onClick}
+                        className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer "
+                      >
+                        {item.icon}
+                        {item.text}
+                      </li>    
+                   </>
+                                   ))}
+                </ul>
+              </div>
+            )}
         </div>
       </div>
 
       {/* filter tabs */}
-      <div className="bg-white p-5 rounded-lg space-y-4">
-          <div className=" gap-3 mt-4 text-xs hide-scrollbar overflow-scroll grid-flow-col grid">
+      <div className="bg-white p-3 rounded-lg space-y-4">
+      <div className=" gap-3 mt-4 text-xs hide-scrollbar overflow-scroll grid-flow-col grid">
             {filterList.map((item) => (
               <button
                 key={item.title}

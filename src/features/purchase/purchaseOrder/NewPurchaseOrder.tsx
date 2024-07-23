@@ -448,45 +448,45 @@ const NewPurchaseOrder = ({}: Props) => {
           <div className="bg-secondary_main p-5 text-sm rounded-xl space-y-4 text-textColor">
            
             <div className="grid grid-cols-12 pb-4  text-dropdownText border-b-2 border-slate-200">
-              <div className="col-span-10 mt-5">
+              <div className="col-span-9 mt-5">
                 <p>Untaxed Amount</p>
               </div>
-              <div className="col-span-2 mt-5">
+              <div className="col-span-3 mt-5">
                 <p className="text-xl font-bold">RS 0.00</p>
               </div>
 
-              <div className="col-span-10 mt-1">
+              <div className="col-span-9 mt-1">
                 <p>SGST</p>
               </div>
-              <div className="col-span-2 mt-1">
+              <div className="col-span-3 mt-1">
                 <p className="text-base">RS 0.00</p>
               </div>
 
-              <div className="col-span-10">
+              <div className="col-span-9">
                 <p> CGST</p>
               </div>
-              <div className="col-span-2">
+              <div className="col-span-3">
                 <p className="text-base">RS 0.00</p>
               </div>
 
-              <div className="col-span-10 mt-1">
+              <div className="col-span-9 mt-1">
                 <p className="font-bold text-base text-black">Total</p>
               </div>
-              <div className="col-span-2 mt-1">
+              <div className="col-span-3 mt-1">
                 <p className="text-base font-bold">RS 0.00</p>
               </div>
             </div>
           
             <div className="flex gap-4 pt-3 justify-end">
               {" "}
-              <Button variant="secondary" >
+              <Button variant="secondary" size="sm" >
                 Cancel
               </Button>
-              <Button variant="secondary" >
+              <Button variant="secondary"size="sm"  >
                 <PrinterIcon height={18} width={18} color="currentColor" />
                 Print
               </Button>
-              <Button variant="primary" >
+              <Button variant="primary" size="sm" >
                 Save & Send
               </Button>{" "}
             </div>
