@@ -1,16 +1,18 @@
 import ItemSort from "../../inventory/Item/ItemSort"
-import Print from "../../sales/salesOrder/Print"
-import SearchBar from "../../sales/SearchBar"
+import Print from "../../../Components/PrintButton"
+import SearchBar from "../../../Components/SearchBar"
 import NewSupplierModal from "./AddSupplierModal"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"
 import SupplierRectangleStrip from "./SupplierRectangleStrip"
 import SupplierTable from "./SupplierTable"
+import { useState } from "react"
 
 
 type Props = {}
 
 function SupplierHome({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   return (
     <>
       <div className=" px-6 flex items-center relative">
@@ -37,7 +39,7 @@ function SupplierHome({}: Props) {
           </div>
           <div className="flex pl-3 pr-3 items-center gap-5">
             <div className="w-[80%]">
-              <SearchBar placeholder="Search Sales Order" />
+              <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Sales Order" />
             </div>
            <ItemSort />
             <Print />

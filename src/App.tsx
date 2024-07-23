@@ -29,8 +29,8 @@ import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
 import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
-
-
+import InvoiceHome from "./features/sales/Invoice/InvoiceHome";
+import NewInvoice from "./features/sales/Invoice/NewInvoice";
 
 
 function App() {
@@ -44,7 +44,10 @@ function App() {
           <Route path="/sales/salesorder" element={<SalesOrder/>} />
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/accountant/cash" element={<Cash />}></Route>
-          <Route path="/accountant/manualjournal" element={<ManualHome />}></Route>
+          <Route
+            path="/accountant/manualjournal"
+            element={<ManualHome />}
+          ></Route>
           <Route path="/accountant/newjournal" element={<NewJournal />}></Route>
           <Route path="/accountant/bank" element={<BankHome />}></Route>
           <Route path="/inventory/unit" element={<UnitHome />}></Route>
@@ -56,14 +59,20 @@ function App() {
           <Route path="/supplier/home" element={<SupplierHome />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
-          <Route path="/customer/view" element={<SeeCustomerDetails/>}/>
+          <Route path="/customer/view" element={<SeeCustomerDetails />} />
           <Route path="/purchase/debitnote" element={<DebitNote />}></Route>
-          <Route path="/purchase/viewdebitnote" element={<ViewDebitNote />}></Route>
-          <Route path="/purchase/debit-note/new" element={<NewDebitNote/>}></Route>
+          <Route
+            path="/purchase/viewdebitnote"
+            element={<ViewDebitNote />}
+          ></Route>
+          <Route
+            path="/purchase/debit-note/new"
+            element={<NewDebitNote />}
+          ></Route>
           <Route path="/supplier/home" element={<Table />}></Route>
           <Route path="/customer" element={<Customer />}></Route>
           <Route path="/customer/home" element={<CustomerHome />}></Route>
-          <Route path="/inventory/Item" element={<ItemHome/>}></Route>
+          <Route path="/inventory/Item" element={<ItemHome />}></Route>
           <Route
             path="/accountant/chart-OF-accountant"
             element={<ChartOfAccountant />}
@@ -78,6 +87,23 @@ function App() {
           <Route path="/purchase/payment-made" element={<PaymentMade/>}></Route>
           <Route path="/purchase/payment-made/view" element={<PaymentView/>}></Route>
           <Route path="/sales/viewsalesorder" element={<ViewSalesOrder/>}></Route>
+          <Route path="/purchase" element={<Purchase />} />
+          <Route path="/purchase/purchase-order" element={<PurchaseOrder />} />
+          <Route
+            path="/purchase/purchase-order/new"
+            element={<NewPurchaseOrder />}
+          ></Route>
+          <Route
+            path="/purchase/payment-made"
+            element={<PaymentMade />}
+          ></Route>
+          <Route
+            path="/purchase/payment-made/view"
+            element={<PaymentView />}
+          ></Route>
+
+          <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />   
         </Route>
       </Routes>
     </>

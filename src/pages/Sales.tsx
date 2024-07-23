@@ -1,10 +1,12 @@
-import React from 'react'
+import SalesDashboard from '../features/sales/dashboard/SalesDashboard'
 
 type Props = {}
 
-function Sales({}: Props) {
+const Sales = ({}: Props) => {
   return (
-    <div>Sales</div>
+   <>
+   <SalesDashboard/>
+   </>
   )
 }
 
