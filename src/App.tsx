@@ -7,7 +7,6 @@ import SalesOrder from "./features/sales/salesOrder/SalesOrder"
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
-import NewJournal from "./features/accountant/manualJournel/NewJournal";
 import Cash from "./features/accountant/Cash/Cash";
 import BankHome from "./features/accountant/Bank/BankHome";
 import UnitHome from "./features/inventory/Unit/UnitHome";
@@ -33,6 +32,10 @@ import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewInvoice from "./features/sales/invoice/NewInvoice";
 import QuoteHome from "./features/sales/quote/QuoteHome";
 import ViewSalesQuote from "./features/sales/quote/viewSalesOrder/ViewSalesQuote";
+import NewCreditNote from "./features/sales/CreditNote/NewCreditNote";
+import CreditNote from "./features/sales/CreditNote/CreditNote";
+import ViewCreditNote from "./features/sales/CreditNote/viewCreditNote/ViewCreditNote";
+import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
 
 
 function App() {
@@ -108,6 +111,12 @@ function App() {
           <Route path="/sales/invoice/new" element={<NewInvoice />} />
           <Route path="/sales/quote" element={<QuoteHome/>}/>   
           <Route path="/sales/quote/view" element={<ViewSalesQuote/>}/>  
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />   
+
+          <Route path="/sales/credit-note/new" element={<NewCreditNote/>}></Route>
+
+          <Route path="/sales/credit-note" element={<CreditNote/>} />   
+          <Route path="/sales/credit-note/view" element={<ViewCreditNote/>} />   
         </Route>
       </Routes>
     </>

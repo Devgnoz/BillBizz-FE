@@ -1,4 +1,3 @@
-import Customers from "../../sales/salesOrder/SalesOrderCustomers"
 import Print from "../../sales/salesOrder/Print"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"
@@ -7,6 +6,7 @@ import SortBy from "./SortBy"
 import { useState } from "react"
 import CustomerTable from "./CustomerTable"
 import SearchBar from "../../../Components/SearchBar"
+import Customers from "./Customers"
 
 
 type Props = {}
@@ -33,7 +33,7 @@ function CustomerHome({}: Props) {
       </div>
       <div className="px-6 mt-3">
         <div className="bg-white p-5">
-          <div className="w-[100%] p-3 bg-gray-100">
+          <div className="w-[100%] p-3">
             <Customers />
           </div>
           <div className="flex pl-3 pr-3 items-center gap-5">

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import SearchDropdown from "./SearchDropdown";
-import DownArrow from "../../../assets/icons/DownArrow";
+import DownArrow from "../../../../assets/icons/DownArrow";
 interface AccountDropdownProps {
   index: number;
   account: string;
