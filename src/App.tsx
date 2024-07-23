@@ -27,12 +27,14 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
-import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
+import ViewSalesOrder from "./features/sales/salesOrder/viewSalesQuote/ViewSalesQuote"
 import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewInvoice from "./features/sales/invoice/NewInvoice";
-import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
-import CreditNote from "./features/sales/creditNote/CreditNote";
-import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
+import QuoteHome from "./features/sales/quote/QuoteHome";
+import ViewSalesQuote from "./features/sales/quote/viewSalesOrder/ViewSalesQuote";
+import NewCreditNote from "./features/sales/CreditNote/NewCreditNote";
+import CreditNote from "./features/sales/CreditNote/CreditNote";
+import ViewCreditNote from "./features/sales/CreditNote/viewCreditNote/ViewCreditNote";
 import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
 
 
@@ -106,12 +108,15 @@ function App() {
           ></Route>
 
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />
+          <Route path="/sales/quote" element={<QuoteHome/>}/>   
+          <Route path="/sales/quote/view" element={<ViewSalesQuote/>}/>  
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
 
           <Route path="/sales/credit-note/new" element={<NewCreditNote/>}></Route>
 
-          <Route path="/sales/creditnote" element={<CreditNote/>} />   
-          <Route path="/sales/viewcreditnote" element={<ViewCreditNote/>} />   
+          <Route path="/sales/credit-note" element={<CreditNote/>} />   
+          <Route path="/sales/credit-note/view" element={<ViewCreditNote/>} />   
         </Route>
       </Routes>
     </>

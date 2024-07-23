@@ -138,9 +138,9 @@ const InvoiceHome = ({}: Props) => {
         </div>
         <div className="ml-auto flex items-center justify-center gap-4">
           <Link to={"/sales/invoice/new"}>
-          <Button size="lg">
+          <Button size="sm">
             <PlusCircle color="white" />
-            New Invoice
+            <p>New Invoice</p>
           </Button>
           </Link>
          

@@ -45,7 +45,7 @@ const NewCreditNote = () => {
   return (
     <div className="mx-5 my-4">
       <div className="flex gap-5">
-        <Link to={"purchase/purchase-order"}>
+        <Link to={"/sales/credit-note"}>
           <div className="flex justify-center items-center h-11 w-11 bg-tertiary_main rounded-full">
             <CheveronLeftIcon />
           </div>

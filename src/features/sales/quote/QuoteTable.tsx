@@ -1,8 +1,7 @@
 import { useState } from "react";
+import CustomiseQuoteTable from "./CustomiseQuoteTable";
 import { useNavigate } from "react-router-dom";
 import DotIcon from "../../../assets/icons/DotIcon";
-import CustomiseCreditTable from "./CustomiseCreditTable";
-
 
 interface Column {
     id: string;
@@ -10,17 +9,18 @@ interface Column {
     visible: boolean;
 }
 
-const CreditTable = () => {
+const QuoteTable = () => {
     const navigate = useNavigate();
 
     const handleRowClick = () => {
-        navigate("/sales/credit-note/view");
+        navigate("/sales/quote/view");
     };
+
     const initialColumns: Column[] = [
         { id: "CustomerName", label: "Customer Name", visible: true },
         { id: "Date", label: "Date", visible: true },
         { id: "Reference", label: "Reference", visible: true },
-        { id: "CreditNote", label: "Credit Note", visible: true },
+        { id: "QuoteNumber", label: "Quote Number", visible: true },
         { id: "Amount", label: "Amount", visible: true },
         { id: "Status", label: "Status", visible: true },
     ];
@@ -32,9 +32,10 @@ const CreditTable = () => {
             CustomerName: "John Doe",
             Date: "15 May 2023",
             Reference: "134267",
-            CreditNote: "lorem ipsum",
+            QuoteNumber: "QT-00001",
             Amount: "60.00",
-        },
+            Status: "Sent"
+        }
     ];
 
     const renderColumnContent = (colId: string, item: any) => {
@@ -43,7 +44,7 @@ const CreditTable = () => {
                 <div className="flex justify-center items-center">
                     <div className="flex justify-center items-center gap-1.5 bg-BgSubhead rounded-2xl px-2 pt-0.5 pb-0.5">
                         <DotIcon color="#495160" />
-                        <p className="text-outlineButton text-xs font-medium">Open</p>
+                        <p className="text-outlineButton text-xs font-medium">Sent</p>
                     </div>
                 </div>
             );
@@ -52,7 +53,7 @@ const CreditTable = () => {
     };
 
     return (
-        <div className="overflow-x-auto">
+        <div className="w-full bg-slate-600">
             <table className="min-w-full bg-white mb-5">
                 <thead className="text-[12px] text-center text-dropdownText">
                     <tr style={{ backgroundColor: "#F9F7F0" }}>
@@ -71,13 +72,13 @@ const CreditTable = () => {
                                 )
                         )}
                         <th className="py-3 px-4 font-medium border-b border-tableBorder">
-                            <CustomiseCreditTable columns={columns} setColumns={setColumns} />
+                            <CustomiseQuoteTable columns={columns} setColumns={setColumns} />
                         </th>
                     </tr>
                 </thead>
                 <tbody className="text-dropdownText text-center text-[13px]">
                     {data.map((item) => (
-                        <tr key={item .CustomerName} className="relative cursor-pointer" onClick={handleRowClick}>
+                        <tr key={item.Date} className="relative cursor-pointer" onClick={handleRowClick}>
                             <td className="py-2.5 px-4 border-y border-tableBorder">
                                 <input type="checkbox" className="form-checkbox w-4 h-4" />
                             </td>
@@ -89,6 +90,9 @@ const CreditTable = () => {
                                         </td>
                                     )
                             )}
+                            <td className="py-2.5 px-4 border-y border-tableBorder">
+                                
+                            </td>
                         </tr>
                     ))}
                 </tbody>
@@ -97,4 +101,4 @@ const CreditTable = () => {
     );
 };
 
-export default CreditTable;
+export default QuoteTable;

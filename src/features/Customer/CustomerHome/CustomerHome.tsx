@@ -15,7 +15,7 @@ function CustomerHome({}: Props) {
   const [searchValue, setSearchValue] = useState<string>("");
   return (
     <>
-      <div className=" px-6 space-y-8 flex items-center relative">
+      <div className="mx-5 my-4 space-y-8 flex items-center relative">
         <div>
           <h3 className="font-bold text-2xl text-textColor">Customer</h3>
           <p className="text-sm text-gray mt-1">

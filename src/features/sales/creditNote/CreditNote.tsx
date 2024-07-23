@@ -24,7 +24,7 @@ function DebitNote({}: Props) {
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-     <Link to="/">
+     <Link to="/sales/credit-note/new">
           <Button  variant="primary" size="sm">
           <PlusCircle color="white" /> <p className="text-sm font-medium">New Credit Note</p>
         </Button>

@@ -4,12 +4,12 @@ import CheveronLeftIcon from "../../../../assets/icons/CheveronLeftIcon";
 import Button from "../../../../Components/Button";
 import Pen from "../../../../assets/icons/Pen";
 import MailIcon from "../../../../assets/icons/MailIcon";
-import CreditPdfView from "./CreditPdfView"
-import CreditOrderView from "./CreditOrderView"
+import SalesPdfView from "./SalesQuotePdfView"
+import SalesOrderView from "./SalesQuoteView"
 type Props = {};
 
-function ViewCreditNote({ }: Props) {
-    const [isPdfView, setIsPdfView] = useState(true);
+function ViewDebitNote({ }: Props) {
+    const [isPdfView, setIsPdfView] = useState(false);
 
     const handleToggle = () => {
         setIsPdfView(!isPdfView);
@@ -20,7 +20,7 @@ function ViewCreditNote({ }: Props) {
             <div className="px-6">
                 <div className="bg-white rounded-md p-5 mb-32">
                     <div className="flex items-center gap-5">
-                        <Link to={"/sales/credit-note"}>
+                        <Link to={"/sales/salesorder"}>
                             <div
                                 style={{ borderRadius: "50%" }}
                                 className="w-[40px] h-[40px] flex items-center justify-center bg-backButton"
@@ -28,14 +28,14 @@ function ViewCreditNote({ }: Props) {
                                 <CheveronLeftIcon />
                             </div>
                         </Link>
-                        <p className="text-textColor text-xl font-bold">View Credit Note</p>
+                        <p className="text-textColor text-xl font-bold">View Order</p>
                     </div>
                     <br />
 
                 <div className="flex justify-between">
                     <div className="flex gap-3 items-center">
-                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Credit Note</p>
-                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Credit Note#CN-0001</p>
+                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Sales Order</p>
+                        <p className="text-lg text-textColor font-bold pr-4 border-r-[1px] border-borderRight">Sales Order#S0001</p>
                         <p className="text-sm font-semibold text-textColor bg-cuscolumnbg p-1 text-center rounded-sm">Draft</p>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -58,11 +58,11 @@ function ViewCreditNote({ }: Props) {
                     <hr className="border-t border-inputBorder mt-4" />
                     {isPdfView ? (
                         <div className="pdf-view-component">
-                            <CreditPdfView/>
+                            <SalesPdfView/>
                         </div>
                     ) : (
                         <div className="other-component">
-                            <CreditOrderView/>
+                            <SalesOrderView/>
                         </div>
                     )}
                 </div>
@@ -71,4 +71,4 @@ function ViewCreditNote({ }: Props) {
     );
 }
 
-export default ViewCreditNote;
+export default ViewDebitNote;
