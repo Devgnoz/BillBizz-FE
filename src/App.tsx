@@ -28,8 +28,8 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
-import InvoiceHome from "./features/sales/Invoice/InvoiceHome";
-import ViewInvoice from "./features/sales/Invoice/ViewInvoice";
+import NewInvoice from "./features/sales/invoice/NewInvoice";
+import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 
 function App() {
   return (
@@ -94,8 +94,8 @@ function App() {
             element={<PaymentView />}
           ></Route>
 
-<Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
-<Route path="/sales/invoice/view" element={<ViewInvoice/>}></Route>       
+          <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
+          <Route path="/sales/invoice/new" element={<NewInvoice />} />   
         </Route>
       </Routes>
     </>
