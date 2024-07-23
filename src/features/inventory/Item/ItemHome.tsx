@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import Button from "../../../Components/Button";
-import Print from "../../sales/Print";
+import Print from "../../sales/salesOrder/Print";
 import SearchBar from "../../../Components/SearchBar";
 import Items from "./Items";
 import ItemSort from "./ItemSort";

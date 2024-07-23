@@ -1,5 +1,5 @@
-import PrinterIcon from "../../assets/icons/PrinterIcon";
-import Button from "../../Components/Button";
+import PrinterIcon from "../../../assets/icons/PrinterIcon";
+import Button from "../../../Components/Button";
 const Print = () => {
 
   return (

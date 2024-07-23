@@ -2,15 +2,15 @@ import React from "react";
 import { cva } from "class-variance-authority";
 
 type CardProps = {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   count: string;
-  rating: string;
+  rating: number;
   active?: boolean;
   onClick?: () => void;
 };
 
-const cardVariants = cva("p-4 rounded-xl shadow-xl cursor-pointer", {
+const cardVariants = cva("p-4 rounded-xl  cursor-pointer", {
   variants: {
     active: {
       true: "bg-cardBg border-cardBorder border-2",
@@ -25,12 +25,10 @@ const cardVariants = cva("p-4 rounded-xl shadow-xl cursor-pointer", {
 const Card: React.FC<CardProps> = ({ icon, title, count, rating, active = false, onClick }) => {
   return (
     <div className={cardVariants({ active })} onClick={onClick} style={{width:"100%",height:"50%"}}>
-      <div className="rounded-full w-[40px] h-[40px] flex items-center justify-center mb-4">
-        {icon}
-      </div>
+     <img src={icon} alt="" className="w-8 h-8 object-contain"/>
 
       <div className="text-textColor">
-        <h2 className="text-sm font-bold">{title}</h2>
+        <h2 className="text-sm font-bold mt-[10px]">{title}</h2>
         <p className="text-gray-500 text-[12px]">{count}</p>
         <div className="text-md font-bold mt-2" style={{color : active ? "rgba(130, 0, 0, 1)" : ""}}>{rating}</div>
       </div>

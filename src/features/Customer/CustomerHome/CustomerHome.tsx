@@ -1,5 +1,5 @@
-import Customers from "../../sales/Customers"
-import Print from "../../sales/Print"
+import Customers from "../../sales/salesOrder/SalesOrderCustomers"
+import Print from "../../sales/salesOrder/Print"
 import SearchBar from "../../sales/SearchBar"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"

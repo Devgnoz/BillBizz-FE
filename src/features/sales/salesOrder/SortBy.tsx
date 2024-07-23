@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import ListIcon from "../../assets/icons/ListIcon"
+import ListIcon from "../../../assets/icons/ListIcon";
 
 type Props = {}
 
@@ -56,26 +56,34 @@ function SortBy({}: Props) {
       },
     }
   ];
+
   return (
     <div>
-        <button onClick={toggleDropdown} className="w-[98px] h-[34.5px] text-sm flex items-center justify-center" style={{border:"0.5px solid #565148",borderRadius:"8px",color:"#565148"}}>
-     <span  className="flex items-center px-2.5" style={{gap:"8px",fontWeight:"500"}}> <ListIcon color="#565148"/> Sort By</span>    
-        </button>
-        {isDropdownOpen && (
-            <div ref={dropdownRef} className="absolute top-26 right-36 mt-2 w-48 bg-white shadow-xl z-10">
-              <ul className="py-1 text-dropdownText">
-                {dropdownItems.map((item, index) => (
-                  <>
-                  <li key={index} onClick={item.onClick} className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer">
-                    {item.text}
-                  </li>
-                  </>
-                ))}
-              </ul>
-            </div>
-          )}
+      <button onClick={toggleDropdown} className="w-[98px] h-[34.5px] text-sm flex items-center justify-center" style={{border:"0.5px solid #565148",borderRadius:"8px",color:"#565148"}}>
+        <span className="flex items-center px-2.5" style={{gap:"8px",fontWeight:"500"}}>
+          <ListIcon color="#565148" /> Sort By
+        </span>
+      </button>
+      {isDropdownOpen && (
+        <div ref={dropdownRef} className="absolute w-[14.5%] top-26 right-44 mt-2 p-2 bg-white shadow-xl z-10">
+          <ul className="py-1 text-dropdownText">
+            {dropdownItems.map((item, index) => (
+              <div key={index}>
+                <li onClick={item.onClick} className="px-4 py-2 flex items-center gap-2 hover:bg-orange-100 rounded-md text-sm cursor-pointer">
+                  {item.text}
+                </li>
+                {index < 3 && (
+                  <div className="pl-2 pr-2">
+                    <hr className='border-dropdownBorder' />
+                  </div>
+                )}
+              </div>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default SortBy
+export default SortBy;

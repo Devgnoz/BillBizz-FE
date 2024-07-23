@@ -1,8 +1,8 @@
 import { useState } from "react";
-import BookIcon from "../../assets/icons/BookIcon";
-import BookXIcon from "../../assets/icons/BookXIcon";
-import NewspaperIcon from "../../assets/icons/NewspaperIcon";
-import OpenedBookIcon from "../../assets/icons/OpenedBookIcon";
+import BookIcon from "../../../assets/icons/BookIcon";
+import BookXIcon from "../../../assets/icons/BookXIcon";
+import NewspaperIcon from "../../../assets/icons/NewspaperIcon";
+import OpenedBookIcon from "../../../assets/icons/OpenedBookIcon";
 
 const Customers = () => {
   const [selected, setSelected] = useState("All");

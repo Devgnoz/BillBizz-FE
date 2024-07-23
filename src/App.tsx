@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Root from "./Root";
 import Dashboard from "./pages/Dashboard";
 import Inventory from "./pages/Inventory";
-import Sales from "./pages/Sales";
+import SalesOrder from "./features/sales/salesOrder/SalesOrder"
 import Organization from "./pages/Organization";
 import Accountant from "./pages/Accountant";
 import ManualHome from "./features/accountant/manualJournel/ManualHome";
@@ -28,7 +28,7 @@ import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
 import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView";
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
-
+import ViewSalesOrder from "./features/sales/salesOrder/viewSalesOrder/ViewSalesOrder"
 
 
 
@@ -41,7 +41,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/accountant" element={<Accountant />} />
-          <Route path="/sales" element={<Sales />} />
+          <Route path="/sales/salesorder" element={<SalesOrder/>} />
           <Route path="/organization" element={<Organization />}></Route>
           <Route path="/accountant/cash" element={<Cash />}></Route>
           <Route path="/accountant/manualjournal" element={<ManualHome />}></Route>
@@ -77,6 +77,7 @@ function App() {
           <Route path="/purchase/purchase-order/new" element={<NewPurchaseOrder/>}></Route>
           <Route path="/purchase/payment-made" element={<PaymentMade/>}></Route>
           <Route path="/purchase/payment-made/view" element={<PaymentView/>}></Route>
+          <Route path="/sales/viewsalesorder" element={<ViewSalesOrder/>}></Route>
         </Route>
       </Routes>
     </>
