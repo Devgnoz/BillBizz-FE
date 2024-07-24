@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Ellipsis from "../../../assets/icons/Ellipsis";
 
 const Table = () => {
@@ -31,7 +32,7 @@ const Table = () => {
           {data.map((item) => (
             <tr key={item.id} className="relative">
               <td className="py-2.5 px-4  border-y border-tableBorder"><input type="checkbox" className="form-checkbox w-4 h-4" /></td>
-              <td className="py-2.5 px-4  border-y border-tableBorder">{item.accountName}</td>
+              <td className="py-2.5 px-4  border-y border-tableBorder"><Link to="/accountant/bank/account-view">{item.accountName}</Link></td>
               <td className="py-2.5 px-4  border-y border-tableBorder">{item.accountCode}</td>
               <td className="py-2.5 px-4  border-y border-tableBorder">{item.accountType}</td>
               <td className="py-2.5 px-4  border-y border-tableBorder"></td>
