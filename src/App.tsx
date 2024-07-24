@@ -28,16 +28,14 @@ import PaymentView from "./features/purchase/paymentMade/PaymentView/PaymentView
 import ItemHome from "./features/inventory/Item/ItemHome";
 import NewDebitNote from "./features/purchase/debitNote/NewDebitNote";
 import ViewSalesOrder from "./features/sales/salesOrder/viewSalesQuote/ViewSalesQuote"
-import InvoiceHome from "./features/sales/invoice/InvoiceHome";
-import NewInvoice from "./features/sales/invoice/NewInvoice";
 import QuoteHome from "./features/sales/quote/QuoteHome";
 import ViewSalesQuote from "./features/sales/quote/viewSalesOrder/ViewSalesQuote";
-import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
-import CreditNote from "./features/sales/creditNote/CreditNote";
-import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
 import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
-
-
+import NewInvoice from "./features/sales/invoice/NewInvoice";
+import InvoiceHome from "./features/sales/invoice/InvoiceHome";
+import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
+import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
+import CreditNote from "./features/sales/creditNote/CreditNote"
 function App() {
   return (
     <>
@@ -109,7 +107,6 @@ function App() {
  
  {/* Sales */}
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
-          <Route path="/sales/invoice/new" element={<NewInvoice />} />
           <Route path="/sales/quote" element={<QuoteHome/>}/>   
           <Route path="/sales/quote/view" element={<ViewSalesQuote/>}/>  
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
