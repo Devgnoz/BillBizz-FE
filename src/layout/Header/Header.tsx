@@ -19,14 +19,14 @@ const Header = ({}: Props) => {
       </span>
       <div className="flex items-center gap-4 ml-auto">
         <Button
-          variant="primary"
-          style={{ backgroundColor: "#FCFFED", color: "#585953" }}
+          variant="tertiary"
+          size="sm"
         >
-          Subscribe
+          <p className="text-xs  font-medium">Subscribe</p>
         </Button>
         <select
-          className="border border-gray-400 h-8 pl-3 pr-4 rounded-md bg-orange-100 text-xs font-semibold text-gray-800"
-          style={{ color: "#585953" }}
+          className="border border-outlineButton px-[0.625rem] py-2 text-outlineButton rounded-md bg-orange-100 text-xs font-medium     
+"
         >
           <option>Company</option>
           <option>Other</option>

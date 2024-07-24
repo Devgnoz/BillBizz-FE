@@ -9,7 +9,7 @@ import facebooklogo from "../../assets/Images/facebook logo.svg";
 import xMark from "../../assets/Images/x.svg";
 import { paymentTermsList } from "../../assets/constants/index";
 import useApi from "../../Hooks/useApi";
-import { endponints } from "../../Services/apiEndpoints";
+import { endponits } from "../../Services/apiEndpoints";
 import { toast, Toaster } from "react-hot-toast";
 import CehvronDown from "../../assets/icons/CehvronDown";
 import Plus from "../../assets/icons/Plus";
@@ -59,6 +59,8 @@ const CreateOrganizationForm = () => {
   const [sign, setSign] = useState<File | null>(null);
   const [additionalData, setAdditionalData] = useState<any | null>([]);
   const [oneOrganization, setOneOrganization] = useState<any | []>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+
   const { request: getAdditionalData } = useApi("get", 5004);
   const { request: createOrganization } = useApi("post", 5004);
   const { request: getOneOrganization } = useApi("get", 5004);
@@ -110,7 +112,7 @@ const CreateOrganizationForm = () => {
 
   const getDropdownList = async () => {
     try {
-      const url = `${endponints.GET_ADDITIONAL_DATA}`;
+      const url = `${endponits.GET_ADDITIONAL_DATA}`;
       const { response, error } = await getAdditionalData(url);
       if (!error && response) {
         setAdditionalData(response.data[0]);
@@ -124,7 +126,7 @@ const CreateOrganizationForm = () => {
   const getOrganization = async () => {
     try {
       let apiResponse;
-      const url = `${endponints.GET_ONE_ORGANIZATION}/INDORG0001`;
+      const url = `${endponits.GET_ONE_ORGANIZATION}/INDORG0001`;
       apiResponse = await getOneOrganization(url);
       const { response, error } = apiResponse;
       if (!error && response?.data) {
@@ -207,53 +209,13 @@ const CreateOrganizationForm = () => {
     }
 
     try {
-      const url = `${endponints.CREATE_ORGANIZATION}`;
+      const url = `${endponits.CREATE_ORGANIZATION}`;
       const apiResponse = await createOrganization(url, formData);
       console.log(apiResponse, "api response");
 
       const { response, error } = apiResponse;
       if (!error && response) {
         toast.success(response.data.message);
-        setInputData({
-          organizationId: "",
-          organizationLogo: "",
-          organizationName: "",
-          organizationCountry: "",
-          organizationIndustry: "",
-          addline1: "",
-          addline2: "",
-          city: "",
-          pincode: "",
-          state: "",
-          organizationPhNum: "",
-          website: "",
-          baseCurrency: "",
-          fiscalYear: "",
-          reportBasis: "",
-          language: "",
-          timeZone: "",
-          dateFormat: "",
-          dateSplit: "",
-          companyId: "",
-          companyIdField: "",
-          taxId: "",
-          taxIdField: "",
-          addfield: [],
-          qrLocation: "",
-          qrSignature: "",
-          twitter: "",
-          insta: "",
-          linkedin: "",
-          facebook: "",
-          accountHolderName: "",
-          bankName: "",
-          accNum: "",
-          ifsc: "",
-        });
-        setQrcode(null);
-        setSign(null);
-        setLogo(null);
-        setFields([...fields, { label: "", value: "" }]);
       } else {
         toast.error(error.response.data.message);
       }
@@ -315,7 +277,7 @@ const CreateOrganizationForm = () => {
       </div>
 
       {/* FORM */}
-      <form className="text-slate-800">
+      <form className="text-slate-800 text-sm">
         <label>
           <div className="h-56 p-3 border-dashed border-neutral-400 w-96 rounded-md mt-5 border bg-white text-slate-800 ">
             <div className="bg-lightPink flex h-28 justify-center items-center">
@@ -584,35 +546,78 @@ const CreateOrganizationForm = () => {
                 </div>
               </div>
             </div>
-            <div className="my-4">
-              <label htmlFor="" className="mt-5 text-slate-600">
-                Report Basis
-              </label>{" "}
-              {"  "}
-              <input
-                onChange={handleInputChange}
-                value="Accrual"
-                name="reportBasis"
-                type="radio"
-                placeholder=""
-                className="mt-2text-slate-600 "
-              />{" "}
-              <label htmlFor="" className="text-slate-600">
-                {" "}
-                <span className="font-semibold">Accrual</span> (You owe tax as
-                of invoice date)
-              </label>
-              <input
-                onChange={handleInputChange}
-                type="radio"
-                value="cash"
-                name="reportBasis"
-                className="ms-4"
-              />{" "}
-              <label htmlFor="" className="text-slate-600">
-                <span className="font-semibold">Cash</span> (You owe tax upon
-                payment recipt)
-              </label>
+            <div>
+              <>
+                <div className="flex gap-2  items-center space-y-5 py-5 ">
+                  <label className="mt-5 text-slate-600" htmlFor="">
+                    Report Basis
+                  </label>
+                  <div className="grid place-items-center justify-center ms-5">
+                    <input
+                      id="accrual"
+                      type="radio"
+                      name="reportBasis"
+                      value="accrual"
+                      className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                        selected === "accrual"
+                          ? "border-8 border-neutral-400"
+                          : "border-1 border-neutral-400"
+                      }`}
+                      onChange={(e) => {
+                        setSelected("accrual");
+                        handleInputChange(e);
+                      }}
+                      checked={selected === "accrual"}
+                    />
+
+                    <div
+                      id="accrual"
+                      className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                        selected === "accrual"
+                          ? "bg-neutral-100"
+                          : "bg-transparent"
+                      }`}
+                    />
+                  </div>
+                  <label htmlFor="accrual" className="text-slate-600 ">
+                    {" "}
+                    <span className="font-semibold">Accrual</span> (You owe tax
+                    as of invoice date)
+                  </label>{" "}
+                  <div className="flex gap-2  justify-center items-center ">
+                    <div className="grid place-items-center ms-5">
+                      <input
+                        id="cash"
+                        type="radio"
+                        name="reportBasis"
+                        value="cash"
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "cash"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={(e) => {
+                          setSelected("cash");
+                          handleInputChange(e);
+                        }}
+                        checked={selected === "cash"}
+                      />
+                      <div
+                        id="cash"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "cash"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label htmlFor="" className="text-slate-600">
+                      <span className="font-semibold">Cash</span> (You owe tax
+                      upon payment recipt)
+                    </label>
+                  </div>
+                </div>
+              </>
             </div>
           </div>
           <p className="mt-4">
@@ -769,9 +774,11 @@ const CreateOrganizationForm = () => {
                 </div>
               </div>
             </div>
-            <label htmlFor="companyId" className="text-slate-600 ">
-              Company Id
-            </label>
+            <div className="pt-4">
+              <label htmlFor="companyId" className="text-slate-600 ">
+                Company Id
+              </label>
+            </div>
             <div className="grid grid-cols-2 gap-4 ">
               <div>
                 <div className="relative w-full mt-3">
@@ -810,9 +817,11 @@ const CreateOrganizationForm = () => {
                 />
               </div>
             </div>
-            <label htmlFor="taxId" className="text-slate-600 mt-3">
-              Tax Id
-            </label>
+            <div className="pt-4">
+              <label htmlFor="taxId" className="text-slate-600 ">
+                Tax Id
+              </label>
+            </div>
             <div className="grid grid-cols-2 gap-4 ">
               <div>
                 <div className="relative w-full mt-3">
@@ -1148,7 +1157,7 @@ const CreateOrganizationForm = () => {
           </div>
           <div className="flex my-4 gap-4">
             <Button
-              variant="secondary"
+              variant="primary"
               size="lg"
               onClick={(e) => handleCreateOrganization(e)}
             >
@@ -1156,7 +1165,7 @@ const CreateOrganizationForm = () => {
               Save
             </Button>
 
-            <Button variant="fourthiary" size="lg">
+            <Button variant="secondary" size="lg">
               {" "}
               Cancel
             </Button>

@@ -4,12 +4,13 @@ import CehvronDown from "../../../assets/icons/CehvronDown";
 import Upload from "../../../assets/icons/Upload";
 import Modal from "../../../Components/model/Modal";
 import PlusCircle from "../../../assets/icons/PlusCircle";
+import CirclePlus from "../../../assets/icons/circleplus";
 
+type Props = { page: string };
 
-type Props = {};
-
-const NewCustomerModal = ({}: Props) => {
+const NewCustomerModal = ({ page }: Props) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const [selected, setSelected] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string>("otherDetails");
   const openModal = () => {
     setModalOpen(true);
@@ -31,15 +32,28 @@ const NewCustomerModal = ({}: Props) => {
 
   return (
     <div>
-      <Button
-        onClick={openModal}
-        variant="primary"
-        className="flex items-center"
-          size="xl"
-      >
-        <PlusCircle color="white"  />{" "}
-        <p className="text-sm font-medium">New Customer</p>
+      {page && page == "purchase" ? (
+          <div
+          className="w-full flex col-span-10  px-4  justify-between"
+          onClick={openModal}
+        >
+          <div className="flex items-center  space-x-1">
+            <CirclePlus color="darkRed" size="18" />
+        
+            <p className="text-[#820000] text-sm">
+              <b>Add new Customer</b>
+            </p>
+          </div>
+          <div className=" col-span-2 text-end text-2xl cursor-pointer relative ">
+            &times;
+          </div>
+        </div>
+     
+      ) : (
+        <Button onClick={openModal}  variant="primary" size="sm">
+        <PlusCircle color="white" /> <p className="text-sm font-medium">Add Customer</p>
       </Button>
+      )}
 
       <Modal
         open={isModalOpen}
@@ -66,21 +80,70 @@ const NewCustomerModal = ({}: Props) => {
               className="text-slate-600 text-sm overflow-scroll hide-scrollbar space-y-5 p-2"
               style={{ height: "480px" }}
             >
-              <label htmlFor="">
-                Cutomer Type <br />
-                <input
-                  type="radio"
-                  value="Business"
-                  className="m-2  bg-black"
-                />{" "}
-                <label htmlFor="" className="font-semibold">
-                  Business
+                 <div>
+                <label
+                  className="block text-sm mb-1 text-labelColor"
+                  htmlFor=""
+                >
+                  Customer Type
                 </label>
-                <input type="radio" value="Indvidual" className="m-2" />{" "}
-                <label htmlFor="" className="font-semibold">
-                  Indvidual
-                </label>
-              </label>
+                <div className="flex items-center space-x-4 text-textColor text-sm">
+                  <div className="flex gap-2 justify-center items-center ">
+                    <div className="grid place-items-center mt-1">
+                      <input
+                        id="business"
+                        type="radio"
+                        name=""
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "business"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={() => setSelected("business")}
+                        checked={selected === "business"}
+                      />
+                      <div
+                        id="business"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "business"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label htmlFor="business" className="text-start font-medium">
+                      Business
+                    </label>
+                  </div>
+                  <div className="flex gap-2  justify-center items-center">
+                    <div className="grid place-items-center mt-1">
+                      <input
+                        id="indvidual"
+                        type="radio"
+                        name=""
+                        className={`col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 rounded-full border ${
+                          selected === "indvidual"
+                            ? "border-8 border-neutral-400"
+                            : "border-1 border-neutral-400"
+                        }`}
+                        onChange={() => setSelected("indvidual")}
+                        checked={selected === "indvidual"}
+                      />
+                      <div
+                        id="indvidual"
+                        className={`col-start-1 row-start-1 w-2 h-2 rounded-full ${
+                          selected === "indvidual"
+                            ? "bg-neutral-100"
+                            : "bg-transparent"
+                        }`}
+                      />
+                    </div>
+                    <label htmlFor="indvidual" className="text-start font-medium">
+                      Indvidual
+                    </label>
+                  </div>
+                </div>
+              </div>
 
               <div className="grid grid-cols-12 gap-4 mt-4">
                 <div className="col-span-2">
@@ -572,16 +635,15 @@ const NewCustomerModal = ({}: Props) => {
             </form>
           </div>
 
-            <div className="flex justify-end gap-2 mb-3 m-5">
-                 
-                 <Button variant="primary" size="lg">
-                   Save
-                 </Button>
-                  <Button onClick={closeModal} variant="secondary" size="lg">
-                   Cancel
-                 </Button>
-               </div>
-    </>
+          <div className="flex justify-end gap-2 mb-3 m-5">
+            <Button variant="primary" size="lg">
+              Save
+            </Button>
+            <Button onClick={closeModal} variant="secondary" size="lg">
+              Cancel
+            </Button>
+          </div>
+        </>
       </Modal>
     </div>
   );

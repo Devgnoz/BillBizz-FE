@@ -1,5 +1,6 @@
+import { useState } from "react"
 import Ellipsis from "../../../assets/icons/Ellipsis"
-import SearchBar from "../../sales/SearchBar"
+import SearchBar from "../../../Components/SearchBar"
 import CreateAccountModal from "./CreateAccountModal"
 import Table from "./Table"
 
@@ -7,6 +8,7 @@ import Table from "./Table"
 type Props = {}
 
 function Cash({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   return (
     <>
     <div className="p-5 bg-slate-50 h-[100vh]">
@@ -29,7 +31,7 @@ function Cash({}: Props) {
 
     <div className="mt-5 bg-white">
     <div className="p-6">
-        <SearchBar placeholder="Search Accounts"/>
+        <SearchBar  onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Accounts"/>
     </div>
     <div>
         <Table/>

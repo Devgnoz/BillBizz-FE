@@ -24,7 +24,7 @@ const NewUnit = ({}: Props) => {
           onClick={openModal}
           variant="primary"
           className="flex items-center"
-          size="lg"
+          size="sm"
         >
           <CirclePlus color="white" size="14" />{" "}
           <p className="text-md">New Unit</p>
@@ -109,10 +109,10 @@ const NewUnit = ({}: Props) => {
                 <div className="flex justify-end gap-2 mb-3">
 
                  
-                  <Button variant="primary" size="lg">
+                  <Button variant="primary" size="sm">
                     Save
                   </Button>
-                   <Button onClick={closeModal} variant="secondary" size="lg">
+                   <Button onClick={closeModal} variant="secondary" size="sm">
 
                     Cancel
                   </Button>

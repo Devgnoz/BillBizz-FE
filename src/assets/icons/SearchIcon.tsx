@@ -1,13 +1,13 @@
-type Props = {};
+type Props = {color?:string,width?:number};
 
-const SearchIcon = ({}: Props) => {
+const SearchIcon = ({color,width}: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
+      strokeWidth={width?width:1.5}
+      stroke={color?color:"currentColor"}
       className="size-4 absolute left-3 text-gray-500"
     >
       <path

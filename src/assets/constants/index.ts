@@ -9,7 +9,7 @@ import squreUserRound from "../icons/squre-user-round";
 import truck from "../icons/truck";
 import userRound from "../icons/user-round";
 import usersRound from "../icons/users-round";
-
+ 
 const navlist = [
   {
     nav: "Home",
@@ -23,15 +23,15 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Item",
-        rounte: "/inventory/Item",
+        subRoute: "/inventory/Item",
       },
       {
         headName: "Unit of Measurement",
-        rounte: "/inventory/unit",
+        subRoute: "/inventory/unit",
       },
     ],
   },
@@ -42,42 +42,46 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/customer",
+        subRoute: "/customer",
       },
       {
         headName: "Customer",
-        rounte: "/customer/home",
+        subRoute: "/customer/home",
       },
     ],
   },
   {
     nav: "Sales",
     icon: shoppingCart,
-    route: "/sales",
+    route: "/customer",
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/customer",
       },
       {
         headName: "Sales Order",
-        rounte: "/inventory",
+        subRoute: "/sales/salesorder",
+      },
+      {
+        headName: "Quote",
+        subRoute: "/sales/quote",
       },
       {
         headName: "Invoice",
-        rounte: "/inventory",
+        subRoute: "/sales/invoice",
       },
       {
         headName: "POS",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Sales Return",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
       {
         headName: "Credit Note",
-        rounte: "/inventory",
+        subRoute: "/sales/credit-note",
       },
     ],
   },
@@ -88,27 +92,27 @@ const navlist = [
     subhead: [
       {
         headName: "Dashboard",
-        rounte: "/sales",
+        subRoute: "/accountant/chart-OF-accountant",
       },
       {
         headName: "Chart Of Account",
-        rounte: "/accountant/chart-OF-accountant",
+        subRoute: "/accountant/chart-OF-accountant",
       },
       {
-        headName: "Manuval Journals",
-        rounte: "/manualjournal",
+        headName: "Manual Journals",
+        subRoute: "/accountant/manualjournal",
       },
       {
         headName: "Bank",
-        rounte: "/inventory",
+        subRoute: "/accountant/bank",
       },
       {
         headName: "Cash",
-        rounte: "/inventory",
+        subRoute: "/accountant/cash",
       },
       {
         headName: "Currency Adjustment",
-        rounte: "/inventory",
+        subRoute: "/inventory",
       },
     ],
   },
@@ -119,11 +123,11 @@ const navlist = [
     subhead:[
       {
         headName: "Dashboard",
-        rounte: "/supplier",
+        subRoute: "/supplier",
       },
       {
         headName:"Supplier",
-        rounte:"/supplier/home"
+        subRoute:"/supplier/home"
       }
     ]
   },
@@ -140,8 +144,27 @@ const navlist = [
   {
     nav: "Purchase",
     icon: shoppingBag,
-    route: "/home",
+    route: "/purchase",
+    subhead: [
+      {
+        headName: "Dashboard",
+        subRoute: "/purchase",
+      },
+      {
+        headName: "Purchase Order",
+        subRoute: "/purchase/purchase-order",
+      },
+      {
+        headName: "Payment Made",
+        subRoute: "/purchase/payment-made",
+      },
+      {
+        headName: "Debit Note",
+        subRoute: "/purchase/debitnote",
+      },
+    ],
   },
+ 
   {
     nav: "Payroll",
     icon: receiptIndianRupee,
@@ -153,7 +176,7 @@ const navlist = [
     route: "/home",
   },
 ];
-
+ 
 export const paymentTermsList = [
   {
     title: "Net 30",
@@ -185,7 +208,7 @@ export const paymentTermsList = [
     text: ": Payment is due on the 15th day of the month following the invoice date",
   },
 ];
-
+ 
 export const organizationList = [
   { title: "Profile" },
   { title: "Branding" },
@@ -196,15 +219,15 @@ export const organizationList = [
   { title: "Opening Balance" },
   { title: "Manage Subscription" },
 ];
-
+ 
 export const taxList = [{ title: "Tax" }, { title: "MSME Settings" }];
-
+ 
 export const usersAndRoleList = [
   { title: "Users" },
   { title: "Roles" },
   { title: "User Preferences" },
 ];
-
+ 
 export const preferencesList = [
   { title: "General" },
   { title: "Customet & Vendor" },
@@ -224,7 +247,7 @@ export const SalesList = [
   { title: "Delivery Notes" },
   { title: "Packing Slips" },
 ];
-
+ 
 export const purchasesList = [
   { title: "Expenses" },
   { title: "Recurring Expensess" },
@@ -234,14 +257,14 @@ export const purchasesList = [
   { title: "Purchase Orders" },
   { title: "Vendor Credit" },
 ];
-
+ 
 export const itemsList = [{ title: "Item" }, { title: "Inventory Adjustment" }];
-
+ 
 export const onlinePaymentList = [
   { title: "Customer Payments" },
   { title: "vendor Payments" },
 ];
-
+ 
 export const customizationList = [
   { title: "Reporting Tags" },
   { title: "Web Tabs" },
@@ -249,21 +272,22 @@ export const customizationList = [
   { title: "Transaction rating Series" },
   { title: "PDF Templates" },
 ];
-
+ 
 export const ReminderList = [
   { title: "Reminders" },
   { title: "Email Notification" },
   { title: "SMS Notification" },
 ];
-
+ 
 export const newPurchaseOrderTableHead=[
   "Product",
   "Quantity",
   "Rate",
   "Tax",
   "Discount",
-   "Actions" 
-
+  "Amount",
+   "Actions"
+ 
 ]
-
+ 
 export default navlist;
