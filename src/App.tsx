@@ -36,6 +36,7 @@ import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
 import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
 import CreditNote from "./features/sales/creditNote/CreditNote";
+import BankAccountView from "./features/accountant/Bank/BankAccountView";
 function App() {
   return (
     <>
@@ -53,6 +54,7 @@ function App() {
           ></Route>
           <Route path="/accountant/newjournal" element={<NewJournal />}></Route>
           <Route path="/accountant/bank" element={<BankHome />}></Route>
+          <Route path="/accountant/bank/account-view" element={<BankAccountView/>}></Route>
           <Route path="/inventory/unit" element={<UnitHome />}></Route>
           <Route
             path="/inventory/unit/unit-conversion"
