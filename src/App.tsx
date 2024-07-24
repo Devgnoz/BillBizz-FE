@@ -32,9 +32,9 @@ import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewInvoice from "./features/sales/invoice/NewInvoice";
 import QuoteHome from "./features/sales/quote/QuoteHome";
 import ViewSalesQuote from "./features/sales/quote/viewSalesOrder/ViewSalesQuote";
-import NewCreditNote from "./features/sales/CreditNote/NewCreditNote";
-import CreditNote from "./features/sales/CreditNote/CreditNote";
-import ViewCreditNote from "./features/sales/CreditNote/viewCreditNote/ViewCreditNote";
+import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
+import CreditNote from "./features/sales/creditNote/CreditNote";
+import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
 import NewJournal from "./features/accountant/manualJournel/newJournal/NewJournal";
 
 
