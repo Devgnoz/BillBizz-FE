@@ -106,15 +106,14 @@ function App() {
             path="/purchase/payment-made/view"
             element={<PaymentView />}
           ></Route>
-
+ 
+ {/* Sales */}
           <Route path="/sales/invoice" element={<InvoiceHome/>}></Route>   
           <Route path="/sales/invoice/new" element={<NewInvoice />} />
           <Route path="/sales/quote" element={<QuoteHome/>}/>   
           <Route path="/sales/quote/view" element={<ViewSalesQuote/>}/>  
           <Route path="/sales/invoice/new" element={<NewInvoice />} />   
-
           <Route path="/sales/credit-note/new" element={<NewCreditNote/>}></Route>
-
           <Route path="/sales/credit-note" element={<CreditNote/>} />   
           <Route path="/sales/credit-note/view" element={<ViewCreditNote/>} />   
         </Route>
