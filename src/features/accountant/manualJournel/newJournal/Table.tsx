@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Ellipsis from "../../../../assets/icons/Ellipsis";
 
 type Props = {}
 
 function Table({}: Props) {
+  const navigate =useNavigate()
     const data = [
         { id: '1', date: '25-06-24', journel: 'CA-001', referencerating: "",status:"Published",notes:"Lorem Ipsm",amount:8000 },
         { id: '2', date: '26-06-24', journel: 'CA-002', referencerating: "",status:"Published",notes:"Lorem Ipsm",amount:6000   },
@@ -30,9 +32,9 @@ function Table({}: Props) {
           ))}
         </tr>
       </thead>
-      <tbody className="text-dropdownText text-center text-[13px]">
+      <tbody  className="text-dropdownText text-center text-[13px]">
         {data.map((item) => (
-          <tr key={item.id} className="relative">
+          <tr onClick={()=>navigate("/accountant/manualjournal/view")} key={item.id} className="relative cursor-pointer">
             <td className="py-2.5 px-4  border-y border-tableBorder"><input type="checkbox" className="form-checkbox w-4 h-4" /></td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.date}</td>
             <td className="py-2.5 px-4  border-y border-tableBorder">{item.journel}</td>

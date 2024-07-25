@@ -5,5 +5,7 @@ export const endponits = {
 
   // Accountant
   Get_ALL_Acounts: "get-all-account",
+  Get_LAST_Journel_Prefix:"get-last-journal-prefix",
+  Add_NEW_Journel:"add-journal-entry",
   Add_NEW_ACCOUNT: "/add-account",
 };

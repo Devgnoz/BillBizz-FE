@@ -36,6 +36,7 @@ import InvoiceHome from "./features/sales/invoice/InvoiceHome";
 import NewCreditNote from "./features/sales/creditNote/NewCreditNote";
 import ViewCreditNote from "./features/sales/creditNote/viewCreditNote/ViewCreditNote";
 import CreditNote from "./features/sales/creditNote/CreditNote"
+import ManualView from "./features/accountant/manualJournel/ManualView";
 function App() {
   return (
     <>
@@ -50,6 +51,10 @@ function App() {
           <Route
             path="/accountant/manualjournal"
             element={<ManualHome />}
+          ></Route>
+          <Route
+            path="/accountant/manualjournal/view"
+            element={<ManualView />}
           ></Route>
           <Route path="/accountant/newjournal" element={<NewJournal />}></Route>
           <Route path="/accountant/bank" element={<BankHome />}></Route>
