@@ -1,4 +1,8 @@
+
 import { useEffect, useState } from "react";
+
+import { Link } from "react-router-dom";
+
 import Ellipsis from "../../../assets/icons/Ellipsis";
 import useApi from "../../../Hooks/useApi";
 import { endponits } from "../../../Services/apiEndpoints";
@@ -91,6 +95,7 @@ const Table = () => {
         <tbody className="text-dropdownText text-center text-[13px]">
           {filteredAccounts.map((item) => (
             <tr key={item.id} className="relative">
+
               <td className="py-2.5 px-4  border-y border-tableBorder">
                 <input type="checkbox" className="form-checkbox w-4 h-4" />
               </td>
@@ -109,6 +114,7 @@ const Table = () => {
               <td className="py-2.5 px-4  border-y border-tableBorder">
               {item.accountHead}
               </td>
+
               <td className="cursor-pointer py-2.5 px-4 border-y border-tableBorder">
                 <div className="flex justify-end">
                   <Ellipsis height={17} />

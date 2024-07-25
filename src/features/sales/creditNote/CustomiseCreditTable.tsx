@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState } from "react"
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
 import MoveIcon from "../../../assets/icons/MoveIcon";
@@ -114,31 +115,17 @@ const CustomiseCreditTable = ({ columns, setColumns }: Props) => {
             ))}
           </div>
           <div className="flex justify-center">
-            <Button
-              className="w-full h-[35px] px-[30%] mt-2 font-medium rounded-md text-sm  border-outlineButton text-outlineButton"
-              variant="secondary"
-            >
-              <PlusCircle color="#565148" /> Add Custom Field
-            </Button>
+
+            <Button className="w-full h-[35px] px-[30%] mt-2 font-medium rounded-md text-sm  border-outlineButton text-outlineButton" variant="secondary">
+              <PlusCircle color="#565148" /> Add Custom Field</Button>
           </div>
           <div className="flex justify-end mt-4 gap-4">
-            <Button
-              onClick={closeModal}
-              variant="secondary"
-              className="pl-9 pr-9"
-              size="sm"
-            >
-              <p className="text-sm font-medium">Cancel</p>
-            </Button>
+            <Button onClick={closeModal}
+              variant="secondary" className="pl-9 pr-9" size="sm">
+              <p className="text-sm font-medium">Cancel</p></Button>
 
-            <Button
-              onClick={saveChanges}
-              variant="primary"
-              className="pl-8 pr-8"
-              size="sm"
-            >
-              <p className="text-sm font-medium">Save</p>
-            </Button>
+            <Button onClick={saveChanges} variant="primary" className="pl-8 pr-8" size="sm"><p className="text-sm font-medium">Save</p></Button>
+
           </div>
         </div>
       </Modal>

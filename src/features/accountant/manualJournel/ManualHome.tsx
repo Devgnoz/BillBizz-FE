@@ -107,7 +107,11 @@ function ManualHome({}: Props) {
         </div>
 
         <div className="mt-5 bg-white  p-5 rounded-xl">
-          
+
+          <div className="px-2 py-5">
+            <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Journals" />
+          </div>
+
           <div>
             <Table />
           </div>
