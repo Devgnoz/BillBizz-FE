@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import SearchDropdown from "./SearchDropdown";
 import DownArrow from "../../../../assets/icons/DownArrow";
+
 interface AccountDropdownProps {
   index: number;
   account: string;
-  accountOptions: string[];
+  accountOptions: any;
   isDropdownOpen: boolean;
   search: string;
-  onAccountSelect: (index: number, account: string) => void;
+  onAccountSelect: (index: number, account: any) => void; // Update to handle the account object
   onSearchChange: (index: number, value: string) => void;
   onDropdownToggle: (index: number, isOpen: boolean) => void;
   clearSearch: (index: number) => void;
@@ -37,7 +38,7 @@ const AccountDropdown = ({
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
+  
   return (
     <td className="px-6 py-4 whitespace-nowrap relative dropdown-container">
       <div className="flex items-center">
@@ -47,9 +48,9 @@ const AccountDropdown = ({
           readOnly
           onClick={() => onDropdownToggle(index, !isDropdownOpen)}
           className="rounded-md cursor-pointer text-sm p-2 w-full text-center focus:outline-none"
-/>
-        <div className="-ms-12">
-        <DownArrow color="#818894"/>
+        />
+        <div className=" flex items-center">
+          <DownArrow color="#818894"/>
         </div>
       </div>
       {isDropdownOpen && (
@@ -59,18 +60,18 @@ const AccountDropdown = ({
             value={search}
             onChange={(e) => onSearchChange(index, e.target.value)}
           />
-          <ul className="overflow-y-auto text-start">
+          <ul className="overflow-y-auto text-start h-48">
             {accountOptions
-              .filter((option) =>
-                option.toLowerCase().includes(search.toLowerCase())
+              .filter((option:any) =>
+                option.accountName.toLowerCase().includes(search.toLowerCase())
               )
-              .map((option) => (
+              .map((option:any) => (
                 <li
-                  key={option}
-                  onClick={() => onAccountSelect(index, option)}
+                  key={option._id} // Use _id as the key
+                  onClick={() => onAccountSelect(index, option)} // Pass the whole account object
                   className="p-2 cursor-pointer border text-sm border-dropdownBorder text-textColor font-semibold mt-2 rounded-lg bg-CreamBg"
                 >
-                  {option}
+                  {option.accountName}
                 </li>
               ))}
           </ul>
