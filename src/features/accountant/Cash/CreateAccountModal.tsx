@@ -1,20 +1,34 @@
-import { useState } from "react";
-import CashImage from "../../../assets/Images/CashImage.png";
+import { useState, ChangeEvent, FormEvent } from "react";
+import CashImage from "../../../assets/Images/Group 11.png";
 import bgImage from "../../../assets/Images/14.png";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import Modal from "../../../Components/model/Modal";
-
+import useApi from "../../../Hooks/useApi";
+import { endponits } from "../../../Services/apiEndpoints";
+import toast, { Toaster } from "react-hot-toast";
+import { useContext } from "react";
+import { cashResponseContext } from "../../../context/ContextShare"; 
 type Props = {};
 
-function CreateAccountModal({}: Props) {
+const CreateAccountModal = ({}: Props) => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [accounts, setAccounts] = useState({
+  const initialAccounts = {
+    organizationId: "INDORG0001",
     accountName: "",
     accountCode: "",
-    count: "",
-  });
-  console.log(accounts);
+    accountSubhead: "Cash",
+    accountHead: "Asset",
+    accountGroup: "Asset",
+    openingBalance: "0",
+    openingBalanceDate: "",
+    description: "",
+  };
+
+  const [accounts, setAccounts] = useState(initialAccounts);
+
+  const { request: CreateAccount } = useApi("post", 5001);
+  const { setCashResponse } = useContext(cashResponseContext)!;
 
   const openModal = () => {
     setModalOpen(true);
@@ -22,10 +36,11 @@ function CreateAccountModal({}: Props) {
 
   const closeModal = () => {
     setModalOpen(false);
+    setAccounts(initialAccounts);
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setAccounts((prevAccounts) => ({
@@ -34,16 +49,38 @@ function CreateAccountModal({}: Props) {
     }));
   };
 
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    try {
+      const url = `${endponits.Add_NEW_ACCOUNT}`;
+      const body = accounts;
+      const { response, error } = await CreateAccount(url, body);
+      closeModal();
+      if (!error && response) {
+        toast.success(response.data.message);
+        setCashResponse((prevCashResponse: any) => ({
+          ...prevCashResponse,
+          ...body,
+        }));
+        setAccounts(initialAccounts);
+      } else {
+        toast.error(error.response.data.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Button
         onClick={openModal}
-        variant="secondary"
+        variant="primary"
         className="flex items-center justify-center"
-        size="xl"
+        size="sm"
       >
-        <span className="flex items-center px-2.5">
-          <PlusCircle color="" /> &nbsp; Create Account
+        <span className="flex items-center ">
+          <PlusCircle color="" /> &nbsp;&nbsp;<p className="text-sm">Create Account</p>
         </span>
       </Button>
 
@@ -73,7 +110,7 @@ function CreateAccountModal({}: Props) {
             </div>
           </div>
 
-          <form className="flex justify-between">
+          <form className="flex justify-between" onSubmit={onSubmit}>
             <div className="mt-12">
               <img src={CashImage} alt="Cash" />
             </div>
@@ -107,11 +144,11 @@ function CreateAccountModal({}: Props) {
               </div>
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  count
+                  Description
                 </label>
                 <textarea
-                  name="count"
-                  value={accounts.count}
+                  name="description"
+                  value={accounts.description}
                   onChange={handleChange}
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-2 pt-5 pl-2"
@@ -119,10 +156,10 @@ function CreateAccountModal({}: Props) {
               </div>
               <br />
               <div className="flex justify-end gap-2 mb-3">
-                <Button onClick={closeModal} variant="fourthiary" size="lg">
+                <Button onClick={closeModal} className="pl-10 pr-10" variant="secondary" size="sm">
                   Cancel
                 </Button>
-                <Button variant="secondary" size="lg">
+                <Button  variant="primary" className="pl-10 pr-10" size="sm">
                   Save
                 </Button>
               </div>
@@ -130,8 +167,9 @@ function CreateAccountModal({}: Props) {
           </form>
         </div>
       </Modal>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
-}
+};
 
 export default CreateAccountModal;
