@@ -1173,7 +1173,7 @@ const CreateOrganizationForm = () => {
         </div>
       </form>
 
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={true} />
     </div>
   );
 };
