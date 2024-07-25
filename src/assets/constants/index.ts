@@ -288,7 +288,7 @@ export const newPurchaseOrderTableHead=[
   "Amount",
    "Actions"
  
-]
+
 
 export const bankAccountviewTableHaed=[
   "Date",
@@ -297,5 +297,6 @@ export const bankAccountviewTableHaed=[
   "Debit",
   "Credit"
 ]
+
  
 export default navlist;

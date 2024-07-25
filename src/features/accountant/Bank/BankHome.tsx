@@ -29,9 +29,7 @@ function BankHome({}: Props) {
     </div>
 
     <div className="mt-5 bg-white">
-    <div className="p-6">
-        <SearchBar  onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Accounts"/>
-    </div>
+
     <div>
         <Table/>
     </div>

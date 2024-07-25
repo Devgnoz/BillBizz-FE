@@ -68,8 +68,10 @@ const NewBankModal = ({}: Props) => {
 
   return (
     <div>
+
       <Button onClick={openModal} variant="primary" size="xl">
         <PlusCircle color="white" />{" "}
+
         <p className="text-sm font-medium">Create Account</p>
       </Button>
 
@@ -184,7 +186,9 @@ const NewBankModal = ({}: Props) => {
                 <Button onClick={closeModal} variant="secondary" size="lg">
                   Cancel
                 </Button>
-                <Button  variant="primary" size="lg">
+
+                <Button variant="primary" size="lg">
+
                   Save
                 </Button>
               </div>

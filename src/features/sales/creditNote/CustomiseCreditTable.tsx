@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import ListFilter from "../../../assets/icons/ListFilter";
 import Modal from "../../../Components/model/Modal";
@@ -5,8 +6,6 @@ import MoveIcon from "../../../assets/icons/MoveIcon";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import SearchBar from "../salesOrder/SearchBar";
-
-
 
 type Column = {
   id: string;
@@ -116,6 +115,7 @@ const CustomiseCreditTable = ({ columns, setColumns }: Props) => {
             ))}
           </div>
           <div className="flex justify-center">
+
             <Button className="w-full h-[35px] px-[30%] mt-2 font-medium rounded-md text-sm  border-outlineButton text-outlineButton" variant="secondary">
               <PlusCircle color="#565148" /> Add Custom Field</Button>
           </div>
@@ -125,6 +125,7 @@ const CustomiseCreditTable = ({ columns, setColumns }: Props) => {
               <p className="text-sm font-medium">Cancel</p></Button>
 
             <Button onClick={saveChanges} variant="primary" className="pl-8 pr-8" size="sm"><p className="text-sm font-medium">Save</p></Button>
+
           </div>
         </div>
       </Modal>
