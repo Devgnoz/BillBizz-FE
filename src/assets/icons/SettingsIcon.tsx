@@ -1,5 +1,7 @@
 type Props = {
   size?: "sm" | "md" | "lg" | "xl";
+  color?:string,
+  bold?:number | 1.5
 };
 
 const sizeClasses = {
@@ -9,7 +11,7 @@ const sizeClasses = {
   xl: "w-10 h-10",
 };
 
-const SettingsIcons = ({ size = "md" }: Props) => {
+const SettingsIcons = ({ size = "md", color,bold }: Props) => {
   const sizeClass = sizeClasses[size];
 
   return (
@@ -18,8 +20,8 @@ const SettingsIcons = ({ size = "md" }: Props) => {
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
+        strokeWidth={ bold}
+        stroke={color?color:"currentcolor"}
         className="text-gray-700  font-extrabold cursor-pointer"
       >
         <path

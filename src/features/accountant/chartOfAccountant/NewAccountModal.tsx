@@ -5,10 +5,23 @@ import CashImage from "../../../assets/Images/CashImage.png";
 import bgImage from "../../../assets/Images/Frame 6.png";
 import chartOfAcc from "../../../assets/constants/chartOfAcc";
 import Modal from "../../../Components/model/Modal";
+import useApi from "../../../Hooks/useApi";
+import { endponits } from "../../../Services/apiEndpoints";
+
 type Props = {};
 
 function NewAccountModal({}: Props) {
   const [isModalOpen, setModalOpen] = useState(false);
+  const { request: NewAccount } = useApi("post", 5001);
+  const [formValues, setFormValues] = useState({
+    organizationId: "INDORG0001",
+    accountName: "",
+    accountCode: "",
+    accountSubhead: "",
+    accountHead: "",
+    accountGroup: "",
+    description: "",
+  });
 
   const openModal = () => {
     setModalOpen(true);
@@ -18,19 +31,98 @@ function NewAccountModal({}: Props) {
     setModalOpen(false);
   };
 
-  // const options = chartOfAcc.flatMap((item) =>
-  //   item.subhead.map((subitem) => ({
-  //     label: subitem,
-  //     value: subitem,
-  //   }))
-  // );
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(formValues);
+    try {
+      const url = `${endponits.Add_NEW_ACCOUNT}`;
+      const body = formValues;
+      const { response, error } = await NewAccount(url, body);
+      closeModal();
+      if (!error && response) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const accountCategories = {
+    Asset: {
+      Asset: [
+        "Asset",
+        "Current asset",
+        "Cash",
+        "Bank",
+        "Fixed asset",
+        "Stock",
+        "Payment Clearing",
+        "Sundry Debtors",
+      ],
+      Equity: ["Equity"],
+      Income: ["Income", "Other Income"],
+    },
+    Liability: {
+      Liabilities: [
+        "Current Liability",
+        "Credit Card",
+        "Long Term Liability",
+        "Other Liability",
+        "Overseas Tax Payable",
+        "Sundry Creditors",
+      ],
+      Expenses: ["Expense", "Cost of Goods Sold", "Other Expense"],
+    },
+  };
+
+  const headGroup = (accountSubhead: any) => {
+    for (const [group, heads] of Object.entries(accountCategories)) {
+      for (const [head, subheads] of Object.entries(heads)) {
+        if (subheads.includes(accountSubhead)) {
+          return { accountHead: head, accountGroup: group };
+        }
+      }
+    }
+    return null;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    if (name === "accountSubhead") {
+      const result = headGroup(value);
+      if (result) {
+        setFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          [name]: value,
+          accountHead: result.accountHead,
+          accountGroup: result.accountGroup,
+        }));
+      } else {
+        setFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          [name]: value,
+          accountHead: "",
+          accountGroup: "",
+        }));
+      }
+    } else {
+      setFormValues((prevFormValues) => ({
+        ...prevFormValues,
+        [name]: value,
+      }));
+    }
+  };
+
   return (
     <div>
       <Button onClick={openModal} variant="primary">
         <CirclePlus color="white" size="16" />
         <p className="text-sm">New Account</p>
       </Button>
-
       <Modal open={isModalOpen} onClose={closeModal} className="">
         <div className="p-5 mt-3">
           <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
@@ -54,7 +146,7 @@ function NewAccountModal({}: Props) {
             </div>
           </div>
 
-          <form className="flex justify-between">
+          <form className="flex justify-between" onSubmit={onSubmit}>
             <div>
               <img src={CashImage} alt="Cash" />
             </div>
@@ -63,13 +155,18 @@ function NewAccountModal({}: Props) {
                 <label className="block text-sm text-labelColor mb-1">
                   Account Type
                 </label>
-                <select className="w-full border border-inputBorder rounded p-1.5 pl-2 text-sm">
+                <select
+                  name="accountSubhead"
+                  value={formValues.accountSubhead}
+                  onChange={handleChange}
+                  className="w-full border border-inputBorder rounded p-1.5 pl-2 text-sm"
+                  onClick={() => headGroup(formValues.accountSubhead)}
+                >
                   {chartOfAcc.map((item, index) => (
                     <optgroup
                       className="text-maroon"
                       key={index}
                       label={item.head}
-                      style={{ margin: "10px" }}
                     >
                       {item.subhead.map((subitem, subindex) => (
                         <option
@@ -90,15 +187,21 @@ function NewAccountModal({}: Props) {
                 </label>
                 <input
                   type="text"
+                  name="accountName"
+                  value={formValues.accountName}
+                  onChange={handleChange}
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2"
                 />
               </div>
               <div className="mb-4">
                 <label className="block text-sm mb-1 text-labelColor">
-                  count
+                  Description
                 </label>
                 <textarea
+                  name="description"
+                  value={formValues.description}
+                  onChange={handleChange}
                   placeholder="Value"
                   className="border-inputBorder w-full text-sm border rounded p-2 pt-5 pl-2"
                 />
@@ -109,16 +212,19 @@ function NewAccountModal({}: Props) {
                 </label>
                 <input
                   type="text"
+                  name="accountCode"
+                  value={formValues.accountCode}
+                  onChange={handleChange}
                   placeholder="Value"
                   className="w-full border rounded p-1.5 pl-2 border-inputBorder text-sm"
                 />
               </div>
               <br />
               <div className="flex justify-end gap-2 mb-3">
-                <Button onClick={closeModal} variant="fourthiary" size="lg">
+                <Button onClick={closeModal} variant="secondary" size="sm">
                   Cancel
                 </Button>
-                <Button variant="secondary" size="lg">
+                <Button variant="primary" size="sm">
                   Save
                 </Button>
               </div>

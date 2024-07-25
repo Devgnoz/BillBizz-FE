@@ -4,12 +4,11 @@ import Pen from "../../../assets/icons/Pen";
 import Eye from "../../../assets/icons/Eye";
 import Delete from "../../../assets/icons/Delete";
 import { Link } from "react-router-dom";
-import Button from "../../../Components/Button";
 
 type Props = {};
 
 const UnitTable = ({}: Props) => {
-  const [openDropdownIndex, setOpenDropdownIndex] = useState<rating | null>(null);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const data = [
@@ -36,7 +35,7 @@ const UnitTable = ({}: Props) => {
     },
   ];
 
-  const toggleDropdown = (index: rating | null) => {
+  const toggleDropdown = (index: number | null) => {
     setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
@@ -92,15 +91,15 @@ const UnitTable = ({}: Props) => {
                 <td className="py-2.5 px-4 border-y border-tableBorder">
                   {item.UnitPrecision}
                 </td>
-                <td className="cursor-pointer relative py-2.5 px-4 border-y items-center flex justify-center border-tableBorder">
+                <td className="cursor-pointer relative py-1.5 px-4 border-y items-center flex justify-center border-tableBorder">
                   <div className="">
-                    <Button
-                      variant="fourthiary"
+                    <button
+                     className="flex items-center gap-2 border py-1 px-4 rounded-lg"
                       onClick={() => toggleDropdown(index)}
                     >
                       <Pen color="currentColor" />
                       Edit
-                    </Button>
+                    </button>
                   </div>
 
                   {openDropdownIndex === index && (

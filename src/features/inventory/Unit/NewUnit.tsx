@@ -22,15 +22,15 @@ const NewUnit = ({}: Props) => {
       <div>
         <Button
           onClick={openModal}
-          variant="secondary"
+          variant="primary"
           className="flex items-center"
-          size="lg"
+          size="sm"
         >
           <CirclePlus color="white" size="14" />{" "}
           <p className="text-md">New Unit</p>
         </Button>
 
-        <Modal open={isModalOpen} onClose={closeModal} className="w-[39%]">
+        <Modal open={isModalOpen} onClose={closeModal}  style={{width:"39%"}}>
           <div className="p-5 mt-3">
             <div className="mb-5 flex p-4 rounded-xl bg-CreamBg relative overflow-hidden">
               <div
@@ -107,10 +107,13 @@ const NewUnit = ({}: Props) => {
 
                 <br />
                 <div className="flex justify-end gap-2 mb-3">
-                  <Button variant="secondary" size="lg">
+
+                 
+                  <Button variant="primary" size="sm">
                     Save
                   </Button>
-                  <Button onClick={closeModal} variant="fourthiary" size="lg">
+                   <Button onClick={closeModal} variant="secondary" size="sm">
+
                     Cancel
                   </Button>
                 </div>

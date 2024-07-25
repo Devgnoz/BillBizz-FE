@@ -1,9 +1,9 @@
 import Ellipsis from "../../../assets/icons/Ellipsis";
-import SearchBar from "../../sales/SearchBar";
+import SearchBar from "../../../Components/SearchBar";
 import Button from "../../../Components/Button";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import { Link } from "react-router-dom";
-import Table from "./Table";
+import Table from "../manualJournel/newJournal/Table";
 import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
 import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 type Props = {};
 
 function ManualHome({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -59,7 +60,7 @@ function ManualHome({}: Props) {
   ];
   return (
     <>
-      <div className="p-5 bg-slate-50 h-[100vh]">
+      <div className="mx-5 my-4 bg-slate-50 h-[100vh]">
         <div className="flex items-center">
           <div>
             <h3 className="font-bold text-2xl text-textColor">
@@ -71,7 +72,7 @@ function ManualHome({}: Props) {
             </p>
           </div>
           <div className="ml-auto gap-3 flex items-center">
-            <Link to={"/newjournal"}>
+            <Link to={"/accountant/newjournal"}>
               <Button variant="primary" size="xl">
                 <PlusCircle color="white" />
                 <p className="text-sm">New Journel</p>
@@ -106,9 +107,7 @@ function ManualHome({}: Props) {
         </div>
 
         <div className="mt-5 bg-white  p-5 rounded-xl">
-          <div className="px-2 py-5">
-            <SearchBar placeholder="Search Journals" />
-          </div>
+          
           <div>
             <Table />
           </div>

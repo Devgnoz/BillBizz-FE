@@ -7,12 +7,12 @@ type Props = {};
 const UnitHome = ({}: Props) => {
   return (
     <>
-      <div className="p-5  h-[100vh]  gap-3">
+      <div className="mx-5 my-4  h-[100vh]  gap-3">
         <div className="flex">
           <div>
-            <h3 className="font-bold text-2xl text-textColor">
+            <h1 className="font-bold text-lg">
               Unit Of Measurement
-            </h3>
+            </h1>
             <p className="text-sm text-gray mt-1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
               cumque rerum, sequi fugit ullam eius aspernatur

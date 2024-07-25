@@ -1,12 +1,11 @@
-import React from 'react'
-import Dashboard from '../features/supplier/Dashboard/Dashboard'
+
 
 type Props = {}
 
 function Supplier({}: Props) {
   return (
     <>
-    <Dashboard/>
+    <p>dashboard</p>
     </>
   )
 }

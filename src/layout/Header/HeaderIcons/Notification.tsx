@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import BellIcon from '../../../assets/icons/Bellicon';
 import SettingsIcons from '../../../assets/icons/SettingsIcon';
-import Btn from '../../../Components/Button';
 import Drawer from '../../../Components/drawer/drawer';
+import Button from '../../../Components/Button';
  
 const Notification = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -79,9 +79,7 @@ const Notification = () => {
 </div>
 </div>
 <div className="flex justify-end me-3 mt-5">
-<Btn variant="secondary" size="lg">
-            View all notifications
-</Btn>
+<Button size='sm'><p className='text-[11px]'>View all notifications</p></Button>
 </div>
 </Drawer>
 </>

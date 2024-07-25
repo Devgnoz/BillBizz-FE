@@ -1,12 +1,14 @@
 import Ellipsis from "../../../assets/icons/Ellipsis"
 import NewBankModal from "./NewBankModal"
-import SearchBar from "../../sales/SearchBar"
+import SearchBar from "../../../Components/SearchBar"
 import Table from "./Table"
+import { useState } from "react"
 
 
 type Props = {}
 
 function BankHome({}: Props) {
+  const [searchValue, setSearchValue] = useState<string>("");
   return (
     <>
     <div className="p-5 bg-slate-50 h-[100vh]">
@@ -28,9 +30,6 @@ function BankHome({}: Props) {
     </div>
 
     <div className="mt-5 bg-white">
-    <div className="p-6">
-        <SearchBar placeholder="Search Accounts"/>
-    </div>
     <div>
         <Table/>
     </div>
