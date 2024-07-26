@@ -288,7 +288,7 @@ export const newPurchaseOrderTableHead=[
   "Amount",
    "Actions"
  
-
+]
 
 export const bankAccountviewTableHaed=[
   "Date",
