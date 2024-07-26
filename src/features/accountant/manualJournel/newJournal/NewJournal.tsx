@@ -21,7 +21,7 @@ function NewJournal({}: Props) {
     {
       accountId: "",
       accountCode: "",
-      accountName: "select",
+      accountName: "",
       debitAmount: 0,
       creditAmount: 0,
       description: "",
@@ -30,7 +30,7 @@ function NewJournal({}: Props) {
     {
       accountId: "",
       accountCode: "",
-      accountName: "select",
+      accountName: "",
       debitAmount: 0,
       creditAmount: 0,
       description: "",
@@ -84,7 +84,7 @@ function NewJournal({}: Props) {
     const newRow = {
       accountId: "",
       accountCode: "",
-      accountName: "select",
+      accountName: "",
       debitAmount: 0,
       creditAmount: 0,
       description: "",
@@ -583,7 +583,7 @@ function NewJournal({}: Props) {
                         }}
                         className="mt-1 w-[150px] border border-inputBorder rounded-md text-sm p-2"
                         placeholder="0.00"
-                        value={row.debitAmount}
+                        // value={row.debitAmount}
                         onChange={(e) =>
                           !row.creditAmount
                             ? handleInputChange(
@@ -606,7 +606,7 @@ function NewJournal({}: Props) {
                         }}
                         className="mt-1 w-[130px] border border-inputBorder rounded-md text-sm p-2"
                         placeholder="0.00"
-                        value={row.creditAmount}
+                        // value={row.creditAmount}
                         onChange={(e) =>
                           !row.debitAmount
                             ? handleInputChange(

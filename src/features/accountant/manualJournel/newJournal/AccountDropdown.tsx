@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import SearchDropdown from "./SearchDropdown";
-import DownArrow from "../../../../assets/icons/DownArrow";
 
+import { useEffect } from "react";
+import CehvronDown from "../../../../assets/icons/CehvronDown";
+import SearchDropdown from "./SearchDropdown";
+ 
 interface AccountDropdownProps {
   index: number;
   account: string;
@@ -13,7 +14,7 @@ interface AccountDropdownProps {
   onDropdownToggle: (index: number, isOpen: boolean) => void;
   clearSearch: (index: number) => void;
 }
-
+ 
 const AccountDropdown = ({
   index,
   account,
@@ -31,7 +32,7 @@ const AccountDropdown = ({
       clearSearch(index);
     }
   };
-
+ 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
     return () => {
@@ -41,17 +42,18 @@ const AccountDropdown = ({
   
   return (
     <td className="px-6 py-4 whitespace-nowrap relative dropdown-container">
-      <div className="flex items-center border-inputBorder bg-slate-500">
+      <div className="flex items-center border rounded-md border-inputBorder ">
         <input
           type="text"
+          placeholder="Select Account"
           value={account}
           readOnly
           onClick={() => onDropdownToggle(index, !isDropdownOpen)}
-          className="rounded-md cursor-pointer text-sm p-2 w-full text-center  focus:outline-none"
+          className="rounded-md cursor-pointer text-sm p-2 w-full   focus:outline-none"
         />
-        <div className=" flex items-center">
-          <DownArrow color="#818894"/>
-        </div>
+        <div className='-ms-8'>
+      <CehvronDown color='#818894'/>
+      </div>
       </div>
       {isDropdownOpen && (
         <div className="absolute z-10 p-2 w-[102%] bg-white border border-tableBorder rounded-lg mt-1">
@@ -80,5 +82,7 @@ const AccountDropdown = ({
     </td>
   );
 };
-
+ 
 export default AccountDropdown;
+ 
+ 
