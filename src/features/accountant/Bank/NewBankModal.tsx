@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useContext } from "react";
 import Button from "../../../Components/Button";
 import bgImage from "../../../assets/Images/14.png";
 import savings from "../../../assets/Images/Savings.png";
@@ -8,6 +8,8 @@ import PlusCircle from "../../../assets/icons/PlusCircle";
 import toast, { Toaster } from "react-hot-toast";
 import useApi from "../../../Hooks/useApi";
 import { endponits } from "../../../Services/apiEndpoints";
+import BankHome from "./BankHome";
+import { BankResponseContext } from "../../../context/ContextShare";
 
 type Props = {};
 
@@ -29,7 +31,7 @@ const initialBankAccount = {
 const NewBankModal = ({}: Props) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [bankAccount, setBankAccount] = useState(initialBankAccount);
-
+const {setBankResponse}=useContext(BankResponseContext)!;
   const { request: CreateAccount } = useApi("post", 5001);
 
   const openModal = () => {
@@ -57,6 +59,10 @@ const NewBankModal = ({}: Props) => {
       closeModal();
       if (!error && response) {
         toast.success(response.data.message);
+        setBankResponse((prevBankResponse: any) => ({
+          ...prevBankResponse,
+          ...body,
+        }));
         setBankAccount(initialBankAccount); 
       } else {
         toast.error(error.response.data.message);
