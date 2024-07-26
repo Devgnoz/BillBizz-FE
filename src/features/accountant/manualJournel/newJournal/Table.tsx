@@ -1,20 +1,17 @@
-import { useNavigate } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import Ellipsis from "../../../../assets/icons/Ellipsis";
 import useApi from "../../../../Hooks/useApi";
 import { endponits } from "../../../../Services/apiEndpoints";
-import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "../../../../Components/SearchBar";
 
 interface Journal {
   id: string;
   date: string;
-  journal: string;
+  journalId: string;
   reference: string;
   note: string;
   status: string;
-  amount: string;
+  totalDebitAmount: string;
 }
 
 type Props = {};
@@ -23,8 +20,6 @@ function Table({}: Props) {
   const [journalData, setJournalData] = useState<Journal[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const { request: AllJournals } = useApi("put", 5001);
-
-
 
   const tableHeaders = [
     "Date",
@@ -45,9 +40,8 @@ function Table({}: Props) {
       const { response, error } = apiResponse;
       if (!error && response) {
         setJournalData(response.data);
-        toast.success(response.data.message);
-        console.log(journalData,"jornalData");
-      } 
+        console.log(journalData, "jornalData");
+      }
       console.log(apiResponse, "api Response");
     } catch (error) {
       console.error("Something went wrong:", error);
@@ -59,21 +53,29 @@ function Table({}: Props) {
   }, []);
 
   const filteredJournals = journalData.filter((Journal) => {
-    const searchValueLower = searchValue.toLowerCase();
+    const searchValueLower = searchValue.toLowerCase().trim();
     return (
-      Journal.date.toLowerCase().startsWith(searchValueLower) ||
-      Journal.journal.toLowerCase().startsWith(searchValueLower) ||
-      Journal.note.toLowerCase().startsWith(searchValueLower) ||
-      Journal.reference.toLowerCase().startsWith(searchValueLower) ||
-      Journal.status.toLowerCase().startsWith(searchValueLower) 
+      Journal.date.toLowerCase().trim().startsWith(searchValueLower) ||
+      Journal.journalId.toLowerCase().trim().startsWith(searchValueLower) ||
+      Journal.note.toLowerCase().trim().startsWith(searchValueLower) ||
+      Journal.reference.toLowerCase().trim().startsWith(searchValueLower) ||
+      Journal.totalDebitAmount
+        .toString()
+        .trim()
+        .toLowerCase()
+        .startsWith(searchValueLower)
     );
   });
 
   return (
-    <div className="overflow-x-auto ">
-      <div className="px-2 py-5">
-            <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Journals" />
-          </div>
+    <div className="overflow-x-auto my-1">
+      <div className="mb-3" >
+        <SearchBar
+          onSearchChange={setSearchValue}
+          searchValue={searchValue}
+          placeholder="Search Journals"
+        />
+      </div>
       <table className="min-w-full bg-white mb-5">
         <thead className="text-[12px] text-center text-dropdownText">
           <tr style={{ backgroundColor: "#F9F7F0" }}>
@@ -91,8 +93,8 @@ function Table({}: Props) {
           </tr>
         </thead>
         <tbody className="text-dropdownText text-center text-[13px]">
-          {journalData && filteredJournals.length > 0 ? (
-            journalData.map((item) => (
+          {filteredJournals && filteredJournals.length > 0 ? (
+            filteredJournals.reverse().map((item) => (
               <tr key={item.id} className="relative">
                 <td className="py-2.5 px-4 border-y border-tableBorder">
                   <input type="checkbox" className="form-checkbox w-4 h-4" />
@@ -101,7 +103,7 @@ function Table({}: Props) {
                   {item?.date}
                 </td>
                 <td className="py-2.5 px-4 border-y border-tableBorder">
-                  {item?.journal}
+                  {item?.journalId}
                 </td>
                 <td className="py-2.5 px-4 border-y border-tableBorder">
                   {item?.reference}
@@ -113,7 +115,7 @@ function Table({}: Props) {
                   {item?.status}
                 </td>
                 <td className="py-2.5 px-4 border-y border-tableBorder">
-                  {item?.amount}
+                  {item?.totalDebitAmount}
                 </td>
                 <td className="cursor-pointer py-2.5 px-4 border-y border-tableBorder">
                   <div className="flex justify-end">
@@ -127,10 +129,8 @@ function Table({}: Props) {
           )}
         </tbody>
       </table>
-      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }
 
 export default Table;
-
