@@ -41,7 +41,7 @@ const AccountDropdown = ({
   
   return (
     <td className="px-6 py-4 whitespace-nowrap relative dropdown-container">
-      <div className="flex items-center border-inputBorder bg-slate-500">
+      <div className="flex items-center border-inputBorder ">
         <input
           type="text"
           value={account}
