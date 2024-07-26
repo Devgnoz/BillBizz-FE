@@ -41,13 +41,13 @@ const AccountDropdown = ({
   
   return (
     <td className="px-6 py-4 whitespace-nowrap relative dropdown-container">
-      <div className="flex items-center">
+      <div className="flex items-center border-inputBorder bg-slate-500">
         <input
           type="text"
           value={account}
           readOnly
           onClick={() => onDropdownToggle(index, !isDropdownOpen)}
-          className="rounded-md cursor-pointer text-sm p-2 w-full text-center focus:outline-none"
+          className="rounded-md cursor-pointer text-sm p-2 w-full text-center  focus:outline-none"
         />
         <div className=" flex items-center">
           <DownArrow color="#818894"/>

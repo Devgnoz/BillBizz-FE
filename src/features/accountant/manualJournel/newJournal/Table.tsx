@@ -3,6 +3,7 @@ import Ellipsis from "../../../../assets/icons/Ellipsis";
 import useApi from "../../../../Hooks/useApi";
 import { endponits } from "../../../../Services/apiEndpoints";
 import SearchBar from "../../../../Components/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 interface Journal {
   id: string;
@@ -17,6 +18,7 @@ interface Journal {
 type Props = {};
 
 function Table({}: Props) {
+  const navigate=useNavigate()
   const [journalData, setJournalData] = useState<Journal[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const { request: AllJournals } = useApi("put", 5001);
@@ -95,7 +97,7 @@ function Table({}: Props) {
         <tbody className="text-dropdownText text-center text-[13px]">
           {filteredJournals && filteredJournals.length > 0 ? (
             filteredJournals.reverse().map((item) => (
-              <tr key={item.id} className="relative">
+              <tr onClick={()=>navigate("/accountant/manualjournal/view")} key={item.id} className="relative">
                 <td className="py-2.5 px-4 border-y border-tableBorder">
                   <input type="checkbox" className="form-checkbox w-4 h-4" />
                 </td>
