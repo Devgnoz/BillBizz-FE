@@ -159,6 +159,10 @@ const navlist = [
         subRoute: "/purchase/purchase-order",
       },
       {
+        headName: "Bills",
+        subRoute: "/purchase/bills",
+      },
+      {
         headName: "Payment Made",
         subRoute: "/purchase/payment-made",
       },
