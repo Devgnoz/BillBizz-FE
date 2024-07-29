@@ -134,7 +134,11 @@ const navlist = [
   {
     nav: "Expense",
     icon: circleDollar,
-    route: "/home",
+    route: "/expense",
+    subhead:[
+     { headName:"Dashbord",subRoute:"/"},
+     {headName:"Expense",subRoute:"/expense/home"}
+    ]
   },
   {
     nav: "Staff",
@@ -153,6 +157,10 @@ const navlist = [
       {
         headName: "Purchase Order",
         subRoute: "/purchase/purchase-order",
+      },
+      {
+        headName: "Bills",
+        subRoute: "/purchase/bills",
       },
       {
         headName: "Payment Made",
