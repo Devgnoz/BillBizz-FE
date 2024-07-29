@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import Button from '../../../Components/Button';
-import Modal from '../../../Components/model/Modal';
-import bgImage from '../../../assets/Images/Frame 6.png';
-import PencilEdit from '../../../assets/icons/PencilEdit';
-import PlusCircle from '../../../assets/icons/PlusCircle';
-import TrashCan from '../../../assets/icons/TrashCan';
+import { useState } from "react";
+import Button from "../../../Components/Button";
+import Modal from "../../../Components/model/Modal";
+import bgImage from "../../../assets/Images/Frame 6.png";
+import PencilEdit from "../../../assets/icons/PencilEdit";
+import PlusCircle from "../../../assets/icons/PlusCircle";
+import TrashCan from "../../../assets/icons/TrashCan";
+import SearchBar from "../../../Components/SearchBar";
+import CehvronDown from "../../../assets/icons/CehvronDown";
 
 type Category = {
   categoryName: string;
@@ -14,11 +16,13 @@ type Category = {
 type Props = {
   isOpen: boolean;
   onClose: () => void;
+  page?: string;
 };
 
-function Category({ isOpen, onClose }: Props) {
+function Category({ isOpen, onClose, page }: Props) {
   const [isAddCategoryModal, setIsAddCategoryModal] = useState(false);
   const [isEditCategoryModal, setIsEditCategoryModal] = useState(false);
+  const [searchValue, setSearchValue] = useState<string>("");
   const [editableCategory, setEditableCategory] = useState<Category | null>(
     null
   );
@@ -70,9 +74,12 @@ function Category({ isOpen, onClose }: Props) {
             style={{ backgroundImage: `url(${bgImage})` }}
           ></div>
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-textColor">Manage Category</h3>
+            <h3 className="text-xl font-bold text-textColor">
+              Manage Category
+            </h3>
             <p className="text-dropdownText font-semibold text-sm mt-2">
-              Have an insight on the profit or loss incurred due to the change in exchange rates
+              Have an insight on the profit or loss incurred due to the change
+              in exchange rates
             </p>
           </div>
           <div
@@ -83,11 +90,36 @@ function Category({ isOpen, onClose }: Props) {
           </div>
         </div>
 
-        <div className="flex justify-end me-2 my-4">
-          <Button variant="primary" size="xl" onClick={openAddModal}>
-            <PlusCircle color="white" />
-            <p className='text-sm'>Add Category</p>
-          </Button>
+        <div className="flex">
+          {page == "expense" && (
+            <div className="grid grid-flow-col items-center gap-3 ">
+             <div className="w-96">
+                <SearchBar
+                  placeholder="Serach Name or Mobile"
+                  searchValue={searchValue}
+                  onSearchChange={setSearchValue}
+                />
+             </div>
+              <div>
+                <div className="relative w-full items-center justify-center flex">
+                  <select className="block appearance-none w-full h-10  text-zinc-400 bg-white border border-inputBorder text-sm  pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <option value="" className="text-gray">
+                      All Category
+                    </option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <CehvronDown color="gray" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+          <div className="flex ml-auto me-2 my-4">
+            <Button variant="primary" size="xl" onClick={openAddModal}>
+              <PlusCircle color="white" />
+              <p className="text-sm">Add Category</p>
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-3 gap-5">
@@ -99,7 +131,10 @@ function Category({ isOpen, onClose }: Props) {
                   <p className="text-xs text-textColor">{item.notes}</p>
                 </div>
                 <div className="flex space-x-2">
-                  <p className="cursor-pointer" onClick={() => openEditModal(item)}>
+                  <p
+                    className="cursor-pointer"
+                    onClick={() => openEditModal(item)}
+                  >
                     <PencilEdit color="currentColor" />
                   </p>
                   <p className="cursor-pointer">
@@ -111,23 +146,39 @@ function Category({ isOpen, onClose }: Props) {
           ))}
         </div>
 
-        <div className="flex justify-end my-3">
-          <Button className="flex justify-center" variant="primary" size="lg">
-           Save
-          </Button>
-        </div>
-         {/* Add Category */}
-        <Modal open={isAddCategoryModal} onClose={closeAddModal} style={{ width: "40.5%" }}>
+        {page !== "expense" && (
+  <div className="flex justify-end gap-2 my-3">
+    <Button
+      className="flex justify-center"
+      variant="primary"
+      size="sm"
+    >
+      Save
+    </Button>
+  </div>
+)}
+
+        {/* Add Category */}
+        <Modal
+          open={isAddCategoryModal}
+          onClose={closeAddModal}
+          style={{ width: "40.5%" }}
+        >
           <div className="p-6 space-y-8">
             <div className="flex justify-between items-center">
               <h3 className="text-xl font-bold text-textColor">Add Category</h3>
-              <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={closeAddModal}>
+              <div
+                className="ms-auto text-3xl cursor-pointer relative z-10"
+                onClick={closeAddModal}
+              >
                 &times;
               </div>
             </div>
             <form className="">
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Name</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Name
+                </label>
                 <input
                   type="text"
                   placeholder="Electronics"
@@ -135,7 +186,9 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Notes</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Notes
+                </label>
                 <textarea
                   placeholder="Notes"
                   className="border-inputBorder w-full text-sm border rounded p-1.5 pl-2"
@@ -143,29 +196,48 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="flex justify-end gap-2 mb-3">
-              <Button className="flex justify-center" onClick={closeAddModal} variant="tertiary" size="lg">
+                <Button
+                  className="flex justify-center"
+                  onClick={closeAddModal}
+                  variant="tertiary"
+                  size="lg"
+                >
                   Cancel
                 </Button>
-               <Button className="flex justify-center" variant="primary" size="lg">
-                Save
-               </Button>
-                
+                <Button
+                  className="flex justify-center"
+                  variant="primary"
+                  size="lg"
+                >
+                  Save
+                </Button>
               </div>
             </form>
           </div>
         </Modal>
-          {/* Edit Category */}
-        <Modal open={isEditCategoryModal} onClose={closeEditModal} style={{ width: "40.5%" }}>
+        {/* Edit Category */}
+        <Modal
+          open={isEditCategoryModal}
+          onClose={closeEditModal}
+          style={{ width: "40.5%" }}
+        >
           <div className="p-6 space-y-8">
             <div className="flex justify-between items-center">
-              <h3 className="text-xl font-bold text-textColor">Edit Category</h3>
-              <div className="ms-auto text-3xl cursor-pointer relative z-10" onClick={closeEditModal}>
+              <h3 className="text-xl font-bold text-textColor">
+                Edit Category
+              </h3>
+              <div
+                className="ms-auto text-3xl cursor-pointer relative z-10"
+                onClick={closeEditModal}
+              >
                 &times;
               </div>
             </div>
             <form className="">
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Name</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Name
+                </label>
                 <input
                   type="text"
                   onChange={(e) =>
@@ -177,7 +249,9 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm mb-1 text-labelColor">Notes</label>
+                <label className="block text-sm mb-1 text-labelColor">
+                  Notes
+                </label>
                 <textarea
                   value={editableCategory?.notes || ""}
                   onChange={(e) => handleEditChange("notes", e.target.value)}
@@ -187,10 +261,19 @@ function Category({ isOpen, onClose }: Props) {
                 />
               </div>
               <div className="flex justify-end gap-2 mb-3">
-              <Button className='flex justify-center' onClick={closeEditModal} variant="tertiary" size="lg">
+                <Button
+                  className="flex justify-center"
+                  onClick={closeEditModal}
+                  variant="tertiary"
+                  size="lg"
+                >
                   Cancel
                 </Button>
-                <Button className='flex justify-center' variant="primary" size="lg">
+                <Button
+                  className="flex justify-center"
+                  variant="primary"
+                  size="lg"
+                >
                   Save
                 </Button>
               </div>
