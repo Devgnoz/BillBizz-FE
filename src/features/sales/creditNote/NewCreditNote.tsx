@@ -9,8 +9,8 @@ import Button from "../../../Components/Button";
 import PrinterIcon from "../../../assets/icons/PrinterIcon";
 import DebitNumberPrfncModal from "../../purchase/debitNote/DebitNumberPrfncModal";
 import CalendarDays from "../../../assets/icons/CalendarDays";
-import NeworderTable from "../../purchase/purchaseOrder/NeworderTable";
 import SalesPersone from "./SalesPersone";
+import NeworderTable from "../../purchase/purchaseOrder/addPurchaseOrder/NeworderTable";
 
 const NewCreditNote = () => {
   const [searchValue, setSearchValue] = useState<string>("");

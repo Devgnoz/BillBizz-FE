@@ -21,7 +21,6 @@ import SupplierHome from "./features/Supplier/SupplierHome/SupplierHome";
 import Table from "./features/accountant/chartOfAccountant/Table";
 import DebitNote from "./features/purchase/debitNote/DebitNote";
 import ViewDebitNote from "./features/purchase/debitNote/viewDebitNote/ViewDebitNote";
-import NewPurchaseOrder from "./features/purchase/purchaseOrder/NewPurchaseOrder";
 import PaymentMade from "./features/purchase/paymentMade/PaymentMade";
 import Purchase from "./pages/Purchase";
 import PurchaseOrder from "./features/purchase/purchaseOrder/PurchaseOrder";
@@ -41,6 +40,8 @@ import ManualView from "./features/accountant/manualJournel/ManualView";
 
 import CashTableView from "./features/accountant/Cash/CashTableView";
 import BankAccountView from "./features/accountant/Bank/BankAccountView";
+import NewPurchaseOrder from "./features/purchase/purchaseOrder/addPurchaseOrder/NewPurchaseOrder";
+import ViewPurchaseOrder from "./features/purchase/purchaseOrder/viewPurchaseOrder/ViewPurchaseOrder";
 
 function App() {
   return (
@@ -102,6 +103,7 @@ function App() {
           ></Route>
 
           <Route path="/purchase" element={<Purchase />} />
+          <Route path="/purchase/viewpurchaseorder" element={<ViewPurchaseOrder />} />
           <Route path="/purchase/purchase-order" element={<PurchaseOrder />} />
           <Route
             path="/purchase/purchase-order/new"
@@ -122,10 +124,6 @@ function App() {
           ></Route>
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/purchase/purchase-order" element={<PurchaseOrder />} />
-          <Route
-            path="/purchase/purchase-order/new"
-            element={<NewPurchaseOrder />}
-          ></Route>
           <Route
             path="/purchase/payment-made"
             element={<PaymentMade />}

@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import CehvronDown from "../../../assets/icons/CehvronDown";
 import SearchBar from "../../../Components/SearchBar";
 import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
-import NeworderTable from "../purchaseOrder/NeworderTable";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import Button from "../../../Components/Button";
 import PrinterIcon from "../../../assets/icons/PrinterIcon";
 import DebitNumberPrfncModal from "./DebitNumberPrfncModal";
+import NeworderTable from "../purchaseOrder/addPurchaseOrder/NeworderTable";
 
 type Props = {};
 
