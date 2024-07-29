@@ -10,4 +10,6 @@ export const endponits = {
   GET_ALL_JOURNALS:"get-all-journal",
   Add_NEW_ACCOUNT: "add-account",
 
+  //customer
+  GET_ALL_CUSTOMER : "get-all-customer",
 };

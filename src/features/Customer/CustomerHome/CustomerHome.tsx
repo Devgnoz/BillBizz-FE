@@ -1,18 +1,13 @@
-import Print from "../../sales/salesOrder/Print"
 import Cards from "./Cards"
 import Dropdown from "./Dropdown"
 import NewCustomerModal from "./NewCustomerModal"
-import SortBy from "./SortBy"
-import { useState } from "react"
 import CustomerTable from "./CustomerTable"
-import SearchBar from "../../../Components/SearchBar"
 import Customers from "./Customers"
 
 
 type Props = {}
 
 function CustomerHome({}: Props) {
-  const [searchValue, setSearchValue] = useState<string>("");
   return (
     <>
       <div className="mx-5 my-4 space-y-8 flex items-center relative">
@@ -36,14 +31,8 @@ function CustomerHome({}: Props) {
           <div className="w-[100%] p-3">
             <Customers />
           </div>
-          <div className="flex pl-3 pr-3 items-center gap-5">
-            <div className="w-[80%]">
-              <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Sales Order"/>
-            </div>
-            <SortBy />
-            <Print />
-          </div>
-          <div className="p-5">
+          
+          <div className="pl-5 pr-5 mt-2">
             {/* table */}
             <CustomerTable/>
             </div>

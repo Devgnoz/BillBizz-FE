@@ -67,7 +67,7 @@ function SortBy({}: Props) {
       {isDropdownOpen && (
         <div
           ref={dropdownRef}
-          className="absolute top-26 rounded-md right-44 mt-2 w-56 bg-white shadow-xl z-10 pl-2 pr-2"
+          className="absolute top-26 rounded-md right-[11%] mt-3.5 w-56 bg-white shadow-xl z-10 pl-2 pr-2"
         >
           <ul className="py-1 text-dropdownText">
             {dropdownItems.map((item, index) => (
