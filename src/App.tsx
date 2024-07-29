@@ -40,6 +40,9 @@ import CreditNote from "./features/sales/creditNote/CreditNote"
 import ManualView from "./features/accountant/manualJournel/ManualView";
 import CashTableView from "./features/accountant/Cash/CashTableView";
 import BankAccountView from "./features/accountant/Bank/BankAccountView";
+import Expense from "./pages/Expense";
+import ExpenseHome from "./features/expense/ExpenseHome/ExpenseHome";
+import ExpenseView from "./features/expense/ExpenseHome/ExpenseView";
 import BillsHomes from "./features/purchase/bills/BillsHomes";
 import NewBills from "./features/purchase/bills/NewBills";
 import ViewBills from "./features/purchase/bills/ViewBill/viewDebitNote/ViewBills";
@@ -160,6 +163,11 @@ function App() {
           ></Route>
           <Route path="/sales/credit-note" element={<CreditNote />} />
           <Route path="/sales/credit-note/view" element={<ViewCreditNote />} />
+
+          {/* Expense */}
+          <Route path="/expense" element={<Expense/>}></Route>
+          <Route path="/expense/home" element={<ExpenseHome/>}></Route>
+          <Route path="/expense/view" element={<ExpenseView/>}></Route>
 
         </Route>
       </Routes>
