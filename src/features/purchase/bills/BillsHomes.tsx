@@ -1,19 +1,21 @@
-import { useEffect, useRef, useState } from "react";
-import ArrowDownIcon from "../../../assets/icons/ArrowDownIcon";
-import ArrowUpIcon from "../../../assets/icons/ArrowUpIcon";
-import Ellipsis from "../../../assets/icons/Ellipsis";
-import PlusCircle from "../../../assets/icons/PlusCircle";
-import RefreshIcon from "../../../assets/icons/RefreshIcon";
-import Button from "../../../Components/Button";
-import SortBy from "./SortBy";
-import Print from "../../../Components/PrintButton";
-import Table from "./Table";
-import SearchBar from "../../../Components/SearchBar";
-import PaymentsType from "./PaymentsType";
+import React, { useEffect, useRef, useState } from 'react'
+import ArrowDownIcon from '../../../assets/icons/ArrowDownIcon';
+import ArrowUpIcon from '../../../assets/icons/ArrowUpIcon';
+import RefreshIcon from '../../../assets/icons/RefreshIcon';
+import Button from '../../../Components/Button';
+import PlusCircle from '../../../assets/icons/PlusCircle';
+import Ellipsis from '../../../assets/icons/Ellipsis';
+import SearchBar from '../../../Components/SearchBar';
+import SortBy from './SortBy';
+import PrintButton from '../../../Components/PrintButton';
+import Table from './Table';
+import BillsType from './BillsType';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {}
 
-const PaymentMade = (props: Props) => {
+function BillsHomes({}: Props) {
+    const navigate=useNavigate()
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -38,14 +40,14 @@ const PaymentMade = (props: Props) => {
     const dropdownItems = [
       {
         icon: <ArrowDownIcon/>,
-        text: "Import Payment",
+        text: "Import Bill",
         onClick: () => {
           console.log("Import Sales Order clicked");
         },
       },
       {
         icon:<ArrowUpIcon/>,
-        text: "Export Payment",
+        text: "Export Bill",
         onClick: () => {
           console.log("Export Sales Order clicked");
         },
@@ -69,15 +71,15 @@ const PaymentMade = (props: Props) => {
     <>
     <div className="px-6 flex   items-center relative">
         <div>
-          <h3 className="font-bold text-2xl text-textColor">Payment</h3>
+          <h3 className="font-bold text-2xl text-textColor">Bills</h3>
           <p className="text-sm text-gray mt-1">
             Lorem ipsum dolor sit amet consectetur. Commodo enim odio fringilla egestas consectetur amet.
           </p>
         </div>
         <div className="ml-auto gap-3 flex items-center">
-          <Button variant="primary"  size="sm">
+          <Button onClick={()=>navigate("/purchase/bills/new")} variant="primary"  size="sm">
            <PlusCircle color="white"/>
-           <p className='text-sm font-medium'>New Payment</p>
+           <p className='text-sm font-medium'>New Bill</p>
           </Button>
 
           <div onClick={toggleDropdown} className="cursor-pointer">
@@ -102,14 +104,14 @@ const PaymentMade = (props: Props) => {
         <div className="px-6 mt-3">
         <div className="bg-white p-5">
           <div className="w-[100%] p-3 bg-gray-100">
-            <PaymentsType />
+            <BillsType />
           </div>
           <div className="flex w-full pl-3 pr-3 items-center gap-6">
             <div className="w-[85%]">
-              <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Payments"/>
+              <SearchBar onSearchChange={setSearchValue} searchValue={searchValue} placeholder="Search Bills"/>
             </div>
             <SortBy />
-            <Print />
+            <PrintButton />
           </div>
           <div className="p-3">
             {/* table */}
@@ -121,4 +123,4 @@ const PaymentMade = (props: Props) => {
   )
 }
 
-export default PaymentMade
+export default BillsHomes
