@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import CehvronDown from "../../../assets/icons/CehvronDown";
-import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
 import PlusCircle from "../../../assets/icons/PlusCircle";
 import PrinterIcon from "../../../assets/icons/PrinterIcon";
 import Button from "../../../Components/Button";
 import SearchBar from "../../../Components/SearchBar";
 import AddSupplierModal from "../../Supplier/SupplierHome/AddSupplierModal";
-import NeworderTable from "../purchaseOrder/NeworderTable";
 import DebitNumberPrfncModal from "./DebitNumberPrfncModal";
+import NeworderTable from "../purchaseOrder/addPurchaseOrder/NeworderTable";
+import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
 
 type Props = {};
 

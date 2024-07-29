@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
-import CehvronDown from "../../../assets/icons/CehvronDown";
+import CheveronLeftIcon from "../../../../assets/icons/CheveronLeftIcon";
+import CehvronDown from "../../../../assets/icons/CehvronDown";
 import NeworderTable from "./NeworderTable";
-import Button from "../../../Components/Button";
-import PlusCircle from "../../../assets/icons/PlusCircle";
+import Button from "../../../../Components/Button";
+import PlusCircle from "../../../../assets/icons/PlusCircle";
 import { useEffect, useRef, useState } from "react";
-import SearchBar from "../../../Components/SearchBar";
-import CirclePlus from "../../../assets/icons/circleplus";
-import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
-import PrinterIcon from "../../../assets/icons/PrinterIcon";
+import SearchBar from "../../../../Components/SearchBar";
+import CirclePlus from "../../../../assets/icons/circleplus";
+import NewCustomerModal from "../../../Customer/CustomerHome/NewCustomerModal";
+import PrinterIcon from "../../../../assets/icons/PrinterIcon";
 
 type Props = {};
 
@@ -48,7 +48,7 @@ const NewPurchaseOrder = ({}: Props) => {
   return (
     <div className="px-8">
       <div className="flex gap-5">
-        <Link to={"purchase/purchase-order"}>
+        <Link to={"/purchase/purchase-order"}>
           <div className="flex justify-center items-center h-11 w-11 bg-tertiary_main rounded-full">
             <CheveronLeftIcon />
           </div>
