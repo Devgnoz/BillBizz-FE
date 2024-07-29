@@ -1,24 +1,23 @@
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import CehvronDown from "../../../assets/icons/CehvronDown";
 import CheveronLeftIcon from "../../../assets/icons/CheveronLeftIcon";
-import PlusCircle from "../../../assets/icons/PlusCircle";
-import PrinterIcon from "../../../assets/icons/PrinterIcon";
-import Button from "../../../Components/Button";
+import { useEffect, useRef, useState } from "react";
+import CehvronDown from "../../../assets/icons/CehvronDown";
 import SearchBar from "../../../Components/SearchBar";
-import AddSupplierModal from "../../Supplier/SupplierHome/AddSupplierModal";
+import NewCustomerModal from "../../Customer/CustomerHome/NewCustomerModal";
 import NeworderTable from "../purchaseOrder/NeworderTable";
-import DebitNumberPrfncModal from "./DebitNumberPrfncModal";
+import PlusCircle from "../../../assets/icons/PlusCircle";
+import Button from "../../../Components/Button";
+import PrinterIcon from "../../../assets/icons/PrinterIcon";
+import AddSupplierModal from "../../Supplier/SupplierHome/AddSupplierModal";
 
 type Props = {};
 
-const NewDebitNote = ({}: Props) => {
+const NewBills = ({}: Props) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState<string | null>(
     null
   );
 
- 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const toggleDropdown = (key: string | null) => {
@@ -49,20 +48,20 @@ const NewDebitNote = ({}: Props) => {
   return (
     <div className="mx-5 my-4 text-sm">
       <div className="flex gap-5">
-        <Link to={"purchase/purchase-order"}>
+        <Link to={"/purchase/bills"}>
           <div className="flex justify-center items-center h-11 w-11 bg-tertiary_main rounded-full">
             <CheveronLeftIcon />
           </div>
         </Link>
         <div className="flex justify-center items-center">
-          <h4 className="font-bold text-xl text-textColor ">Debit Note</h4>
+          <h4 className="font-bold text-xl text-textColor ">Bills</h4>
         </div>
       </div>
 
       <div className="grid grid-cols-12 gap-4 py-5">
         <div className="bg-secondary_main p-5 min-h-max rounded-xl relative col-span-8">
           <div className="grid grid-cols-2 gap-4 mt-5 space-y-1">
-            <div>
+            <div className="relative">
               <label className="block text-sm mb-1 text-labelColor">
                 Supplier Name
               </label>
@@ -70,7 +69,7 @@ const NewDebitNote = ({}: Props) => {
                 className="relative w-full"
                 onClick={() => toggleDropdown("supplier")}
               >
-                <div className="items-center flex appearance-none w-full h-9 text-zinc-400 bg-white border border-inputBorder text-sm pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <div className="flex items-center appearance-none w-full h-9 text-zinc-400 bg-white border border-inputBorder text-sm pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                   <p>Select Supplier</p>
                 </div>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -80,14 +79,14 @@ const NewDebitNote = ({}: Props) => {
               {openDropdownIndex === "supplier" && (
                 <div
                   ref={dropdownRef}
-                  className="absolute z-10 bg-white  shadow  rounded-md mt-1 p-2 -m-9 w-[40%] space-y-1"
+                  className="absolute z-10 bg-white shadow rounded-md mt-1 p-2 w-full space-y-1"
                 >
                   <SearchBar
                     searchValue={searchValue}
                     onSearchChange={setSearchValue}
                     placeholder="Select Supplier"
                   />
-                  <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg bg-lightPink">
+                  <div className="grid grid-cols-12 gap-1 p-2 hover:bg-gray-100 cursor-pointer border border-slate-400 rounded-lg bg-lightPink">
                     <div className="col-span-2 flex items-center justify-center">
                       <img
                         src="https://i.postimg.cc/MHdYrGVP/Ellipse-43.png"
@@ -106,23 +105,50 @@ const NewDebitNote = ({}: Props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="hover:bg-gray-100 cursor-pointe border border-slate-400 rounded-lg py-3">
-                  <AddSupplierModal page="purchase" />
+                  <div className="hover:bg-gray-100 cursor-pointer border border-slate-400 rounded-lg py-3">
+                    <AddSupplierModal page="purchase" />
                   </div>
                 </div>
               )}
             </div>
+
             <div className="relative w-full">
               <label htmlFor="" className="">
-                Debit Note
+                Bill
                 <input
                   name=""
                   id=""
-                  disabled
+                  placeholder="Enter Bill Number"
                   className=" block  appearance-none w-full h-9  text-zinc-400 bg-white border border-inputBorder text-sm  pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500 "
                 />
               </label>
-            <DebitNumberPrfncModal/>
+            </div>
+
+            <div className=" w-full">
+              <label htmlFor="" className="">
+                Bill Date
+                <input
+                  name=""
+                  id=""
+                  type="date"
+                  placeholder="Value"
+                  className="border-inputBorder w-full text-sm border rounded text-dropdownText  p-2 h-9 mt-2 "
+                />
+              </label>
+            </div>
+            <div>
+           <div>
+           <label htmlFor="" className="">
+                Due Date
+                <input
+                  name=""
+                  id=""
+                  type="date"
+                  placeholder="Value"
+                  className="border-inputBorder w-full text-sm border rounded text-dropdownText  p-2 h-9 mt-2 "
+                />
+              </label>
+           </div>
             </div>
 
             <div className=" w-full">
@@ -131,34 +157,7 @@ const NewDebitNote = ({}: Props) => {
                 <input
                   name=""
                   id=""
-                  placeholder="Value"
-                  className="border-inputBorder w-full text-sm border rounded text-dropdownText  p-2 h-9 mt-2 "
-                />
-              </label>
-            </div>
-            <div>
-              <label className="block text-sm mb-1 text-labelColor">
-                Supplier Debit Date
-              </label>
-              <div className="relative w-full">
-                <select className="block appearance-none w-full h-9 mt-2 text-zinc-400 bg-white border border-inputBorder text-sm  pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                  <option value="" className="text-gray">
-                    Select A Date
-                  </option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <CehvronDown color="gray" />
-                </div>
-              </div>
-            </div>
-
-            <div className=" w-full">
-              <label htmlFor="" className="">
-                Subject
-                <input
-                  name=""
-                  id=""
-                  placeholder="Enter a subject within 250 Characters"
+                  placeholder="Enter Order Number"
                   className="border-inputBorder w-full text-sm border rounded text-dropdownText  p-2 h-9 mt-2 "
                 />
               </label>
@@ -166,12 +165,12 @@ const NewDebitNote = ({}: Props) => {
 
             <div>
               <label className="block text-sm mb-1 text-labelColor">
-                Warehouse
+                Payment Terms
               </label>
               <div className="relative w-full">
                 <select className="block appearance-none mt-2 w-full h-9  text-zinc-400 bg-white border border-inputBorder text-sm  pl-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                   <option value="" className="text-gray">
-                    Select Warehouse
+                  Payment Terms
                   </option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -262,13 +261,9 @@ const NewDebitNote = ({}: Props) => {
           </div>
         </div>
       </div>
-      <div>
-
-       
-      </div>
-       
+      <div></div>
     </div>
   );
 };
 
-export default NewDebitNote;
+export default NewBills;

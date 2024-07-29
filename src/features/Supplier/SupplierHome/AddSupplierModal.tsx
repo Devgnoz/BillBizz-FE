@@ -4,11 +4,12 @@ import CehvronDown from "../../../assets/icons/CehvronDown";
 import Upload from "../../../assets/icons/Upload";
 import Modal from "../../../Components/model/Modal";
 import PlusCircle from "../../../assets/icons/PlusCircle";
+import CirclePlus from "../../../assets/icons/circleplus";
 
 
-type Props = {};
+type Props = {page:String};
 
-const AddSupplierModal = ({}: Props) => {
+const AddSupplierModal = ({page}: Props) => {
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>("otherDetails");
   const openModal = () => {
@@ -31,7 +32,25 @@ const AddSupplierModal = ({}: Props) => {
 
   return (
     <div>
-      <Button
+      {page && page == "purchase" ? (
+          <div
+          className="w-[100%] flex col-span-10  px-4  justify-between"
+          onClick={openModal}
+        >
+          <div className="flex items-center  space-x-1">
+            <CirclePlus color="darkRed" size="18" />
+        
+            <p className="text-[#820000] text-sm">
+              <b>Add new Supplier</b>
+            </p>
+          </div>
+          <div className=" col-span-2 text-end text-2xl cursor-pointer relative ">
+            &times;
+          </div>
+        </div>
+     
+      ) : (
+        <Button
         onClick={openModal}
         variant="primary"
         className="flex items-center"
@@ -40,6 +59,8 @@ const AddSupplierModal = ({}: Props) => {
         <PlusCircle color="white"  />{" "}
         <p className="text-sm font-medium">Add Supplier</p>
       </Button>
+      )}
+      
 
       <Modal
         open={isModalOpen}
